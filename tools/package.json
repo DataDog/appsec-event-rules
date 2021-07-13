@@ -1,0 +1,9 @@
+{
+  "name": "appsec-event-rules-tools",
+  "version": "1.0.0",
+  "author": "Datadog Appsec Team",
+  "dependencies": {
+    "arg": "^5.0.0",
+    "js-yaml": "^4.1.0"
+  }
+}
