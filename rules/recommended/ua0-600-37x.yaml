@@ -1,0 +1,12 @@
+id: ua0-600-37x
+name: Nmap
+tags:
+  type: security_scanner
+conditions:
+  - operation: match_regex
+    parameters:
+      inputs:
+        - $http.headers.user_agent
+      regex: nmap (nse|scripting engine)
+transformers: []
+action: log

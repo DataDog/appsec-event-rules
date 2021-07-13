@@ -1,0 +1,15 @@
+id: sqr-000-009
+name: 'Linux: Detect attempts to exfiltrate passwd files'
+tags:
+  type: command_injection
+conditions:
+  - operation: match_regex
+    parameters:
+      inputs:
+        - $http.server.query
+        - $http.server.body
+        - $http.server.path_params
+        - $http.headers
+      regex: (?i)[&|]\s*cat\s+\/etc\/[\w\.\/]*passwd\s*[&|]
+transformers: []
+action: log

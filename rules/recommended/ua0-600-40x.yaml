@@ -1,0 +1,12 @@
+id: ua0-600-40x
+name: WebFuck
+tags:
+  type: security_scanner
+conditions:
+  - operation: match_regex
+    parameters:
+      inputs:
+        - $http.headers.user_agent
+      regex: (?i)\bWebFuck\b
+transformers: []
+action: log

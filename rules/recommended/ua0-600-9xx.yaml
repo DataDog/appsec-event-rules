@@ -1,0 +1,12 @@
+id: ua0-600-9xx
+name: Skipfish
+tags:
+  type: security_scanner
+conditions:
+  - operation: match_regex
+    parameters:
+      inputs:
+        - $http.headers.user_agent
+      regex: (?i)mozilla/5\.0 sf/
+transformers: []
+action: log

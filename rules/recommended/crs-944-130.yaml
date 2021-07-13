@@ -1,0 +1,60 @@
+id: crs-944-130
+name: Suspicious Java class detected
+tags:
+  type: java_code_injection
+conditions:
+  - operation: phrase_match
+    parameters:
+      inputs:
+        - $http.server.query
+        - $http.server.body
+        - $http.server.path_params
+        - $http.server.cookies
+        - $http.headers
+      list:
+        - com.opensymphony.xwork2
+        - com.sun.org.apache
+        - java.io.bufferedinputstream
+        - java.io.bufferedreader
+        - java.io.bytearrayinputstream
+        - java.io.bytearrayoutputstream
+        - java.io.chararrayreader
+        - java.io.datainputstream
+        - java.io.file
+        - java.io.fileoutputstream
+        - java.io.filepermission
+        - java.io.filewriter
+        - java.io.filterinputstream
+        - java.io.filteroutputstream
+        - java.io.filterreader
+        - java.io.inputstream
+        - java.io.inputstreamreader
+        - java.io.linenumberreader
+        - java.io.objectoutputstream
+        - java.io.outputstream
+        - java.io.pipedoutputstream
+        - java.io.pipedreader
+        - java.io.printstream
+        - java.io.pushbackinputstream
+        - java.io.reader
+        - java.io.stringreader
+        - java.lang.class
+        - java.lang.integer
+        - java.lang.number
+        - java.lang.object
+        - java.lang.process
+        - java.lang.processbuilder
+        - java.lang.reflect
+        - java.lang.runtime
+        - java.lang.string
+        - java.lang.stringbuilder
+        - java.lang.system
+        - javax.script.scriptenginemanager
+        - org.apache.commons
+        - org.apache.struts
+        - org.apache.struts2
+        - org.omg.corba
+        - java.beans.xmldecode
+transformers:
+  - lowercase
+action: log

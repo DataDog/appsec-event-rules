@@ -1,0 +1,20 @@
+id: crs-941-110
+name: 'XSS Filter - Category 1: Script Tag Vector'
+tags:
+  type: xss
+conditions:
+  - operation: match_regex
+    parameters:
+      inputs:
+        - $http.server.cookies
+        - $http.headers.user_agent
+        - $http.headers:referer
+        - $http.server.query
+        - $http.server.body
+        - $http.server.path_params
+      regex: <script[^>]*>[\s\S]*?
+    options:
+      min_length: 8
+transformers:
+  - removeNulls
+action: log

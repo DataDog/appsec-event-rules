@@ -1,0 +1,12 @@
+id: ua0-600-43x
+name: Spider-Pig
+tags:
+  type: security_scanner
+conditions:
+  - operation: match_regex
+    parameters:
+      inputs:
+        - $http.headers.user_agent
+      regex: Powered by Spider-Pig by tinfoilsecurity\.com
+transformers: []
+action: log

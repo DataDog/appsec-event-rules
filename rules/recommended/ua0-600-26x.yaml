@@ -1,0 +1,12 @@
+id: ua0-600-26x
+name: Nsauditor
+tags:
+  type: security_scanner
+conditions:
+  - operation: match_regex
+    parameters:
+      inputs:
+        - $http.headers.user_agent
+      regex: (?i)\bnsauditor\b
+transformers: []
+action: log

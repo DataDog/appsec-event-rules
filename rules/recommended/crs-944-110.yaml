@@ -1,0 +1,32 @@
+id: crs-944-110
+name: 'Remote Command Execution: Java process spawn (CVE-2017-9805)'
+tags:
+  type: java_code_injection
+conditions:
+  - operation: match_regex
+    parameters:
+      inputs:
+        - $http.server.query
+        - $http.server.body
+        - $http.server.path_params
+        - $http.server.cookies
+        - $http.headers
+      regex: (?:runtime|processbuilder)
+    options:
+      case_sensitive: true
+      min_length: 7
+  - operation: match_regex
+    parameters:
+      inputs:
+        - $http.server.query
+        - $http.server.body
+        - $http.server.path_params
+        - $http.server.cookies
+        - $http.headers
+      regex: (?:unmarshaller|base64data|java\.)
+    options:
+      case_sensitive: true
+      min_length: 5
+transformers:
+  - lowercase
+action: log

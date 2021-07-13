@@ -1,0 +1,19 @@
+id: crs-933-170
+name: 'PHP Injection Attack: Serialized Object Injection'
+tags:
+  type: php_code_injection
+conditions:
+  - operation: match_regex
+    parameters:
+      inputs:
+        - $http.server.cookies
+        - $http.headers
+        - $http.server.query
+        - $http.server.body
+        - $http.server.path_params
+      regex: '[oOcC]:\d+:\".+?\":\d+:{[\W\w]*}'
+    options:
+      case_sensitive: true
+      min_length: 12
+transformers: []
+action: log

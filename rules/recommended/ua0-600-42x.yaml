@@ -1,0 +1,12 @@
+id: ua0-600-42x
+name: OpenVAS
+tags:
+  type: security_scanner
+conditions:
+  - operation: match_regex
+    parameters:
+      inputs:
+        - $http.headers.user_agent
+      regex: (?i)OpenVAS\b
+transformers: []
+action: log

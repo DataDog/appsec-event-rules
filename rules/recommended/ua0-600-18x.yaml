@@ -1,0 +1,12 @@
+id: ua0-600-18x
+name: N-Stealth
+tags:
+  type: security_scanner
+conditions:
+  - operation: match_regex
+    parameters:
+      inputs:
+        - $http.headers.user_agent
+      regex: (?i)\bn-stealth\b
+transformers: []
+action: log

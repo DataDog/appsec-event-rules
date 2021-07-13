@@ -1,0 +1,20 @@
+id: crs-944-100
+name: 'Remote Command Execution: Suspicious Java class detected'
+tags:
+  type: java_code_injection
+conditions:
+  - operation: match_regex
+    parameters:
+      inputs:
+        - $http.server.query
+        - $http.server.body
+        - $http.server.path_params
+        - $http.server.cookies
+        - $http.headers
+      regex: java\.lang\.(?:runtime|processbuilder)
+    options:
+      case_sensitive: true
+      min_length: 17
+transformers:
+  - lowercase
+action: log

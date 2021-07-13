@@ -1,0 +1,20 @@
+id: crs-941-190
+name: IE XSS Filters - Attack Detected
+tags:
+  type: xss
+conditions:
+  - operation: match_regex
+    parameters:
+      inputs:
+        - $http.server.cookies
+        - $http.server.query
+        - $http.server.body
+        - $http.server.path_params
+      regex: >-
+        (?i:<style.*?>.*?(?:@[i\\\\]|(?:[:=]|&#x?0*(?:58|3A|61|3D);?).*?(?:[(?:\\\\]|&#x?0*(?:40|28|92|5C);?)))
+    options:
+      case_sensitive: true
+      min_length: 9
+transformers:
+  - removeNulls
+action: log

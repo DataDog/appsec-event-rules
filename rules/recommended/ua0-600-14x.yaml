@@ -1,0 +1,12 @@
+id: ua0-600-14x
+name: Probely
+tags:
+  type: security_scanner
+conditions:
+  - operation: match_regex
+    parameters:
+      inputs:
+        - $http.headers.user_agent
+      regex: (?i)\bProbely\b
+transformers: []
+action: log

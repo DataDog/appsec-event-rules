@@ -1,0 +1,12 @@
+id: ua0-600-5xx
+name: Blind Sql Injection Brute Forcer
+tags:
+  type: security_scanner
+conditions:
+  - operation: match_regex
+    parameters:
+      inputs:
+        - $http.headers.user_agent
+      regex: (?i)\bbsqlbf\b
+transformers: []
+action: log

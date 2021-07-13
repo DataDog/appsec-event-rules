@@ -1,0 +1,12 @@
+id: ua0-600-25x
+name: Webtrends
+tags:
+  type: security_scanner
+conditions:
+  - operation: match_regex
+    parameters:
+      inputs:
+        - $http.headers.user_agent
+      regex: webtrends security analyzer
+transformers: []
+action: log

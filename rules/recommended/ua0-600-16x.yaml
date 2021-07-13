@@ -1,0 +1,12 @@
+id: ua0-600-16x
+name: SQL power injector
+tags:
+  type: security_scanner
+conditions:
+  - operation: match_regex
+    parameters:
+      inputs:
+        - $http.headers.user_agent
+      regex: sql power injector
+transformers: []
+action: log

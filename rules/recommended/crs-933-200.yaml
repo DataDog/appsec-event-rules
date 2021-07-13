@@ -1,0 +1,19 @@
+id: crs-933-200
+name: 'PHP Injection Attack: Wrapper scheme detected'
+tags:
+  type: php_code_injection
+conditions:
+  - operation: match_regex
+    parameters:
+      inputs:
+        - $http.server.cookies
+        - $http.server.query
+        - $http.server.body
+        - $http.server.path_params
+      regex: (?i:zlib|glob|phar|ssh2|rar|ogg|expect|zip)://
+    options:
+      case_sensitive: true
+      min_length: 6
+transformers:
+  - removeNulls
+action: log

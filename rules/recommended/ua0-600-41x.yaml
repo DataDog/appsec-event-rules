@@ -1,0 +1,12 @@
+id: ua0-600-41x
+name: Acunetix
+tags:
+  type: security_scanner
+conditions:
+  - operation: match_regex
+    parameters:
+      inputs:
+        - $http.headers.user_agent
+      regex: md5\(acunetix_wvs_security_test\)
+transformers: []
+action: log

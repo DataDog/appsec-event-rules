@@ -1,0 +1,18 @@
+id: crs-941-360
+name: JSFuck / Hieroglyphy obfuscation detected
+tags:
+  type: xss
+conditions:
+  - operation: match_regex
+    parameters:
+      inputs:
+        - $http.server.cookies
+        - $http.server.query
+        - $http.server.body
+        - $http.server.path_params
+      regex: '![!+ ]\[\]'
+    options:
+      case_sensitive: true
+      min_length: 4
+transformers: []
+action: log

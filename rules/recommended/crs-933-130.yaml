@@ -1,0 +1,35 @@
+id: crs-933-130
+name: 'PHP Injection Attack: Variables Found'
+tags:
+  type: php_code_injection
+conditions:
+  - operation: phrase_match
+    parameters:
+      inputs:
+        - $http.server.cookies
+        - $http.server.query
+        - $http.server.body
+        - $http.server.path_params
+      list:
+        - $globals
+        - $http_cookie_vars
+        - $http_env_vars
+        - $http_get_vars
+        - $http_post_files
+        - $http_post_vars
+        - $http_raw_post_data
+        - $http_request_vars
+        - $http_server_vars
+        - $_cookie
+        - $_env
+        - $_files
+        - $_get
+        - $_post
+        - $_request
+        - $_server
+        - $_session
+        - $argc
+        - $argv
+transformers:
+  - lowercase
+action: log

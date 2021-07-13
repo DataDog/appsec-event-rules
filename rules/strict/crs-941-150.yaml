@@ -1,0 +1,19 @@
+id: crs-941-150
+name: 'XSS Filter - Category 5: Disallowed HTML Attributes'
+tags:
+  type: xss
+conditions:
+  - operation: match_regex
+    parameters:
+      inputs:
+        - $http.server.cookies
+        - $http.headers.user_agent
+        - $http.server.query
+        - $http.server.body
+        - $http.server.path_params
+      regex: \b(?:s(?:tyle|rc)|href)\b\s*?=
+    options:
+      min_length: 4
+transformers:
+  - removeNulls
+action: log

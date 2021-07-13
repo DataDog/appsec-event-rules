@@ -1,0 +1,12 @@
+id: ua0-600-34x
+name: Grendel-Scan
+tags:
+  type: security_scanner
+conditions:
+  - operation: match_regex
+    parameters:
+      inputs:
+        - $http.headers.user_agent
+      regex: (?i)\bgrendel-scan\b
+transformers: []
+action: log

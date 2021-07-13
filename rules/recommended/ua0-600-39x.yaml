@@ -1,0 +1,12 @@
+id: ua0-600-39x
+name: Nessus Scripted
+tags:
+  type: security_scanner
+conditions:
+  - operation: match_regex
+    parameters:
+      inputs:
+        - $http.headers.user_agent
+      regex: (?i)^'?[a-z0-9]+\.nasl'?$
+transformers: []
+action: log

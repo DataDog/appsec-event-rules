@@ -1,0 +1,12 @@
+id: ua0-600-4xx
+name: CGIchk
+tags:
+  type: security_scanner
+conditions:
+  - operation: match_regex
+    parameters:
+      inputs:
+        - $http.headers.user_agent
+      regex: (?i)\bcgichk\b
+transformers: []
+action: log

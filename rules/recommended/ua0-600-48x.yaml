@@ -1,0 +1,12 @@
+id: ua0-600-48x
+name: Commix
+tags:
+  type: security_scanner
+conditions:
+  - operation: match_regex
+    parameters:
+      inputs:
+        - $http.headers.user_agent
+      regex: ^commix\/
+transformers: []
+action: log

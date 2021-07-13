@@ -1,0 +1,19 @@
+id: crs-933-111
+name: 'PHP Injection Attack: PHP Script File Upload Found'
+tags:
+  type: unrestricted_file_upload
+conditions:
+  - operation: match_regex
+    parameters:
+      inputs:
+        - $http.headers:x-filename
+        - $http.headers:x_filename
+        - $http.headers:x.filename
+        - $http.headers:x-file-name
+      regex: .*\.(?:php\d*|phtml)\..*$
+    options:
+      case_sensitive: true
+      min_length: 5
+transformers:
+  - lowercase
+action: log

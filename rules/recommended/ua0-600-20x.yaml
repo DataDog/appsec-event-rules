@@ -1,0 +1,12 @@
+id: ua0-600-20x
+name: Netsparker
+tags:
+  type: security_scanner
+conditions:
+  - operation: match_regex
+    parameters:
+      inputs:
+        - $http.headers.user_agent
+      regex: (?i)(<script>netsparker\(0x0|ns:netsparker.*=vuln)
+transformers: []
+action: log

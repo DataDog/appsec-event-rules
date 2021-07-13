@@ -1,0 +1,12 @@
+id: ua0-600-30x
+name: SQLNinja
+tags:
+  type: security_scanner
+conditions:
+  - operation: match_regex
+    parameters:
+      inputs:
+        - $http.headers.user_agent
+      regex: (?i)\bsqlninja\b
+transformers: []
+action: log

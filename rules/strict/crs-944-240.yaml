@@ -1,0 +1,21 @@
+id: crs-944-240
+name: 'Remote Command Execution: Java serialization (CVE-2015-4852)'
+tags:
+  type: java_code_injection
+conditions:
+  - operation: match_regex
+    parameters:
+      inputs:
+        - $http.server.query
+        - $http.server.body
+        - $http.server.path_params
+        - $http.server.cookies
+        - $http.headers
+      regex: >-
+        (?:clonetransformer|forclosure|instantiatefactory|instantiatetransformer|invokertransformer|prototypeclonefactory|prototypeserializationfactory|whileclosure|getproperty|filewriter|xmldecoder)
+    options:
+      case_sensitive: true
+      min_length: 10
+transformers:
+  - lowercase
+action: log

@@ -1,0 +1,15 @@
+id: sqr-000-011
+name: 'Node.js: Prototype pollution'
+tags:
+  type: js_code_injection
+conditions:
+  - operation: match_regex
+    parameters:
+      inputs:
+        - $http.server.query
+        - $http.server.body
+        - $http.server.path_params
+        - $http.headers
+      regex: __proto__[\.\[]
+transformers: []
+action: log

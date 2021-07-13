@@ -1,0 +1,18 @@
+id: crs-942-500
+name: MySQL in-line comment detected
+tags:
+  type: sqli
+conditions:
+  - operation: match_regex
+    parameters:
+      inputs:
+        - $http.server.cookies
+        - $http.server.query
+        - $http.server.body
+        - $http.server.path_params
+      regex: (?i:/\*[!+](?:[\w\s=_\-(?:)]+)?\*/)
+    options:
+      case_sensitive: true
+      min_length: 5
+transformers: []
+action: log

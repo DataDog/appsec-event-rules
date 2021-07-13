@@ -1,0 +1,12 @@
+id: ua0-600-45x
+name: Zmeu
+tags:
+  type: security_scanner
+conditions:
+  - operation: match_regex
+    parameters:
+      inputs:
+        - $http.headers.user_agent
+      regex: (?i)\bZmEu\b
+transformers: []
+action: log

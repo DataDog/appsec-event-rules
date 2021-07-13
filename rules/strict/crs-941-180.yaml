@@ -1,0 +1,26 @@
+id: crs-941-180
+name: Node-Validator Blacklist Keywords
+tags:
+  type: xss
+conditions:
+  - operation: phrase_match
+    parameters:
+      inputs:
+        - $http.server.cookies
+        - $http.server.query
+        - $http.server.body
+        - $http.server.path_params
+      list:
+        - document.cookie
+        - document.write
+        - .parentnode
+        - .innerhtml
+        - window.location
+        - '-moz-binding'
+        - <!--
+        - '-->'
+        - <![cdata[
+transformers:
+  - lowercase
+  - removeNulls
+action: log

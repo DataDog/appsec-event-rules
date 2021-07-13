@@ -1,0 +1,12 @@
+id: ua0-600-19x
+name: Brutus
+tags:
+  type: security_scanner
+conditions:
+  - operation: match_regex
+    parameters:
+      inputs:
+        - $http.headers.user_agent
+      regex: (?i)\bbrutus\b
+transformers: []
+action: log

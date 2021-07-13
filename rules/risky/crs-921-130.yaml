@@ -1,0 +1,19 @@
+id: crs-921-130
+name: HTTP Response Splitting Attack
+tags:
+  type: http_protocol_violation
+conditions:
+  - operation: match_regex
+    parameters:
+      inputs:
+        - $http.server.cookies
+        - $http.server.query
+        - $http.server.body
+        - $http.server.path_params
+      regex: (?:\bhttp/\d|<(?:html|meta)\b)
+    options:
+      case_sensitive: true
+      min_length: 5
+transformers:
+  - lowercase
+action: log

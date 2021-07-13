@@ -1,0 +1,12 @@
+id: ua0-600-2xx
+name: Qualys
+tags:
+  type: security_scanner
+conditions:
+  - operation: match_regex
+    parameters:
+      inputs:
+        - $http.headers.user_agent
+      regex: (?i)\bqualys\b
+transformers: []
+action: log

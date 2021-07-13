@@ -1,0 +1,19 @@
+id: crs-942-290
+name: Finds basic MongoDB SQL injection attempts
+tags:
+  type: nosqli
+conditions:
+  - operation: match_regex
+    parameters:
+      inputs:
+        - $http.server.cookies
+        - $http.server.query
+        - $http.server.body
+        - $http.server.path_params
+      regex: >-
+        (?i:(?:\[\$(?:ne|eq|lte?|gte?|n?in|mod|all|size|exists|type|slice|x?or|div|like|between|and)\]))
+    options:
+      case_sensitive: true
+      min_length: 5
+transformers: []
+action: log

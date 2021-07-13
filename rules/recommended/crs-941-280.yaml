@@ -1,0 +1,18 @@
+id: crs-941-280
+name: IE XSS Filters - Attack Detected
+tags:
+  type: xss
+conditions:
+  - operation: match_regex
+    parameters:
+      inputs:
+        - $http.server.cookies
+        - $http.server.query
+        - $http.server.body
+        - $http.server.path_params
+      regex: <BASE[\s/+].*?href[\s/+]*=
+    options:
+      min_length: 11
+transformers:
+  - removeNulls
+action: log

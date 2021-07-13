@@ -1,0 +1,12 @@
+id: ua0-600-44x
+name: Zgrab
+tags:
+  type: security_scanner
+conditions:
+  - operation: match_regex
+    parameters:
+      inputs:
+        - $http.headers.user_agent
+      regex: Mozilla/\d+.\d+ zgrab
+transformers: []
+action: log

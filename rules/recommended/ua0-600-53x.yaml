@@ -1,0 +1,14 @@
+id: ua0-600-53x
+name: >-
+  Tsunami is a general purpose network security scanner with an extensible
+  plugin system for detecting high severity vulnerabilities with high confidence
+tags:
+  type: security_scanner
+conditions:
+  - operation: match_regex
+    parameters:
+      inputs:
+        - $http.headers.user_agent
+      regex: (?i)\bTsunamiSecurityScanner\b
+transformers: []
+action: log

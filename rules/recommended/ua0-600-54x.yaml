@@ -1,0 +1,12 @@
+id: ua0-600-54x
+name: Nimbostratus is a vulnerability scanner that scan websites unprompted
+tags:
+  type: security_scanner
+conditions:
+  - operation: match_regex
+    parameters:
+      inputs:
+        - $http.headers.user_agent
+      regex: (?i)\bnimbostratus-bot\b
+transformers: []
+action: log

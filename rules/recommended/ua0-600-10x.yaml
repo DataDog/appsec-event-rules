@@ -1,0 +1,12 @@
+id: ua0-600-10x
+name: Nessus
+tags:
+  type: security_scanner
+conditions:
+  - operation: match_regex
+    parameters:
+      inputs:
+        - $http.headers.user_agent
+      regex: (?i)^Nessus(/|([ :]+SOAP))
+transformers: []
+action: log

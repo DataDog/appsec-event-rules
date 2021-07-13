@@ -1,0 +1,32 @@
+id: crs-913-120
+name: Found request filename/argument associated with security scanner
+tags:
+  type: security_scanner
+conditions:
+  - operation: phrase_match
+    parameters:
+      inputs:
+        - $http.server.query
+        - $http.server.body
+        - $http.server.path_params
+      list:
+        - /.adsensepostnottherenonobook
+        - /<invalid>hello.html
+        - /actsensepostnottherenonotive
+        - /acunetix-wvs-test-for-some-inexistent-file
+        - /antidisestablishmentarianism
+        - /appscan_fingerprint/mac_address
+        - /arachni-
+        - /cybercop
+        - /nessus_is_probing_you_
+        - /nessustest
+        - /netsparker-
+        - /rfiinc.txt
+        - /thereisnowaythat-you-canbethere
+        - /w3af/remotefileinclude.html
+        - appscan_fingerprint
+        - w00tw00t.at.isc.sans.dfind
+        - w00tw00t.at.blackhats.romanian.anti-sec
+transformers:
+  - lowercase
+action: log

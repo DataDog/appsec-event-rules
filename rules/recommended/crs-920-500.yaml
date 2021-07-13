@@ -1,0 +1,14 @@
+id: crs-920-500
+name: Attempt to access a backup or working file
+tags:
+  type: http_protocol_violation
+conditions:
+  - operation: match_regex
+    parameters:
+      inputs: []
+      regex: \.[^.~]+~(?:/.*|)$
+    options:
+      case_sensitive: true
+      min_length: 3
+transformers: []
+action: log

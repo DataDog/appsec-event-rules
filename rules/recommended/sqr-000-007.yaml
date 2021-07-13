@@ -1,0 +1,12 @@
+id: sqr-000-007
+name: 'NoSQL: Detect common exploitation strategy'
+tags:
+  type: nosqli
+conditions:
+  - operation: match_regex
+    parameters:
+      inputs:
+        - $http.headers
+      regex: \$(eq|ne|lte?|gte?|n?in)\b
+transformers: []
+action: log

@@ -1,0 +1,19 @@
+id: crs-931-120
+name: >-
+  Possible Remote File Inclusion (RFI) Attack: URL Payload Used w/Trailing
+  Question Mark Character (?)
+tags:
+  type: rfi
+conditions:
+  - operation: match_regex
+    parameters:
+      inputs:
+        - $http.server.query
+        - $http.server.body
+        - $http.server.path_params
+      regex: ^(?i:file|ftps?|https?).*?\?+$
+    options:
+      case_sensitive: true
+      min_length: 4
+transformers: []
+action: log

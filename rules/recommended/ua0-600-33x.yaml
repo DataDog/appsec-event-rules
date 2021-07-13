@@ -1,0 +1,12 @@
+id: ua0-600-33x
+name: BlackWidow
+tags:
+  type: security_scanner
+conditions:
+  - operation: match_regex
+    parameters:
+      inputs:
+        - $http.headers.user_agent
+      regex: (?i)\bblack\s?widow\b
+transformers: []
+action: log

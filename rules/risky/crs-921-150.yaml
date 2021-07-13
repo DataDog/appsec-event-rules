@@ -1,0 +1,14 @@
+id: crs-921-150
+name: HTTP Header Injection Attack via payload (CR/LF detected)
+tags:
+  type: http_protocol_violation
+conditions:
+  - operation: match_regex
+    parameters:
+      inputs: []
+      regex: '[\n\r]'
+    options:
+      case_sensitive: true
+      min_length: 1
+transformers: []
+action: log

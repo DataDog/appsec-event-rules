@@ -1,0 +1,17 @@
+id: crs-931-110
+name: >-
+  Possible Remote File Inclusion (RFI) Attack: Common RFI Vulnerable Parameter
+  Name used w/URL Payload
+tags:
+  type: rfi
+conditions:
+  - operation: match_regex
+    parameters:
+      inputs:
+        - $http.server.query
+      regex: >-
+        (?:\binclude\s*\([^)]*|mosConfig_absolute_path|_CONF\[path\]|_SERVER\[DOCUMENT_ROOT\]|GALLERY_BASEDIR|path\[docroot\]|appserv_root|config\[root_dir\])=(?:file|ftps?|https?)://
+    options:
+      min_length: 15
+transformers: []
+action: log

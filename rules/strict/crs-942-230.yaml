@@ -1,0 +1,19 @@
+id: crs-942-230
+name: Detects conditional SQL injection attempts
+tags:
+  type: sqli
+conditions:
+  - operation: match_regex
+    parameters:
+      inputs:
+        - $http.server.cookies
+        - $http.server.query
+        - $http.server.body
+        - $http.server.path_params
+      regex: >-
+        (?i:[\s(?:)]case\s*?\(|\)\s*?like\s*?\(|select.*?having\s*?[^\s]+\s*?[^\w\s]|if\s?\([\d\w]\s*?[=<>~])
+    options:
+      case_sensitive: true
+      min_length: 5
+transformers: []
+action: log

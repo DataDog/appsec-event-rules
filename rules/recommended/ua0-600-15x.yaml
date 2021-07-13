@@ -1,0 +1,12 @@
+id: ua0-600-15x
+name: Metis
+tags:
+  type: security_scanner
+conditions:
+  - operation: match_regex
+    parameters:
+      inputs:
+        - $http.headers.user_agent
+      regex: (?i)\bmetis\b
+transformers: []
+action: log

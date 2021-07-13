@@ -1,0 +1,19 @@
+id: crs-921-110
+name: HTTP Request Smuggling Attack
+tags:
+  type: http_protocol_violation
+conditions:
+  - operation: match_regex
+    parameters:
+      inputs:
+        - $http.server.query
+        - $http.server.body
+        - $http.server.path_params
+      regex: >-
+        (?:get|post|head|options|connect|put|delete|trace|track|patch|propfind|propatch|mkcol|copy|move|lock|unlock)\s+[^\s]+\s+http/\d
+    options:
+      case_sensitive: true
+      min_length: 12
+transformers:
+  - lowercase
+action: log

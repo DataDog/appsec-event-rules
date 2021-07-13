@@ -1,0 +1,19 @@
+id: crs-942-270
+name: >-
+  Looking for basic sql injection. Common attack string for mysql, oracle and
+  others
+tags:
+  type: sqli
+conditions:
+  - operation: match_regex
+    parameters:
+      inputs:
+        - $http.server.cookies
+        - $http.server.query
+        - $http.server.body
+        - $http.server.path_params
+      regex: union.*?select.*?from
+    options:
+      min_length: 15
+transformers: []
+action: log

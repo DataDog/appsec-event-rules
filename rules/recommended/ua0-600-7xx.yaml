@@ -1,0 +1,12 @@
+id: ua0-600-7xx
+name: SQLmap
+tags:
+  type: security_scanner
+conditions:
+  - operation: match_regex
+    parameters:
+      inputs:
+        - $http.headers.user_agent
+      regex: ^sqlmap/
+transformers: []
+action: log
