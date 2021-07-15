@@ -8,7 +8,7 @@ conditions:
     parameters:
       inputs:
         - $http.server.cookies
-        - $http.headers.user_agent
+        - $http.user_agent
         - $http.headers:referer
         - $http.server.query
         - $http.server.body

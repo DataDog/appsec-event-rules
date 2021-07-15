@@ -1945,7 +1945,7 @@ events:
         parameters:
           inputs:
             - $http.server.cookies
-            - $http.headers.user_agent
+            - $http.user_agent
             - $http.headers:referer
             - $http.server.query
             - $http.server.body
@@ -2589,7 +2589,7 @@ events:
       - operation: match_regex
         parameters:
           inputs:
-            - $http.headers.user_agent
+            - $http.user_agent
           regex: JDatabaseDriverMysqli
     transformers: []
     action: log
@@ -2601,7 +2601,7 @@ events:
       - operation: match_regex
         parameters:
           inputs:
-            - $http.headers.user_agent
+            - $http.user_agent
           regex: (?i)^Nessus(/|([ :]+SOAP))
     transformers: []
     action: log
@@ -2613,7 +2613,7 @@ events:
       - operation: match_regex
         parameters:
           inputs:
-            - $http.headers.user_agent
+            - $http.user_agent
           regex: ^Arachni\/v
     transformers: []
     action: log
@@ -2625,7 +2625,7 @@ events:
       - operation: match_regex
         parameters:
           inputs:
-            - $http.headers.user_agent
+            - $http.user_agent
           regex: (?i)\bJorgee\b
     transformers: []
     action: log
@@ -2637,7 +2637,7 @@ events:
       - operation: match_regex
         parameters:
           inputs:
-            - $http.headers.user_agent
+            - $http.user_agent
           regex: (?i)\bProbely\b
     transformers: []
     action: log
@@ -2649,7 +2649,7 @@ events:
       - operation: match_regex
         parameters:
           inputs:
-            - $http.headers.user_agent
+            - $http.user_agent
           regex: (?i)\bmetis\b
     transformers: []
     action: log
@@ -2661,7 +2661,7 @@ events:
       - operation: match_regex
         parameters:
           inputs:
-            - $http.headers.user_agent
+            - $http.user_agent
           regex: sql power injector
     transformers: []
     action: log
@@ -2673,7 +2673,7 @@ events:
       - operation: match_regex
         parameters:
           inputs:
-            - $http.headers.user_agent
+            - $http.user_agent
           regex: (?i)\bn-stealth\b
     transformers: []
     action: log
@@ -2685,7 +2685,7 @@ events:
       - operation: match_regex
         parameters:
           inputs:
-            - $http.headers.user_agent
+            - $http.user_agent
           regex: (?i)\bbrutus\b
     transformers: []
     action: log
@@ -2697,7 +2697,7 @@ events:
       - operation: match_regex
         parameters:
           inputs:
-            - $http.headers.user_agent
+            - $http.user_agent
           regex: \(\) \{ :; *\}
     transformers: []
     action: log
@@ -2709,7 +2709,7 @@ events:
       - operation: match_regex
         parameters:
           inputs:
-            - $http.headers.user_agent
+            - $http.user_agent
           regex: (?i)(<script>netsparker\(0x0|ns:netsparker.*=vuln)
     transformers: []
     action: log
@@ -2721,7 +2721,7 @@ events:
       - operation: match_regex
         parameters:
           inputs:
-            - $http.headers.user_agent
+            - $http.user_agent
           regex: (?i)\bjaascois\b
     transformers: []
     action: log
@@ -2733,7 +2733,7 @@ events:
       - operation: match_regex
         parameters:
           inputs:
-            - $http.headers.user_agent
+            - $http.user_agent
           regex: (?i)\bpmafind\b
     transformers: []
     action: log
@@ -2745,7 +2745,7 @@ events:
       - operation: match_regex
         parameters:
           inputs:
-            - $http.headers.user_agent
+            - $http.user_agent
           regex: webtrends security analyzer
     transformers: []
     action: log
@@ -2757,7 +2757,7 @@ events:
       - operation: match_regex
         parameters:
           inputs:
-            - $http.headers.user_agent
+            - $http.user_agent
           regex: (?i)\bnsauditor\b
     transformers: []
     action: log
@@ -2769,7 +2769,7 @@ events:
       - operation: match_regex
         parameters:
           inputs:
-            - $http.headers.user_agent
+            - $http.user_agent
           regex: (?i)Mozilla/.* Paros/
     transformers: []
     action: log
@@ -2781,7 +2781,7 @@ events:
       - operation: match_regex
         parameters:
           inputs:
-            - $http.headers.user_agent
+            - $http.user_agent
           regex: (?i)\bdirbuster\b
     transformers: []
     action: log
@@ -2793,7 +2793,7 @@ events:
       - operation: match_regex
         parameters:
           inputs:
-            - $http.headers.user_agent
+            - $http.user_agent
           regex: (?i)\bpangolin\b
     transformers: []
     action: log
@@ -2805,7 +2805,7 @@ events:
       - operation: match_regex
         parameters:
           inputs:
-            - $http.headers.user_agent
+            - $http.user_agent
           regex: (?i)\bqualys\b
     transformers: []
     action: log
@@ -2817,7 +2817,7 @@ events:
       - operation: match_regex
         parameters:
           inputs:
-            - $http.headers.user_agent
+            - $http.user_agent
           regex: (?i)\bsqlninja\b
     transformers: []
     action: log
@@ -2829,7 +2829,7 @@ events:
       - operation: match_regex
         parameters:
           inputs:
-            - $http.headers.user_agent
+            - $http.user_agent
           regex: \(Nikto/[\d\.]+\)
     transformers: []
     action: log
@@ -2841,7 +2841,7 @@ events:
       - operation: match_regex
         parameters:
           inputs:
-            - $http.headers.user_agent
+            - $http.user_agent
           regex: (?i)\bwebinspect\b
     transformers: []
     action: log
@@ -2853,7 +2853,7 @@ events:
       - operation: match_regex
         parameters:
           inputs:
-            - $http.headers.user_agent
+            - $http.user_agent
           regex: (?i)\bblack\s?widow\b
     transformers: []
     action: log
@@ -2865,7 +2865,7 @@ events:
       - operation: match_regex
         parameters:
           inputs:
-            - $http.headers.user_agent
+            - $http.user_agent
           regex: (?i)\bgrendel-scan\b
     transformers: []
     action: log
@@ -2877,7 +2877,7 @@ events:
       - operation: match_regex
         parameters:
           inputs:
-            - $http.headers.user_agent
+            - $http.user_agent
           regex: (?i)\bhavij\b
     transformers: []
     action: log
@@ -2889,7 +2889,7 @@ events:
       - operation: match_regex
         parameters:
           inputs:
-            - $http.headers.user_agent
+            - $http.user_agent
           regex: (?i)\bw3af\b
     transformers: []
     action: log
@@ -2901,7 +2901,7 @@ events:
       - operation: match_regex
         parameters:
           inputs:
-            - $http.headers.user_agent
+            - $http.user_agent
           regex: nmap (nse|scripting engine)
     transformers: []
     action: log
@@ -2913,7 +2913,7 @@ events:
       - operation: match_regex
         parameters:
           inputs:
-            - $http.headers.user_agent
+            - $http.user_agent
           regex: (?i)^'?[a-z0-9]+\.nasl'?$
     transformers: []
     action: log
@@ -2925,7 +2925,7 @@ events:
       - operation: match_regex
         parameters:
           inputs:
-            - $http.headers.user_agent
+            - $http.user_agent
           regex: (?i)\bevilScanner\b
     transformers: []
     action: log
@@ -2937,7 +2937,7 @@ events:
       - operation: match_regex
         parameters:
           inputs:
-            - $http.headers.user_agent
+            - $http.user_agent
           regex: (?i)\bWebFuck\b
     transformers: []
     action: log
@@ -2949,7 +2949,7 @@ events:
       - operation: match_regex
         parameters:
           inputs:
-            - $http.headers.user_agent
+            - $http.user_agent
           regex: md5\(acunetix_wvs_security_test\)
     transformers: []
     action: log
@@ -2961,7 +2961,7 @@ events:
       - operation: match_regex
         parameters:
           inputs:
-            - $http.headers.user_agent
+            - $http.user_agent
           regex: (?i)OpenVAS\b
     transformers: []
     action: log
@@ -2973,7 +2973,7 @@ events:
       - operation: match_regex
         parameters:
           inputs:
-            - $http.headers.user_agent
+            - $http.user_agent
           regex: Powered by Spider-Pig by tinfoilsecurity\.com
     transformers: []
     action: log
@@ -2985,7 +2985,7 @@ events:
       - operation: match_regex
         parameters:
           inputs:
-            - $http.headers.user_agent
+            - $http.user_agent
           regex: Mozilla/\d+.\d+ zgrab
     transformers: []
     action: log
@@ -2997,7 +2997,7 @@ events:
       - operation: match_regex
         parameters:
           inputs:
-            - $http.headers.user_agent
+            - $http.user_agent
           regex: (?i)\bZmEu\b
     transformers: []
     action: log
@@ -3009,7 +3009,7 @@ events:
       - operation: match_regex
         parameters:
           inputs:
-            - $http.headers.user_agent
+            - $http.user_agent
           regex: (?i)\bcrowdstrike\b
     transformers: []
     action: log
@@ -3021,7 +3021,7 @@ events:
       - operation: match_regex
         parameters:
           inputs:
-            - $http.headers.user_agent
+            - $http.user_agent
           regex: (?i)\bGoogleSecurityScanner\b
     transformers: []
     action: log
@@ -3033,7 +3033,7 @@ events:
       - operation: match_regex
         parameters:
           inputs:
-            - $http.headers.user_agent
+            - $http.user_agent
           regex: ^commix\/
     transformers: []
     action: log
@@ -3045,7 +3045,7 @@ events:
       - operation: match_regex
         parameters:
           inputs:
-            - $http.headers.user_agent
+            - $http.user_agent
           regex: ^gobuster\/
     transformers: []
     action: log
@@ -3057,7 +3057,7 @@ events:
       - operation: match_regex
         parameters:
           inputs:
-            - $http.headers.user_agent
+            - $http.user_agent
           regex: (?i)\bcgichk\b
     transformers: []
     action: log
@@ -3069,7 +3069,7 @@ events:
       - operation: match_regex
         parameters:
           inputs:
-            - $http.headers.user_agent
+            - $http.user_agent
           regex: (?i)^Fuzz Faster U Fool\b
     transformers: []
     action: log
@@ -3083,7 +3083,7 @@ events:
       - operation: match_regex
         parameters:
           inputs:
-            - $http.headers.user_agent
+            - $http.user_agent
           regex: (?i)^Nuclei\b
     transformers: []
     action: log
@@ -3098,7 +3098,7 @@ events:
       - operation: match_regex
         parameters:
           inputs:
-            - $http.headers.user_agent
+            - $http.user_agent
           regex: (?i)\bTsunamiSecurityScanner\b
     transformers: []
     action: log
@@ -3110,7 +3110,7 @@ events:
       - operation: match_regex
         parameters:
           inputs:
-            - $http.headers.user_agent
+            - $http.user_agent
           regex: (?i)\bnimbostratus-bot\b
     transformers: []
     action: log
@@ -3122,7 +3122,7 @@ events:
       - operation: match_regex
         parameters:
           inputs:
-            - $http.headers.user_agent
+            - $http.user_agent
           regex: (?i)\bbsqlbf\b
     transformers: []
     action: log
@@ -3134,7 +3134,7 @@ events:
       - operation: match_regex
         parameters:
           inputs:
-            - $http.headers.user_agent
+            - $http.user_agent
           regex: mozilla/4\.0 \(compatible(; msie 6\.0; win32)?\)
     transformers: []
     action: log
@@ -3146,7 +3146,7 @@ events:
       - operation: match_regex
         parameters:
           inputs:
-            - $http.headers.user_agent
+            - $http.user_agent
           regex: ^sqlmap/
     transformers: []
     action: log
@@ -3158,7 +3158,7 @@ events:
       - operation: match_regex
         parameters:
           inputs:
-            - $http.headers.user_agent
+            - $http.user_agent
           regex: (?i)mozilla/5\.0 sf/
     transformers: []
     action: log
