@@ -33,6 +33,7 @@ fs.readdirSync(SourceDir).forEach(file => {
     outContentObj.events.push(readYAMLfile(file))
 });
 
+writeJSONFile(outContentObj)
 writeYAMLFile(outContentObj)
 
 console.log('Build success with ', outContentObj.events.length, ' Event rules ')
@@ -50,4 +51,8 @@ function readYAMLfile(file){
 function writeYAMLFile(obj){
     let yamlContents = yaml.dump(obj)
     fs.writeFileSync(OutputDir + '/' +  Collection + '.yaml', yamlContents)
+}
+
+function writeJSONFile(obj){
+    fs.writeFileSync(OutputDir + '/' +  Collection + '.json', JSON.stringify(obj.events))
 }
