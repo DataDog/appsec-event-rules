@@ -2,6 +2,7 @@ id: crs-933-140
 name: 'PHP Injection Attack: I/O Stream Found'
 tags:
   type: php_code_injection
+  crs_id: '933140'
 conditions:
   - operation: match_regex
     parameters:

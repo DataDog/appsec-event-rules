@@ -2,6 +2,7 @@ id: crs-942-290
 name: Finds basic MongoDB SQL injection attempts
 tags:
   type: nosqli
+  crs_id: '942290'
 conditions:
   - operation: match_regex
     parameters:

@@ -2,6 +2,7 @@ id: crs-932-130
 name: 'Remote Command Execution: Unix Shell Expression Found'
 tags:
   type: command_injection
+  crs_id: '932130'
 conditions:
   - operation: match_regex
     parameters:

@@ -2,6 +2,7 @@ id: crs-932-160
 name: 'Remote Command Execution: Unix Shell Code Found'
 tags:
   type: command_injection
+  crs_id: '932160'
 conditions:
   - operation: phrase_match
     parameters:

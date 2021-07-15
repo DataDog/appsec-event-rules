@@ -2,6 +2,7 @@ id: crs-921-110
 name: HTTP Request Smuggling Attack
 tags:
   type: http_protocol_violation
+  crs_id: '921110'
 conditions:
   - operation: match_regex
     parameters:

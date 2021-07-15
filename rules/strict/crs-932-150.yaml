@@ -2,6 +2,7 @@ id: crs-932-150
 name: 'Remote Command Execution: Direct Unix Command Execution'
 tags:
   type: command_injection
+  crs_id: '932150'
 conditions:
   - operation: match_regex
     parameters:

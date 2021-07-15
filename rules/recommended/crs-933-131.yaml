@@ -2,6 +2,7 @@ id: crs-933-131
 name: 'PHP Injection Attack: Variables Found'
 tags:
   type: php_code_injection
+  crs_id: '933131'
 conditions:
   - operation: match_regex
     parameters:

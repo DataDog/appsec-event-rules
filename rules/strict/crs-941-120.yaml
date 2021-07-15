@@ -2,6 +2,7 @@ id: crs-941-120
 name: 'XSS Filter - Category 2: Event Handler Vector'
 tags:
   type: xss
+  crs_id: '941120'
 conditions:
   - operation: match_regex
     parameters:

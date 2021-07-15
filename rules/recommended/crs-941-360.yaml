@@ -2,6 +2,7 @@ id: crs-941-360
 name: JSFuck / Hieroglyphy obfuscation detected
 tags:
   type: xss
+  crs_id: '941360'
 conditions:
   - operation: match_regex
     parameters:

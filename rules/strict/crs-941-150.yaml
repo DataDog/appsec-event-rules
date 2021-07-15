@@ -2,6 +2,7 @@ id: crs-941-150
 name: 'XSS Filter - Category 5: Disallowed HTML Attributes'
 tags:
   type: xss
+  crs_id: '941150'
 conditions:
   - operation: match_regex
     parameters:

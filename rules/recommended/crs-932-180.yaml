@@ -2,6 +2,7 @@ id: crs-932-180
 name: Restricted File Upload Attempt
 tags:
   type: command_injection
+  crs_id: '932180'
 conditions:
   - operation: phrase_match
     parameters:

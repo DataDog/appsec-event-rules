@@ -2,6 +2,7 @@ id: crs-930-130
 name: Restricted File Access Attempt
 tags:
   type: lfi
+  crs_id: '930130'
 conditions:
   - operation: phrase_match
     parameters:

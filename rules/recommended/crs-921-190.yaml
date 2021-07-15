@@ -2,6 +2,7 @@ id: crs-921-190
 name: HTTP Splitting (CR/LF in request filename detected)
 tags:
   type: http_protocol_violation
+  crs_id: '921190'
 conditions:
   - operation: match_regex
     parameters:

@@ -2,6 +2,7 @@ id: crs-932-140
 name: 'Remote Command Execution: Windows FOR/IF Command Found'
 tags:
   type: command_injection
+  crs_id: '932140'
 conditions:
   - operation: match_regex
     parameters:

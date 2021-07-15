@@ -2,6 +2,7 @@ id: crs-930-120
 name: OS File Access Attempt
 tags:
   type: lfi
+  crs_id: '930120'
 conditions:
   - operation: phrase_match
     parameters:

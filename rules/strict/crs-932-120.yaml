@@ -2,6 +2,7 @@ id: crs-932-120
 name: 'Remote Command Execution: Windows PowerShell Command Found'
 tags:
   type: command_injection
+  crs_id: '932120'
 conditions:
   - operation: phrase_match
     parameters:

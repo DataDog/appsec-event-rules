@@ -2,6 +2,7 @@ id: crs-941-180
 name: Node-Validator Blacklist Keywords
 tags:
   type: xss
+  crs_id: '941180'
 conditions:
   - operation: phrase_match
     parameters:

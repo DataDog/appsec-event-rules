@@ -2,6 +2,7 @@ id: crs-941-320
 name: Possible XSS Attack Detected - HTML Tag Handler
 tags:
   type: xss
+  crs_id: '941320'
 conditions:
   - operation: match_regex
     parameters:

@@ -2,6 +2,7 @@ id: crs-933-150
 name: 'PHP Injection Attack: High-Risk PHP Function Name Found'
 tags:
   type: php_code_injection
+  crs_id: '933150'
 conditions:
   - operation: phrase_match
     parameters:

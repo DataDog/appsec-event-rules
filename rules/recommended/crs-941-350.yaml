@@ -2,6 +2,7 @@ id: crs-941-350
 name: UTF-7 Encoding IE XSS - Attack Detected
 tags:
   type: xss
+  crs_id: '941350'
 conditions:
   - operation: match_regex
     parameters:

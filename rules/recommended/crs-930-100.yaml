@@ -2,6 +2,7 @@ id: crs-930-100
 name: Obfuscated Path Traversal Attack (/../)
 tags:
   type: lfi
+  crs_id: '930100'
 conditions:
   - operation: match_regex
     parameters:

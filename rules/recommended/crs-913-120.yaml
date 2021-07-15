@@ -2,6 +2,7 @@ id: crs-913-120
 name: Found request filename/argument associated with security scanner
 tags:
   type: security_scanner
+  crs_id: '913120'
 conditions:
   - operation: phrase_match
     parameters:

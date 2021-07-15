@@ -2,6 +2,7 @@ id: crs-933-200
 name: 'PHP Injection Attack: Wrapper scheme detected'
 tags:
   type: php_code_injection
+  crs_id: '933200'
 conditions:
   - operation: match_regex
     parameters:

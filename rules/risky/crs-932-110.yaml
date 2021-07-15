@@ -2,6 +2,7 @@ id: crs-932-110
 name: 'Remote Command Execution: Windows Command Injection'
 tags:
   type: command_injection
+  crs_id: '932110'
 conditions:
   - operation: match_regex
     parameters:

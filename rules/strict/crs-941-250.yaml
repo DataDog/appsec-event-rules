@@ -2,6 +2,7 @@ id: crs-941-250
 name: IE XSS Filters - Attack Detected
 tags:
   type: xss
+  crs_id: '941250'
 conditions:
   - operation: match_regex
     parameters:

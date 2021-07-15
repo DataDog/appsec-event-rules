@@ -2,6 +2,7 @@ id: crs-933-110
 name: 'PHP Injection Attack: PHP Script File Upload Found'
 tags:
   type: php_code_injection
+  crs_id: '933110'
 conditions:
   - operation: match_regex
     parameters:

@@ -2,6 +2,7 @@ id: crs-941-110
 name: 'XSS Filter - Category 1: Script Tag Vector'
 tags:
   type: xss
+  crs_id: '941110'
 conditions:
   - operation: match_regex
     parameters:

@@ -2,6 +2,7 @@ id: crs-942-140
 name: 'SQL Injection Attack: Common DB Names Detected'
 tags:
   type: sqli
+  crs_id: '942140'
 conditions:
   - operation: match_regex
     parameters:

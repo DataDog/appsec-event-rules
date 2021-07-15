@@ -2,6 +2,7 @@ id: crs-942-500
 name: MySQL in-line comment detected
 tags:
   type: sqli
+  crs_id: '942500'
 conditions:
   - operation: match_regex
     parameters:

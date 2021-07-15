@@ -2,6 +2,7 @@ id: crs-921-130
 name: HTTP Response Splitting Attack
 tags:
   type: http_protocol_violation
+  crs_id: '921130'
 conditions:
   - operation: match_regex
     parameters:

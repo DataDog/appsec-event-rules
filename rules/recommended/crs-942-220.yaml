@@ -4,6 +4,7 @@ name: >-
   3.0.00738585072007e-308 is the \"magic number\" crash
 tags:
   type: sqli
+  crs_id: '942220'
 conditions:
   - operation: match_regex
     parameters:

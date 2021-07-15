@@ -4,6 +4,7 @@ name: >-
   others
 tags:
   type: sqli
+  crs_id: '942270'
 conditions:
   - operation: match_regex
     parameters:

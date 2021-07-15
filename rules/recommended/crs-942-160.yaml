@@ -2,6 +2,7 @@ id: crs-942-160
 name: Detects blind sqli tests using sleep() or benchmark()
 tags:
   type: sqli
+  crs_id: '942160'
 conditions:
   - operation: match_regex
     parameters:

@@ -2,6 +2,7 @@ id: crs-942-350
 name: Detects MySQL UDF injection and other data/structure manipulation attempts
 tags:
   type: sqli
+  crs_id: '942350'
 conditions:
   - operation: match_regex
     parameters:

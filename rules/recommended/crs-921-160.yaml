@@ -2,6 +2,7 @@ id: crs-921-160
 name: HTTP Header Injection Attack via payload (CR/LF and header-name detected)
 tags:
   type: http_protocol_violation
+  crs_id: '921160'
 conditions:
   - operation: match_regex
     parameters:

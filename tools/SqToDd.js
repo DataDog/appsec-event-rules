@@ -83,7 +83,9 @@ function convertRule(oldRule){
         if(filter.transformations) newRule.addTransformer(filter.transformations); //add only if transformers exists in the old rule
     }
     newRule.addType(getRuleType(oldRule))
-
+    if(oldRule.rule_id.length == 6){ //this is a crs rule
+        newRule.addCRSID(oldRule.rule_id)
+    }
     let ruleYamlContents = newRule.toYaml()
     if(!ruleYamlContents) return; //in case of unsupported rule
 
@@ -247,6 +249,10 @@ function Rule(){
 
     this.addType = type => {
         this.rule.tags.type = type
+    }
+
+    this.addCRSID = crsID => {
+        this.rule.tags.crs_id = crsID
     }
 
     this.toYaml = () => {

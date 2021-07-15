@@ -4,6 +4,7 @@ name: >-
   Name used w/URL Payload
 tags:
   type: rfi
+  crs_id: '931110'
 conditions:
   - operation: match_regex
     parameters:

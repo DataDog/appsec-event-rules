@@ -2,6 +2,7 @@ id: crs-931-100
 name: 'Possible Remote File Inclusion (RFI) Attack: URL Parameter using IP Address'
 tags:
   type: rfi
+  crs_id: '931100'
 conditions:
   - operation: match_regex
     parameters:

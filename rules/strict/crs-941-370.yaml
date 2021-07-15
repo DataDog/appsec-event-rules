@@ -2,6 +2,7 @@ id: crs-941-370
 name: JavaScript global variable found
 tags:
   type: xss
+  crs_id: '941370'
 conditions:
   - operation: match_regex
     parameters:

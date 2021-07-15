@@ -2,6 +2,7 @@ id: crs-944-130
 name: Suspicious Java class detected
 tags:
   type: java_code_injection
+  crs_id: '944130'
 conditions:
   - operation: phrase_match
     parameters:

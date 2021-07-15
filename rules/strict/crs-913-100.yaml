@@ -2,6 +2,7 @@ id: crs-913-100
 name: Found User-Agent associated with security scanner
 tags:
   type: security_scanner
+  crs_id: '913100'
 conditions:
   - operation: phrase_match
     parameters:

@@ -2,6 +2,7 @@ id: crs-932-171
 name: 'Remote Command Execution: Shellshock (CVE-2014-6271)'
 tags:
   type: command_injection
+  crs_id: '932171'
 conditions:
   - operation: match_regex
     parameters:

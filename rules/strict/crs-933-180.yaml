@@ -2,6 +2,7 @@ id: crs-933-180
 name: 'PHP Injection Attack: Variable Function Call Found'
 tags:
   type: php_code_injection
+  crs_id: '933180'
 conditions:
   - operation: match_regex
     parameters:

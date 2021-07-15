@@ -2,6 +2,7 @@ id: crs-920-500
 name: Attempt to access a backup or working file
 tags:
   type: http_protocol_violation
+  crs_id: '920500'
 conditions:
   - operation: match_regex
     parameters:

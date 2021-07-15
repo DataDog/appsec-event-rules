@@ -2,6 +2,7 @@ id: crs-934-100
 name: Node.js Injection Attack
 tags:
   type: js_code_injection
+  crs_id: '934100'
 conditions:
   - operation: match_regex
     parameters:

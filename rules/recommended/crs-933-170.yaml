@@ -2,6 +2,7 @@ id: crs-933-170
 name: 'PHP Injection Attack: Serialized Object Injection'
 tags:
   type: php_code_injection
+  crs_id: '933170'
 conditions:
   - operation: match_regex
     parameters:

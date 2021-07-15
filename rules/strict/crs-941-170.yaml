@@ -2,6 +2,7 @@ id: crs-941-170
 name: 'NoScript XSS InjectionChecker: Attribute Injection'
 tags:
   type: xss
+  crs_id: '941170'
 conditions:
   - operation: match_regex
     parameters:
