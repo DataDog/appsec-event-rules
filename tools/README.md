@@ -9,3 +9,13 @@ This script will convert the rules from Sqreen WAF format to ther new Datadog ap
 node tools/SqToDd.js --source /path/to/waf/rules --output ./rules
 ```
 
+
+
+## 2. Build the rules
+The script is used to build the rules into one file
+
+
+### Usage
+```
+node tools/build.js --source ./rules --output ./build --collection "risky"
+```
