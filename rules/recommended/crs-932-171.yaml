@@ -10,7 +10,6 @@ conditions:
         - $http.server.query
         - $http.server.body
         - $http.server.path_params
-        - $server.request.body.filenames
         - $http.headers
       regex: ^\(\s*\)\s+{
       options:
