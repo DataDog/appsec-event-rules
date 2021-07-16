@@ -1,5 +1,6 @@
 const arg = require('arg');
 const fs = require('fs')
+const fse = require('fs-extra')
 const yaml = require('js-yaml')
 
 // Note the following operator is not supported right now.
@@ -45,7 +46,7 @@ const ADDRRS = {
     "REQUEST_URI":['$http.target'], 
     "REQUEST_BASENAME":[], //NOT SUPPORTED
     "FILES":[],//NOT SUPPORTED
-    "FILES_NAMES":['$server.request.body.filenames'], 
+    "FILES_NAMES":[], //NOT SUPPORTED
     "REQUEST_HEADERS:x-filename": ['$http.headers:x-filename'],
     "REQUEST_HEADERS:x_filename": ['$http.headers:x_filename'],
     "REQUEST_HEADERS:x.filename": ['$http.headers:x.filename'],
@@ -59,6 +60,13 @@ const ADDRRS = {
     "REQUEST_HEADERS:Referer": ['$http.headers:Referer'], 
     "REQUEST_METHOD":['$http.method'],
 }
+
+//empty the output folder
+fse.emptyDirSync(OutputDir + '/recommended')
+fse.emptyDirSync(OutputDir + '/strict')
+fse.emptyDirSync(OutputDir + '/risky')
+
+
 
 fs.readdirSync(ShieldRulesDir).forEach(file => {
     processJSONRulesFile(file, ShieldRulesDir)
@@ -212,6 +220,12 @@ function Rule(){
             }
             inputs.push(...ADDRRS[target])
         })
+
+        if(inputs.length == 0){
+            this.canBeConverted = false;
+            console.log('No available addresses can be used:', filter.targets)
+            return;
+        }
 
         switch(filter.operator){
             case '@rx':
