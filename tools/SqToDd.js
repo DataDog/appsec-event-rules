@@ -221,10 +221,10 @@ function Rule(){
                     regex: filter.value
                 }
                 if(filter.options){
-                    condition.options = {}
+                    condition.parameters.options = {}
                     //TODO: support the match_inter_transformers in the format & in the converter
-                    if(filter.options.case_sensitive) condition.options.case_sensitive = filter.options.case_sensitive;
-                    if(filter.options.min_length) condition.options.min_length = filter.options.min_length;
+                    if(filter.options.case_sensitive) condition.parameters.options.case_sensitive = filter.options.case_sensitive;
+                    if(filter.options.min_length) condition.parameters.options.min_length = filter.options.min_length;
                 }
             break
             case '@pm':
