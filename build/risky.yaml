@@ -20,21 +20,6 @@ events:
     transformers:
       - lowercase
     action: log
-  - id: crs-921-150
-    name: HTTP Header Injection Attack via payload (CR/LF detected)
-    tags:
-      type: http_protocol_violation
-      crs_id: '921150'
-    conditions:
-      - operation: match_regex
-        parameters:
-          inputs: []
-          regex: '[\n\r]'
-          options:
-            case_sensitive: true
-            min_length: 1
-    transformers: []
-    action: log
   - id: crs-931-100
     name: >-
       Possible Remote File Inclusion (RFI) Attack: URL Parameter using IP
