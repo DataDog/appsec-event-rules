@@ -13,8 +13,8 @@ conditions:
         - $http.server.body
         - $http.server.path_params
       regex: '[oOcC]:\d+:\".+?\":\d+:{[\W\w]*}'
-    options:
-      case_sensitive: true
-      min_length: 12
+      options:
+        case_sensitive: true
+        min_length: 12
 transformers: []
 action: log

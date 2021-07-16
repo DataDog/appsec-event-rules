@@ -13,8 +13,8 @@ conditions:
         - $http.server.path_params
       regex: >-
         (?:HTTP_(?:ACCEPT(?:_(?:ENCODING|LANGUAGE|CHARSET))?|(?:X_FORWARDED_FO|REFERE)R|(?:USER_AGEN|HOS)T|CONNECTION|KEEP_ALIVE)|PATH_(?:TRANSLATED|INFO)|ORIG_PATH_INFO|QUERY_STRING|REQUEST_URI|AUTH_TYPE)
-    options:
-      case_sensitive: true
-      min_length: 9
+      options:
+        case_sensitive: true
+        min_length: 9
 transformers: []
 action: log

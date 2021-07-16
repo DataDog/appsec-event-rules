@@ -13,8 +13,8 @@ conditions:
         - $http.server.path_params
       regex: >-
         (?i:\.cookie\b.*?;\W*?(?:expires|domain)\W*?=|\bhttp-equiv\W+set-cookie\b)
-    options:
-      case_sensitive: true
-      min_length: 15
+      options:
+        case_sensitive: true
+        min_length: 15
 transformers: []
 action: log

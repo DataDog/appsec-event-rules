@@ -12,9 +12,9 @@ conditions:
         - $http.server.body
         - $http.server.path_params
       regex: '[\r\n]\W*?(?:content-(?:type|length)|set-cookie|location):\s*\w'
-    options:
-      case_sensitive: true
-      min_length: 11
+      options:
+        case_sensitive: true
+        min_length: 11
 transformers:
   - lowercase
 action: log

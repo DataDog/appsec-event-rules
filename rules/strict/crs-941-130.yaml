@@ -14,8 +14,8 @@ conditions:
         - $http.server.path_params
       regex: >-
         [\s\S](?:!ENTITY\s+(?:\S+|%\s+\S+)\s+(?:PUBLIC|SYSTEM)|x(?:link:href|html|mlns)|data:text/html|pattern\b.*?=|formaction|\@import|;base64)\b
-    options:
-      min_length: 6
+      options:
+        min_length: 6
 transformers:
   - removeNulls
 action: log

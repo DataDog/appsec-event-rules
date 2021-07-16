@@ -12,9 +12,9 @@ conditions:
         - $http.server.body
         - $http.server.path_params
       regex: <[?]?import[\s/+\S]*?implementation[\s/+]*?=
-    options:
-      case_sensitive: true
-      min_length: 22
+      options:
+        case_sensitive: true
+        min_length: 22
 transformers:
   - lowercase
   - removeNulls

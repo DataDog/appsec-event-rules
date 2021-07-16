@@ -13,8 +13,8 @@ conditions:
         - $http.server.path_params
       regex: >-
         (?i:[\s(?:)]case\s*?\(|\)\s*?like\s*?\(|select.*?having\s*?[^\s]+\s*?[^\w\s]|if\s?\([\d\w]\s*?[=<>~])
-    options:
-      case_sensitive: true
-      min_length: 5
+      options:
+        case_sensitive: true
+        min_length: 5
 transformers: []
 action: log

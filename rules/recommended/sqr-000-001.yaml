@@ -11,8 +11,8 @@ conditions:
         - $http.server.path_params
       regex: >-
         (?i)^\W*((http|ftp)s?://)?\W*((::f{4}:)?(169|(0x)?0*a9|0+251)\.?(254|(0x)?0*fe|0+376)[0-9a-fx\.:]+|metadata\.google\.internal|metadata\.goog)\W*/
-    options:
-      min_length: 4
+      options:
+        min_length: 4
 transformers:
   - removeNulls
 action: log

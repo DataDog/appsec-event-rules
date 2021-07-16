@@ -13,8 +13,8 @@ conditions:
         - $http.server.path_params
       regex: >-
         (?i:merge.*?using\s*?\(|execute\s*?immediate\s*?[\"'`]|match\s*?[\w(?:),+-]+\s*?against\s*?\()
-    options:
-      case_sensitive: true
-      min_length: 11
+      options:
+        case_sensitive: true
+        min_length: 11
 transformers: []
 action: log

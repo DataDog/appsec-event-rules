@@ -12,8 +12,8 @@ conditions:
         - $http.server.body
         - $http.server.path_params
       regex: (?:self|document|this|top|window)\s*(?:/\*|[\[)]).+?(?:\]|\*/)
-    options:
-      case_sensitive: true
-      min_length: 6
+      options:
+        case_sensitive: true
+        min_length: 6
 transformers: []
 action: log

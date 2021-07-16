@@ -13,8 +13,8 @@ conditions:
         - $http.server.path_params
       regex: >-
         (?i:(?:[\"'`](?:;*?\s*?waitfor\s+(?:delay|time)\s+[\"'`]|;.*?:\s*?goto)|alter\s*?\w+.*?cha(?:racte)?r\s+set\s+\w+))
-    options:
-      case_sensitive: true
-      min_length: 7
+      options:
+        case_sensitive: true
+        min_length: 7
 transformers: []
 action: log

@@ -8,8 +8,8 @@ conditions:
     parameters:
       inputs: []
       regex: '[\n\r]'
-    options:
-      case_sensitive: true
-      min_length: 1
+      options:
+        case_sensitive: true
+        min_length: 1
 transformers: []
 action: log

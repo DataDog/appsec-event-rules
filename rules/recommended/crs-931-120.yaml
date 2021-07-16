@@ -13,8 +13,8 @@ conditions:
         - $http.server.body
         - $http.server.path_params
       regex: ^(?i:file|ftps?|https?).*?\?+$
-    options:
-      case_sensitive: true
-      min_length: 4
+      options:
+        case_sensitive: true
+        min_length: 4
 transformers: []
 action: log

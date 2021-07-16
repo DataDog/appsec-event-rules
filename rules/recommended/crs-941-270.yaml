@@ -12,8 +12,8 @@ conditions:
         - $http.server.body
         - $http.server.path_params
       regex: <LINK[\s/+].*?href[\s/+]*=
-    options:
-      min_length: 11
+      options:
+        min_length: 11
 transformers:
   - removeNulls
 action: log

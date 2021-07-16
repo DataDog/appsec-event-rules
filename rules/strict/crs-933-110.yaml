@@ -12,9 +12,9 @@ conditions:
         - $http.headers:x.filename
         - $http.headers:x-file-name
       regex: .*\.(?:php\d*|phtml)\.*$
-    options:
-      case_sensitive: true
-      min_length: 4
+      options:
+        case_sensitive: true
+        min_length: 4
 transformers:
   - lowercase
 action: log

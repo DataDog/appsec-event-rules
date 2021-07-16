@@ -12,9 +12,9 @@ conditions:
         - $http.server.path_params
       regex: >-
         (?:get|post|head|options|connect|put|delete|trace|track|patch|propfind|propatch|mkcol|copy|move|lock|unlock)\s+[^\s]+\s+http/\d
-    options:
-      case_sensitive: true
-      min_length: 12
+      options:
+        case_sensitive: true
+        min_length: 12
 transformers:
   - lowercase
 action: log

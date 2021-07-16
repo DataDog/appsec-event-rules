@@ -10,8 +10,8 @@ conditions:
         - $http.server.body
         - $http.server.path_params
       regex: require\(['"][\w\.]+['"]\)|process\.\w+\([\w\.]*\)|\.toString\(\)
-    options:
-      min_length: 4
+      options:
+        min_length: 4
 transformers:
   - removeNulls
 action: log

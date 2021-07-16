@@ -13,8 +13,8 @@ conditions:
         - $server.request.body.filenames
         - $http.headers
       regex: ^\(\s*\)\s+{
-    options:
-      case_sensitive: true
-      min_length: 4
+      options:
+        case_sensitive: true
+        min_length: 4
 transformers: []
 action: log

@@ -66,9 +66,9 @@ events:
           inputs:
             - $http.target
           regex: \%u[fF]{2}[0-9a-fA-F]{2}
-        options:
-          case_sensitive: true
-          min_length: 6
+          options:
+            case_sensitive: true
+            min_length: 6
     transformers: []
     action: log
   - id: crs-920-500
@@ -81,9 +81,9 @@ events:
         parameters:
           inputs: []
           regex: \.[^.~]+~(?:/.*|)$
-        options:
-          case_sensitive: true
-          min_length: 3
+          options:
+            case_sensitive: true
+            min_length: 3
     transformers: []
     action: log
   - id: crs-921-110
@@ -100,9 +100,9 @@ events:
             - $http.server.path_params
           regex: >-
             (?:get|post|head|options|connect|put|delete|trace|track|patch|propfind|propatch|mkcol|copy|move|lock|unlock)\s+[^\s]+\s+http/\d
-        options:
-          case_sensitive: true
-          min_length: 12
+          options:
+            case_sensitive: true
+            min_length: 12
     transformers:
       - lowercase
     action: log
@@ -117,9 +117,9 @@ events:
           inputs:
             - $http.headers
           regex: '[\n\r]'
-        options:
-          case_sensitive: true
-          min_length: 1
+          options:
+            case_sensitive: true
+            min_length: 1
     transformers: []
     action: log
   - id: crs-921-160
@@ -135,9 +135,9 @@ events:
             - $http.server.path_params
           regex: >-
             [\n\r]+(?:\s|location|refresh|(?:set-)?cookie|(?:x-)?(?:forwarded-(?:for|host|server)|host|via|remote-ip|remote-addr|originating-IP))\s*:
-        options:
-          case_sensitive: true
-          min_length: 3
+          options:
+            case_sensitive: true
+            min_length: 3
     transformers:
       - lowercase
     action: log
@@ -151,9 +151,9 @@ events:
         parameters:
           inputs: []
           regex: '[\n\r].'
-        options:
-          case_sensitive: true
-          min_length: 1
+          options:
+            case_sensitive: true
+            min_length: 1
     transformers: []
     action: log
   - id: crs-930-100
@@ -169,8 +169,8 @@ events:
             - $http.headers
           regex: >-
             (?:\x5c|(?:%(?:c(?:0%(?:[2aq]f|5c|9v)|1%(?:[19p]c|8s|af))|2(?:5(?:c(?:0%25af|1%259c)|2f|5c)|%46|f)|(?:(?:f(?:8%8)?0%8|e)0%80%a|bg%q)f|%3(?:2(?:%(?:%6|4)6|F)|5%%63)|u(?:221[56]|002f|EFC8|F025)|1u|5c)|0x(?:2f|5c)|/))(?:%(?:(?:f(?:(?:c%80|8)%8)?0%8|e)0%80%ae|2(?:(?:5(?:c0%25a|2))?e|%45)|u(?:(?:002|ff0)e|2024)|%32(?:%(?:%6|4)5|E)|c0(?:%[256aef]e|\.))|\.(?:%0[01]|\?)?|\?\.?|0x2e){2}(?:\x5c|(?:%(?:c(?:0%(?:[2aq]f|5c|9v)|1%(?:[19p]c|8s|af))|2(?:5(?:c(?:0%25af|1%259c)|2f|5c)|%46|f)|(?:(?:f(?:8%8)?0%8|e)0%80%a|bg%q)f|%3(?:2(?:%(?:%6|4)6|F)|5%%63)|u(?:221[56]|002f|EFC8|F025)|1u|5c)|0x(?:2f|5c)|/))
-        options:
-          min_length: 4
+          options:
+            min_length: 4
     transformers: []
     action: log
   - id: crs-930-110
@@ -185,9 +185,9 @@ events:
             - $http.target
             - $http.headers
           regex: (?:^|[\\/])\.\.(?:[\\/]|$)
-        options:
-          case_sensitive: true
-          min_length: 2
+          options:
+            case_sensitive: true
+            min_length: 2
     transformers:
       - removeNulls
     action: log
@@ -1492,8 +1492,8 @@ events:
             - $http.server.query
           regex: >-
             (?:\binclude\s*\([^)]*|mosConfig_absolute_path|_CONF\[path\]|_SERVER\[DOCUMENT_ROOT\]|GALLERY_BASEDIR|path\[docroot\]|appserv_root|config\[root_dir\])=(?:file|ftps?|https?)://
-        options:
-          min_length: 15
+          options:
+            min_length: 15
     transformers: []
     action: log
   - id: crs-931-120
@@ -1511,9 +1511,9 @@ events:
             - $http.server.body
             - $http.server.path_params
           regex: ^(?i:file|ftps?|https?).*?\?+$
-        options:
-          case_sensitive: true
-          min_length: 4
+          options:
+            case_sensitive: true
+            min_length: 4
     transformers: []
     action: log
   - id: crs-932-160
@@ -1663,9 +1663,9 @@ events:
             - $server.request.body.filenames
             - $http.headers
           regex: ^\(\s*\)\s+{
-        options:
-          case_sensitive: true
-          min_length: 4
+          options:
+            case_sensitive: true
+            min_length: 4
     transformers: []
     action: log
   - id: crs-932-180
@@ -1715,9 +1715,9 @@ events:
             - $http.headers:x.filename
             - $http.headers:x-file-name
           regex: .*\.(?:php\d*|phtml)\..*$
-        options:
-          case_sensitive: true
-          min_length: 5
+          options:
+            case_sensitive: true
+            min_length: 5
     transformers:
       - lowercase
     action: log
@@ -1772,9 +1772,9 @@ events:
             - $http.server.path_params
           regex: >-
             (?:HTTP_(?:ACCEPT(?:_(?:ENCODING|LANGUAGE|CHARSET))?|(?:X_FORWARDED_FO|REFERE)R|(?:USER_AGEN|HOS)T|CONNECTION|KEEP_ALIVE)|PATH_(?:TRANSLATED|INFO)|ORIG_PATH_INFO|QUERY_STRING|REQUEST_URI|AUTH_TYPE)
-        options:
-          case_sensitive: true
-          min_length: 9
+          options:
+            case_sensitive: true
+            min_length: 9
     transformers: []
     action: log
   - id: crs-933-140
@@ -1791,8 +1791,8 @@ events:
             - $http.server.body
             - $http.server.path_params
           regex: php://(?:std(?:in|out|err)|(?:in|out)put|fd|memory|temp|filter)
-        options:
-          min_length: 8
+          options:
+            min_length: 8
     transformers: []
     action: log
   - id: crs-933-150
@@ -1871,8 +1871,8 @@ events:
             - $http.server.path_params
           regex: >-
             \b(?:s(?:e(?:t(?:_(?:e(?:xception|rror)_handler|magic_quotes_runtime|include_path)|defaultstub)|ssion_s(?:et_save_handler|tart))|qlite_(?:(?:(?:unbuffered|single|array)_)?query|create_(?:aggregate|function)|p?open|exec)|tr(?:eam_(?:context_create|socket_client)|ipc?slashes|rev)|implexml_load_(?:string|file)|ocket_c(?:onnect|reate)|h(?:ow_sourc|a1_fil)e|pl_autoload_register|ystem)|p(?:r(?:eg_(?:replace(?:_callback(?:_array)?)?|match(?:_all)?|split)|oc_(?:(?:terminat|clos|nic)e|get_status|open)|int_r)|o(?:six_(?:get(?:(?:e[gu]|g)id|login|pwnam)|mk(?:fifo|nod)|ttyname|kill)|pen)|hp(?:_(?:strip_whitespac|unam)e|version|info)|g_(?:(?:execut|prepar)e|connect|query)|a(?:rse_(?:ini_file|str)|ssthru)|utenv)|r(?:unkit_(?:function_(?:re(?:defin|nam)e|copy|add)|method_(?:re(?:defin|nam)e|copy|add)|constant_(?:redefine|add))|e(?:(?:gister_(?:shutdown|tick)|name)_function|ad(?:(?:gz)?file|_exif_data|dir))|awurl(?:de|en)code)|i(?:mage(?:createfrom(?:(?:jpe|pn)g|x[bp]m|wbmp|gif)|(?:jpe|pn)g|g(?:d2?|if)|2?wbmp|xbm)|s_(?:(?:(?:execut|write?|read)ab|fi)le|dir)|ni_(?:get(?:_all)?|set)|terator_apply|ptcembed)|g(?:et(?:_(?:c(?:urrent_use|fg_va)r|meta_tags)|my(?:[gpu]id|inode)|(?:lastmo|cw)d|imagesize|env)|z(?:(?:(?:defla|wri)t|encod|fil)e|compress|open|read)|lob)|a(?:rray_(?:u(?:intersect(?:_u?assoc)?|diff(?:_u?assoc)?)|intersect_u(?:assoc|key)|diff_u(?:assoc|key)|filter|reduce|map)|ssert(?:_options)?)|h(?:tml(?:specialchars(?:_decode)?|_entity_decode|entities)|(?:ash(?:_(?:update|hmac))?|ighlight)_file|e(?:ader_register_callback|x2bin))|f(?:i(?:le(?:(?:[acm]tim|inod)e|(?:_exist|perm)s|group)?|nfo_open)|tp_(?:nb_(?:ge|pu)|connec|ge|pu)t|(?:unction_exis|pu)ts|write|open)|o(?:b_(?:get_(?:c(?:ontents|lean)|flush)|end_(?:clean|flush)|clean|flush|start)|dbc_(?:result(?:_all)?|exec(?:ute)?|connect)|pendir)|m(?:b_(?:ereg(?:_(?:replace(?:_callback)?|match)|i(?:_replace)?)?|parse_str)|(?:ove_uploaded|d5)_file|ethod_exists|ysql_query|kdir)|e(?:x(?:if_(?:t(?:humbnail|agname)|imagetype|read_data)|ec)|scapeshell(?:arg|cmd)|rror_reporting|val)|c(?:url_(?:file_create|exec|init)|onvert_uuencode|reate_function|hr)|u(?:n(?:serialize|pack)|rl(?:de|en)code|[ak]?sort)|(?:json_(?:de|en)cod|debug_backtrac|tmpfil)e|b(?:(?:son_(?:de|en)|ase64_en)code|zopen)|var_dump)(?:\s|/\*.*\*/|//.*|#.*)*\(.*\)
-        options:
-          min_length: 5
+          options:
+            min_length: 5
     transformers: []
     action: log
   - id: crs-933-170
@@ -1890,9 +1890,9 @@ events:
             - $http.server.body
             - $http.server.path_params
           regex: '[oOcC]:\d+:\".+?\":\d+:{[\W\w]*}'
-        options:
-          case_sensitive: true
-          min_length: 12
+          options:
+            case_sensitive: true
+            min_length: 12
     transformers: []
     action: log
   - id: crs-933-200
@@ -1909,9 +1909,9 @@ events:
             - $http.server.body
             - $http.server.path_params
           regex: (?i:zlib|glob|phar|ssh2|rar|ogg|expect|zip)://
-        options:
-          case_sensitive: true
-          min_length: 6
+          options:
+            case_sensitive: true
+            min_length: 6
     transformers:
       - removeNulls
     action: log
@@ -1930,9 +1930,9 @@ events:
             - $http.server.path_params
           regex: >-
             (?:(?:_(?:\$\$ND_FUNC\$\$_|_js_function)|(?:new\s+Function|\beval)\s*\(|String\s*\.\s*fromCharCode|function\s*\(\s*\)\s*{|this\.constructor)|module\.exports\s*=)
-        options:
-          case_sensitive: true
-          min_length: 5
+          options:
+            case_sensitive: true
+            min_length: 5
     transformers: []
     action: log
   - id: crs-941-110
@@ -1951,8 +1951,8 @@ events:
             - $http.server.body
             - $http.server.path_params
           regex: <script[^>]*>[\s\S]*?
-        options:
-          min_length: 8
+          options:
+            min_length: 8
     transformers:
       - removeNulls
     action: log
@@ -1970,9 +1970,9 @@ events:
             - $http.server.body
             - $http.server.path_params
           regex: (?i:<.*[:]?vmlframe.*?[\s/+]*?src[\s/+]*=)
-        options:
-          case_sensitive: true
-          min_length: 13
+          options:
+            case_sensitive: true
+            min_length: 13
     transformers:
       - removeNulls
     action: log
@@ -1991,9 +1991,9 @@ events:
             - $http.server.path_params
           regex: >-
             (?i:(?:j|&#x?0*(?:74|4A|106|6A);?)(?:\t|&(?:#x?0*(?:9|13|10|A|D);?|tab;|newline;))*(?:a|&#x?0*(?:65|41|97|61);?)(?:\t|&(?:#x?0*(?:9|13|10|A|D);?|tab;|newline;))*(?:v|&#x?0*(?:86|56|118|76);?)(?:\t|&(?:#x?0*(?:9|13|10|A|D);?|tab;|newline;))*(?:a|&#x?0*(?:65|41|97|61);?)(?:\t|&(?:#x?0*(?:9|13|10|A|D);?|tab;|newline;))*(?:s|&#x?0*(?:83|53|115|73);?)(?:\t|&(?:#x?0*(?:9|13|10|A|D);?|tab;|newline;))*(?:c|&#x?0*(?:67|43|99|63);?)(?:\t|&(?:#x?0*(?:9|13|10|A|D);?|tab;|newline;))*(?:r|&#x?0*(?:82|52|114|72);?)(?:\t|&(?:#x?0*(?:9|13|10|A|D);?|tab;|newline;))*(?:i|&#x?0*(?:73|49|105|69);?)(?:\t|&(?:#x?0*(?:9|13|10|A|D);?|tab;|newline;))*(?:p|&#x?0*(?:80|50|112|70);?)(?:\t|&(?:#x?0*(?:9|13|10|A|D);?|tab;|newline;))*(?:t|&#x?0*(?:84|54|116|74);?)(?:\t|&(?:#x?0*(?:9|13|10|A|D);?|tab;|newline;))*(?::|&(?:#x?0*(?:58|3A);?|colon;)).)
-        options:
-          case_sensitive: true
-          min_length: 12
+          options:
+            case_sensitive: true
+            min_length: 12
     transformers:
       - removeNulls
     action: log
@@ -2012,9 +2012,9 @@ events:
             - $http.server.path_params
           regex: >-
             (?i:(?:v|&#x?0*(?:86|56|118|76);?)(?:\t|&(?:#x?0*(?:9|13|10|A|D);?|tab;|newline;))*(?:b|&#x?0*(?:66|42|98|62);?)(?:\t|&(?:#x?0*(?:9|13|10|A|D);?|tab;|newline;))*(?:s|&#x?0*(?:83|53|115|73);?)(?:\t|&(?:#x?0*(?:9|13|10|A|D);?|tab;|newline;))*(?:c|&#x?0*(?:67|43|99|63);?)(?:\t|&(?:#x?0*(?:9|13|10|A|D);?|tab;|newline;))*(?:r|&#x?0*(?:82|52|114|72);?)(?:\t|&(?:#x?0*(?:9|13|10|A|D);?|tab;|newline;))*(?:i|&#x?0*(?:73|49|105|69);?)(?:\t|&(?:#x?0*(?:9|13|10|A|D);?|tab;|newline;))*(?:p|&#x?0*(?:80|50|112|70);?)(?:\t|&(?:#x?0*(?:9|13|10|A|D);?|tab;|newline;))*(?:t|&#x?0*(?:84|54|116|74);?)(?:\t|&(?:#x?0*(?:9|13|10|A|D);?|tab;|newline;))*(?::|&(?:#x?0*(?:58|3A);?|colon;)).)
-        options:
-          case_sensitive: true
-          min_length: 10
+          options:
+            case_sensitive: true
+            min_length: 10
     transformers:
       - removeNulls
     action: log
@@ -2032,8 +2032,8 @@ events:
             - $http.server.body
             - $http.server.path_params
           regex: <EMBED[\s/+].*?(?:src|type).*?=
-        options:
-          min_length: 11
+          options:
+            min_length: 11
     transformers:
       - removeNulls
     action: log
@@ -2051,9 +2051,9 @@ events:
             - $http.server.body
             - $http.server.path_params
           regex: <[?]?import[\s/+\S]*?implementation[\s/+]*?=
-        options:
-          case_sensitive: true
-          min_length: 22
+          options:
+            case_sensitive: true
+            min_length: 22
     transformers:
       - lowercase
       - removeNulls
@@ -2072,8 +2072,8 @@ events:
             - $http.server.body
             - $http.server.path_params
           regex: <LINK[\s/+].*?href[\s/+]*=
-        options:
-          min_length: 11
+          options:
+            min_length: 11
     transformers:
       - removeNulls
     action: log
@@ -2091,8 +2091,8 @@ events:
             - $http.server.body
             - $http.server.path_params
           regex: <BASE[\s/+].*?href[\s/+]*=
-        options:
-          min_length: 11
+          options:
+            min_length: 11
     transformers:
       - removeNulls
     action: log
@@ -2110,8 +2110,8 @@ events:
             - $http.server.body
             - $http.server.path_params
           regex: <APPLET[\s/+>]
-        options:
-          min_length: 8
+          options:
+            min_length: 8
     transformers:
       - removeNulls
     action: log
@@ -2129,8 +2129,8 @@ events:
             - $http.server.body
             - $http.server.path_params
           regex: <OBJECT[\s/+].*?(?:type|codetype|classid|code|data)[\s/+]*=
-        options:
-          min_length: 13
+          options:
+            min_length: 13
     transformers:
       - removeNulls
     action: log
@@ -2148,9 +2148,9 @@ events:
             - $http.server.body
             - $http.server.path_params
           regex: \+ADw-.*(?:\+AD4-|>)|<.*\+AD4-
-        options:
-          case_sensitive: true
-          min_length: 6
+          options:
+            case_sensitive: true
+            min_length: 6
     transformers: []
     action: log
   - id: crs-941-360
@@ -2167,9 +2167,9 @@ events:
             - $http.server.body
             - $http.server.path_params
           regex: '![!+ ]\[\]'
-        options:
-          case_sensitive: true
-          min_length: 4
+          options:
+            case_sensitive: true
+            min_length: 4
     transformers: []
     action: log
   - id: crs-942-140
@@ -2187,9 +2187,9 @@ events:
             - $http.server.path_params
           regex: >-
             (?i:\b(?:(?:m(?:s(?:ys(?:ac(?:cess(?:objects|storage|xml)|es)|(?:relationship|object|querie)s|modules2?)|db)|aster\.\.sysdatabases|ysql\.db)|pg_(?:catalog|toast)|information_schema|northwind|tempdb)\b|s(?:(?:ys(?:\.database_name|aux)|qlite(?:_temp)?_master)\b|chema(?:_name\b|\W*\())|d(?:atabas|b_nam)e\W*\())
-        options:
-          case_sensitive: true
-          min_length: 4
+          options:
+            case_sensitive: true
+            min_length: 4
     transformers: []
     action: log
   - id: crs-942-160
@@ -2206,9 +2206,9 @@ events:
             - $http.server.body
             - $http.server.path_params
           regex: (?i:sleep\(\s*?\d*?\s*?\)|benchmark\(.*?\,.*?\))
-        options:
-          case_sensitive: true
-          min_length: 7
+          options:
+            case_sensitive: true
+            min_length: 7
     transformers: []
     action: log
   - id: crs-942-220
@@ -2228,9 +2228,9 @@ events:
             - $http.server.path_params
           regex: >-
             ^(?i:-0000023456|4294967295|4294967296|2147483648|2147483647|0000012345|-2147483648|-2147483649|0000023456|3.0.00738585072007e-308|1e309)$
-        options:
-          case_sensitive: true
-          min_length: 5
+          options:
+            case_sensitive: true
+            min_length: 5
     transformers: []
     action: log
   - id: crs-942-240
@@ -2248,9 +2248,9 @@ events:
             - $http.server.path_params
           regex: >-
             (?i:(?:[\"'`](?:;*?\s*?waitfor\s+(?:delay|time)\s+[\"'`]|;.*?:\s*?goto)|alter\s*?\w+.*?cha(?:racte)?r\s+set\s+\w+))
-        options:
-          case_sensitive: true
-          min_length: 7
+          options:
+            case_sensitive: true
+            min_length: 7
     transformers: []
     action: log
   - id: crs-942-250
@@ -2268,9 +2268,9 @@ events:
             - $http.server.path_params
           regex: >-
             (?i:merge.*?using\s*?\(|execute\s*?immediate\s*?[\"'`]|match\s*?[\w(?:),+-]+\s*?against\s*?\()
-        options:
-          case_sensitive: true
-          min_length: 11
+          options:
+            case_sensitive: true
+            min_length: 11
     transformers: []
     action: log
   - id: crs-942-270
@@ -2289,8 +2289,8 @@ events:
             - $http.server.body
             - $http.server.path_params
           regex: union.*?select.*?from
-        options:
-          min_length: 15
+          options:
+            min_length: 15
     transformers: []
     action: log
   - id: crs-942-280
@@ -2310,9 +2310,9 @@ events:
             - $http.server.path_params
           regex: >-
             (?i:(?:;\s*?shutdown\s*?(?:[#;]|/\*|--|\{)|waitfor\s*?delay\s?[\"'`]+\s?\d|select\s*?pg_sleep))
-        options:
-          case_sensitive: true
-          min_length: 10
+          options:
+            case_sensitive: true
+            min_length: 10
     transformers: []
     action: log
   - id: crs-942-290
@@ -2330,9 +2330,9 @@ events:
             - $http.server.path_params
           regex: >-
             (?i:(?:\[\$(?:ne|eq|lte?|gte?|n?in|mod|all|size|exists|type|slice|x?or|div|like|between|and)\]))
-        options:
-          case_sensitive: true
-          min_length: 5
+          options:
+            case_sensitive: true
+            min_length: 5
     transformers: []
     action: log
   - id: crs-942-500
@@ -2349,9 +2349,9 @@ events:
             - $http.server.body
             - $http.server.path_params
           regex: (?i:/\*[!+](?:[\w\s=_\-(?:)]+)?\*/)
-        options:
-          case_sensitive: true
-          min_length: 5
+          options:
+            case_sensitive: true
+            min_length: 5
     transformers: []
     action: log
   - id: crs-943-100
@@ -2369,9 +2369,9 @@ events:
             - $http.server.path_params
           regex: >-
             (?i:\.cookie\b.*?;\W*?(?:expires|domain)\W*?=|\bhttp-equiv\W+set-cookie\b)
-        options:
-          case_sensitive: true
-          min_length: 15
+          options:
+            case_sensitive: true
+            min_length: 15
     transformers: []
     action: log
   - id: crs-944-100
@@ -2389,9 +2389,9 @@ events:
             - $http.server.cookies
             - $http.headers
           regex: java\.lang\.(?:runtime|processbuilder)
-        options:
-          case_sensitive: true
-          min_length: 17
+          options:
+            case_sensitive: true
+            min_length: 17
     transformers:
       - lowercase
     action: log
@@ -2410,9 +2410,9 @@ events:
             - $http.server.cookies
             - $http.headers
           regex: (?:runtime|processbuilder)
-        options:
-          case_sensitive: true
-          min_length: 7
+          options:
+            case_sensitive: true
+            min_length: 7
       - operation: match_regex
         parameters:
           inputs:
@@ -2422,9 +2422,9 @@ events:
             - $http.server.cookies
             - $http.headers
           regex: (?:unmarshaller|base64data|java\.)
-        options:
-          case_sensitive: true
-          min_length: 5
+          options:
+            case_sensitive: true
+            min_length: 5
     transformers:
       - lowercase
     action: log
@@ -2502,8 +2502,8 @@ events:
             - $http.server.path_params
           regex: >-
             (?i)^\W*((http|ftp)s?://)?\W*((::f{4}:)?(169|(0x)?0*a9|0+251)\.?(254|(0x)?0*fe|0+376)[0-9a-fx\.:]+|metadata\.google\.internal|metadata\.goog)\W*/
-        options:
-          min_length: 4
+          options:
+            min_length: 4
     transformers:
       - removeNulls
     action: log
@@ -2519,8 +2519,8 @@ events:
             - $http.server.body
             - $http.server.path_params
           regex: require\(['"][\w\.]+['"]\)|process\.\w+\([\w\.]*\)|\.toString\(\)
-        options:
-          min_length: 4
+          options:
+            min_length: 4
     transformers:
       - removeNulls
     action: log

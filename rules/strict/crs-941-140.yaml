@@ -15,8 +15,8 @@ conditions:
         - $http.server.path_params
       regex: >-
         (?:<(?:(?:apple|objec)t|isindex|embed|style|form|meta)\b[^>]*?>[\s\S]*?|(?:=|U\s*?R\s*?L\s*?\()\s*?[^>]*?\s*?S\s*?C\s*?R\s*?I\s*?P\s*?T\s*?:)
-    options:
-      min_length: 6
+      options:
+        min_length: 6
 transformers:
   - removeNulls
 action: log

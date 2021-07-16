@@ -12,9 +12,9 @@ conditions:
         - $http.server.body
         - $http.server.path_params
       regex: (?:\bhttp/\d|<(?:html|meta)\b)
-    options:
-      case_sensitive: true
-      min_length: 5
+      options:
+        case_sensitive: true
+        min_length: 5
 transformers:
   - lowercase
 action: log

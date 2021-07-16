@@ -11,9 +11,9 @@ conditions:
         - $http.server.path_params
       regex: >-
         [\n\r]+(?:\s|location|refresh|(?:set-)?cookie|(?:x-)?(?:forwarded-(?:for|host|server)|host|via|remote-ip|remote-addr|originating-IP))\s*:
-    options:
-      case_sensitive: true
-      min_length: 3
+      options:
+        case_sensitive: true
+        min_length: 3
 transformers:
   - lowercase
 action: log

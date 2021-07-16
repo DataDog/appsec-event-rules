@@ -14,9 +14,9 @@ conditions:
         - $http.headers
       regex: >-
         (?:clonetransformer|forclosure|instantiatefactory|instantiatetransformer|invokertransformer|prototypeclonefactory|prototypeserializationfactory|whileclosure|getproperty|filewriter|xmldecoder)
-    options:
-      case_sensitive: true
-      min_length: 10
+      options:
+        case_sensitive: true
+        min_length: 10
 transformers:
   - lowercase
 action: log

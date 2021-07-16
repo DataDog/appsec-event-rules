@@ -10,9 +10,9 @@ conditions:
         - $http.server.body
         - $http.server.path_params
       regex: (?:^|[\\/])\.\.(?:[\\/]|$)
-    options:
-      case_sensitive: true
-      min_length: 2
+      options:
+        case_sensitive: true
+        min_length: 2
 transformers:
   - removeNulls
 action: log

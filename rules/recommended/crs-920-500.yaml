@@ -8,8 +8,8 @@ conditions:
     parameters:
       inputs: []
       regex: \.[^.~]+~(?:/.*|)$
-    options:
-      case_sensitive: true
-      min_length: 3
+      options:
+        case_sensitive: true
+        min_length: 3
 transformers: []
 action: log

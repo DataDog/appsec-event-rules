@@ -13,8 +13,8 @@ conditions:
         - $http.server.body
         - $http.server.path_params
       regex: \b(?:s(?:tyle|rc)|href)\b\s*?=
-    options:
-      min_length: 4
+      options:
+        min_length: 4
 transformers:
   - removeNulls
 action: log

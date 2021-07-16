@@ -12,8 +12,8 @@ conditions:
         - $http.server.body
         - $http.server.path_params
       regex: <OBJECT[\s/+].*?(?:type|codetype|classid|code|data)[\s/+]*=
-    options:
-      min_length: 13
+      options:
+        min_length: 13
 transformers:
   - removeNulls
 action: log

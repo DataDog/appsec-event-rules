@@ -14,8 +14,8 @@ conditions:
         - $http.server.body
         - $http.server.path_params
       regex: (?i:(?:select|;)\s+(?:benchmark|sleep|if)\s*?\(\s*?\(?\s*?\w+)
-    options:
-      case_sensitive: true
-      min_length: 6
+      options:
+        case_sensitive: true
+        min_length: 6
 transformers: []
 action: log

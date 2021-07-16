@@ -14,8 +14,8 @@ conditions:
         - $http.server.body
         - $http.server.path_params
       regex: <script[^>]*>[\s\S]*?
-    options:
-      min_length: 8
+      options:
+        min_length: 8
 transformers:
   - removeNulls
 action: log

@@ -12,7 +12,7 @@ conditions:
         - $http.server.body
         - $http.server.path_params
       regex: php://(?:std(?:in|out|err)|(?:in|out)put|fd|memory|temp|filter)
-    options:
-      min_length: 8
+      options:
+        min_length: 8
 transformers: []
 action: log

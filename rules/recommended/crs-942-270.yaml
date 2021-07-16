@@ -14,7 +14,7 @@ conditions:
         - $http.server.body
         - $http.server.path_params
       regex: union.*?select.*?from
-    options:
-      min_length: 15
+      options:
+        min_length: 15
 transformers: []
 action: log

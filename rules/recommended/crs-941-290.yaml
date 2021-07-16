@@ -12,8 +12,8 @@ conditions:
         - $http.server.body
         - $http.server.path_params
       regex: <APPLET[\s/+>]
-    options:
-      min_length: 8
+      options:
+        min_length: 8
 transformers:
   - removeNulls
 action: log
