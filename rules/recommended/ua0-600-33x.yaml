@@ -9,4 +9,4 @@ conditions:
         - $http.user_agent
       regex: (?i)\bblack\s?widow\b
 transformers: []
-action: log
+action: record

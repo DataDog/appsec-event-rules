@@ -12,4 +12,4 @@ conditions:
         - $http.headers
       regex: __proto__[\.\[]
 transformers: []
-action: log
+action: record

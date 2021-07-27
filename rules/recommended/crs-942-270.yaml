@@ -17,4 +17,4 @@ conditions:
       options:
         min_length: 15
 transformers: []
-action: log
+action: record

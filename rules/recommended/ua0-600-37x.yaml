@@ -9,4 +9,4 @@ conditions:
         - $http.user_agent
       regex: nmap (nse|scripting engine)
 transformers: []
-action: log
+action: record

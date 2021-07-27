@@ -9,4 +9,4 @@ conditions:
         - $http.user_agent
       regex: (?i)(<script>netsparker\(0x0|ns:netsparker.*=vuln)
 transformers: []
-action: log
+action: record

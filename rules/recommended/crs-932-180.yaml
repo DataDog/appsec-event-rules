@@ -30,4 +30,4 @@ conditions:
         - .env
 transformers:
   - lowercase
-action: log
+action: record

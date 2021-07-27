@@ -58,4 +58,4 @@ conditions:
         - java.beans.xmldecode
 transformers:
   - lowercase
-action: log
+action: record

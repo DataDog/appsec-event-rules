@@ -129,4 +129,4 @@ conditions:
         - usr/local/bin/wget
 transformers:
   - lowercase
-action: log
+action: record

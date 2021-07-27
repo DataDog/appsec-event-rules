@@ -101,4 +101,4 @@ conditions:
         - zmeu
 transformers:
   - lowercase
-action: log
+action: record

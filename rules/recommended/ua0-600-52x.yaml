@@ -11,4 +11,4 @@ conditions:
         - $http.user_agent
       regex: (?i)^Nuclei\b
 transformers: []
-action: log
+action: record

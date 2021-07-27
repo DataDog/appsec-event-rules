@@ -18,4 +18,4 @@ conditions:
         min_length: 10
 transformers:
   - removeNulls
-action: log
+action: record

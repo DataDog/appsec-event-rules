@@ -30,4 +30,4 @@ conditions:
         - w00tw00t.at.blackhats.romanian.anti-sec
 transformers:
   - lowercase
-action: log
+action: record

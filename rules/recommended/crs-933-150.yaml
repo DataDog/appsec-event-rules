@@ -58,4 +58,4 @@ conditions:
         - zlib_decode
 transformers:
   - lowercase
-action: log
+action: record

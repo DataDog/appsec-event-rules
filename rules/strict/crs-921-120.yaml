@@ -17,4 +17,4 @@ conditions:
         min_length: 11
 transformers:
   - lowercase
-action: log
+action: record

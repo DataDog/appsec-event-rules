@@ -18,4 +18,4 @@ conditions:
 transformers:
   - lowercase
   - removeNulls
-action: log
+action: record

@@ -9,4 +9,4 @@ conditions:
         - $http.user_agent
       regex: Powered by Spider-Pig by tinfoilsecurity\.com
 transformers: []
-action: log
+action: record

@@ -9,4 +9,4 @@ conditions:
         - $http.user_agent
       regex: (?i)^Nessus(/|([ :]+SOAP))
 transformers: []
-action: log
+action: record

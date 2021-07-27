@@ -1117,4 +1117,4 @@ conditions:
         - yarn.lock
 transformers:
   - lowercase
-action: log
+action: record

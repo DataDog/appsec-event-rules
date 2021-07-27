@@ -17,4 +17,4 @@ conditions:
         case_sensitive: true
         min_length: 12
 transformers: []
-action: log
+action: record

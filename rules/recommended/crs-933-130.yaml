@@ -33,4 +33,4 @@ conditions:
         - $argv
 transformers:
   - lowercase
-action: log
+action: record

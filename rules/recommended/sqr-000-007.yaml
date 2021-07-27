@@ -9,4 +9,4 @@ conditions:
         - $http.headers
       regex: \$(eq|ne|lte?|gte?|n?in)\b
 transformers: []
-action: log
+action: record

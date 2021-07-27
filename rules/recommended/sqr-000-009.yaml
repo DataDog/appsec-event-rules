@@ -12,4 +12,4 @@ conditions:
         - $http.headers
       regex: (?i)[&|]\s*cat\s+\/etc\/[\w\.\/]*passwd\s*[&|]
 transformers: []
-action: log
+action: record

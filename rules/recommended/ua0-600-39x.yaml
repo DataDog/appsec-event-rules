@@ -9,4 +9,4 @@ conditions:
         - $http.user_agent
       regex: (?i)^'?[a-z0-9]+\.nasl'?$
 transformers: []
-action: log
+action: record

@@ -12,4 +12,4 @@ conditions:
         - $http.headers
       regex: (?i)[&|]\s*timeout\s+/t\s+\d+\s*[&|]
 transformers: []
-action: log
+action: record

@@ -9,4 +9,4 @@ conditions:
         - $http.user_agent
       regex: (?i)\bbsqlbf\b
 transformers: []
-action: log
+action: record

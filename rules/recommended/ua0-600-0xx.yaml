@@ -9,4 +9,4 @@ conditions:
         - $http.user_agent
       regex: JDatabaseDriverMysqli
 transformers: []
-action: log
+action: record

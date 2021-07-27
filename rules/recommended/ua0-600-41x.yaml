@@ -9,4 +9,4 @@ conditions:
         - $http.user_agent
       regex: md5\(acunetix_wvs_security_test\)
 transformers: []
-action: log
+action: record

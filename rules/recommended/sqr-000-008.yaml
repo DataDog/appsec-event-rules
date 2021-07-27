@@ -12,4 +12,4 @@ conditions:
         - $http.headers
       regex: (?i)[&|]\s*type\s+%\w+%\\+\w+\.ini\s*[&|]
 transformers: []
-action: log
+action: record

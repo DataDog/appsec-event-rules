@@ -9,4 +9,4 @@ conditions:
         - $http.user_agent
       regex: Mozilla/\d+.\d+ zgrab
 transformers: []
-action: log
+action: record
