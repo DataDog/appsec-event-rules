@@ -174,7 +174,7 @@ function Rule(){
         tags:{},
         conditions: [],
         transformers:[],
-        action: 'log'
+        action: 'record'
     }
     this.canBeConverted = true; //this flag use to avoid generating rules that we are not yet support its operator (ex: libinjection operators)
 
