@@ -103,7 +103,7 @@ events:
             - zmeu
     transformers:
       - lowercase
-    action: log
+    action: record
   - id: crs-921-120
     name: HTTP Response Splitting Attack
     tags:
@@ -123,7 +123,7 @@ events:
             min_length: 11
     transformers:
       - lowercase
-    action: log
+    action: record
   - id: crs-932-120
     name: 'Remote Command Execution: Windows PowerShell Command Found'
     tags:
@@ -390,7 +390,7 @@ events:
             - '-psconsolefile'
     transformers:
       - lowercase
-    action: log
+    action: record
   - id: crs-932-130
     name: 'Remote Command Execution: Unix Shell Expression Found'
     tags:
@@ -409,7 +409,7 @@ events:
             case_sensitive: true
             min_length: 3
     transformers: []
-    action: log
+    action: record
   - id: crs-932-150
     name: 'Remote Command Execution: Direct Unix Command Execution'
     tags:
@@ -429,7 +429,7 @@ events:
             case_sensitive: true
             min_length: 3
     transformers: []
-    action: log
+    action: record
   - id: crs-933-110
     name: 'PHP Injection Attack: PHP Script File Upload Found'
     tags:
@@ -449,7 +449,7 @@ events:
             min_length: 4
     transformers:
       - lowercase
-    action: log
+    action: record
   - id: crs-933-180
     name: 'PHP Injection Attack: Variable Function Call Found'
     tags:
@@ -469,7 +469,7 @@ events:
             case_sensitive: true
             min_length: 4
     transformers: []
-    action: log
+    action: record
   - id: crs-933-210
     name: 'PHP Injection Attack: Variable Function Call Found'
     tags:
@@ -489,7 +489,7 @@ events:
             case_sensitive: true
             min_length: 6
     transformers: []
-    action: log
+    action: record
   - id: crs-941-120
     name: 'XSS Filter - Category 2: Event Handler Vector'
     tags:
@@ -511,7 +511,7 @@ events:
             min_length: 7
     transformers:
       - removeNulls
-    action: log
+    action: record
   - id: crs-941-130
     name: 'XSS Filter - Category 3: Attribute Vector'
     tags:
@@ -532,7 +532,7 @@ events:
             min_length: 6
     transformers:
       - removeNulls
-    action: log
+    action: record
   - id: crs-941-140
     name: 'XSS Filter - Category 4: Javascript URI Vector'
     tags:
@@ -554,7 +554,7 @@ events:
             min_length: 6
     transformers:
       - removeNulls
-    action: log
+    action: record
   - id: crs-941-150
     name: 'XSS Filter - Category 5: Disallowed HTML Attributes'
     tags:
@@ -574,7 +574,7 @@ events:
             min_length: 4
     transformers:
       - removeNulls
-    action: log
+    action: record
   - id: crs-941-160
     name: 'NoScript XSS InjectionChecker: HTML Injection'
     tags:
@@ -597,7 +597,7 @@ events:
             min_length: 4
     transformers:
       - removeNulls
-    action: log
+    action: record
   - id: crs-941-170
     name: 'NoScript XSS InjectionChecker: Attribute Injection'
     tags:
@@ -619,7 +619,7 @@ events:
             min_length: 6
     transformers:
       - removeNulls
-    action: log
+    action: record
   - id: crs-941-180
     name: Node-Validator Blacklist Keywords
     tags:
@@ -646,7 +646,7 @@ events:
     transformers:
       - lowercase
       - removeNulls
-    action: log
+    action: record
   - id: crs-941-190
     name: IE XSS Filters - Attack Detected
     tags:
@@ -667,7 +667,7 @@ events:
             min_length: 9
     transformers:
       - removeNulls
-    action: log
+    action: record
   - id: crs-941-250
     name: IE XSS Filters - Attack Detected
     tags:
@@ -688,7 +688,7 @@ events:
             min_length: 18
     transformers:
       - removeNulls
-    action: log
+    action: record
   - id: crs-941-260
     name: IE XSS Filters - Attack Detected
     tags:
@@ -708,7 +708,7 @@ events:
             min_length: 14
     transformers:
       - removeNulls
-    action: log
+    action: record
   - id: crs-941-370
     name: JavaScript global variable found
     tags:
@@ -727,7 +727,7 @@ events:
             case_sensitive: true
             min_length: 6
     transformers: []
-    action: log
+    action: record
   - id: crs-941-380
     name: AngularJS client side template injection detected
     tags:
@@ -746,7 +746,7 @@ events:
             case_sensitive: true
             min_length: 4
     transformers: []
-    action: log
+    action: record
   - id: crs-942-170
     name: >-
       Detects SQL benchmark and sleep injection attempts including conditional
@@ -767,7 +767,7 @@ events:
             case_sensitive: true
             min_length: 6
     transformers: []
-    action: log
+    action: record
   - id: crs-942-230
     name: Detects conditional SQL injection attempts
     tags:
@@ -787,7 +787,7 @@ events:
             case_sensitive: true
             min_length: 5
     transformers: []
-    action: log
+    action: record
   - id: crs-942-320
     name: Detects MySQL and PostgreSQL stored procedure/function injections
     tags:
@@ -807,7 +807,7 @@ events:
             case_sensitive: true
             min_length: 6
     transformers: []
-    action: log
+    action: record
   - id: crs-942-350
     name: Detects MySQL UDF injection and other data/structure manipulation attempts
     tags:
@@ -827,7 +827,7 @@ events:
             case_sensitive: true
             min_length: 7
     transformers: []
-    action: log
+    action: record
   - id: crs-942-360
     name: Detects concatenated basic SQL injection and SQLLFI attempts
     tags:
@@ -847,7 +847,7 @@ events:
             case_sensitive: true
             min_length: 5
     transformers: []
-    action: log
+    action: record
   - id: crs-944-240
     name: 'Remote Command Execution: Java serialization (CVE-2015-4852)'
     tags:
@@ -869,7 +869,7 @@ events:
             min_length: 10
     transformers:
       - lowercase
-    action: log
+    action: record
   - id: sqr-000-003
     name: Obfuscated Path Traversal Attack (/../) on any parameter
     tags:
@@ -886,7 +886,7 @@ events:
           options:
             min_length: 4
     transformers: []
-    action: log
+    action: record
   - id: sqr-000-004
     name: Obfuscated Path Traversal Attack (/../) on any parameter
     tags:
@@ -904,7 +904,7 @@ events:
             min_length: 2
     transformers:
       - removeNulls
-    action: log
+    action: record
   - id: sqr-000-011
     name: 'Node.js: Prototype pollution'
     tags:
@@ -919,4 +919,4 @@ events:
             - $http.headers
           regex: __proto__[\.\[]
     transformers: []
-    action: log
+    action: record

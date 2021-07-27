@@ -21,7 +21,7 @@ events:
               bytes=0-,5-0,5-1,5-2,5-3,5-4,5-5,5-6,5-7,5-8,5-9,5-10,5-11,5-12,5-13,5-14
     transformers:
       - lowercase
-    action: log
+    action: record
   - id: crs-913-120
     name: Found request filename/argument associated with security scanner
     tags:
@@ -54,7 +54,7 @@ events:
             - w00tw00t.at.blackhats.romanian.anti-sec
     transformers:
       - lowercase
-    action: log
+    action: record
   - id: crs-920-260
     name: Unicode Full/Half Width Abuse Attack Attempt
     tags:
@@ -70,7 +70,7 @@ events:
             case_sensitive: true
             min_length: 6
     transformers: []
-    action: log
+    action: record
   - id: crs-921-110
     name: HTTP Request Smuggling Attack
     tags:
@@ -90,7 +90,7 @@ events:
             min_length: 12
     transformers:
       - lowercase
-    action: log
+    action: record
   - id: crs-921-140
     name: HTTP Header Injection Attack via headers
     tags:
@@ -106,7 +106,7 @@ events:
             case_sensitive: true
             min_length: 1
     transformers: []
-    action: log
+    action: record
   - id: crs-921-160
     name: HTTP Header Injection Attack via payload (CR/LF and header-name detected)
     tags:
@@ -125,7 +125,7 @@ events:
             min_length: 3
     transformers:
       - lowercase
-    action: log
+    action: record
   - id: crs-930-100
     name: Obfuscated Path Traversal Attack (/../)
     tags:
@@ -142,7 +142,7 @@ events:
           options:
             min_length: 4
     transformers: []
-    action: log
+    action: record
   - id: crs-930-110
     name: Obfuscated Path Traversal Attack (/../)
     tags:
@@ -160,7 +160,7 @@ events:
             min_length: 2
     transformers:
       - removeNulls
-    action: log
+    action: record
   - id: crs-930-120
     name: OS File Access Attempt
     tags:
@@ -1280,7 +1280,7 @@ events:
             - yarn.lock
     transformers:
       - lowercase
-    action: log
+    action: record
   - id: crs-931-110
     name: >-
       Possible Remote File Inclusion (RFI) Attack: Common RFI Vulnerable
@@ -1298,7 +1298,7 @@ events:
           options:
             min_length: 15
     transformers: []
-    action: log
+    action: record
   - id: crs-931-120
     name: >-
       Possible Remote File Inclusion (RFI) Attack: URL Payload Used w/Trailing
@@ -1318,7 +1318,7 @@ events:
             case_sensitive: true
             min_length: 4
     transformers: []
-    action: log
+    action: record
   - id: crs-932-160
     name: 'Remote Command Execution: Unix Shell Code Found'
     tags:
@@ -1450,7 +1450,7 @@ events:
             - usr/local/bin/wget
     transformers:
       - lowercase
-    action: log
+    action: record
   - id: crs-932-171
     name: 'Remote Command Execution: Shellshock (CVE-2014-6271)'
     tags:
@@ -1469,7 +1469,7 @@ events:
             case_sensitive: true
             min_length: 4
     transformers: []
-    action: log
+    action: record
   - id: crs-932-180
     name: Restricted File Upload Attempt
     tags:
@@ -1502,7 +1502,7 @@ events:
             - .env
     transformers:
       - lowercase
-    action: log
+    action: record
   - id: crs-933-111
     name: 'PHP Injection Attack: PHP Script File Upload Found'
     tags:
@@ -1522,7 +1522,7 @@ events:
             min_length: 5
     transformers:
       - lowercase
-    action: log
+    action: record
   - id: crs-933-130
     name: 'PHP Injection Attack: Variables Found'
     tags:
@@ -1558,7 +1558,7 @@ events:
             - $argv
     transformers:
       - lowercase
-    action: log
+    action: record
   - id: crs-933-131
     name: 'PHP Injection Attack: Variables Found'
     tags:
@@ -1578,7 +1578,7 @@ events:
             case_sensitive: true
             min_length: 9
     transformers: []
-    action: log
+    action: record
   - id: crs-933-140
     name: 'PHP Injection Attack: I/O Stream Found'
     tags:
@@ -1596,7 +1596,7 @@ events:
           options:
             min_length: 8
     transformers: []
-    action: log
+    action: record
   - id: crs-933-150
     name: 'PHP Injection Attack: High-Risk PHP Function Name Found'
     tags:
@@ -1657,7 +1657,7 @@ events:
             - zlib_decode
     transformers:
       - lowercase
-    action: log
+    action: record
   - id: crs-933-160
     name: 'PHP Injection Attack: High-Risk PHP Function Call Found'
     tags:
@@ -1676,7 +1676,7 @@ events:
           options:
             min_length: 5
     transformers: []
-    action: log
+    action: record
   - id: crs-933-170
     name: 'PHP Injection Attack: Serialized Object Injection'
     tags:
@@ -1696,7 +1696,7 @@ events:
             case_sensitive: true
             min_length: 12
     transformers: []
-    action: log
+    action: record
   - id: crs-933-200
     name: 'PHP Injection Attack: Wrapper scheme detected'
     tags:
@@ -1716,7 +1716,7 @@ events:
             min_length: 6
     transformers:
       - removeNulls
-    action: log
+    action: record
   - id: crs-934-100
     name: Node.js Injection Attack
     tags:
@@ -1736,7 +1736,7 @@ events:
             case_sensitive: true
             min_length: 5
     transformers: []
-    action: log
+    action: record
   - id: crs-941-110
     name: 'XSS Filter - Category 1: Script Tag Vector'
     tags:
@@ -1757,7 +1757,7 @@ events:
             min_length: 8
     transformers:
       - removeNulls
-    action: log
+    action: record
   - id: crs-941-200
     name: IE XSS Filters - Attack Detected
     tags:
@@ -1777,7 +1777,7 @@ events:
             min_length: 13
     transformers:
       - removeNulls
-    action: log
+    action: record
   - id: crs-941-210
     name: IE XSS Filters - Attack Detected
     tags:
@@ -1798,7 +1798,7 @@ events:
             min_length: 12
     transformers:
       - removeNulls
-    action: log
+    action: record
   - id: crs-941-220
     name: IE XSS Filters - Attack Detected
     tags:
@@ -1819,7 +1819,7 @@ events:
             min_length: 10
     transformers:
       - removeNulls
-    action: log
+    action: record
   - id: crs-941-230
     name: IE XSS Filters - Attack Detected
     tags:
@@ -1838,7 +1838,7 @@ events:
             min_length: 11
     transformers:
       - removeNulls
-    action: log
+    action: record
   - id: crs-941-240
     name: IE XSS Filters - Attack Detected
     tags:
@@ -1859,7 +1859,7 @@ events:
     transformers:
       - lowercase
       - removeNulls
-    action: log
+    action: record
   - id: crs-941-270
     name: IE XSS Filters - Attack Detected
     tags:
@@ -1878,7 +1878,7 @@ events:
             min_length: 11
     transformers:
       - removeNulls
-    action: log
+    action: record
   - id: crs-941-280
     name: IE XSS Filters - Attack Detected
     tags:
@@ -1897,7 +1897,7 @@ events:
             min_length: 11
     transformers:
       - removeNulls
-    action: log
+    action: record
   - id: crs-941-290
     name: IE XSS Filters - Attack Detected
     tags:
@@ -1916,7 +1916,7 @@ events:
             min_length: 8
     transformers:
       - removeNulls
-    action: log
+    action: record
   - id: crs-941-300
     name: IE XSS Filters - Attack Detected
     tags:
@@ -1935,7 +1935,7 @@ events:
             min_length: 13
     transformers:
       - removeNulls
-    action: log
+    action: record
   - id: crs-941-350
     name: UTF-7 Encoding IE XSS - Attack Detected
     tags:
@@ -1954,7 +1954,7 @@ events:
             case_sensitive: true
             min_length: 6
     transformers: []
-    action: log
+    action: record
   - id: crs-941-360
     name: JSFuck / Hieroglyphy obfuscation detected
     tags:
@@ -1973,7 +1973,7 @@ events:
             case_sensitive: true
             min_length: 4
     transformers: []
-    action: log
+    action: record
   - id: crs-942-140
     name: 'SQL Injection Attack: Common DB Names Detected'
     tags:
@@ -1993,7 +1993,7 @@ events:
             case_sensitive: true
             min_length: 4
     transformers: []
-    action: log
+    action: record
   - id: crs-942-160
     name: Detects blind sqli tests using sleep() or benchmark()
     tags:
@@ -2012,7 +2012,7 @@ events:
             case_sensitive: true
             min_length: 7
     transformers: []
-    action: log
+    action: record
   - id: crs-942-220
     name: >-
       Looking for integer overflow attacks, these are taken from skipfish,
@@ -2034,7 +2034,7 @@ events:
             case_sensitive: true
             min_length: 5
     transformers: []
-    action: log
+    action: record
   - id: crs-942-240
     name: Detects MySQL charset switch and MSSQL DoS attempts
     tags:
@@ -2054,7 +2054,7 @@ events:
             case_sensitive: true
             min_length: 7
     transformers: []
-    action: log
+    action: record
   - id: crs-942-250
     name: Detects MATCH AGAINST, MERGE and EXECUTE IMMEDIATE injections
     tags:
@@ -2074,7 +2074,7 @@ events:
             case_sensitive: true
             min_length: 11
     transformers: []
-    action: log
+    action: record
   - id: crs-942-270
     name: >-
       Looking for basic sql injection. Common attack string for mysql, oracle
@@ -2094,7 +2094,7 @@ events:
           options:
             min_length: 15
     transformers: []
-    action: log
+    action: record
   - id: crs-942-280
     name: >-
       Detects Postgres pg_sleep injection, waitfor delay attacks and database
@@ -2116,7 +2116,7 @@ events:
             case_sensitive: true
             min_length: 10
     transformers: []
-    action: log
+    action: record
   - id: crs-942-290
     name: Finds basic MongoDB SQL injection attempts
     tags:
@@ -2136,7 +2136,7 @@ events:
             case_sensitive: true
             min_length: 5
     transformers: []
-    action: log
+    action: record
   - id: crs-942-500
     name: MySQL in-line comment detected
     tags:
@@ -2155,7 +2155,7 @@ events:
             case_sensitive: true
             min_length: 5
     transformers: []
-    action: log
+    action: record
   - id: crs-943-100
     name: 'Possible Session Fixation Attack: Setting Cookie Values in HTML'
     tags:
@@ -2175,7 +2175,7 @@ events:
             case_sensitive: true
             min_length: 15
     transformers: []
-    action: log
+    action: record
   - id: crs-944-100
     name: 'Remote Command Execution: Suspicious Java class detected'
     tags:
@@ -2196,7 +2196,7 @@ events:
             min_length: 17
     transformers:
       - lowercase
-    action: log
+    action: record
   - id: crs-944-110
     name: 'Remote Command Execution: Java process spawn (CVE-2017-9805)'
     tags:
@@ -2229,7 +2229,7 @@ events:
             min_length: 5
     transformers:
       - lowercase
-    action: log
+    action: record
   - id: crs-944-130
     name: Suspicious Java class detected
     tags:
@@ -2290,7 +2290,7 @@ events:
             - java.beans.xmldecode
     transformers:
       - lowercase
-    action: log
+    action: record
   - id: sqr-000-001
     name: 'SSRF: Try to access the credential manager of the main cloud services'
     tags:
@@ -2308,7 +2308,7 @@ events:
             min_length: 4
     transformers:
       - removeNulls
-    action: log
+    action: record
   - id: sqr-000-002
     name: 'Server-side Javascript injection: Try to detect obvious JS injection'
     tags:
@@ -2325,7 +2325,7 @@ events:
             min_length: 4
     transformers:
       - removeNulls
-    action: log
+    action: record
   - id: sqr-000-007
     name: 'NoSQL: Detect common exploitation strategy'
     tags:
@@ -2337,7 +2337,7 @@ events:
             - $http.headers
           regex: \$(eq|ne|lte?|gte?|n?in)\b
     transformers: []
-    action: log
+    action: record
   - id: sqr-000-008
     name: 'Windows: Detect attempts to exfiltrate .ini files'
     tags:
@@ -2352,7 +2352,7 @@ events:
             - $http.headers
           regex: (?i)[&|]\s*type\s+%\w+%\\+\w+\.ini\s*[&|]
     transformers: []
-    action: log
+    action: record
   - id: sqr-000-009
     name: 'Linux: Detect attempts to exfiltrate passwd files'
     tags:
@@ -2367,7 +2367,7 @@ events:
             - $http.headers
           regex: (?i)[&|]\s*cat\s+\/etc\/[\w\.\/]*passwd\s*[&|]
     transformers: []
-    action: log
+    action: record
   - id: sqr-000-010
     name: 'Windows: Detect attempts to timeout a shell'
     tags:
@@ -2382,7 +2382,7 @@ events:
             - $http.headers
           regex: (?i)[&|]\s*timeout\s+/t\s+\d+\s*[&|]
     transformers: []
-    action: log
+    action: record
   - id: ua0-600-0xx
     name: Joomla exploitation tool
     tags:
@@ -2394,7 +2394,7 @@ events:
             - $http.user_agent
           regex: JDatabaseDriverMysqli
     transformers: []
-    action: log
+    action: record
   - id: ua0-600-10x
     name: Nessus
     tags:
@@ -2406,7 +2406,7 @@ events:
             - $http.user_agent
           regex: (?i)^Nessus(/|([ :]+SOAP))
     transformers: []
-    action: log
+    action: record
   - id: ua0-600-12x
     name: Arachni
     tags:
@@ -2418,7 +2418,7 @@ events:
             - $http.user_agent
           regex: ^Arachni\/v
     transformers: []
-    action: log
+    action: record
   - id: ua0-600-13x
     name: Jorgee
     tags:
@@ -2430,7 +2430,7 @@ events:
             - $http.user_agent
           regex: (?i)\bJorgee\b
     transformers: []
-    action: log
+    action: record
   - id: ua0-600-14x
     name: Probely
     tags:
@@ -2442,7 +2442,7 @@ events:
             - $http.user_agent
           regex: (?i)\bProbely\b
     transformers: []
-    action: log
+    action: record
   - id: ua0-600-15x
     name: Metis
     tags:
@@ -2454,7 +2454,7 @@ events:
             - $http.user_agent
           regex: (?i)\bmetis\b
     transformers: []
-    action: log
+    action: record
   - id: ua0-600-16x
     name: SQL power injector
     tags:
@@ -2466,7 +2466,7 @@ events:
             - $http.user_agent
           regex: sql power injector
     transformers: []
-    action: log
+    action: record
   - id: ua0-600-18x
     name: N-Stealth
     tags:
@@ -2478,7 +2478,7 @@ events:
             - $http.user_agent
           regex: (?i)\bn-stealth\b
     transformers: []
-    action: log
+    action: record
   - id: ua0-600-19x
     name: Brutus
     tags:
@@ -2490,7 +2490,7 @@ events:
             - $http.user_agent
           regex: (?i)\bbrutus\b
     transformers: []
-    action: log
+    action: record
   - id: ua0-600-1xx
     name: Shellshock exploitation tool
     tags:
@@ -2502,7 +2502,7 @@ events:
             - $http.user_agent
           regex: \(\) \{ :; *\}
     transformers: []
-    action: log
+    action: record
   - id: ua0-600-20x
     name: Netsparker
     tags:
@@ -2514,7 +2514,7 @@ events:
             - $http.user_agent
           regex: (?i)(<script>netsparker\(0x0|ns:netsparker.*=vuln)
     transformers: []
-    action: log
+    action: record
   - id: ua0-600-22x
     name: JAASCois
     tags:
@@ -2526,7 +2526,7 @@ events:
             - $http.user_agent
           regex: (?i)\bjaascois\b
     transformers: []
-    action: log
+    action: record
   - id: ua0-600-23x
     name: PMAFind
     tags:
@@ -2538,7 +2538,7 @@ events:
             - $http.user_agent
           regex: (?i)\bpmafind\b
     transformers: []
-    action: log
+    action: record
   - id: ua0-600-25x
     name: Webtrends
     tags:
@@ -2550,7 +2550,7 @@ events:
             - $http.user_agent
           regex: webtrends security analyzer
     transformers: []
-    action: log
+    action: record
   - id: ua0-600-26x
     name: Nsauditor
     tags:
@@ -2562,7 +2562,7 @@ events:
             - $http.user_agent
           regex: (?i)\bnsauditor\b
     transformers: []
-    action: log
+    action: record
   - id: ua0-600-27x
     name: Paros
     tags:
@@ -2574,7 +2574,7 @@ events:
             - $http.user_agent
           regex: (?i)Mozilla/.* Paros/
     transformers: []
-    action: log
+    action: record
   - id: ua0-600-28x
     name: DirBuster
     tags:
@@ -2586,7 +2586,7 @@ events:
             - $http.user_agent
           regex: (?i)\bdirbuster\b
     transformers: []
-    action: log
+    action: record
   - id: ua0-600-29x
     name: Pangolin
     tags:
@@ -2598,7 +2598,7 @@ events:
             - $http.user_agent
           regex: (?i)\bpangolin\b
     transformers: []
-    action: log
+    action: record
   - id: ua0-600-2xx
     name: Qualys
     tags:
@@ -2610,7 +2610,7 @@ events:
             - $http.user_agent
           regex: (?i)\bqualys\b
     transformers: []
-    action: log
+    action: record
   - id: ua0-600-30x
     name: SQLNinja
     tags:
@@ -2622,7 +2622,7 @@ events:
             - $http.user_agent
           regex: (?i)\bsqlninja\b
     transformers: []
-    action: log
+    action: record
   - id: ua0-600-31x
     name: Nikto
     tags:
@@ -2634,7 +2634,7 @@ events:
             - $http.user_agent
           regex: \(Nikto/[\d\.]+\)
     transformers: []
-    action: log
+    action: record
   - id: ua0-600-32x
     name: WebInspect
     tags:
@@ -2646,7 +2646,7 @@ events:
             - $http.user_agent
           regex: (?i)\bwebinspect\b
     transformers: []
-    action: log
+    action: record
   - id: ua0-600-33x
     name: BlackWidow
     tags:
@@ -2658,7 +2658,7 @@ events:
             - $http.user_agent
           regex: (?i)\bblack\s?widow\b
     transformers: []
-    action: log
+    action: record
   - id: ua0-600-34x
     name: Grendel-Scan
     tags:
@@ -2670,7 +2670,7 @@ events:
             - $http.user_agent
           regex: (?i)\bgrendel-scan\b
     transformers: []
-    action: log
+    action: record
   - id: ua0-600-35x
     name: Havij
     tags:
@@ -2682,7 +2682,7 @@ events:
             - $http.user_agent
           regex: (?i)\bhavij\b
     transformers: []
-    action: log
+    action: record
   - id: ua0-600-36x
     name: w3af
     tags:
@@ -2694,7 +2694,7 @@ events:
             - $http.user_agent
           regex: (?i)\bw3af\b
     transformers: []
-    action: log
+    action: record
   - id: ua0-600-37x
     name: Nmap
     tags:
@@ -2706,7 +2706,7 @@ events:
             - $http.user_agent
           regex: nmap (nse|scripting engine)
     transformers: []
-    action: log
+    action: record
   - id: ua0-600-39x
     name: Nessus Scripted
     tags:
@@ -2718,7 +2718,7 @@ events:
             - $http.user_agent
           regex: (?i)^'?[a-z0-9]+\.nasl'?$
     transformers: []
-    action: log
+    action: record
   - id: ua0-600-3xx
     name: Evil Scanner
     tags:
@@ -2730,7 +2730,7 @@ events:
             - $http.user_agent
           regex: (?i)\bevilScanner\b
     transformers: []
-    action: log
+    action: record
   - id: ua0-600-40x
     name: WebFuck
     tags:
@@ -2742,7 +2742,7 @@ events:
             - $http.user_agent
           regex: (?i)\bWebFuck\b
     transformers: []
-    action: log
+    action: record
   - id: ua0-600-41x
     name: Acunetix
     tags:
@@ -2754,7 +2754,7 @@ events:
             - $http.user_agent
           regex: md5\(acunetix_wvs_security_test\)
     transformers: []
-    action: log
+    action: record
   - id: ua0-600-42x
     name: OpenVAS
     tags:
@@ -2766,7 +2766,7 @@ events:
             - $http.user_agent
           regex: (?i)OpenVAS\b
     transformers: []
-    action: log
+    action: record
   - id: ua0-600-43x
     name: Spider-Pig
     tags:
@@ -2778,7 +2778,7 @@ events:
             - $http.user_agent
           regex: Powered by Spider-Pig by tinfoilsecurity\.com
     transformers: []
-    action: log
+    action: record
   - id: ua0-600-44x
     name: Zgrab
     tags:
@@ -2790,7 +2790,7 @@ events:
             - $http.user_agent
           regex: Mozilla/\d+.\d+ zgrab
     transformers: []
-    action: log
+    action: record
   - id: ua0-600-45x
     name: Zmeu
     tags:
@@ -2802,7 +2802,7 @@ events:
             - $http.user_agent
           regex: (?i)\bZmEu\b
     transformers: []
-    action: log
+    action: record
   - id: ua0-600-46x
     name: Crowdstrike
     tags:
@@ -2814,7 +2814,7 @@ events:
             - $http.user_agent
           regex: (?i)\bcrowdstrike\b
     transformers: []
-    action: log
+    action: record
   - id: ua0-600-47x
     name: GoogleSecurityScanner
     tags:
@@ -2826,7 +2826,7 @@ events:
             - $http.user_agent
           regex: (?i)\bGoogleSecurityScanner\b
     transformers: []
-    action: log
+    action: record
   - id: ua0-600-48x
     name: Commix
     tags:
@@ -2838,7 +2838,7 @@ events:
             - $http.user_agent
           regex: ^commix\/
     transformers: []
-    action: log
+    action: record
   - id: ua0-600-49x
     name: Gobuster
     tags:
@@ -2850,7 +2850,7 @@ events:
             - $http.user_agent
           regex: ^gobuster\/
     transformers: []
-    action: log
+    action: record
   - id: ua0-600-4xx
     name: CGIchk
     tags:
@@ -2862,7 +2862,7 @@ events:
             - $http.user_agent
           regex: (?i)\bcgichk\b
     transformers: []
-    action: log
+    action: record
   - id: ua0-600-51x
     name: FFUF
     tags:
@@ -2874,7 +2874,7 @@ events:
             - $http.user_agent
           regex: (?i)^Fuzz Faster U Fool\b
     transformers: []
-    action: log
+    action: record
   - id: ua0-600-52x
     name: >-
       Nuclei is a fast tool for configurable targeted scanning based on
@@ -2888,7 +2888,7 @@ events:
             - $http.user_agent
           regex: (?i)^Nuclei\b
     transformers: []
-    action: log
+    action: record
   - id: ua0-600-53x
     name: >-
       Tsunami is a general purpose network security scanner with an extensible
@@ -2903,7 +2903,7 @@ events:
             - $http.user_agent
           regex: (?i)\bTsunamiSecurityScanner\b
     transformers: []
-    action: log
+    action: record
   - id: ua0-600-54x
     name: Nimbostratus is a vulnerability scanner that scan websites unprompted
     tags:
@@ -2915,7 +2915,7 @@ events:
             - $http.user_agent
           regex: (?i)\bnimbostratus-bot\b
     transformers: []
-    action: log
+    action: record
   - id: ua0-600-5xx
     name: Blind Sql Injection Brute Forcer
     tags:
@@ -2927,7 +2927,7 @@ events:
             - $http.user_agent
           regex: (?i)\bbsqlbf\b
     transformers: []
-    action: log
+    action: record
   - id: ua0-600-6xx
     name: Suspicious user agent
     tags:
@@ -2939,7 +2939,7 @@ events:
             - $http.user_agent
           regex: mozilla/4\.0 \(compatible(; msie 6\.0; win32)?\)
     transformers: []
-    action: log
+    action: record
   - id: ua0-600-7xx
     name: SQLmap
     tags:
@@ -2951,7 +2951,7 @@ events:
             - $http.user_agent
           regex: ^sqlmap/
     transformers: []
-    action: log
+    action: record
   - id: ua0-600-9xx
     name: Skipfish
     tags:
@@ -2963,4 +2963,4 @@ events:
             - $http.user_agent
           regex: (?i)mozilla/5\.0 sf/
     transformers: []
-    action: log
+    action: record

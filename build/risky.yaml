@@ -19,7 +19,7 @@ events:
             min_length: 5
     transformers:
       - lowercase
-    action: log
+    action: record
   - id: crs-931-100
     name: >-
       Possible Remote File Inclusion (RFI) Attack: URL Parameter using IP
@@ -39,7 +39,7 @@ events:
             case_sensitive: true
             min_length: 13
     transformers: []
-    action: log
+    action: record
   - id: crs-932-100
     name: 'Remote Command Execution: Unix Command Injection'
     tags:
@@ -59,7 +59,7 @@ events:
             case_sensitive: true
             min_length: 3
     transformers: []
-    action: log
+    action: record
   - id: crs-932-105
     name: 'Remote Command Execution: Unix Command Injection'
     tags:
@@ -79,7 +79,7 @@ events:
             case_sensitive: true
             min_length: 4
     transformers: []
-    action: log
+    action: record
   - id: crs-932-110
     name: 'Remote Command Execution: Windows Command Injection'
     tags:
@@ -99,7 +99,7 @@ events:
           options:
             min_length: 3
     transformers: []
-    action: log
+    action: record
   - id: crs-932-115
     name: 'Remote Command Execution: Windows Command Injection'
     tags:
@@ -119,7 +119,7 @@ events:
           options:
             min_length: 4
     transformers: []
-    action: log
+    action: record
   - id: crs-932-140
     name: 'Remote Command Execution: Windows FOR/IF Command Found'
     tags:
@@ -142,7 +142,7 @@ events:
             case_sensitive: true
             min_length: 5
     transformers: []
-    action: log
+    action: record
   - id: crs-941-320
     name: Possible XSS Attack Detected - HTML Tag Handler
     tags:
@@ -163,7 +163,7 @@ events:
             min_length: 3
     transformers:
       - lowercase
-    action: log
+    action: record
   - id: crs-942-190
     name: Detects MSSQL code execution and information gathering attempts
     tags:
@@ -185,4 +185,4 @@ events:
             case_sensitive: true
             min_length: 3
     transformers: []
-    action: log
+    action: record
