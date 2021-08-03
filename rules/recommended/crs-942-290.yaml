@@ -7,10 +7,10 @@ conditions:
   - operation: match_regex
     parameters:
       inputs:
-        - $http.server.cookies
-        - $http.server.query
-        - $http.server.body
-        - $http.server.path_params
+        - http.server.cookies
+        - http.server.query
+        - http.server.body
+        - http.server.path_params
       regex: >-
         (?i:(?:\[\$(?:ne|eq|lte?|gte?|n?in|mod|all|size|exists|type|slice|x?or|div|like|between|and)\]))
       options:

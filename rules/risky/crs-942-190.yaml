@@ -7,10 +7,10 @@ conditions:
   - operation: match_regex
     parameters:
       inputs:
-        - $http.server.cookies
-        - $http.server.query
-        - $http.server.body
-        - $http.server.path_params
+        - http.server.cookies
+        - http.server.query
+        - http.server.body
+        - http.server.path_params
       regex: >-
         (?i:(?:[\"'`](?:;?\s*?(?:having|select|union)\b\s*?[^\s]|\s*?!\s*?[\"'`\w])|(?:c(?:onnection_id|urrent_user)|database)\s*?\([^\)]*?|u(?:nion(?:[\w(?:\s]*?select|
         select

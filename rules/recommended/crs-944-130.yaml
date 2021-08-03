@@ -7,11 +7,11 @@ conditions:
   - operation: phrase_match
     parameters:
       inputs:
-        - $http.server.query
-        - $http.server.body
-        - $http.server.path_params
-        - $http.server.cookies
-        - $http.headers
+        - http.server.query
+        - http.server.body
+        - http.server.path_params
+        - http.server.cookies
+        - http.headers
       list:
         - com.opensymphony.xwork2
         - com.sun.org.apache

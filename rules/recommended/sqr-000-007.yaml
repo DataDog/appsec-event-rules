@@ -6,7 +6,7 @@ conditions:
   - operation: match_regex
     parameters:
       inputs:
-        - $http.headers
+        - http.headers
       regex: \$(eq|ne|lte?|gte?|n?in)\b
 transformers: []
 action: record

@@ -7,12 +7,12 @@ conditions:
   - operation: match_regex
     parameters:
       inputs:
-        - $http.server.cookies
-        - $http.user_agent
-        - $http.headers:referer
-        - $http.server.query
-        - $http.server.body
-        - $http.server.path_params
+        - http.server.cookies
+        - http.user_agent
+        - http.headers:referer
+        - http.server.query
+        - http.server.body
+        - http.server.path_params
       regex: >-
         (?:<(?:(?:apple|objec)t|isindex|embed|style|form|meta)\b[^>]*?>[\s\S]*?|(?:=|U\s*?R\s*?L\s*?\()\s*?[^>]*?\s*?S\s*?C\s*?R\s*?I\s*?P\s*?T\s*?:)
       options:

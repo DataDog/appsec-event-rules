@@ -7,11 +7,11 @@ conditions:
   - operation: match_regex
     parameters:
       inputs:
-        - $http.server.query
-        - $http.server.body
-        - $http.server.path_params
-        - $http.server.cookies
-        - $http.headers
+        - http.server.query
+        - http.server.body
+        - http.server.path_params
+        - http.server.cookies
+        - http.headers
       regex: (?:runtime|processbuilder)
       options:
         case_sensitive: true
@@ -19,11 +19,11 @@ conditions:
   - operation: match_regex
     parameters:
       inputs:
-        - $http.server.query
-        - $http.server.body
-        - $http.server.path_params
-        - $http.server.cookies
-        - $http.headers
+        - http.server.query
+        - http.server.body
+        - http.server.path_params
+        - http.server.cookies
+        - http.headers
       regex: (?:unmarshaller|base64data|java\.)
       options:
         case_sensitive: true

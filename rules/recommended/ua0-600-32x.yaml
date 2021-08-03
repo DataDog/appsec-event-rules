@@ -6,7 +6,7 @@ conditions:
   - operation: match_regex
     parameters:
       inputs:
-        - $http.user_agent
+        - http.user_agent
       regex: (?i)\bwebinspect\b
 transformers: []
 action: record

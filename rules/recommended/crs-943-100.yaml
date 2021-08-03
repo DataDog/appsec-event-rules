@@ -7,10 +7,10 @@ conditions:
   - operation: match_regex
     parameters:
       inputs:
-        - $http.server.cookies
-        - $http.server.query
-        - $http.server.body
-        - $http.server.path_params
+        - http.server.cookies
+        - http.server.query
+        - http.server.body
+        - http.server.path_params
       regex: >-
         (?i:\.cookie\b.*?;\W*?(?:expires|domain)\W*?=|\bhttp-equiv\W+set-cookie\b)
       options:

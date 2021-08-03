@@ -7,11 +7,11 @@ conditions:
   - operation: match_regex
     parameters:
       inputs:
-        - $http.server.cookies
-        - $http.headers
-        - $http.server.query
-        - $http.server.body
-        - $http.server.path_params
+        - http.server.cookies
+        - http.headers
+        - http.server.query
+        - http.server.body
+        - http.server.path_params
       regex: '[oOcC]:\d+:\".+?\":\d+:{[\W\w]*}'
       options:
         case_sensitive: true

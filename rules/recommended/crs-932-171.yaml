@@ -7,10 +7,10 @@ conditions:
   - operation: match_regex
     parameters:
       inputs:
-        - $http.server.query
-        - $http.server.body
-        - $http.server.path_params
-        - $http.headers
+        - http.server.query
+        - http.server.body
+        - http.server.path_params
+        - http.headers
       regex: ^\(\s*\)\s+{
       options:
         case_sensitive: true

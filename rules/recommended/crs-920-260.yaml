@@ -7,7 +7,7 @@ conditions:
   - operation: match_regex
     parameters:
       inputs:
-        - $http.target
+        - http.target
       regex: \%u[fF]{2}[0-9a-fA-F]{2}
       options:
         case_sensitive: true

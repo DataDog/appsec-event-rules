@@ -6,9 +6,9 @@ conditions:
   - operation: match_regex
     parameters:
       inputs:
-        - $http.server.query
-        - $http.server.body
-        - $http.server.path_params
+        - http.server.query
+        - http.server.body
+        - http.server.path_params
       regex: >-
         (?i)^\W*((http|ftp)s?://)?\W*((::f{4}:)?(169|(0x)?0*a9|0+251)\.?(254|(0x)?0*fe|0+376)[0-9a-fx\.:]+|metadata\.google\.internal|metadata\.goog)\W*/
       options:
