@@ -7,8 +7,8 @@ conditions:
   - operation: match_regex
     parameters:
       inputs:
-        - $http.server.query
-        - $http.server.path_params
+        - http.server.query
+        - http.server.path_params
       regex: >-
         [\n\r]+(?:\s|location|refresh|(?:set-)?cookie|(?:x-)?(?:forwarded-(?:for|host|server)|host|via|remote-ip|remote-addr|originating-IP))\s*:
       options:

@@ -7,7 +7,7 @@ conditions:
   - operation: match_regex
     parameters:
       inputs:
-        - $http.headers
+        - http.headers
       regex: '[\n\r]'
       options:
         case_sensitive: true

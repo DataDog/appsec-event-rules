@@ -7,10 +7,10 @@ conditions:
   - operation: match_regex
     parameters:
       inputs:
-        - $http.headers:x-filename
-        - $http.headers:x_filename
-        - $http.headers:x.filename
-        - $http.headers:x-file-name
+        - http.headers:x-filename
+        - http.headers:x_filename
+        - http.headers:x.filename
+        - http.headers:x-file-name
       regex: .*\.(?:php\d*|phtml)\..*$
       options:
         case_sensitive: true

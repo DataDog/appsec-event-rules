@@ -7,7 +7,7 @@ conditions:
   - operation: phrase_match
     parameters:
       inputs:
-        - $http.headers
+        - http.headers
       list:
         - acunetix-product
         - (acunetix web vulnerability scanner

@@ -7,8 +7,8 @@ conditions:
   - operation: match_regex
     parameters:
       inputs:
-        - $http.target
-        - $http.headers
+        - http.target
+        - http.headers
       regex: (?:^|[\\/])\.\.(?:[\\/]|$)
       options:
         case_sensitive: true
