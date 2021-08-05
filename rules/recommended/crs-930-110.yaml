@@ -1,5 +1,5 @@
 id: crs-930-110
-name: Obfuscated Path Traversal Attack (/../)
+name: Simple Path Traversal Attack (/../)
 tags:
   type: lfi
   crs_id: '930110'
