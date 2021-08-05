@@ -1,5 +1,5 @@
 id: crs-933-131
-name: 'PHP Injection Attack: Variables Found'
+name: 'PHP Injection Attack: HTTP Headers Values Found'
 tags:
   type: php_code_injection
   crs_id: '933131'
