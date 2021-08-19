@@ -7,9 +7,9 @@ conditions:
   - operation: phrase_match
     parameters:
       inputs:
-        - http.headers:x-filename
-        - http.headers:x_filename
-        - http.headers:x-file-name
+        - server.request.headers.no_cookies:x-filename
+        - server.request.headers.no_cookies:x_filename
+        - server.request.headers.no_cookies:x-file-name
       list:
         - .htaccess
         - .htdigest

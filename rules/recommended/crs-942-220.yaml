@@ -9,10 +9,10 @@ conditions:
   - operation: match_regex
     parameters:
       inputs:
-        - http.server.cookies
-        - http.server.query
-        - http.server.body
-        - http.server.path_params
+        - server.request.cookies
+        - server.request.query
+        - server.request.body
+        - server.request.path_params
       regex: >-
         ^(?i:-0000023456|4294967295|4294967296|2147483648|2147483647|0000012345|-2147483648|-2147483649|0000023456|3.0.00738585072007e-308|1e309)$
       options:
