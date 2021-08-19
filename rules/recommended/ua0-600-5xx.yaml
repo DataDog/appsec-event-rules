@@ -6,7 +6,7 @@ conditions:
   - operation: match_regex
     parameters:
       inputs:
-        - http.user_agent
+        - server.request.headers.no_cookies:user-agent
       regex: (?i)\bbsqlbf\b
 transformers: []
 action: record

@@ -7,10 +7,10 @@ conditions:
   - operation: match_regex
     parameters:
       inputs:
-        - http.server.cookies
-        - http.server.query
-        - http.server.body
-        - http.server.path_params
+        - server.request.cookies
+        - server.request.query
+        - server.request.body
+        - server.request.path_params
       regex: >-
         (?i:(?:[\"'`](?:;*?\s*?waitfor\s+(?:delay|time)\s+[\"'`]|;.*?:\s*?goto)|alter\s*?\w+.*?cha(?:racte)?r\s+set\s+\w+))
       options:

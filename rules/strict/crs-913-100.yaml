@@ -7,7 +7,7 @@ conditions:
   - operation: phrase_match
     parameters:
       inputs:
-        - http.user_agent
+        - server.request.headers.no_cookies:user-agent
       list:
         - ''
         - (hydra)

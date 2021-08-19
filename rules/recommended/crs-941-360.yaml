@@ -7,10 +7,10 @@ conditions:
   - operation: match_regex
     parameters:
       inputs:
-        - http.server.cookies
-        - http.server.query
-        - http.server.body
-        - http.server.path_params
+        - server.request.cookies
+        - server.request.query
+        - server.request.body
+        - server.request.path_params
       regex: '![!+ ]\[\]'
       options:
         case_sensitive: true

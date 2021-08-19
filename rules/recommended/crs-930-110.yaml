@@ -7,8 +7,8 @@ conditions:
   - operation: match_regex
     parameters:
       inputs:
-        - http.target
-        - http.headers
+        - server.request.uri.raw
+        - server.request.headers.no_cookies
       regex: (?:^|[\\/])\.\.(?:[\\/]|$)
       options:
         case_sensitive: true

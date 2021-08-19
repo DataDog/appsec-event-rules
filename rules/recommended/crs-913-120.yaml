@@ -7,9 +7,9 @@ conditions:
   - operation: phrase_match
     parameters:
       inputs:
-        - http.server.query
-        - http.server.body
-        - http.server.path_params
+        - server.request.query
+        - server.request.body
+        - server.request.path_params
       list:
         - /.adsensepostnottherenonobook
         - /<invalid>hello.html
