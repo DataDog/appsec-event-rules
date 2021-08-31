@@ -26,7 +26,7 @@ const OutputDir = args['--output']
 
 
 let outContentObj = {
-    "version":"0.1",
+    "version":"1.0",
     "events":[]
 }
 fs.readdirSync(SourceDir).forEach(file => {
@@ -54,5 +54,5 @@ function writeYAMLFile(obj){
 }
 
 function writeJSONFile(obj){
-    fs.writeFileSync(OutputDir + '/' +  Collection + '.json', JSON.stringify(obj.events))
+    fs.writeFileSync(OutputDir + '/' +  Collection + '.json', JSON.stringify(obj))
 }
