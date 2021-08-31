@@ -1,4 +1,4 @@
-version: '0.1'
+version: '1.0'
 events:
   - id: crs-913-110
     name: Found request header associated with Acunetix security scanner
