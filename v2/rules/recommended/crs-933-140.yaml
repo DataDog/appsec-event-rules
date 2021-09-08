@@ -1,0 +1,18 @@
+id: crs-933-140
+name: 'PHP Injection Attack: I/O Stream Found'
+tags:
+  type: php_code_injection
+  crs_id: '933140'
+  category: attack_attempt
+conditions:
+  - parameters:
+      inputs:
+        - server.request.cookies
+        - server.request.query
+        - server.request.body
+        - server.request.path_params
+      regex: php://(?:std(?:in|out|err)|(?:in|out)put|fd|memory|temp|filter)
+      options:
+        min_length: 8
+    operator: match_regex
+transformers: []

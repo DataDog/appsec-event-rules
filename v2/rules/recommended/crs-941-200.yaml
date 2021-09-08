@@ -1,0 +1,20 @@
+id: crs-941-200
+name: IE XSS Filters - Attack Detected via vmlframe tag
+tags:
+  type: xss
+  crs_id: '941200'
+  category: attack_attempt
+conditions:
+  - parameters:
+      inputs:
+        - server.request.cookies
+        - server.request.query
+        - server.request.body
+        - server.request.path_params
+      regex: (?i:<.*[:]?vmlframe.*?[\s/+]*?src[\s/+]*=)
+      options:
+        case_sensitive: true
+        min_length: 13
+    operator: match_regex
+transformers:
+  - removeNulls

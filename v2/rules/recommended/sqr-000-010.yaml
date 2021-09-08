@@ -1,0 +1,15 @@
+id: sqr-000-010
+name: 'Windows: Detect attempts to timeout a shell'
+tags:
+  type: command_injection
+  category: attack_attempt
+conditions:
+  - parameters:
+      inputs:
+        - server.request.query
+        - server.request.body
+        - server.request.path_params
+        - server.request.headers.no_cookies
+      regex: (?i)[&|]\s*timeout\s+/t\s+\d+\s*[&|]
+    operator: match_regex
+transformers: []

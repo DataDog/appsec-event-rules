@@ -1,0 +1,18 @@
+id: sqr-000-004
+name: Obfuscated Path Traversal Attack (/../) on any parameter
+tags:
+  type: lfi
+  category: attack_attempt
+conditions:
+  - parameters:
+      inputs:
+        - server.request.query
+        - server.request.body
+        - server.request.path_params
+      regex: (?:^|[\\/])\.\.(?:[\\/]|$)
+      options:
+        case_sensitive: true
+        min_length: 2
+    operator: match_regex
+transformers:
+  - removeNulls

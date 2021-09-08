@@ -1,0 +1,23 @@
+id: crs-932-140
+name: 'Remote Command Execution: Windows FOR/IF Command Found'
+tags:
+  type: command_injection
+  crs_id: '932140'
+  category: attack_attempt
+conditions:
+  - parameters:
+      inputs:
+        - server.request.cookies
+        - server.request.query
+        - server.request.body
+        - server.request.path_params
+      regex: >-
+        \b(?:if(?:/i)?(?: not)?(?: exist\b| defined\b| errorlevel\b|
+        cmdextversion\b|(?:
+        |\().*(?:\bgeq\b|\bequ\b|\bneq\b|\bleq\b|\bgtr\b|\blss\b|==))|for(?:/[dflr].*)?
+        %+[^ ]+ in\(.*\)\s?do)
+      options:
+        case_sensitive: true
+        min_length: 5
+    operator: match_regex
+transformers: []

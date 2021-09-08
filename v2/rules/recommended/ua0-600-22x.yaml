@@ -1,0 +1,12 @@
+id: ua0-600-22x
+name: JAASCois
+tags:
+  type: security_scanner
+  category: attack_attempt
+conditions:
+  - parameters:
+      inputs:
+        - server.request.headers.no_cookies:user-agent
+      regex: (?i)\bjaascois\b
+    operator: match_regex
+transformers: []

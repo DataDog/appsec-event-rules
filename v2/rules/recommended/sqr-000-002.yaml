@@ -1,0 +1,17 @@
+id: sqr-000-002
+name: 'Server-side Javascript injection: Try to detect obvious JS injection'
+tags:
+  type: js_code_injection
+  category: attack_attempt
+conditions:
+  - parameters:
+      inputs:
+        - server.request.query
+        - server.request.body
+        - server.request.path_params
+      regex: require\(['"][\w\.]+['"]\)|process\.\w+\([\w\.]*\)|\.toString\(\)
+      options:
+        min_length: 4
+    operator: match_regex
+transformers:
+  - removeNulls

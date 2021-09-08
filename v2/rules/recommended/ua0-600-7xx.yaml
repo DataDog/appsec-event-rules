@@ -1,0 +1,12 @@
+id: ua0-600-7xx
+name: SQLmap
+tags:
+  type: security_scanner
+  category: attack_attempt
+conditions:
+  - parameters:
+      inputs:
+        - server.request.headers.no_cookies:user-agent
+      regex: ^sqlmap/
+    operator: match_regex
+transformers: []

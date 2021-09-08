@@ -1,0 +1,19 @@
+id: crs-921-160
+name: HTTP Header Injection Attack via payload (CR/LF and header-name detected)
+tags:
+  type: http_protocol_violation
+  crs_id: '921160'
+  category: attack_attempt
+conditions:
+  - parameters:
+      inputs:
+        - server.request.query
+        - server.request.path_params
+      regex: >-
+        [\n\r]+(?:\s|location|refresh|(?:set-)?cookie|(?:x-)?(?:forwarded-(?:for|host|server)|host|via|remote-ip|remote-addr|originating-IP))\s*:
+      options:
+        case_sensitive: true
+        min_length: 3
+    operator: match_regex
+transformers:
+  - lowercase

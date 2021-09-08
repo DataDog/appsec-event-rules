@@ -1,0 +1,22 @@
+id: crs-942-280
+name: >-
+  Detects Postgres pg_sleep injection, waitfor delay attacks and database
+  shutdown attempts
+tags:
+  type: sqli
+  crs_id: '942280'
+  category: attack_attempt
+conditions:
+  - parameters:
+      inputs:
+        - server.request.cookies
+        - server.request.query
+        - server.request.body
+        - server.request.path_params
+      regex: >-
+        (?i:(?:;\s*?shutdown\s*?(?:[#;]|/\*|--|\{)|waitfor\s*?delay\s?[\"'`]+\s?\d|select\s*?pg_sleep))
+      options:
+        case_sensitive: true
+        min_length: 10
+    operator: match_regex
+transformers: []

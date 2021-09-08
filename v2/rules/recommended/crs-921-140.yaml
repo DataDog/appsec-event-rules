@@ -1,0 +1,16 @@
+id: crs-921-140
+name: HTTP Header Injection Attack via headers
+tags:
+  type: http_protocol_violation
+  crs_id: '921140'
+  category: attack_attempt
+conditions:
+  - parameters:
+      inputs:
+        - server.request.headers.no_cookies
+      regex: '[\n\r]'
+      options:
+        case_sensitive: true
+        min_length: 1
+    operator: match_regex
+transformers: []

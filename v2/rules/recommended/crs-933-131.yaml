@@ -1,0 +1,20 @@
+id: crs-933-131
+name: 'PHP Injection Attack: HTTP Headers Values Found'
+tags:
+  type: php_code_injection
+  crs_id: '933131'
+  category: attack_attempt
+conditions:
+  - parameters:
+      inputs:
+        - server.request.cookies
+        - server.request.query
+        - server.request.body
+        - server.request.path_params
+      regex: >-
+        (?:HTTP_(?:ACCEPT(?:_(?:ENCODING|LANGUAGE|CHARSET))?|(?:X_FORWARDED_FO|REFERE)R|(?:USER_AGEN|HOS)T|CONNECTION|KEEP_ALIVE)|PATH_(?:TRANSLATED|INFO)|ORIG_PATH_INFO|QUERY_STRING|REQUEST_URI|AUTH_TYPE)
+      options:
+        case_sensitive: true
+        min_length: 9
+    operator: match_regex
+transformers: []

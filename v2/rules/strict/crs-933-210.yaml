@@ -1,0 +1,20 @@
+id: crs-933-210
+name: 'PHP Injection Attack: Variable Function Call Found'
+tags:
+  type: php_code_injection
+  crs_id: '933210'
+  category: attack_attempt
+conditions:
+  - parameters:
+      inputs:
+        - server.request.cookies
+        - server.request.query
+        - server.request.body
+        - server.request.path_params
+      regex: >-
+        (?:(?:\(|\[|\")[a-zA-Z0-9_.$\"'\[\](){}*\s\\]+(?:\)|\]|\")[0-9_.$\"'\[\](){}*\s]*\([a-zA-Z0-9_.$\"'\[\](){}*\s].*\)|\([\s]*string[\s]*\)[\s]*(?:\"|'))[;]
+      options:
+        case_sensitive: true
+        min_length: 6
+    operator: match_regex
+transformers: []

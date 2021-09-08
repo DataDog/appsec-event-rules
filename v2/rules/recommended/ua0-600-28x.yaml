@@ -1,0 +1,12 @@
+id: ua0-600-28x
+name: DirBuster
+tags:
+  type: security_scanner
+  category: attack_attempt
+conditions:
+  - parameters:
+      inputs:
+        - server.request.headers.no_cookies:user-agent
+      regex: (?i)\bdirbuster\b
+    operator: match_regex
+transformers: []

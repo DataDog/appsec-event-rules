@@ -1,0 +1,19 @@
+id: crs-941-350
+name: UTF-7 Encoding IE XSS - Attack Detected
+tags:
+  type: xss
+  crs_id: '941350'
+  category: attack_attempt
+conditions:
+  - parameters:
+      inputs:
+        - server.request.cookies
+        - server.request.query
+        - server.request.body
+        - server.request.path_params
+      regex: \+ADw-.*(?:\+AD4-|>)|<.*\+AD4-
+      options:
+        case_sensitive: true
+        min_length: 6
+    operator: match_regex
+transformers: []

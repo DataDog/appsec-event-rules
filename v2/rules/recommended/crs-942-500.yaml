@@ -1,0 +1,19 @@
+id: crs-942-500
+name: MySQL in-line comment detected
+tags:
+  type: sqli
+  crs_id: '942500'
+  category: attack_attempt
+conditions:
+  - parameters:
+      inputs:
+        - server.request.cookies
+        - server.request.query
+        - server.request.body
+        - server.request.path_params
+      regex: (?i:/\*[!+](?:[\w\s=_\-(?:)]+)?\*/)
+      options:
+        case_sensitive: true
+        min_length: 5
+    operator: match_regex
+transformers: []

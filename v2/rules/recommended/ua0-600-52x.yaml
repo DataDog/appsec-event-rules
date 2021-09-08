@@ -1,0 +1,14 @@
+id: ua0-600-52x
+name: >-
+  Nuclei is a fast tool for configurable targeted scanning based on templates
+  offering massive extensibility and ease of use
+tags:
+  type: security_scanner
+  category: attack_attempt
+conditions:
+  - parameters:
+      inputs:
+        - server.request.headers.no_cookies:user-agent
+      regex: (?i)^Nuclei\b
+    operator: match_regex
+transformers: []

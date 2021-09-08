@@ -1,0 +1,21 @@
+id: crs-941-130
+name: 'XSS Filter - Category 3: Attribute Vector'
+tags:
+  type: xss
+  crs_id: '941130'
+  category: attack_attempt
+conditions:
+  - parameters:
+      inputs:
+        - server.request.cookies
+        - server.request.headers.no_cookies:user-agent
+        - server.request.query
+        - server.request.body
+        - server.request.path_params
+      regex: >-
+        [\s\S](?:!ENTITY\s+(?:\S+|%\s+\S+)\s+(?:PUBLIC|SYSTEM)|x(?:link:href|html|mlns)|data:text/html|pattern\b.*?=|formaction|\@import|;base64)\b
+      options:
+        min_length: 6
+    operator: match_regex
+transformers:
+  - removeNulls

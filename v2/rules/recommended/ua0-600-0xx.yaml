@@ -1,0 +1,12 @@
+id: ua0-600-0xx
+name: Joomla exploitation tool
+tags:
+  type: security_scanner
+  category: attack_attempt
+conditions:
+  - parameters:
+      inputs:
+        - server.request.headers.no_cookies:user-agent
+      regex: JDatabaseDriverMysqli
+    operator: match_regex
+transformers: []

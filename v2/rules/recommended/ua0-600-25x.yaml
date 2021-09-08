@@ -1,0 +1,12 @@
+id: ua0-600-25x
+name: Webtrends
+tags:
+  type: security_scanner
+  category: attack_attempt
+conditions:
+  - parameters:
+      inputs:
+        - server.request.headers.no_cookies:user-agent
+      regex: webtrends security analyzer
+    operator: match_regex
+transformers: []
