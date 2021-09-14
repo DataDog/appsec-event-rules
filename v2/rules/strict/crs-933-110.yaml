@@ -1,0 +1,20 @@
+id: crs-933-110
+name: 'PHP Injection Attack: PHP Script File Upload Found'
+tags:
+  type: php_code_injection
+  crs_id: '933110'
+  category: attack_attempt
+conditions:
+  - parameters:
+      inputs:
+        - server.request.headers.no_cookies:x-filename
+        - server.request.headers.no_cookies:x_filename
+        - server.request.headers.no_cookies:x.filename
+        - server.request.headers.no_cookies:x-file-name
+      regex: .*\.(?:php\d*|phtml)\.*$
+      options:
+        case_sensitive: true
+        min_length: 4
+    operator: match_regex
+transformers:
+  - lowercase

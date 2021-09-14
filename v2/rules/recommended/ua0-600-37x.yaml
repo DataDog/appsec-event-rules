@@ -1,0 +1,12 @@
+id: ua0-600-37x
+name: Nmap
+tags:
+  type: security_scanner
+  category: attack_attempt
+conditions:
+  - parameters:
+      inputs:
+        - server.request.headers.no_cookies:user-agent
+      regex: nmap (nse|scripting engine)
+    operator: match_regex
+transformers: []

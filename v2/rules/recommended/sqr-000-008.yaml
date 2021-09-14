@@ -1,0 +1,15 @@
+id: sqr-000-008
+name: 'Windows: Detect attempts to exfiltrate .ini files'
+tags:
+  type: command_injection
+  category: attack_attempt
+conditions:
+  - parameters:
+      inputs:
+        - server.request.query
+        - server.request.body
+        - server.request.path_params
+        - server.request.headers.no_cookies
+      regex: (?i)[&|]\s*type\s+%\w+%\\+\w+\.ini\s*[&|]
+    operator: match_regex
+transformers: []

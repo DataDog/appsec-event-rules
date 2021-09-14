@@ -1,0 +1,22 @@
+id: crs-942-190
+name: Detects MSSQL code execution and information gathering attempts
+tags:
+  type: sqli
+  crs_id: '942190'
+  category: attack_attempt
+conditions:
+  - parameters:
+      inputs:
+        - server.request.cookies
+        - server.request.query
+        - server.request.body
+        - server.request.path_params
+      regex: >-
+        (?i:(?:[\"'`](?:;?\s*?(?:having|select|union)\b\s*?[^\s]|\s*?!\s*?[\"'`\w])|(?:c(?:onnection_id|urrent_user)|database)\s*?\([^\)]*?|u(?:nion(?:[\w(?:\s]*?select|
+        select
+        @)|ser\s*?\([^\)]*?)|s(?:chema\s*?\([^\)]*?|elect.*?\w?user\()|into[\s+]+(?:dump|out)file\s*?[\"'`]|\s*?exec(?:ute)?.*?\Wxp_cmdshell|from\W+information_schema\W|exec(?:ute)?\s+master\.|\wiif\s*?\())
+      options:
+        case_sensitive: true
+        min_length: 3
+    operator: match_regex
+transformers: []

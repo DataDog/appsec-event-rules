@@ -1,0 +1,20 @@
+id: crs-942-240
+name: Detects MySQL charset switch and MSSQL DoS attempts
+tags:
+  type: sqli
+  crs_id: '942240'
+  category: attack_attempt
+conditions:
+  - parameters:
+      inputs:
+        - server.request.cookies
+        - server.request.query
+        - server.request.body
+        - server.request.path_params
+      regex: >-
+        (?i:(?:[\"'`](?:;*?\s*?waitfor\s+(?:delay|time)\s+[\"'`]|;.*?:\s*?goto)|alter\s*?\w+.*?cha(?:racte)?r\s+set\s+\w+))
+      options:
+        case_sensitive: true
+        min_length: 7
+    operator: match_regex
+transformers: []

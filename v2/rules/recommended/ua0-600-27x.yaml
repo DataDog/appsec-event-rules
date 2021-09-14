@@ -1,0 +1,12 @@
+id: ua0-600-27x
+name: Paros
+tags:
+  type: security_scanner
+  category: attack_attempt
+conditions:
+  - parameters:
+      inputs:
+        - server.request.headers.no_cookies:user-agent
+      regex: (?i)Mozilla/.* Paros/
+    operator: match_regex
+transformers: []

@@ -1,0 +1,12 @@
+id: ua0-600-49x
+name: Gobuster
+tags:
+  type: security_scanner
+  category: attack_attempt
+conditions:
+  - parameters:
+      inputs:
+        - server.request.headers.no_cookies:user-agent
+      regex: ^gobuster\/
+    operator: match_regex
+transformers: []

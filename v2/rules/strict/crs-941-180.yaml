@@ -1,0 +1,27 @@
+id: crs-941-180
+name: Node-Validator Blacklist Keywords
+tags:
+  type: xss
+  crs_id: '941180'
+  category: attack_attempt
+conditions:
+  - parameters:
+      inputs:
+        - server.request.cookies
+        - server.request.query
+        - server.request.body
+        - server.request.path_params
+      list:
+        - document.cookie
+        - document.write
+        - .parentnode
+        - .innerhtml
+        - window.location
+        - '-moz-binding'
+        - <!--
+        - '-->'
+        - <![cdata[
+    operator: phrase_match
+transformers:
+  - lowercase
+  - removeNulls

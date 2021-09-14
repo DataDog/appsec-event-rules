@@ -1,0 +1,12 @@
+id: ua0-600-47x
+name: GoogleSecurityScanner
+tags:
+  type: security_scanner
+  category: attack_attempt
+conditions:
+  - parameters:
+      inputs:
+        - server.request.headers.no_cookies:user-agent
+      regex: (?i)\bGoogleSecurityScanner\b
+    operator: match_regex
+transformers: []

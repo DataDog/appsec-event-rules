@@ -1,0 +1,12 @@
+id: ua0-600-4xx
+name: CGIchk
+tags:
+  type: security_scanner
+  category: attack_attempt
+conditions:
+  - parameters:
+      inputs:
+        - server.request.headers.no_cookies:user-agent
+      regex: (?i)\bcgichk\b
+    operator: match_regex
+transformers: []

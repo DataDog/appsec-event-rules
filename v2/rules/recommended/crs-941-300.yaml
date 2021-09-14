@@ -1,0 +1,19 @@
+id: crs-941-300
+name: IE XSS Filters - Attack Detected via object tag
+tags:
+  type: xss
+  crs_id: '941300'
+  category: attack_attempt
+conditions:
+  - parameters:
+      inputs:
+        - server.request.cookies
+        - server.request.query
+        - server.request.body
+        - server.request.path_params
+      regex: <OBJECT[\s/+].*?(?:type|codetype|classid|code|data)[\s/+]*=
+      options:
+        min_length: 13
+    operator: match_regex
+transformers:
+  - removeNulls

@@ -1,7 +1,7 @@
 # Appsec event rules tools
 
 ## 1. Convert Sqreen WAF format to Datadog Appsec event format
-This script will convert the rules from Sqreen WAF format to ther new Datadog appsec event format.
+This script will convert the rules from Sqreen WAF format to the new Datadog appsec event format.
 
 
 ### Usage

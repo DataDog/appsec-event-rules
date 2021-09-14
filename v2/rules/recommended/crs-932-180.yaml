@@ -1,0 +1,33 @@
+id: crs-932-180
+name: Restricted File Upload Attempt
+tags:
+  type: command_injection
+  crs_id: '932180'
+  category: attack_attempt
+conditions:
+  - parameters:
+      inputs:
+        - server.request.headers.no_cookies:x-filename
+        - server.request.headers.no_cookies:x_filename
+        - server.request.headers.no_cookies:x-file-name
+      list:
+        - .htaccess
+        - .htdigest
+        - .htpasswd
+        - wp-config.php
+        - config.yml
+        - config_dev.yml
+        - config_prod.yml
+        - config_test.yml
+        - parameters.yml
+        - routing.yml
+        - security.yml
+        - services.yml
+        - default.settings.php
+        - settings.php
+        - settings.local.php
+        - local.xml
+        - .env
+    operator: phrase_match
+transformers:
+  - lowercase

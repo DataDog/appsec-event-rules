@@ -1,0 +1,12 @@
+id: ua0-600-19x
+name: Brutus
+tags:
+  type: security_scanner
+  category: attack_attempt
+conditions:
+  - parameters:
+      inputs:
+        - server.request.headers.no_cookies:user-agent
+      regex: (?i)\bbrutus\b
+    operator: match_regex
+transformers: []

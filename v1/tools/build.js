@@ -11,10 +11,10 @@ const args = arg({
     '--version': String,
     // Aliases
     '-s':        '--source',
-    '-o':        '--output',  
+    '-o':        '--output',
     '-c':        '--collection',
 });
- 
+
 if (!args['--source']) return console.error('Error: Missing required argument: --source [the rules source directory]')
 if (!args['--output']) return console.error('Error: Missing required argument: --output [the rules output directory]')
 if (!args['--collection']) return console.error('Error: Missing required argument: --collection [the rules collection] (eg. recommended)')

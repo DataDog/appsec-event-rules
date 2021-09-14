@@ -1,0 +1,12 @@
+id: ua0-600-44x
+name: Zgrab
+tags:
+  type: security_scanner
+  category: attack_attempt
+conditions:
+  - parameters:
+      inputs:
+        - server.request.headers.no_cookies:user-agent
+      regex: Mozilla/\d+.\d+ zgrab
+    operator: match_regex
+transformers: []

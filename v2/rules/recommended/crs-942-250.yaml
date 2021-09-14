@@ -1,0 +1,20 @@
+id: crs-942-250
+name: Detects MATCH AGAINST, MERGE and EXECUTE IMMEDIATE injections
+tags:
+  type: sqli
+  crs_id: '942250'
+  category: attack_attempt
+conditions:
+  - parameters:
+      inputs:
+        - server.request.cookies
+        - server.request.query
+        - server.request.body
+        - server.request.path_params
+      regex: >-
+        (?i:merge.*?using\s*?\(|execute\s*?immediate\s*?[\"'`]|match\s*?[\w(?:),+-]+\s*?against\s*?\()
+      options:
+        case_sensitive: true
+        min_length: 11
+    operator: match_regex
+transformers: []

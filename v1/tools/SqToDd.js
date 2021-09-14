@@ -16,12 +16,12 @@ const args = arg({
     '--help':    Boolean,
     '--source':    String,      // --source <string> or --source=<string>
     '--output':    String,      // --output <string> or --output=<string>
- 
+
     // Aliases
     '-s':        '--source',
-    '-o':        '--output',  
+    '-o':        '--output',
 });
- 
+
 if (!args['--source']) return console.error('Error: Missing required argument: --source [the rules source directory]')
 if (!args['--output']) return console.error('Error: Missing required argument: --output [the rules output directory]')
 
@@ -43,7 +43,7 @@ const ADDRRS = {
     "REQUEST_HEADERS": ['http.headers'],
     "REQUEST_HEADERS_NAMES":[],
     "REQUEST_FILENAME": [],  //NOT SUPPORTED
-    "REQUEST_URI":['http.target'], 
+    "REQUEST_URI":['http.target'],
     "REQUEST_BASENAME":[], //NOT SUPPORTED
     "FILES":[],//NOT SUPPORTED
     "FILES_NAMES":[], //NOT SUPPORTED
@@ -57,7 +57,7 @@ const ADDRRS = {
     "REQUEST_HEADERS:user-agent": ['http.user_agent'],
     "REQUEST_HEADERS:User-Agent": ['http.user_agent'],
     "REQUEST_HEADERS:referer": ['http.headers:referer'],
-    "REQUEST_HEADERS:Referer": ['http.headers:Referer'], 
+    "REQUEST_HEADERS:Referer": ['http.headers:Referer'],
     "REQUEST_METHOD":['http.method'],
 }
 
@@ -97,7 +97,7 @@ function convertRule(oldRule){
     let ruleYamlContents = newRule.toYaml()
     if(!ruleYamlContents) return; //in case of unsupported rule
 
-    //write the rule depends on the 
+    //write the rule depends on the
     writeRule(ruleYamlContents, newRule.getId(),oldRule.trust)
 
 }
@@ -151,21 +151,21 @@ function getRuleType(oldRule){
 
 
 /**
- * 
+ *
   - id: tpj-ivk-wrx
     name: Nikto security scanner detection
-    tags: 
+    tags:
         type: security_scanners
         mitre_attack: T1595
     conditions:
       - operation: match_regex
         parameters:
-  	        inputs: 
+  	        inputs:
                 http.headers.user_agent
             regex: \(nikto/[\d\.]+\)
     transformers:
-      - lowercase  
-    action: log
+      - lowercase
+    action: record
  */
 function Rule(){
     this.rule = {
@@ -179,18 +179,18 @@ function Rule(){
     this.canBeConverted = true; //this flag use to avoid generating rules that we are not yet support its operator (ex: libinjection operators)
 
     this.generateID = (ruleID) => {
-        
+
         //CRS
         if(ruleID.length == 6){
             this.rule.id = 'crs-' + ruleID.slice(0, 3) + '-' + ruleID.slice(3, 6);
             return this;
         }
-        
+
         //User Agent
         if(ruleID.indexOf('ua_') != -1){
             if(ruleID.length < 8) ruleID += 'x';
-            this.rule.id = 'ua0-' + ruleID.slice(3, 6) + '-' + ruleID.slice(6, 9) + 'x'; 
-            
+            this.rule.id = 'ua0-' + ruleID.slice(3, 6) + '-' + ruleID.slice(6, 9) + 'x';
+
             return this;
         }
 
@@ -211,7 +211,7 @@ function Rule(){
     }
     this.addCondition = filter => {
         let condition = {}
-        
+
         let inputs = []
         filter.targets.forEach(target => {
             if(target == '$match.0.match'){
