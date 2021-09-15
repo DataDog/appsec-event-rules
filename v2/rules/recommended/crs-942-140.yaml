@@ -7,10 +7,10 @@ tags:
 conditions:
   - parameters:
       inputs:
-        - server.request.cookies
-        - server.request.query
-        - server.request.body
-        - server.request.path_params
+        - address: server.request.cookies
+        - address: server.request.query
+        - address: server.request.body
+        - address: server.request.path_params
       regex: >-
         (?i:\b(?:(?:m(?:s(?:ys(?:ac(?:cess(?:objects|storage|xml)|es)|(?:relationship|object|querie)s|modules2?)|db)|aster\.\.sysdatabases|ysql\.db)|pg_(?:catalog|toast)|information_schema|northwind|tempdb)\b|s(?:(?:ys(?:\.database_name|aux)|qlite(?:_temp)?_master)\b|chema(?:_name\b|\W*\())|d(?:atabas|b_nam)e\W*\())
       options:

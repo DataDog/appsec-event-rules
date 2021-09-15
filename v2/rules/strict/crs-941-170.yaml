@@ -7,12 +7,14 @@ tags:
 conditions:
   - parameters:
       inputs:
-        - server.request.cookies
-        - server.request.headers.no_cookies:user-agent
-        - server.request.headers.no_cookies:referer
-        - server.request.query
-        - server.request.body
-        - server.request.path_params
+        - address: server.request.cookies
+        - address: server.request.headers.no_cookies
+          key_path: user-agent
+        - address: server.request.headers.no_cookies
+          key_path: referer
+        - address: server.request.query
+        - address: server.request.body
+        - address: server.request.path_params
       regex: >-
         (?:\W|^)(?:javascript:(?:[\s\S]+[=\\\(\[\.<]|[\s\S]*?(?:\bname\b|\\[ux]\d))|data:(?:(?:[a-z]\w+/\w[\w+-]+\w)?[;,]|[\s\S]*?;[\s\S]*?\b(?:base64|charset=)|[\s\S]*?,[\s\S]*?<[\s\S]*?\w[\s\S]*?>))|@\W*?i\W*?m\W*?p\W*?o\W*?r\W*?t\W*?(?:/\*[\s\S]*?)?(?:[\"']|\W*?u\W*?r\W*?l[\s\S]*?\()|\W*?-\W*?m\W*?o\W*?z\W*?-\W*?b\W*?i\W*?n\W*?d\W*?i\W*?n\W*?g[\s\S]*?:[\s\S]*?\W*?u\W*?r\W*?l[\s\S]*?\(
       options:

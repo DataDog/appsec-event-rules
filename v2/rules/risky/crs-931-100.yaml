@@ -7,9 +7,9 @@ tags:
 conditions:
   - parameters:
       inputs:
-        - server.request.query
-        - server.request.body
-        - server.request.path_params
+        - address: server.request.query
+        - address: server.request.body
+        - address: server.request.path_params
       regex: ^(?i:file|ftps?|https?)://(?:\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})
       options:
         case_sensitive: true

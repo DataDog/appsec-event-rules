@@ -6,7 +6,8 @@ tags:
 conditions:
   - parameters:
       inputs:
-        - server.request.headers.no_cookies:user-agent
+        - address: server.request.headers.no_cookies
+          key_path: user-agent
       regex: (?i)\bpangolin\b
     operator: match_regex
 transformers: []
