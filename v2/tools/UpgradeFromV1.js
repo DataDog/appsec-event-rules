@@ -52,20 +52,34 @@ function convertRule(yamlRule, trustDirectory){
         delete rule.conditions[i].operation;
         rule.conditions[i].operator = op
 
-        inputs = rule.conditions[i].parameters.inputs;
-        inputs.forEach((_, j) => {
-            address_and_key_path = inputs[j].split(':')
+        inputs = []
+        newInputs = {}
 
-            new_input = {
-                "address": address_and_key_path[0],
+        rule.conditions[i].parameters.inputs.forEach((_, j) => {
+            addressAndKeyPath = rule.conditions[i].parameters.inputs[j].split(':')
+            address = addressAndKeyPath[0]
+
+            if (address in newInputs) {
+                if (addressAndKeyPath.length > 1) {
+                    newInputs[address].push(addressAndKeyPath[1])
+                }
+            } else {
+                newInputs[address] = []
             }
-
-            if (address_and_key_path.length > 0) {
-                new_input["key_path"] = address_and_key_path[1]
-            }
-
-            inputs[j] = new_input;
         });
+
+        Object.entries(newInputs).forEach(([k, v]) => {
+            newInput = {
+                "address": k
+            }
+            if (v.length > 0) {
+                newInput["key_path"] = v
+            }
+
+            inputs.push(newInput);
+        });
+
+
         rule.conditions[i].parameters.inputs = inputs;
     });
     delete rule.action;

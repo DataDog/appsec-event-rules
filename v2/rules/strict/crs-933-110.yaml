@@ -8,13 +8,10 @@ conditions:
   - parameters:
       inputs:
         - address: server.request.headers.no_cookies
-          key_path: x-filename
-        - address: server.request.headers.no_cookies
-          key_path: x_filename
-        - address: server.request.headers.no_cookies
-          key_path: x.filename
-        - address: server.request.headers.no_cookies
-          key_path: x-file-name
+          key_path:
+            - x_filename
+            - x.filename
+            - x-file-name
       regex: .*\.(?:php\d*|phtml)\.*$
       options:
         case_sensitive: true

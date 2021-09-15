@@ -10,6 +10,8 @@ rules:
       - parameters:
           inputs:
             - address: server.request.headers.no_cookies
+              key_path:
+                - null
           list:
             - acunetix-product
             - (acunetix web vulnerability scanner
@@ -28,8 +30,14 @@ rules:
       - parameters:
           inputs:
             - address: server.request.query
+              key_path:
+                - null
             - address: server.request.body
+              key_path:
+                - null
             - address: server.request.path_params
+              key_path:
+                - null
           list:
             - /.adsensepostnottherenonobook
             - /<invalid>hello.html
@@ -61,6 +69,8 @@ rules:
       - parameters:
           inputs:
             - address: server.request.uri.raw
+              key_path:
+                - null
           regex: \%u[fF]{2}[0-9a-fA-F]{2}
           options:
             case_sensitive: true
@@ -77,8 +87,14 @@ rules:
       - parameters:
           inputs:
             - address: server.request.query
+              key_path:
+                - null
             - address: server.request.body
+              key_path:
+                - null
             - address: server.request.path_params
+              key_path:
+                - null
           regex: >-
             (?:get|post|head|options|connect|put|delete|trace|track|patch|propfind|propatch|mkcol|copy|move|lock|unlock)\s+[^\s]+\s+http/\d
           options:
@@ -97,6 +113,8 @@ rules:
       - parameters:
           inputs:
             - address: server.request.headers.no_cookies
+              key_path:
+                - null
           regex: '[\n\r]'
           options:
             case_sensitive: true
@@ -113,7 +131,11 @@ rules:
       - parameters:
           inputs:
             - address: server.request.query
+              key_path:
+                - null
             - address: server.request.path_params
+              key_path:
+                - null
           regex: >-
             [\n\r]+(?:\s|location|refresh|(?:set-)?cookie|(?:x-)?(?:forwarded-(?:for|host|server)|host|via|remote-ip|remote-addr|originating-IP))\s*:
           options:
@@ -132,7 +154,11 @@ rules:
       - parameters:
           inputs:
             - address: server.request.uri.raw
+              key_path:
+                - null
             - address: server.request.headers.no_cookies
+              key_path:
+                - null
           regex: >-
             (?:\x5c|(?:%(?:c(?:0%(?:[2aq]f|5c|9v)|1%(?:[19p]c|8s|af))|2(?:5(?:c(?:0%25af|1%259c)|2f|5c)|%46|f)|(?:(?:f(?:8%8)?0%8|e)0%80%a|bg%q)f|%3(?:2(?:%(?:%6|4)6|F)|5%%63)|u(?:221[56]|002f|EFC8|F025)|1u|5c)|0x(?:2f|5c)|/))(?:%(?:(?:f(?:(?:c%80|8)%8)?0%8|e)0%80%ae|2(?:(?:5(?:c0%25a|2))?e|%45)|u(?:(?:002|ff0)e|2024)|%32(?:%(?:%6|4)5|E)|c0(?:%[256aef]e|\.))|\.(?:%0[01]|\?)?|\?\.?|0x2e){2}(?:\x5c|(?:%(?:c(?:0%(?:[2aq]f|5c|9v)|1%(?:[19p]c|8s|af))|2(?:5(?:c(?:0%25af|1%259c)|2f|5c)|%46|f)|(?:(?:f(?:8%8)?0%8|e)0%80%a|bg%q)f|%3(?:2(?:%(?:%6|4)6|F)|5%%63)|u(?:221[56]|002f|EFC8|F025)|1u|5c)|0x(?:2f|5c)|/))
           options:
@@ -149,7 +175,11 @@ rules:
       - parameters:
           inputs:
             - address: server.request.uri.raw
+              key_path:
+                - null
             - address: server.request.headers.no_cookies
+              key_path:
+                - null
           regex: (?:^|[\\/])\.\.(?:[\\/]|$)
           options:
             case_sensitive: true
@@ -167,9 +197,17 @@ rules:
       - parameters:
           inputs:
             - address: server.request.cookies
+              key_path:
+                - null
             - address: server.request.query
+              key_path:
+                - null
             - address: server.request.body
+              key_path:
+                - null
             - address: server.request.path_params
+              key_path:
+                - null
           list:
             - .htaccess
             - .htdigest
@@ -1289,6 +1327,8 @@ rules:
       - parameters:
           inputs:
             - address: server.request.query
+              key_path:
+                - null
           regex: >-
             (?:\binclude\s*\([^)]*|mosConfig_absolute_path|_CONF\[path\]|_SERVER\[DOCUMENT_ROOT\]|GALLERY_BASEDIR|path\[docroot\]|appserv_root|config\[root_dir\])=(?:file|ftps?|https?)://
           options:
@@ -1307,8 +1347,14 @@ rules:
       - parameters:
           inputs:
             - address: server.request.query
+              key_path:
+                - null
             - address: server.request.body
+              key_path:
+                - null
             - address: server.request.path_params
+              key_path:
+                - null
           regex: ^(?i:file|ftps?|https?).*?\?+$
           options:
             case_sensitive: true
@@ -1325,9 +1371,17 @@ rules:
       - parameters:
           inputs:
             - address: server.request.cookies
+              key_path:
+                - null
             - address: server.request.query
+              key_path:
+                - null
             - address: server.request.body
+              key_path:
+                - null
             - address: server.request.path_params
+              key_path:
+                - null
           list:
             - ${cdpath}
             - ${dirstack}
@@ -1457,9 +1511,17 @@ rules:
       - parameters:
           inputs:
             - address: server.request.query
+              key_path:
+                - null
             - address: server.request.body
+              key_path:
+                - null
             - address: server.request.path_params
+              key_path:
+                - null
             - address: server.request.headers.no_cookies
+              key_path:
+                - null
           regex: ^\(\s*\)\s+{
           options:
             case_sensitive: true
@@ -1476,11 +1538,14 @@ rules:
       - parameters:
           inputs:
             - address: server.request.headers.no_cookies
-              key_path: x-filename
+              key_path:
+                - x-filename
             - address: server.request.headers.no_cookies
-              key_path: x_filename
+              key_path:
+                - x_filename
             - address: server.request.headers.no_cookies
-              key_path: x-file-name
+              key_path:
+                - x-file-name
           list:
             - .htaccess
             - .htdigest
@@ -1512,13 +1577,17 @@ rules:
       - parameters:
           inputs:
             - address: server.request.headers.no_cookies
-              key_path: x-filename
+              key_path:
+                - x-filename
             - address: server.request.headers.no_cookies
-              key_path: x_filename
+              key_path:
+                - x_filename
             - address: server.request.headers.no_cookies
-              key_path: x.filename
+              key_path:
+                - x.filename
             - address: server.request.headers.no_cookies
-              key_path: x-file-name
+              key_path:
+                - x-file-name
           regex: .*\.(?:php\d*|phtml)\..*$
           options:
             case_sensitive: true
@@ -1536,9 +1605,17 @@ rules:
       - parameters:
           inputs:
             - address: server.request.cookies
+              key_path:
+                - null
             - address: server.request.query
+              key_path:
+                - null
             - address: server.request.body
+              key_path:
+                - null
             - address: server.request.path_params
+              key_path:
+                - null
           list:
             - $globals
             - $http_cookie_vars
@@ -1572,9 +1649,17 @@ rules:
       - parameters:
           inputs:
             - address: server.request.cookies
+              key_path:
+                - null
             - address: server.request.query
+              key_path:
+                - null
             - address: server.request.body
+              key_path:
+                - null
             - address: server.request.path_params
+              key_path:
+                - null
           regex: >-
             (?:HTTP_(?:ACCEPT(?:_(?:ENCODING|LANGUAGE|CHARSET))?|(?:X_FORWARDED_FO|REFERE)R|(?:USER_AGEN|HOS)T|CONNECTION|KEEP_ALIVE)|PATH_(?:TRANSLATED|INFO)|ORIG_PATH_INFO|QUERY_STRING|REQUEST_URI|AUTH_TYPE)
           options:
@@ -1592,9 +1677,17 @@ rules:
       - parameters:
           inputs:
             - address: server.request.cookies
+              key_path:
+                - null
             - address: server.request.query
+              key_path:
+                - null
             - address: server.request.body
+              key_path:
+                - null
             - address: server.request.path_params
+              key_path:
+                - null
           regex: php://(?:std(?:in|out|err)|(?:in|out)put|fd|memory|temp|filter)
           options:
             min_length: 8
@@ -1610,9 +1703,17 @@ rules:
       - parameters:
           inputs:
             - address: server.request.cookies
+              key_path:
+                - null
             - address: server.request.query
+              key_path:
+                - null
             - address: server.request.body
+              key_path:
+                - null
             - address: server.request.path_params
+              key_path:
+                - null
           list:
             - __halt_compiler
             - apache_child_terminate
@@ -1671,9 +1772,17 @@ rules:
       - parameters:
           inputs:
             - address: server.request.cookies
+              key_path:
+                - null
             - address: server.request.query
+              key_path:
+                - null
             - address: server.request.body
+              key_path:
+                - null
             - address: server.request.path_params
+              key_path:
+                - null
           regex: >-
             \b(?:s(?:e(?:t(?:_(?:e(?:xception|rror)_handler|magic_quotes_runtime|include_path)|defaultstub)|ssion_s(?:et_save_handler|tart))|qlite_(?:(?:(?:unbuffered|single|array)_)?query|create_(?:aggregate|function)|p?open|exec)|tr(?:eam_(?:context_create|socket_client)|ipc?slashes|rev)|implexml_load_(?:string|file)|ocket_c(?:onnect|reate)|h(?:ow_sourc|a1_fil)e|pl_autoload_register|ystem)|p(?:r(?:eg_(?:replace(?:_callback(?:_array)?)?|match(?:_all)?|split)|oc_(?:(?:terminat|clos|nic)e|get_status|open)|int_r)|o(?:six_(?:get(?:(?:e[gu]|g)id|login|pwnam)|mk(?:fifo|nod)|ttyname|kill)|pen)|hp(?:_(?:strip_whitespac|unam)e|version|info)|g_(?:(?:execut|prepar)e|connect|query)|a(?:rse_(?:ini_file|str)|ssthru)|utenv)|r(?:unkit_(?:function_(?:re(?:defin|nam)e|copy|add)|method_(?:re(?:defin|nam)e|copy|add)|constant_(?:redefine|add))|e(?:(?:gister_(?:shutdown|tick)|name)_function|ad(?:(?:gz)?file|_exif_data|dir))|awurl(?:de|en)code)|i(?:mage(?:createfrom(?:(?:jpe|pn)g|x[bp]m|wbmp|gif)|(?:jpe|pn)g|g(?:d2?|if)|2?wbmp|xbm)|s_(?:(?:(?:execut|write?|read)ab|fi)le|dir)|ni_(?:get(?:_all)?|set)|terator_apply|ptcembed)|g(?:et(?:_(?:c(?:urrent_use|fg_va)r|meta_tags)|my(?:[gpu]id|inode)|(?:lastmo|cw)d|imagesize|env)|z(?:(?:(?:defla|wri)t|encod|fil)e|compress|open|read)|lob)|a(?:rray_(?:u(?:intersect(?:_u?assoc)?|diff(?:_u?assoc)?)|intersect_u(?:assoc|key)|diff_u(?:assoc|key)|filter|reduce|map)|ssert(?:_options)?)|h(?:tml(?:specialchars(?:_decode)?|_entity_decode|entities)|(?:ash(?:_(?:update|hmac))?|ighlight)_file|e(?:ader_register_callback|x2bin))|f(?:i(?:le(?:(?:[acm]tim|inod)e|(?:_exist|perm)s|group)?|nfo_open)|tp_(?:nb_(?:ge|pu)|connec|ge|pu)t|(?:unction_exis|pu)ts|write|open)|o(?:b_(?:get_(?:c(?:ontents|lean)|flush)|end_(?:clean|flush)|clean|flush|start)|dbc_(?:result(?:_all)?|exec(?:ute)?|connect)|pendir)|m(?:b_(?:ereg(?:_(?:replace(?:_callback)?|match)|i(?:_replace)?)?|parse_str)|(?:ove_uploaded|d5)_file|ethod_exists|ysql_query|kdir)|e(?:x(?:if_(?:t(?:humbnail|agname)|imagetype|read_data)|ec)|scapeshell(?:arg|cmd)|rror_reporting|val)|c(?:url_(?:file_create|exec|init)|onvert_uuencode|reate_function|hr)|u(?:n(?:serialize|pack)|rl(?:de|en)code|[ak]?sort)|(?:json_(?:de|en)cod|debug_backtrac|tmpfil)e|b(?:(?:son_(?:de|en)|ase64_en)code|zopen)|var_dump)(?:\s|/\*.*\*/|//.*|#.*)*\(.*\)
           options:
@@ -1690,10 +1799,20 @@ rules:
       - parameters:
           inputs:
             - address: server.request.cookies
+              key_path:
+                - null
             - address: server.request.headers.no_cookies
+              key_path:
+                - null
             - address: server.request.query
+              key_path:
+                - null
             - address: server.request.body
+              key_path:
+                - null
             - address: server.request.path_params
+              key_path:
+                - null
           regex: '[oOcC]:\d+:\".+?\":\d+:{[\W\w]*}'
           options:
             case_sensitive: true
@@ -1710,9 +1829,17 @@ rules:
       - parameters:
           inputs:
             - address: server.request.cookies
+              key_path:
+                - null
             - address: server.request.query
+              key_path:
+                - null
             - address: server.request.body
+              key_path:
+                - null
             - address: server.request.path_params
+              key_path:
+                - null
           regex: (?i:zlib|glob|phar|ssh2|rar|ogg|expect|zip)://
           options:
             case_sensitive: true
@@ -1730,9 +1857,17 @@ rules:
       - parameters:
           inputs:
             - address: server.request.cookies
+              key_path:
+                - null
             - address: server.request.query
+              key_path:
+                - null
             - address: server.request.body
+              key_path:
+                - null
             - address: server.request.path_params
+              key_path:
+                - null
           regex: >-
             (?:(?:_(?:\$\$ND_FUNC\$\$_|_js_function)|(?:new\s+Function|\beval)\s*\(|String\s*\.\s*fromCharCode|function\s*\(\s*\)\s*{|this\.constructor)|module\.exports\s*=)
           options:
@@ -1750,13 +1885,23 @@ rules:
       - parameters:
           inputs:
             - address: server.request.cookies
+              key_path:
+                - null
             - address: server.request.headers.no_cookies
-              key_path: user-agent
+              key_path:
+                - user-agent
             - address: server.request.headers.no_cookies
-              key_path: referer
+              key_path:
+                - referer
             - address: server.request.query
+              key_path:
+                - null
             - address: server.request.body
+              key_path:
+                - null
             - address: server.request.path_params
+              key_path:
+                - null
           regex: <script[^>]*>[\s\S]*?
           options:
             min_length: 8
@@ -1773,9 +1918,17 @@ rules:
       - parameters:
           inputs:
             - address: server.request.cookies
+              key_path:
+                - null
             - address: server.request.query
+              key_path:
+                - null
             - address: server.request.body
+              key_path:
+                - null
             - address: server.request.path_params
+              key_path:
+                - null
           regex: (?i:<.*[:]?vmlframe.*?[\s/+]*?src[\s/+]*=)
           options:
             case_sensitive: true
@@ -1793,9 +1946,17 @@ rules:
       - parameters:
           inputs:
             - address: server.request.cookies
+              key_path:
+                - null
             - address: server.request.query
+              key_path:
+                - null
             - address: server.request.body
+              key_path:
+                - null
             - address: server.request.path_params
+              key_path:
+                - null
           regex: >-
             (?i:(?:j|&#x?0*(?:74|4A|106|6A);?)(?:\t|&(?:#x?0*(?:9|13|10|A|D);?|tab;|newline;))*(?:a|&#x?0*(?:65|41|97|61);?)(?:\t|&(?:#x?0*(?:9|13|10|A|D);?|tab;|newline;))*(?:v|&#x?0*(?:86|56|118|76);?)(?:\t|&(?:#x?0*(?:9|13|10|A|D);?|tab;|newline;))*(?:a|&#x?0*(?:65|41|97|61);?)(?:\t|&(?:#x?0*(?:9|13|10|A|D);?|tab;|newline;))*(?:s|&#x?0*(?:83|53|115|73);?)(?:\t|&(?:#x?0*(?:9|13|10|A|D);?|tab;|newline;))*(?:c|&#x?0*(?:67|43|99|63);?)(?:\t|&(?:#x?0*(?:9|13|10|A|D);?|tab;|newline;))*(?:r|&#x?0*(?:82|52|114|72);?)(?:\t|&(?:#x?0*(?:9|13|10|A|D);?|tab;|newline;))*(?:i|&#x?0*(?:73|49|105|69);?)(?:\t|&(?:#x?0*(?:9|13|10|A|D);?|tab;|newline;))*(?:p|&#x?0*(?:80|50|112|70);?)(?:\t|&(?:#x?0*(?:9|13|10|A|D);?|tab;|newline;))*(?:t|&#x?0*(?:84|54|116|74);?)(?:\t|&(?:#x?0*(?:9|13|10|A|D);?|tab;|newline;))*(?::|&(?:#x?0*(?:58|3A);?|colon;)).)
           options:
@@ -1814,9 +1975,17 @@ rules:
       - parameters:
           inputs:
             - address: server.request.cookies
+              key_path:
+                - null
             - address: server.request.query
+              key_path:
+                - null
             - address: server.request.body
+              key_path:
+                - null
             - address: server.request.path_params
+              key_path:
+                - null
           regex: >-
             (?i:(?:v|&#x?0*(?:86|56|118|76);?)(?:\t|&(?:#x?0*(?:9|13|10|A|D);?|tab;|newline;))*(?:b|&#x?0*(?:66|42|98|62);?)(?:\t|&(?:#x?0*(?:9|13|10|A|D);?|tab;|newline;))*(?:s|&#x?0*(?:83|53|115|73);?)(?:\t|&(?:#x?0*(?:9|13|10|A|D);?|tab;|newline;))*(?:c|&#x?0*(?:67|43|99|63);?)(?:\t|&(?:#x?0*(?:9|13|10|A|D);?|tab;|newline;))*(?:r|&#x?0*(?:82|52|114|72);?)(?:\t|&(?:#x?0*(?:9|13|10|A|D);?|tab;|newline;))*(?:i|&#x?0*(?:73|49|105|69);?)(?:\t|&(?:#x?0*(?:9|13|10|A|D);?|tab;|newline;))*(?:p|&#x?0*(?:80|50|112|70);?)(?:\t|&(?:#x?0*(?:9|13|10|A|D);?|tab;|newline;))*(?:t|&#x?0*(?:84|54|116|74);?)(?:\t|&(?:#x?0*(?:9|13|10|A|D);?|tab;|newline;))*(?::|&(?:#x?0*(?:58|3A);?|colon;)).)
           options:
@@ -1835,9 +2004,17 @@ rules:
       - parameters:
           inputs:
             - address: server.request.cookies
+              key_path:
+                - null
             - address: server.request.query
+              key_path:
+                - null
             - address: server.request.body
+              key_path:
+                - null
             - address: server.request.path_params
+              key_path:
+                - null
           regex: <EMBED[\s/+].*?(?:src|type).*?=
           options:
             min_length: 11
@@ -1854,9 +2031,17 @@ rules:
       - parameters:
           inputs:
             - address: server.request.cookies
+              key_path:
+                - null
             - address: server.request.query
+              key_path:
+                - null
             - address: server.request.body
+              key_path:
+                - null
             - address: server.request.path_params
+              key_path:
+                - null
           regex: <[?]?import[\s/+\S]*?implementation[\s/+]*?=
           options:
             case_sensitive: true
@@ -1875,9 +2060,17 @@ rules:
       - parameters:
           inputs:
             - address: server.request.cookies
+              key_path:
+                - null
             - address: server.request.query
+              key_path:
+                - null
             - address: server.request.body
+              key_path:
+                - null
             - address: server.request.path_params
+              key_path:
+                - null
           regex: <LINK[\s/+].*?href[\s/+]*=
           options:
             min_length: 11
@@ -1894,9 +2087,17 @@ rules:
       - parameters:
           inputs:
             - address: server.request.cookies
+              key_path:
+                - null
             - address: server.request.query
+              key_path:
+                - null
             - address: server.request.body
+              key_path:
+                - null
             - address: server.request.path_params
+              key_path:
+                - null
           regex: <BASE[\s/+].*?href[\s/+]*=
           options:
             min_length: 11
@@ -1913,9 +2114,17 @@ rules:
       - parameters:
           inputs:
             - address: server.request.cookies
+              key_path:
+                - null
             - address: server.request.query
+              key_path:
+                - null
             - address: server.request.body
+              key_path:
+                - null
             - address: server.request.path_params
+              key_path:
+                - null
           regex: <APPLET[\s/+>]
           options:
             min_length: 8
@@ -1932,9 +2141,17 @@ rules:
       - parameters:
           inputs:
             - address: server.request.cookies
+              key_path:
+                - null
             - address: server.request.query
+              key_path:
+                - null
             - address: server.request.body
+              key_path:
+                - null
             - address: server.request.path_params
+              key_path:
+                - null
           regex: <OBJECT[\s/+].*?(?:type|codetype|classid|code|data)[\s/+]*=
           options:
             min_length: 13
@@ -1951,9 +2168,17 @@ rules:
       - parameters:
           inputs:
             - address: server.request.cookies
+              key_path:
+                - null
             - address: server.request.query
+              key_path:
+                - null
             - address: server.request.body
+              key_path:
+                - null
             - address: server.request.path_params
+              key_path:
+                - null
           regex: \+ADw-.*(?:\+AD4-|>)|<.*\+AD4-
           options:
             case_sensitive: true
@@ -1970,9 +2195,17 @@ rules:
       - parameters:
           inputs:
             - address: server.request.cookies
+              key_path:
+                - null
             - address: server.request.query
+              key_path:
+                - null
             - address: server.request.body
+              key_path:
+                - null
             - address: server.request.path_params
+              key_path:
+                - null
           regex: '![!+ ]\[\]'
           options:
             case_sensitive: true
@@ -1989,9 +2222,17 @@ rules:
       - parameters:
           inputs:
             - address: server.request.cookies
+              key_path:
+                - null
             - address: server.request.query
+              key_path:
+                - null
             - address: server.request.body
+              key_path:
+                - null
             - address: server.request.path_params
+              key_path:
+                - null
           regex: >-
             (?i:\b(?:(?:m(?:s(?:ys(?:ac(?:cess(?:objects|storage|xml)|es)|(?:relationship|object|querie)s|modules2?)|db)|aster\.\.sysdatabases|ysql\.db)|pg_(?:catalog|toast)|information_schema|northwind|tempdb)\b|s(?:(?:ys(?:\.database_name|aux)|qlite(?:_temp)?_master)\b|chema(?:_name\b|\W*\())|d(?:atabas|b_nam)e\W*\())
           options:
@@ -2009,9 +2250,17 @@ rules:
       - parameters:
           inputs:
             - address: server.request.cookies
+              key_path:
+                - null
             - address: server.request.query
+              key_path:
+                - null
             - address: server.request.body
+              key_path:
+                - null
             - address: server.request.path_params
+              key_path:
+                - null
           regex: (?i:sleep\(\s*?\d*?\s*?\)|benchmark\(.*?\,.*?\))
           options:
             case_sensitive: true
@@ -2030,9 +2279,17 @@ rules:
       - parameters:
           inputs:
             - address: server.request.cookies
+              key_path:
+                - null
             - address: server.request.query
+              key_path:
+                - null
             - address: server.request.body
+              key_path:
+                - null
             - address: server.request.path_params
+              key_path:
+                - null
           regex: >-
             ^(?i:-0000023456|4294967295|4294967296|2147483648|2147483647|0000012345|-2147483648|-2147483649|0000023456|3.0.00738585072007e-308|1e309)$
           options:
@@ -2050,9 +2307,17 @@ rules:
       - parameters:
           inputs:
             - address: server.request.cookies
+              key_path:
+                - null
             - address: server.request.query
+              key_path:
+                - null
             - address: server.request.body
+              key_path:
+                - null
             - address: server.request.path_params
+              key_path:
+                - null
           regex: >-
             (?i:(?:[\"'`](?:;*?\s*?waitfor\s+(?:delay|time)\s+[\"'`]|;.*?:\s*?goto)|alter\s*?\w+.*?cha(?:racte)?r\s+set\s+\w+))
           options:
@@ -2070,9 +2335,17 @@ rules:
       - parameters:
           inputs:
             - address: server.request.cookies
+              key_path:
+                - null
             - address: server.request.query
+              key_path:
+                - null
             - address: server.request.body
+              key_path:
+                - null
             - address: server.request.path_params
+              key_path:
+                - null
           regex: >-
             (?i:merge.*?using\s*?\(|execute\s*?immediate\s*?[\"'`]|match\s*?[\w(?:),+-]+\s*?against\s*?\()
           options:
@@ -2092,9 +2365,17 @@ rules:
       - parameters:
           inputs:
             - address: server.request.cookies
+              key_path:
+                - null
             - address: server.request.query
+              key_path:
+                - null
             - address: server.request.body
+              key_path:
+                - null
             - address: server.request.path_params
+              key_path:
+                - null
           regex: union.*?select.*?from
           options:
             min_length: 15
@@ -2112,9 +2393,17 @@ rules:
       - parameters:
           inputs:
             - address: server.request.cookies
+              key_path:
+                - null
             - address: server.request.query
+              key_path:
+                - null
             - address: server.request.body
+              key_path:
+                - null
             - address: server.request.path_params
+              key_path:
+                - null
           regex: >-
             (?i:(?:;\s*?shutdown\s*?(?:[#;]|/\*|--|\{)|waitfor\s*?delay\s?[\"'`]+\s?\d|select\s*?pg_sleep))
           options:
@@ -2132,9 +2421,17 @@ rules:
       - parameters:
           inputs:
             - address: server.request.cookies
+              key_path:
+                - null
             - address: server.request.query
+              key_path:
+                - null
             - address: server.request.body
+              key_path:
+                - null
             - address: server.request.path_params
+              key_path:
+                - null
           regex: >-
             (?i:(?:\[\$(?:ne|eq|lte?|gte?|n?in|mod|all|size|exists|type|slice|x?or|div|like|between|and)\]))
           options:
@@ -2152,9 +2449,17 @@ rules:
       - parameters:
           inputs:
             - address: server.request.cookies
+              key_path:
+                - null
             - address: server.request.query
+              key_path:
+                - null
             - address: server.request.body
+              key_path:
+                - null
             - address: server.request.path_params
+              key_path:
+                - null
           regex: (?i:/\*[!+](?:[\w\s=_\-(?:)]+)?\*/)
           options:
             case_sensitive: true
@@ -2171,9 +2476,17 @@ rules:
       - parameters:
           inputs:
             - address: server.request.cookies
+              key_path:
+                - null
             - address: server.request.query
+              key_path:
+                - null
             - address: server.request.body
+              key_path:
+                - null
             - address: server.request.path_params
+              key_path:
+                - null
           regex: >-
             (?i:\.cookie\b.*?;\W*?(?:expires|domain)\W*?=|\bhttp-equiv\W+set-cookie\b)
           options:
@@ -2191,10 +2504,20 @@ rules:
       - parameters:
           inputs:
             - address: server.request.query
+              key_path:
+                - null
             - address: server.request.body
+              key_path:
+                - null
             - address: server.request.path_params
+              key_path:
+                - null
             - address: server.request.cookies
+              key_path:
+                - null
             - address: server.request.headers.no_cookies
+              key_path:
+                - null
           regex: java\.lang\.(?:runtime|processbuilder)
           options:
             case_sensitive: true
@@ -2212,10 +2535,20 @@ rules:
       - parameters:
           inputs:
             - address: server.request.query
+              key_path:
+                - null
             - address: server.request.body
+              key_path:
+                - null
             - address: server.request.path_params
+              key_path:
+                - null
             - address: server.request.cookies
+              key_path:
+                - null
             - address: server.request.headers.no_cookies
+              key_path:
+                - null
           regex: (?:runtime|processbuilder)
           options:
             case_sensitive: true
@@ -2224,10 +2557,20 @@ rules:
       - parameters:
           inputs:
             - address: server.request.query
+              key_path:
+                - null
             - address: server.request.body
+              key_path:
+                - null
             - address: server.request.path_params
+              key_path:
+                - null
             - address: server.request.cookies
+              key_path:
+                - null
             - address: server.request.headers.no_cookies
+              key_path:
+                - null
           regex: (?:unmarshaller|base64data|java\.)
           options:
             case_sensitive: true
@@ -2245,10 +2588,20 @@ rules:
       - parameters:
           inputs:
             - address: server.request.query
+              key_path:
+                - null
             - address: server.request.body
+              key_path:
+                - null
             - address: server.request.path_params
+              key_path:
+                - null
             - address: server.request.cookies
+              key_path:
+                - null
             - address: server.request.headers.no_cookies
+              key_path:
+                - null
           list:
             - com.opensymphony.xwork2
             - com.sun.org.apache
@@ -2305,8 +2658,14 @@ rules:
       - parameters:
           inputs:
             - address: server.request.query
+              key_path:
+                - null
             - address: server.request.body
+              key_path:
+                - null
             - address: server.request.path_params
+              key_path:
+                - null
           regex: >-
             (?i)^\W*((http|ftp)s?://)?\W*((::f{4}:)?(169|(0x)?0*a9|0+251)\.?(254|(0x)?0*fe|0+376)[0-9a-fx\.:]+|metadata\.google\.internal|metadata\.goog)\W*/
           options:
@@ -2323,8 +2682,14 @@ rules:
       - parameters:
           inputs:
             - address: server.request.query
+              key_path:
+                - null
             - address: server.request.body
+              key_path:
+                - null
             - address: server.request.path_params
+              key_path:
+                - null
           regex: require\(['"][\w\.]+['"]\)|process\.\w+\([\w\.]*\)|\.toString\(\)
           options:
             min_length: 4
@@ -2340,6 +2705,8 @@ rules:
       - parameters:
           inputs:
             - address: server.request.headers.no_cookies
+              key_path:
+                - null
           regex: \$(eq|ne|lte?|gte?|n?in)\b
         operator: match_regex
     transformers: []
@@ -2352,9 +2719,17 @@ rules:
       - parameters:
           inputs:
             - address: server.request.query
+              key_path:
+                - null
             - address: server.request.body
+              key_path:
+                - null
             - address: server.request.path_params
+              key_path:
+                - null
             - address: server.request.headers.no_cookies
+              key_path:
+                - null
           regex: (?i)[&|]\s*type\s+%\w+%\\+\w+\.ini\s*[&|]
         operator: match_regex
     transformers: []
@@ -2367,9 +2742,17 @@ rules:
       - parameters:
           inputs:
             - address: server.request.query
+              key_path:
+                - null
             - address: server.request.body
+              key_path:
+                - null
             - address: server.request.path_params
+              key_path:
+                - null
             - address: server.request.headers.no_cookies
+              key_path:
+                - null
           regex: (?i)[&|]\s*cat\s+\/etc\/[\w\.\/]*passwd\s*[&|]
         operator: match_regex
     transformers: []
@@ -2382,9 +2765,17 @@ rules:
       - parameters:
           inputs:
             - address: server.request.query
+              key_path:
+                - null
             - address: server.request.body
+              key_path:
+                - null
             - address: server.request.path_params
+              key_path:
+                - null
             - address: server.request.headers.no_cookies
+              key_path:
+                - null
           regex: (?i)[&|]\s*timeout\s+/t\s+\d+\s*[&|]
         operator: match_regex
     transformers: []
@@ -2397,7 +2788,8 @@ rules:
       - parameters:
           inputs:
             - address: server.request.headers.no_cookies
-              key_path: user-agent
+              key_path:
+                - user-agent
           regex: JDatabaseDriverMysqli
         operator: match_regex
     transformers: []
@@ -2410,7 +2802,8 @@ rules:
       - parameters:
           inputs:
             - address: server.request.headers.no_cookies
-              key_path: user-agent
+              key_path:
+                - user-agent
           regex: (?i)^Nessus(/|([ :]+SOAP))
         operator: match_regex
     transformers: []
@@ -2423,7 +2816,8 @@ rules:
       - parameters:
           inputs:
             - address: server.request.headers.no_cookies
-              key_path: user-agent
+              key_path:
+                - user-agent
           regex: ^Arachni\/v
         operator: match_regex
     transformers: []
@@ -2436,7 +2830,8 @@ rules:
       - parameters:
           inputs:
             - address: server.request.headers.no_cookies
-              key_path: user-agent
+              key_path:
+                - user-agent
           regex: (?i)\bJorgee\b
         operator: match_regex
     transformers: []
@@ -2449,7 +2844,8 @@ rules:
       - parameters:
           inputs:
             - address: server.request.headers.no_cookies
-              key_path: user-agent
+              key_path:
+                - user-agent
           regex: (?i)\bProbely\b
         operator: match_regex
     transformers: []
@@ -2462,7 +2858,8 @@ rules:
       - parameters:
           inputs:
             - address: server.request.headers.no_cookies
-              key_path: user-agent
+              key_path:
+                - user-agent
           regex: (?i)\bmetis\b
         operator: match_regex
     transformers: []
@@ -2475,7 +2872,8 @@ rules:
       - parameters:
           inputs:
             - address: server.request.headers.no_cookies
-              key_path: user-agent
+              key_path:
+                - user-agent
           regex: sql power injector
         operator: match_regex
     transformers: []
@@ -2488,7 +2886,8 @@ rules:
       - parameters:
           inputs:
             - address: server.request.headers.no_cookies
-              key_path: user-agent
+              key_path:
+                - user-agent
           regex: (?i)\bn-stealth\b
         operator: match_regex
     transformers: []
@@ -2501,7 +2900,8 @@ rules:
       - parameters:
           inputs:
             - address: server.request.headers.no_cookies
-              key_path: user-agent
+              key_path:
+                - user-agent
           regex: (?i)\bbrutus\b
         operator: match_regex
     transformers: []
@@ -2514,7 +2914,8 @@ rules:
       - parameters:
           inputs:
             - address: server.request.headers.no_cookies
-              key_path: user-agent
+              key_path:
+                - user-agent
           regex: \(\) \{ :; *\}
         operator: match_regex
     transformers: []
@@ -2527,7 +2928,8 @@ rules:
       - parameters:
           inputs:
             - address: server.request.headers.no_cookies
-              key_path: user-agent
+              key_path:
+                - user-agent
           regex: (?i)(<script>netsparker\(0x0|ns:netsparker.*=vuln)
         operator: match_regex
     transformers: []
@@ -2540,7 +2942,8 @@ rules:
       - parameters:
           inputs:
             - address: server.request.headers.no_cookies
-              key_path: user-agent
+              key_path:
+                - user-agent
           regex: (?i)\bjaascois\b
         operator: match_regex
     transformers: []
@@ -2553,7 +2956,8 @@ rules:
       - parameters:
           inputs:
             - address: server.request.headers.no_cookies
-              key_path: user-agent
+              key_path:
+                - user-agent
           regex: (?i)\bpmafind\b
         operator: match_regex
     transformers: []
@@ -2566,7 +2970,8 @@ rules:
       - parameters:
           inputs:
             - address: server.request.headers.no_cookies
-              key_path: user-agent
+              key_path:
+                - user-agent
           regex: webtrends security analyzer
         operator: match_regex
     transformers: []
@@ -2579,7 +2984,8 @@ rules:
       - parameters:
           inputs:
             - address: server.request.headers.no_cookies
-              key_path: user-agent
+              key_path:
+                - user-agent
           regex: (?i)\bnsauditor\b
         operator: match_regex
     transformers: []
@@ -2592,7 +2998,8 @@ rules:
       - parameters:
           inputs:
             - address: server.request.headers.no_cookies
-              key_path: user-agent
+              key_path:
+                - user-agent
           regex: (?i)Mozilla/.* Paros/
         operator: match_regex
     transformers: []
@@ -2605,7 +3012,8 @@ rules:
       - parameters:
           inputs:
             - address: server.request.headers.no_cookies
-              key_path: user-agent
+              key_path:
+                - user-agent
           regex: (?i)\bdirbuster\b
         operator: match_regex
     transformers: []
@@ -2618,7 +3026,8 @@ rules:
       - parameters:
           inputs:
             - address: server.request.headers.no_cookies
-              key_path: user-agent
+              key_path:
+                - user-agent
           regex: (?i)\bpangolin\b
         operator: match_regex
     transformers: []
@@ -2631,7 +3040,8 @@ rules:
       - parameters:
           inputs:
             - address: server.request.headers.no_cookies
-              key_path: user-agent
+              key_path:
+                - user-agent
           regex: (?i)\bqualys\b
         operator: match_regex
     transformers: []
@@ -2644,7 +3054,8 @@ rules:
       - parameters:
           inputs:
             - address: server.request.headers.no_cookies
-              key_path: user-agent
+              key_path:
+                - user-agent
           regex: (?i)\bsqlninja\b
         operator: match_regex
     transformers: []
@@ -2657,7 +3068,8 @@ rules:
       - parameters:
           inputs:
             - address: server.request.headers.no_cookies
-              key_path: user-agent
+              key_path:
+                - user-agent
           regex: \(Nikto/[\d\.]+\)
         operator: match_regex
     transformers: []
@@ -2670,7 +3082,8 @@ rules:
       - parameters:
           inputs:
             - address: server.request.headers.no_cookies
-              key_path: user-agent
+              key_path:
+                - user-agent
           regex: (?i)\bwebinspect\b
         operator: match_regex
     transformers: []
@@ -2683,7 +3096,8 @@ rules:
       - parameters:
           inputs:
             - address: server.request.headers.no_cookies
-              key_path: user-agent
+              key_path:
+                - user-agent
           regex: (?i)\bblack\s?widow\b
         operator: match_regex
     transformers: []
@@ -2696,7 +3110,8 @@ rules:
       - parameters:
           inputs:
             - address: server.request.headers.no_cookies
-              key_path: user-agent
+              key_path:
+                - user-agent
           regex: (?i)\bgrendel-scan\b
         operator: match_regex
     transformers: []
@@ -2709,7 +3124,8 @@ rules:
       - parameters:
           inputs:
             - address: server.request.headers.no_cookies
-              key_path: user-agent
+              key_path:
+                - user-agent
           regex: (?i)\bhavij\b
         operator: match_regex
     transformers: []
@@ -2722,7 +3138,8 @@ rules:
       - parameters:
           inputs:
             - address: server.request.headers.no_cookies
-              key_path: user-agent
+              key_path:
+                - user-agent
           regex: (?i)\bw3af\b
         operator: match_regex
     transformers: []
@@ -2735,7 +3152,8 @@ rules:
       - parameters:
           inputs:
             - address: server.request.headers.no_cookies
-              key_path: user-agent
+              key_path:
+                - user-agent
           regex: nmap (nse|scripting engine)
         operator: match_regex
     transformers: []
@@ -2748,7 +3166,8 @@ rules:
       - parameters:
           inputs:
             - address: server.request.headers.no_cookies
-              key_path: user-agent
+              key_path:
+                - user-agent
           regex: (?i)^'?[a-z0-9]+\.nasl'?$
         operator: match_regex
     transformers: []
@@ -2761,7 +3180,8 @@ rules:
       - parameters:
           inputs:
             - address: server.request.headers.no_cookies
-              key_path: user-agent
+              key_path:
+                - user-agent
           regex: (?i)\bevilScanner\b
         operator: match_regex
     transformers: []
@@ -2774,7 +3194,8 @@ rules:
       - parameters:
           inputs:
             - address: server.request.headers.no_cookies
-              key_path: user-agent
+              key_path:
+                - user-agent
           regex: (?i)\bWebFuck\b
         operator: match_regex
     transformers: []
@@ -2787,7 +3208,8 @@ rules:
       - parameters:
           inputs:
             - address: server.request.headers.no_cookies
-              key_path: user-agent
+              key_path:
+                - user-agent
           regex: md5\(acunetix_wvs_security_test\)
         operator: match_regex
     transformers: []
@@ -2800,7 +3222,8 @@ rules:
       - parameters:
           inputs:
             - address: server.request.headers.no_cookies
-              key_path: user-agent
+              key_path:
+                - user-agent
           regex: (?i)OpenVAS\b
         operator: match_regex
     transformers: []
@@ -2813,7 +3236,8 @@ rules:
       - parameters:
           inputs:
             - address: server.request.headers.no_cookies
-              key_path: user-agent
+              key_path:
+                - user-agent
           regex: Powered by Spider-Pig by tinfoilsecurity\.com
         operator: match_regex
     transformers: []
@@ -2826,7 +3250,8 @@ rules:
       - parameters:
           inputs:
             - address: server.request.headers.no_cookies
-              key_path: user-agent
+              key_path:
+                - user-agent
           regex: Mozilla/\d+.\d+ zgrab
         operator: match_regex
     transformers: []
@@ -2839,7 +3264,8 @@ rules:
       - parameters:
           inputs:
             - address: server.request.headers.no_cookies
-              key_path: user-agent
+              key_path:
+                - user-agent
           regex: (?i)\bZmEu\b
         operator: match_regex
     transformers: []
@@ -2852,7 +3278,8 @@ rules:
       - parameters:
           inputs:
             - address: server.request.headers.no_cookies
-              key_path: user-agent
+              key_path:
+                - user-agent
           regex: (?i)\bcrowdstrike\b
         operator: match_regex
     transformers: []
@@ -2865,7 +3292,8 @@ rules:
       - parameters:
           inputs:
             - address: server.request.headers.no_cookies
-              key_path: user-agent
+              key_path:
+                - user-agent
           regex: (?i)\bGoogleSecurityScanner\b
         operator: match_regex
     transformers: []
@@ -2878,7 +3306,8 @@ rules:
       - parameters:
           inputs:
             - address: server.request.headers.no_cookies
-              key_path: user-agent
+              key_path:
+                - user-agent
           regex: ^commix\/
         operator: match_regex
     transformers: []
@@ -2891,7 +3320,8 @@ rules:
       - parameters:
           inputs:
             - address: server.request.headers.no_cookies
-              key_path: user-agent
+              key_path:
+                - user-agent
           regex: ^gobuster\/
         operator: match_regex
     transformers: []
@@ -2904,7 +3334,8 @@ rules:
       - parameters:
           inputs:
             - address: server.request.headers.no_cookies
-              key_path: user-agent
+              key_path:
+                - user-agent
           regex: (?i)\bcgichk\b
         operator: match_regex
     transformers: []
@@ -2917,7 +3348,8 @@ rules:
       - parameters:
           inputs:
             - address: server.request.headers.no_cookies
-              key_path: user-agent
+              key_path:
+                - user-agent
           regex: (?i)^Fuzz Faster U Fool\b
         operator: match_regex
     transformers: []
@@ -2932,7 +3364,8 @@ rules:
       - parameters:
           inputs:
             - address: server.request.headers.no_cookies
-              key_path: user-agent
+              key_path:
+                - user-agent
           regex: (?i)^Nuclei\b
         operator: match_regex
     transformers: []
@@ -2948,7 +3381,8 @@ rules:
       - parameters:
           inputs:
             - address: server.request.headers.no_cookies
-              key_path: user-agent
+              key_path:
+                - user-agent
           regex: (?i)\bTsunamiSecurityScanner\b
         operator: match_regex
     transformers: []
@@ -2961,7 +3395,8 @@ rules:
       - parameters:
           inputs:
             - address: server.request.headers.no_cookies
-              key_path: user-agent
+              key_path:
+                - user-agent
           regex: (?i)\bnimbostratus-bot\b
         operator: match_regex
     transformers: []
@@ -2974,7 +3409,8 @@ rules:
       - parameters:
           inputs:
             - address: server.request.headers.no_cookies
-              key_path: user-agent
+              key_path:
+                - user-agent
           regex: (?i)\bbsqlbf\b
         operator: match_regex
     transformers: []
@@ -2987,7 +3423,8 @@ rules:
       - parameters:
           inputs:
             - address: server.request.headers.no_cookies
-              key_path: user-agent
+              key_path:
+                - user-agent
           regex: mozilla/4\.0 \(compatible(; msie 6\.0; win32)?\)
         operator: match_regex
     transformers: []
@@ -3000,7 +3437,8 @@ rules:
       - parameters:
           inputs:
             - address: server.request.headers.no_cookies
-              key_path: user-agent
+              key_path:
+                - user-agent
           regex: ^sqlmap/
         operator: match_regex
     transformers: []
@@ -3013,7 +3451,8 @@ rules:
       - parameters:
           inputs:
             - address: server.request.headers.no_cookies
-              key_path: user-agent
+              key_path:
+                - user-agent
           regex: (?i)mozilla/5\.0 sf/
         operator: match_regex
     transformers: []

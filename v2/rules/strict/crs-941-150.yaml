@@ -9,7 +9,6 @@ conditions:
       inputs:
         - address: server.request.cookies
         - address: server.request.headers.no_cookies
-          key_path: user-agent
         - address: server.request.query
         - address: server.request.body
         - address: server.request.path_params
