@@ -9,6 +9,7 @@ conditions:
       inputs:
         - address: server.request.headers.no_cookies
           key_path:
+            - x-filename
             - x_filename
             - x.filename
             - x-file-name

@@ -64,7 +64,12 @@ function convertRule(yamlRule, trustDirectory){
                     newInputs[address].push(addressAndKeyPath[1])
                 }
             } else {
-                newInputs[address] = []
+                if (addressAndKeyPath.length > 1) {
+                    newInputs[address] = [addressAndKeyPath[1]]
+                }
+                else {
+                    newInputs[address] = []
+                }
             }
         });
 

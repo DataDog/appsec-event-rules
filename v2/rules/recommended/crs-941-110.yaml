@@ -10,6 +10,7 @@ conditions:
         - address: server.request.cookies
         - address: server.request.headers.no_cookies
           key_path:
+            - user-agent
             - referer
         - address: server.request.query
         - address: server.request.body
