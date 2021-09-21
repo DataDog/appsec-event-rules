@@ -7,8 +7,8 @@ tags:
 conditions:
   - parameters:
       inputs:
-        - server.request.uri.raw
-        - server.request.headers.no_cookies
+        - address: server.request.uri.raw
+        - address: server.request.headers.no_cookies
       regex: (?:^|[\\/])\.\.(?:[\\/]|$)
       options:
         case_sensitive: true

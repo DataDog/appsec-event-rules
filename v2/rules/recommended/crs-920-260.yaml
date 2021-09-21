@@ -7,7 +7,7 @@ tags:
 conditions:
   - parameters:
       inputs:
-        - server.request.uri.raw
+        - address: server.request.uri.raw
       regex: \%u[fF]{2}[0-9a-fA-F]{2}
       options:
         case_sensitive: true

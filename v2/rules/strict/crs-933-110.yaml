@@ -7,10 +7,12 @@ tags:
 conditions:
   - parameters:
       inputs:
-        - server.request.headers.no_cookies:x-filename
-        - server.request.headers.no_cookies:x_filename
-        - server.request.headers.no_cookies:x.filename
-        - server.request.headers.no_cookies:x-file-name
+        - address: server.request.headers.no_cookies
+          key_path:
+            - x-filename
+            - x_filename
+            - x.filename
+            - x-file-name
       regex: .*\.(?:php\d*|phtml)\.*$
       options:
         case_sensitive: true

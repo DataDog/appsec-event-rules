@@ -7,10 +7,10 @@ tags:
 conditions:
   - parameters:
       inputs:
-        - server.request.cookies
-        - server.request.query
-        - server.request.body
-        - server.request.path_params
+        - address: server.request.cookies
+        - address: server.request.query
+        - address: server.request.body
+        - address: server.request.path_params
       list:
         - __halt_compiler
         - apache_child_terminate

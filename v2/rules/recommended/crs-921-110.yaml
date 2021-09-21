@@ -7,9 +7,9 @@ tags:
 conditions:
   - parameters:
       inputs:
-        - server.request.query
-        - server.request.body
-        - server.request.path_params
+        - address: server.request.query
+        - address: server.request.body
+        - address: server.request.path_params
       regex: >-
         (?:get|post|head|options|connect|put|delete|trace|track|patch|propfind|propatch|mkcol|copy|move|lock|unlock)\s+[^\s]+\s+http/\d
       options:

@@ -7,8 +7,8 @@ tags:
 conditions:
   - parameters:
       inputs:
-        - server.request.query
-        - server.request.path_params
+        - address: server.request.query
+        - address: server.request.path_params
       regex: >-
         [\n\r]+(?:\s|location|refresh|(?:set-)?cookie|(?:x-)?(?:forwarded-(?:for|host|server)|host|via|remote-ip|remote-addr|originating-IP))\s*:
       options:
