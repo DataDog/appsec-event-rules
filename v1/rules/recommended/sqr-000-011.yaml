@@ -1,0 +1,17 @@
+id: sqr-000-001
+name: 'SSRF: Try to access internal OMI service (CVE-2021-38647)'
+tags:
+  type: ssrf
+conditions:
+  - operation: match_regex
+    parameters:
+      inputs:
+        - server.request.query
+        - server.request.body
+        - server.request.path_params
+      regex: http(s?):\/\/([a-z0-9\.\-\_]+|)\:5986\/wsman
+      options:
+        min_length: 4
+transformers:
+  - removeNulls
+action: record
