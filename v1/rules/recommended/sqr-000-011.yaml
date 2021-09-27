@@ -1,4 +1,4 @@
-id: sqr-000-001
+id: sqr-000-011
 name: 'SSRF: Try to access internal OMI service (CVE-2021-38647)'
 tags:
   type: ssrf
