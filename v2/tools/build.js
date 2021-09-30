@@ -26,7 +26,7 @@ const OutputDir = args['--output']
 
 
 let outContentObj = {
-    "version":"2.0",
+    "version":"2.1",
     "rules":[]
 }
 fs.readdirSync(SourceDir).forEach(file => {
