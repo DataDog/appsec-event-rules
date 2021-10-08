@@ -1,0 +1,17 @@
+id: crs-941-100
+name: 'XSS Attack Detected via libinjection'
+tags:
+  type: xss
+  crs_id: '941100'
+conditions:
+  - parameters:
+      inputs:
+        - server.request.cookies
+        - server.request.headers.no_cookies:user-agent
+        - server.request.headers.no_cookies:referer
+        - server.request.query
+        - server.request.body
+        - server.request.path_params
+    operation: is_xss
+transformers:
+  - removeNulls

@@ -1,4 +1,4 @@
-version: '1.0'
+version: '1.1'
 events:
   - id: crs-913-110
     name: Found request header associated with Acunetix security scanner
@@ -1733,6 +1733,23 @@ events:
             min_length: 5
     transformers: []
     action: record
+  - id: crs-941-100
+    name: XSS Attack Detected via libinjection
+    tags:
+      type: xss
+      crs_id: '941100'
+    conditions:
+      - parameters:
+          inputs:
+            - server.request.cookies
+            - server.request.headers.no_cookies:user-agent
+            - server.request.headers.no_cookies:referer
+            - server.request.query
+            - server.request.body
+            - server.request.path_params
+        operation: is_xss
+    transformers:
+      - removeNulls
   - id: crs-941-110
     name: 'XSS Filter - Category 1: Script Tag Vector'
     tags:
@@ -1970,6 +1987,21 @@ events:
             min_length: 4
     transformers: []
     action: record
+  - id: crs-942-100
+    name: SQL Injection Attack Detected via libinjection
+    tags:
+      type: sqli
+      crs_id: '942100'
+    conditions:
+      - parameters:
+          inputs:
+            - server.request.cookies
+            - server.request.query
+            - server.request.body
+            - server.request.path_params
+        operation: is_sqli
+    transformers:
+      - removeNulls
   - id: crs-942-140
     name: 'SQL Injection Attack: Common DB Names Detected'
     tags:
