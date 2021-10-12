@@ -54,5 +54,5 @@ function writeYAMLFile(obj){
 }
 
 function writeJSONFile(obj){
-    fs.writeFileSync(OutputDir + '/' +  Collection + '.json', JSON.stringify(obj))
+    fs.writeFileSync(OutputDir + '/' +  Collection + '.json', JSON.stringify(obj, null, 2))
 }
