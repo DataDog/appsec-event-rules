@@ -1,6 +1,7 @@
 const fs = require('fs')
 const arg = require('arg');
 const yaml = require('js-yaml')
+const path = require('path')
 
 const args = arg({
     // Types
@@ -30,6 +31,7 @@ let outContentObj = {
     "rules":[]
 }
 fs.readdirSync(SourceDir).forEach(file => {
+    if(path.extname(file) !== '.yaml') return; //skip md files
     outContentObj.rules.push(readYAMLfile(file))
 });
 
