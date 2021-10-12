@@ -10,7 +10,7 @@ conditions:
         - address: server.request.query
         - address: server.request.body
         - address: server.request.path_params
-      regex: http(s?):\\/\\/([A-Za-z0-9\\.\\-\\_]+|\\[[A-Fa-f0-9\\:]\\]|):5986\\/wsman
+      regex: http(s?):\/\/([A-Za-z0-9\.\-\_]+|\[[A-Fa-f0-9\:]+\]|):5986\/wsman
       options:
         min_length: 4
 transformers: []
