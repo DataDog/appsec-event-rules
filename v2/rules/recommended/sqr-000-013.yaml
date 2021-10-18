@@ -2,14 +2,14 @@ id: sqr-000-013
 name: 'SSRF: Detect SSRF attempts using IPv6 or octal/hexdecimal obfuscation'
 tags:
   type: ssrf
+  category: attack_attempt
 conditions:
   - parameters:
       inputs:
-        - server.request.query
-        - server.request.body
-        - server.request.path_params
+        - address: server.request.query
+        - address: server.request.body
+        - address: server.request.path_params
       regex: ^(jar:)?(http|https):\/\/((\[)?[:0-9a-f\.x]{2,}(\])?)(:[0-9]{1,5})?(\/.*)?$
-    operation: match_regex
+    operator: match_regex
 transformers:
   - lowercase
-action: record
