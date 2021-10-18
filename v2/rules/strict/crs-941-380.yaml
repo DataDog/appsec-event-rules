@@ -14,6 +14,6 @@ conditions:
       regex: ^{{[\w\s\.]*[^\w\.\s}][^}]*}}$
       options:
         case_sensitive: true
-        min_length: 4
+        min_length: 5
     operator: match_regex
 transformers: []

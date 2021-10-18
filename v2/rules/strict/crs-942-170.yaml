@@ -13,9 +13,8 @@ conditions:
         - address: server.request.query
         - address: server.request.body
         - address: server.request.path_params
-      regex: (?i:(?:select|;)\s+(?:benchmark|sleep|if)\s*?\(\s*?\(?\s*?\w+)
+      regex: (?:select|;)\s+(?:benchmark|sleep|if)\s*?\(\s*?\(?\s*?\w+
       options:
-        case_sensitive: true
         min_length: 6
     operator: match_regex
 transformers: []

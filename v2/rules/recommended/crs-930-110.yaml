@@ -9,10 +9,10 @@ conditions:
       inputs:
         - address: server.request.uri.raw
         - address: server.request.headers.no_cookies
-      regex: (?:^|[\\/])\.\.(?:[\\/]|$)
+      regex: (?:(?:^|[\\/])\.\.[\\/]|[\\/]\.\.(?:[\\/]|$))
       options:
         case_sensitive: true
-        min_length: 2
+        min_length: 3
     operator: match_regex
 transformers:
   - removeNulls

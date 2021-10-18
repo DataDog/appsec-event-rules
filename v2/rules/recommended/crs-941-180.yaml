@@ -18,10 +18,8 @@ conditions:
         - .innerhtml
         - window.location
         - '-moz-binding'
-        - <!--
-        - '-->'
         - <![cdata[
     operator: phrase_match
 transformers:
-  - lowercase
   - removeNulls
+  - lowercase

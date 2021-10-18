@@ -12,9 +12,8 @@ conditions:
         - address: server.request.body
         - address: server.request.path_params
       regex: >-
-        (?i:(?:;\s*?(?:(?:(?:trunc|cre|upd)at|renam)e|(?:inser|selec)t|de(?:lete|sc)|alter|load)\b\s*?[\[(?:]?\w{2,}|create\s+function\s+.+\s+returns))
+        (?:;\s*?(?:(?:(?:trunc|cre|upd)at|renam)e|d(?:e(?:lete|sc)|rop)|(?:inser|selec)t|alter|load)\b\s*?[\[(?:]?\w{2,}|create\s+function\s+.+\s+returns)
       options:
-        case_sensitive: true
         min_length: 7
     operator: match_regex
 transformers: []
