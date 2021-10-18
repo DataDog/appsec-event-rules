@@ -2062,7 +2062,7 @@
     },
     {
       "id": "crs-941-180",
-      "name": "Node-Validator Blacklist Keywords",
+      "name": "Node-Validator Deny List Keywords",
       "tags": {
         "type": "xss",
         "crs_id": "941180"
