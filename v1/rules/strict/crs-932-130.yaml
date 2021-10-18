@@ -11,7 +11,7 @@ conditions:
         - server.request.query
         - server.request.body
         - server.request.path_params
-      regex: (?:\$(?:\((?:\(.*\)|.*)\)|\{.*\})|[<>]\(.*\))
+      regex: (?:\$(?:\((?:\(.*\)|.*)\)|\{.*})|[<>]\(.*\))
       options:
         case_sensitive: true
         min_length: 3

@@ -18,10 +18,8 @@ conditions:
         - .innerhtml
         - window.location
         - '-moz-binding'
-        - <!--
-        - '-->'
         - <![cdata[
 transformers:
-  - lowercase
   - removeNulls
+  - lowercase
 action: record
