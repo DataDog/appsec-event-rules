@@ -16,6 +16,7 @@ conditions:
         - address: server.request.path_params
       regex: \b(?:s(?:tyle|rc)|href)\b\s*?=
       options:
+        case_sensitive: true
         min_length: 4
     operator: match_regex
 transformers:

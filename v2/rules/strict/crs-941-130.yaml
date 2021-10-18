@@ -15,7 +15,7 @@ conditions:
         - address: server.request.body
         - address: server.request.path_params
       regex: >-
-        [\s\S](?:!ENTITY\s+(?:\S+|%\s+\S+)\s+(?:PUBLIC|SYSTEM)|x(?:link:href|html|mlns)|data:text/html|pattern\b.*?=|formaction|\@import|;base64)\b
+        [\s\S](?:\b(?:x(?:link:href|html|mlns)|data:text\/html|pattern\b.*?=|formaction)|!ENTITY\s+(?:\S+|%\s+\S+)\s+(?:PUBLIC|SYSTEM)|;base64|@import)\b
       options:
         min_length: 6
     operator: match_regex
