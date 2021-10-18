@@ -30,34 +30,34 @@ const OutputDir = args['--output']
 
 const ADDRRS = {
     "ARGS": [
-        'http.server.query',
-        'http.server.body',
-        'http.server.path_params'
+        'server.request.query',
+        'server.request.body',
+        'server.request.path_params'
     ],
     "ARGS_NAMES": [], //NOT SUPPORTED
-    "ARGS_GET": ['http.server.query', 'http.server.path_params'],
+    "ARGS_GET": ['server.request.query', 'server.request.path_params'],
     "ARGS_GET_NAMES":[], //NOT SUPPORTED
-    "QUERY_STRING":["http.server.query"],
-    "REQUEST_COOKIES": ['http.server.cookies'],
+    "QUERY_STRING":["server.request.query"],
+    "REQUEST_COOKIES": ['server.request.cookies'],
     "REQUEST_COOKIES_NAMES": [], //NOT SUPPORTED
-    "REQUEST_HEADERS": ['http.headers'],
+    "REQUEST_HEADERS": ['server.request.headers.no_cookies'],
     "REQUEST_HEADERS_NAMES":[],
     "REQUEST_FILENAME": [],  //NOT SUPPORTED
-    "REQUEST_URI":['http.target'],
+    "REQUEST_URI":['server.request.uri.raw'],
     "REQUEST_BASENAME":[], //NOT SUPPORTED
     "FILES":[],//NOT SUPPORTED
     "FILES_NAMES":[], //NOT SUPPORTED
-    "REQUEST_HEADERS:x-filename": ['http.headers:x-filename'],
-    "REQUEST_HEADERS:x_filename": ['http.headers:x_filename'],
-    "REQUEST_HEADERS:x.filename": ['http.headers:x.filename'],
-    "REQUEST_HEADERS:x-file-name": ['http.headers:x-file-name'],
-    "REQUEST_HEADERS:content-length": ['http.headers:content-length'],
-    "REQUEST_HEADERS:content-type": ['http.headers:content-type'],
-    "REQUEST_HEADERS:x-up-devcap-post-charset": ['http.headers:x-up-devcap-post-charset'],
-    "REQUEST_HEADERS:user-agent": ['http.user_agent'],
-    "REQUEST_HEADERS:User-Agent": ['http.user_agent'],
-    "REQUEST_HEADERS:referer": ['http.headers:referer'],
-    "REQUEST_HEADERS:Referer": ['http.headers:Referer'],
+    "REQUEST_HEADERS:x-filename": ['server.request.headers.no_cookies:x-filename'],
+    "REQUEST_HEADERS:x_filename": ['server.request.headers.no_cookies:x_filename'],
+    "REQUEST_HEADERS:x.filename": ['server.request.headers.no_cookies:x.filename'],
+    "REQUEST_HEADERS:x-file-name": ['server.request.headers.no_cookies:x-file-name'],
+    "REQUEST_HEADERS:content-length": ['server.request.headers.no_cookies:content-length'],
+    "REQUEST_HEADERS:content-type": ['server.request.headers.no_cookies:content-type'],
+    "REQUEST_HEADERS:x-up-devcap-post-charset": ['server.request.headers.no_cookies:x-up-devcap-post-charset'],
+    "REQUEST_HEADERS:user-agent": ['server.request.headers.no_cookies:user-agent'],
+    "REQUEST_HEADERS:User-Agent": ['server.request.headers.no_cookies:user-agent'],
+    "REQUEST_HEADERS:referer": ['server.request.headers.no_cookies:referer'],
+    "REQUEST_HEADERS:Referer": ['server.request.headers.no_cookies:Referer'],
     "REQUEST_METHOD":['http.method'],
 }
 
@@ -161,7 +161,7 @@ function getRuleType(oldRule){
       - operation: match_regex
         parameters:
   	        inputs:
-                http.headers.user_agent
+                server.request.headers.no_cookies.user_agent
             regex: \(nikto/[\d\.]+\)
     transformers:
       - lowercase
