@@ -9,7 +9,7 @@ conditions:
       inputs:
         - server.request.uri.raw
         - server.request.headers.no_cookies
-      regex: (?:(?:^|[\\\\/])\.\.[\\\\/]|[\\\\/]\.\.(?:[\\\\/]|$))
+      regex: (?:(?:^|[\\/])\.\.[\\/]|[\\/]\.\.(?:[\\/]|$))
       options:
         case_sensitive: true
         min_length: 3
