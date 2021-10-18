@@ -2941,6 +2941,104 @@
       "action": "record"
     },
     {
+      "id": "sqr-000-012",
+      "name": "SSRF: Detect SSRF attempt on internal service",
+      "tags": {
+        "type": "ssrf"
+      },
+      "conditions": [
+        {
+          "parameters": {
+            "inputs": [
+              "server.request.query",
+              "server.request.body",
+              "server.request.path_params"
+            ],
+            "regex": "^(jar:)?(http|https):\\/\\/([0-9oq]{1,5}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}|[0-9]{1,10}|localhost)(:[0-9]{1,5})?(\\/.*|)$"
+          },
+          "operation": "match_regex"
+        }
+      ],
+      "transformers": [
+        "lowercase"
+      ],
+      "action": "record"
+    },
+    {
+      "id": "sqr-000-013",
+      "name": "SSRF: Detect SSRF attempts using IPv6 or octal/hexdecimal obfuscation",
+      "tags": {
+        "type": "ssrf"
+      },
+      "conditions": [
+        {
+          "parameters": {
+            "inputs": [
+              "server.request.query",
+              "server.request.body",
+              "server.request.path_params"
+            ],
+            "regex": "^(jar:)?(http|https):\\/\\/((\\[)?[:0-9a-f\\.x]{2,}(\\])?)(:[0-9]{1,5})?(\\/.*)?$"
+          },
+          "operation": "match_regex"
+        }
+      ],
+      "transformers": [
+        "lowercase"
+      ],
+      "action": "record"
+    },
+    {
+      "id": "sqr-000-014",
+      "name": "SSRF: Detect SSRF domain redirection bypass",
+      "tags": {
+        "type": "ssrf"
+      },
+      "conditions": [
+        {
+          "parameters": {
+            "inputs": [
+              "server.request.query",
+              "server.request.body",
+              "server.request.path_params",
+              "server.request.headers.no_cookies"
+            ],
+            "regex": "^(http|https):\\/\\/(.*burpcollaborator\\.net|localtest\\.me|mail\\.ebc\\.apple\\.com|bugbounty\\.dod\\.network|.*\\.[nx]ip\\.io)"
+          },
+          "operation": "match_regex"
+        }
+      ],
+      "transformers": [
+        "lowercase"
+      ],
+      "action": "record"
+    },
+    {
+      "id": "sqr-000-015",
+      "name": "SSRF: Detect SSRF attempt using non HTTP protocol",
+      "tags": {
+        "type": "ssrf"
+      },
+      "conditions": [
+        {
+          "parameters": {
+            "inputs": [
+              "server.request.query",
+              "server.request.body",
+              "server.request.path_params",
+              "server.request.headers.no_cookies"
+            ],
+            "regex": "^(jar:)?((file|netdoc):\\/\\/[\\\\\\/]+|(dict|gopher|ldap|sftp|tftp):\\/\\/.*:[0-9]{1,5})"
+          },
+          "operation": "match_regex"
+        }
+      ],
+      "transformers": [
+        "lowercase"
+      ],
+      "action": "record"
+    },
+    {
       "id": "ua0-600-0xx",
       "name": "Joomla exploitation tool",
       "tags": {
