@@ -19,7 +19,10 @@
               "acunetix-product",
               "(acunetix web vulnerability scanner",
               "acunetix-scanning-agreement",
-              "acunetix-user-agreement"
+              "acunetix-user-agreement",
+              "myvar=1234",
+              "x-ratproxy-loop",
+              "bytes=0-,5-0,5-1,5-2,5-3,5-4,5-5,5-6,5-7,5-8,5-9,5-10,5-11,5-12,5-13,5-14"
             ]
           }
         }
@@ -219,10 +222,10 @@
               "server.request.uri.raw",
               "server.request.headers.no_cookies"
             ],
-            "regex": "(?:^|[\\\\/])\\.\\.(?:[\\\\/]|$)",
+            "regex": "(?:(?:^|[\\\\\\\\/])\\.\\.[\\\\\\\\/]|[\\\\\\\\/]\\.\\.(?:[\\\\\\\\/]|$))",
             "options": {
               "case_sensitive": true,
-              "min_length": 2
+              "min_length": 3
             }
           }
         }
@@ -1999,6 +2002,103 @@
       "action": "record"
     },
     {
+      "id": "crs-941-120",
+      "name": "XSS Filter - Category 2: Event Handler Vector",
+      "tags": {
+        "type": "xss",
+        "crs_id": "941120"
+      },
+      "conditions": [
+        {
+          "operation": "match_regex",
+          "parameters": {
+            "inputs": [
+              "server.request.cookies",
+              "server.request.headers.no_cookies:user-agent",
+              "server.request.headers.no_cookies:referer",
+              "server.request.query",
+              "server.request.body",
+              "server.request.path_params"
+            ],
+            "regex": "[\\s\\\"'`;\\/0-9=\\x0B\\x09\\x0C\\x3B\\x2C\\x28\\x3B]on[a-zA-Z]{3,25}[\\s\\x0B\\x09\\x0C\\x3B\\x2C\\x28\\x3B]*?=[^=]",
+            "options": {
+              "min_length": 8
+            }
+          }
+        }
+      ],
+      "transformers": [
+        "removeNulls"
+      ],
+      "action": "record"
+    },
+    {
+      "id": "crs-941-140",
+      "name": "XSS Filter - Category 4: Javascript URI Vector",
+      "tags": {
+        "type": "xss",
+        "crs_id": "941140"
+      },
+      "conditions": [
+        {
+          "operation": "match_regex",
+          "parameters": {
+            "inputs": [
+              "server.request.cookies",
+              "server.request.headers.no_cookies:user-agent",
+              "server.request.headers.no_cookies:referer",
+              "server.request.query",
+              "server.request.body",
+              "server.request.path_params"
+            ],
+            "regex": "[a-z]+=(?:[^:=]+:.+;)*?[^:=]+:url\\(javascript",
+            "options": {
+              "min_length": 18
+            }
+          }
+        }
+      ],
+      "transformers": [
+        "removeNulls"
+      ],
+      "action": "record"
+    },
+    {
+      "id": "crs-941-180",
+      "name": "Node-Validator Blacklist Keywords",
+      "tags": {
+        "type": "xss",
+        "crs_id": "941180"
+      },
+      "conditions": [
+        {
+          "operation": "phrase_match",
+          "parameters": {
+            "inputs": [
+              "server.request.cookies",
+              "server.request.query",
+              "server.request.body",
+              "server.request.path_params"
+            ],
+            "list": [
+              "document.cookie",
+              "document.write",
+              ".parentnode",
+              ".innerhtml",
+              "window.location",
+              "-moz-binding",
+              "<![cdata["
+            ]
+          }
+        }
+      ],
+      "transformers": [
+        "removeNulls",
+        "lowercase"
+      ],
+      "action": "record"
+    },
+    {
       "id": "crs-941-200",
       "name": "IE XSS Filters - Attack Detected via vmlframe tag",
       "tags": {
@@ -2361,9 +2461,8 @@
               "server.request.body",
               "server.request.path_params"
             ],
-            "regex": "(?i:\\b(?:(?:m(?:s(?:ys(?:ac(?:cess(?:objects|storage|xml)|es)|(?:relationship|object|querie)s|modules2?)|db)|aster\\.\\.sysdatabases|ysql\\.db)|pg_(?:catalog|toast)|information_schema|northwind|tempdb)\\b|s(?:(?:ys(?:\\.database_name|aux)|qlite(?:_temp)?_master)\\b|chema(?:_name\\b|\\W*\\())|d(?:atabas|b_nam)e\\W*\\())",
+            "regex": "\\b(?:(?:m(?:s(?:ys(?:ac(?:cess(?:objects|storage|xml)|es)|(?:relationship|object|querie)s|modules2?)|db)|aster\\.\\.sysdatabases|ysql\\.db)|pg_(?:catalog|toast)|information_schema|northwind|tempdb)\\b|s(?:(?:ys(?:\\.database_name|aux)|qlite(?:_temp)?_master)\\b|chema(?:_name\\b|\\W*\\())|d(?:atabas|b_nam)e\\W*\\()",
             "options": {
-              "case_sensitive": true,
               "min_length": 4
             }
           }
@@ -2401,8 +2500,35 @@
       "action": "record"
     },
     {
+      "id": "crs-942-190",
+      "name": "Detects MSSQL code execution and information gathering attempts",
+      "tags": {
+        "type": "sqli",
+        "crs_id": "942190"
+      },
+      "conditions": [
+        {
+          "operation": "match_regex",
+          "parameters": {
+            "inputs": [
+              "server.request.cookies",
+              "server.request.query",
+              "server.request.body",
+              "server.request.path_params"
+            ],
+            "regex": "(?:\\b(?:(?:c(?:onnection_id|urrent_user)|database)\\s*?\\([^\\)]*?|u(?:nion(?:[\\w(?:\\s]*?select| select @)|ser\\s*?\\([^\\)]*?)|s(?:chema\\s*?\\([^\\)]*?|elect.*?\\w?user\\()|into[\\s+]+(?:dump|out)file\\s*?[\\\"'`]|from\\W+information_schema\\W|exec(?:ute)?\\s+master\\.)|[\\\"'`](?:;?\\s*?(?:union\\b\\s*?(?:(?:distin|sele)ct|all)|having|select)\\b\\s*?[^\\s]|\\s*?!\\s*?[\\\"'`\\w])|\\s*?exec(?:ute)?.*?\\Wxp_cmdshell|\\Wiif\\s*?\\()",
+            "options": {
+              "min_length": 3
+            }
+          }
+        }
+      ],
+      "transformers": [],
+      "action": "record"
+    },
+    {
       "id": "crs-942-220",
-      "name": "Looking for integer overflow attacks, these are taken from skipfish, except 3.0.00738585072007e-308 is the \\\"magic number\\\" crash",
+      "name": "Looking for integer overflow attacks, these are taken from skipfish, except 2.2.2250738585072011e-308 is the \\\"magic number\\\" crash",
       "tags": {
         "type": "sqli",
         "crs_id": "942220"
@@ -2417,7 +2543,7 @@
               "server.request.body",
               "server.request.path_params"
             ],
-            "regex": "^(?i:-0000023456|4294967295|4294967296|2147483648|2147483647|0000012345|-2147483648|-2147483649|0000023456|3.0.00738585072007e-308|1e309)$",
+            "regex": "^(?i:-0000023456|4294967295|4294967296|2147483648|2147483647|0000012345|-2147483648|-2147483649|0000023456|2.2250738585072007e-308|2.2250738585072011e-308|1e309)$",
             "options": {
               "case_sensitive": true,
               "min_length": 5
@@ -2445,9 +2571,8 @@
               "server.request.body",
               "server.request.path_params"
             ],
-            "regex": "(?i:(?:[\\\"'`](?:;*?\\s*?waitfor\\s+(?:delay|time)\\s+[\\\"'`]|;.*?:\\s*?goto)|alter\\s*?\\w+.*?cha(?:racte)?r\\s+set\\s+\\w+))",
+            "regex": "(?:[\\\"'`](?:;*?\\s*?waitfor\\s+(?:delay|time)\\s+[\\\"'`]|;.*?:\\s*?goto)|alter\\s*?\\w+.*?cha(?:racte)?r\\s+set\\s+\\w+)",
             "options": {
-              "case_sensitive": true,
               "min_length": 7
             }
           }
@@ -2528,9 +2653,8 @@
               "server.request.body",
               "server.request.path_params"
             ],
-            "regex": "(?i:(?:;\\s*?shutdown\\s*?(?:[#;]|/\\*|--|\\{)|waitfor\\s*?delay\\s?[\\\"'`]+\\s?\\d|select\\s*?pg_sleep))",
+            "regex": "(?:;\\s*?shutdown\\s*?(?:[#;{]|\\/\\*|--)|waitfor\\s*?delay\\s?[\\\"'`]+\\s?\\d|select\\s*?pg_sleep)",
             "options": {
-              "case_sensitive": true,
               "min_length": 10
             }
           }
@@ -2559,6 +2683,33 @@
             "regex": "(?i:(?:\\[\\$(?:ne|eq|lte?|gte?|n?in|mod|all|size|exists|type|slice|x?or|div|like|between|and)\\]))",
             "options": {
               "case_sensitive": true,
+              "min_length": 5
+            }
+          }
+        }
+      ],
+      "transformers": [],
+      "action": "record"
+    },
+    {
+      "id": "crs-942-360",
+      "name": "Detects concatenated basic SQL injection and SQLLFI attempts",
+      "tags": {
+        "type": "sqli",
+        "crs_id": "942360"
+      },
+      "conditions": [
+        {
+          "operation": "match_regex",
+          "parameters": {
+            "inputs": [
+              "server.request.cookies",
+              "server.request.query",
+              "server.request.body",
+              "server.request.path_params"
+            ],
+            "regex": "(?:^[\\W\\d]+\\s*?(?:alter\\s*(?:a(?:(?:pplication\\s*rol|ggregat)e|s(?:ymmetric\\s*ke|sembl)y|u(?:thorization|dit)|vailability\\s*group)|c(?:r(?:yptographic\\s*provider|edential)|o(?:l(?:latio|um)|nversio)n|ertificate|luster)|s(?:e(?:rv(?:ice|er)|curity|quence|ssion|arch)|y(?:mmetric\\s*key|nonym)|togroup|chema)|m(?:a(?:s(?:ter\\s*key|k)|terialized)|e(?:ssage\\s*type|thod)|odule)|l(?:o(?:g(?:file\\s*group|in)|ckdown)|a(?:ngua|r)ge|ibrary)|t(?:(?:abl(?:espac)?|yp)e|r(?:igger|usted)|hreshold|ext)|p(?:a(?:rtition|ckage)|ro(?:cedur|fil)e|ermission)|d(?:i(?:mension|skgroup)|atabase|efault|omain)|r(?:o(?:l(?:lback|e)|ute)|e(?:sourc|mot)e)|f(?:u(?:lltext|nction)|lashback|oreign)|e(?:xte(?:nsion|rnal)|(?:ndpoi|ve)nt)|in(?:dex(?:type)?|memory|stance)|b(?:roker\\s*priority|ufferpool)|x(?:ml\\s*schema|srobject)|w(?:ork(?:load)?|rapper)|hi(?:erarchy|stogram)|o(?:perator|utline)|(?:nicknam|queu)e|us(?:age|er)|group|java|view)\\b|(?:(?:(?:trunc|cre)at|renam)e|d(?:e(?:lete|sc)|rop)|(?:inser|selec)t|load)\\s+\\w+|u(?:nion\\s*(?:(?:distin|sele)ct|all)\\b|pdate\\s+\\w+))|\\b(?:(?:(?:(?:trunc|cre|upd)at|renam)e|(?:inser|selec)t|de(?:lete|sc)|alter|load)\\s+(?:group_concat|load_file|char)\\b\\s*\\(?|end\\s*?\\);)|[\\\"'`\\w]\\s+as\\b\\s*[\\\"'`\\w]+\\s*\\bfrom|[\\s(?:]load_file\\s*?\\(|[\\\"'`]\\s+regexp\\W)",
+            "options": {
               "min_length": 5
             }
           }
