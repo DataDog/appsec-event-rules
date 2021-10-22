@@ -12,5 +12,5 @@ conditions:
         - address: server.request.body
         - address: server.request.path_params
     operator: is_sqli
-transformers: 
+transformers:
   - removeNulls
