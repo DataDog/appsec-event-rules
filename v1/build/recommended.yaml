@@ -1750,6 +1750,7 @@ events:
         operation: is_xss
     transformers:
       - removeNulls
+    action: record
   - id: crs-941-110
     name: 'XSS Filter - Category 1: Script Tag Vector'
     tags:
@@ -2070,6 +2071,7 @@ events:
         operation: is_sqli
     transformers:
       - removeNulls
+    action: record
   - id: crs-942-140
     name: 'SQL Injection Attack: Common DB Names Detected'
     tags:
