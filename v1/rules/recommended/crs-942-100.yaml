@@ -11,5 +11,6 @@ conditions:
         - server.request.body
         - server.request.path_params
     operation: is_sqli
-transformers: 
+transformers:
   - removeNulls
+action: record

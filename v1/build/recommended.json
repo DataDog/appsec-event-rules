@@ -1965,7 +1965,8 @@
       ],
       "transformers": [
         "removeNulls"
-      ]
+      ],
+      "action": "record"
     },
     {
       "id": "crs-941-110",
@@ -2439,7 +2440,8 @@
       ],
       "transformers": [
         "removeNulls"
-      ]
+      ],
+      "action": "record"
     },
     {
       "id": "crs-942-140",
