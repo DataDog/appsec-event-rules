@@ -1,0 +1,14 @@
+id: nfd-000-003
+name: Detect failed attempt to fetch Java EE resource files
+tags:
+  type: security_scanner
+conditions:
+  - operation: match_regex
+    parameters:
+      inputs:
+        - server.request.uri.raw
+      regex: ^(?=.*web\-inf)(?=.*web\.xml).*$
+      options:
+        case_sensitive: false
+transformers: []
+action: record
