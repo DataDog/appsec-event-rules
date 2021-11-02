@@ -3,7 +3,7 @@ name: >-
   Detects Postgres pg_sleep injection, waitfor delay attacks and database
   shutdown attempts
 tags:
-  type: sqli
+  type: sql_injection
   crs_id: '942280'
   category: attack_attempt
 conditions:

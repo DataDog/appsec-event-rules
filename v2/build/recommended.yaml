@@ -2071,7 +2071,7 @@ rules:
   - id: crs-942-100
     name: SQL Injection Attack Detected via libinjection
     tags:
-      type: sqli
+      type: sql_injection
       crs_id: '942100'
       category: attack_attempt
     conditions:
@@ -2087,7 +2087,7 @@ rules:
   - id: crs-942-140
     name: 'SQL Injection Attack: Common DB Names Detected'
     tags:
-      type: sqli
+      type: sql_injection
       crs_id: '942140'
       category: attack_attempt
     conditions:
@@ -2106,7 +2106,7 @@ rules:
   - id: crs-942-160
     name: Detects blind sqli tests using sleep() or benchmark()
     tags:
-      type: sqli
+      type: sql_injection
       crs_id: '942160'
       category: attack_attempt
     conditions:
@@ -2125,7 +2125,7 @@ rules:
   - id: crs-942-190
     name: Detects MSSQL code execution and information gathering attempts
     tags:
-      type: sqli
+      type: sql_injection
       crs_id: '942190'
       category: attack_attempt
     conditions:
@@ -2148,7 +2148,7 @@ rules:
       Looking for integer overflow attacks, these are taken from skipfish,
       except 2.2.2250738585072011e-308 is the \"magic number\" crash
     tags:
-      type: sqli
+      type: sql_injection
       crs_id: '942220'
       category: attack_attempt
     conditions:
@@ -2168,7 +2168,7 @@ rules:
   - id: crs-942-240
     name: Detects MySQL charset switch and MSSQL DoS attempts
     tags:
-      type: sqli
+      type: sql_injection
       crs_id: '942240'
       category: attack_attempt
     conditions:
@@ -2187,7 +2187,7 @@ rules:
   - id: crs-942-250
     name: Detects MATCH AGAINST, MERGE and EXECUTE IMMEDIATE injections
     tags:
-      type: sqli
+      type: sql_injection
       crs_id: '942250'
       category: attack_attempt
     conditions:
@@ -2209,7 +2209,7 @@ rules:
       Looking for basic sql injection. Common attack string for mysql, oracle
       and others
     tags:
-      type: sqli
+      type: sql_injection
       crs_id: '942270'
       category: attack_attempt
     conditions:
@@ -2229,7 +2229,7 @@ rules:
       Detects Postgres pg_sleep injection, waitfor delay attacks and database
       shutdown attempts
     tags:
-      type: sqli
+      type: sql_injection
       crs_id: '942280'
       category: attack_attempt
     conditions:
@@ -2248,7 +2248,7 @@ rules:
   - id: crs-942-290
     name: Finds basic MongoDB SQL injection attempts
     tags:
-      type: nosqli
+      type: nosql_injection
       crs_id: '942290'
       category: attack_attempt
     conditions:
@@ -2268,7 +2268,7 @@ rules:
   - id: crs-942-360
     name: Detects concatenated basic SQL injection and SQLLFI attempts
     tags:
-      type: sqli
+      type: sql_injection
       crs_id: '942360'
       category: attack_attempt
     conditions:
@@ -2287,7 +2287,7 @@ rules:
   - id: crs-942-500
     name: MySQL in-line comment detected
     tags:
-      type: sqli
+      type: sql_injection
       crs_id: '942500'
       category: attack_attempt
     conditions:
@@ -2476,7 +2476,7 @@ rules:
   - id: sqr-000-007
     name: 'NoSQL: Detect common exploitation strategy'
     tags:
-      type: nosqli
+      type: nosql_injection
       category: attack_attempt
     conditions:
       - parameters:

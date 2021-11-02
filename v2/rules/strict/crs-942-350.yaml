@@ -1,7 +1,7 @@
 id: crs-942-350
 name: Detects MySQL UDF injection and other data/structure manipulation attempts
 tags:
-  type: sqli
+  type: sql_injection
   crs_id: '942350'
   category: attack_attempt
 conditions:

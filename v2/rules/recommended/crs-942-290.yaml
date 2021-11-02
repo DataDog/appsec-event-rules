@@ -1,7 +1,7 @@
 id: crs-942-290
 name: Finds basic MongoDB SQL injection attempts
 tags:
-  type: nosqli
+  type: nosql_injection
   crs_id: '942290'
   category: attack_attempt
 conditions:

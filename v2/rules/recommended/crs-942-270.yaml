@@ -3,7 +3,7 @@ name: >-
   Looking for basic sql injection. Common attack string for mysql, oracle and
   others
 tags:
-  type: sqli
+  type: sql_injection
   crs_id: '942270'
   category: attack_attempt
 conditions:
