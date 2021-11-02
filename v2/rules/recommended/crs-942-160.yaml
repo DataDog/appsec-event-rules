@@ -1,7 +1,7 @@
 id: crs-942-160
 name: Detects blind sqli tests using sleep() or benchmark()
 tags:
-  type: sqli
+  type: sql_injection
   crs_id: '942160'
   category: attack_attempt
 conditions:

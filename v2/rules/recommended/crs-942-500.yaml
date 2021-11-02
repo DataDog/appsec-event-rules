@@ -1,7 +1,7 @@
 id: crs-942-500
 name: MySQL in-line comment detected
 tags:
-  type: sqli
+  type: sql_injection
   crs_id: '942500'
   category: attack_attempt
 conditions:

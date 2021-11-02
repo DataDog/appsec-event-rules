@@ -1,7 +1,7 @@
 id: crs-942-190
 name: Detects MSSQL code execution and information gathering attempts
 tags:
-  type: sqli
+  type: sql_injection
   crs_id: '942190'
   category: attack_attempt
 conditions:
