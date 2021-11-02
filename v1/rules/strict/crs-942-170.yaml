@@ -3,7 +3,7 @@ name: >-
   Detects SQL benchmark and sleep injection attempts including conditional
   queries
 tags:
-  type: sqli
+  type: sql_injection
   crs_id: '942170'
 conditions:
   - operation: match_regex

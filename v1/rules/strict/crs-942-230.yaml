@@ -1,7 +1,7 @@
 id: crs-942-230
 name: Detects conditional SQL injection attempts
 tags:
-  type: sqli
+  type: sql_injection
   crs_id: '942230'
 conditions:
   - operation: match_regex
