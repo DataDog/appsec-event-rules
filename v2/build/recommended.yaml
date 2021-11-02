@@ -1,4 +1,4 @@
-version: '2.1'
+version: '2.0'
 rules:
   - id: crs-913-110
     name: Found request header associated with Acunetix security scanner
