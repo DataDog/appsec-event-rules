@@ -892,7 +892,7 @@
       "id": "crs-942-170",
       "name": "Detects SQL benchmark and sleep injection attempts including conditional queries",
       "tags": {
-        "type": "sqli",
+        "type": "sql_injection",
         "crs_id": "942170"
       },
       "conditions": [
@@ -919,7 +919,7 @@
       "id": "crs-942-230",
       "name": "Detects conditional SQL injection attempts",
       "tags": {
-        "type": "sqli",
+        "type": "sql_injection",
         "crs_id": "942230"
       },
       "conditions": [
@@ -947,7 +947,7 @@
       "id": "crs-942-320",
       "name": "Detects MySQL and PostgreSQL stored procedure/function injections",
       "tags": {
-        "type": "sqli",
+        "type": "sql_injection",
         "crs_id": "942320"
       },
       "conditions": [
@@ -974,7 +974,7 @@
       "id": "crs-942-350",
       "name": "Detects MySQL UDF injection and other data/structure manipulation attempts",
       "tags": {
-        "type": "sqli",
+        "type": "sql_injection",
         "crs_id": "942350"
       },
       "conditions": [
