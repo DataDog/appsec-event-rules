@@ -1,7 +1,7 @@
 id: crs-942-100
 name: 'SQL Injection Attack Detected via libinjection'
 tags:
-  type: sqli
+  type: sql_injection
   crs_id: '942100'
 conditions:
   - parameters:

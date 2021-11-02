@@ -1,7 +1,7 @@
 id: crs-942-360
 name: Detects concatenated basic SQL injection and SQLLFI attempts
 tags:
-  type: sqli
+  type: sql_injection
   crs_id: '942360'
 conditions:
   - operation: match_regex

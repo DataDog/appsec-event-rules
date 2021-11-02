@@ -1,7 +1,7 @@
 id: crs-942-250
 name: Detects MATCH AGAINST, MERGE and EXECUTE IMMEDIATE injections
 tags:
-  type: sqli
+  type: sql_injection
   crs_id: '942250'
 conditions:
   - operation: match_regex

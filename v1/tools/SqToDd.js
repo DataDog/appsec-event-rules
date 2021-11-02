@@ -133,7 +133,7 @@ function getRuleType(oldRule){
     if(ruleset === 'java_injection') return 'java_code_injection';
     if(ruleset === 'js_injection') return 'js_code_injection';
     if(ruleset === 'lfi') return 'lfi';
-    if(ruleset === 'nosql_injection') return 'nosqli';
+    if(ruleset === 'nosql_injection') return 'nosql_injection';
     //rule 933111 == "PHP Injection Attack: PHP Script File Upload Found" is actually unrestricted file upload attack not php code injection
     if(oldRule.rule_id == '933111') return 'unrestricted_file_upload';
     if(ruleset === 'php_eval') return 'php_code_injection';
@@ -142,7 +142,7 @@ function getRuleType(oldRule){
     //rule 932180 == "Restricted File Upload Attempt" is actually unrestricted file upload attack not shell injection
     if(oldRule.rule_id == '933111') return 'unrestricted_file_upload';
     if(ruleset === 'shell_injection') return 'command_injection';
-    if(ruleset === 'sql_injection') return 'sqli';
+    if(ruleset === 'sql_injection') return 'sql_injection';
     if(ruleset === 'xss') return 'xss';
     if(oldRule.rule_id == 'sqreen_000001') return 'ssrf';
     if(oldRule.rule_id == 'sqreen_000005') return 'csrf';

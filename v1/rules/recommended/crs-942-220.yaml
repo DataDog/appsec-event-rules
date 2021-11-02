@@ -3,7 +3,7 @@ name: >-
   Looking for integer overflow attacks, these are taken from skipfish, except
   2.2.2250738585072011e-308 is the \"magic number\" crash
 tags:
-  type: sqli
+  type: sql_injection
   crs_id: '942220'
 conditions:
   - operation: match_regex

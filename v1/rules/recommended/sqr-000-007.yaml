@@ -1,7 +1,7 @@
 id: sqr-000-007
 name: 'NoSQL: Detect common exploitation strategy'
 tags:
-  type: nosqli
+  type: nosql_injection
 conditions:
   - operation: match_regex
     parameters:

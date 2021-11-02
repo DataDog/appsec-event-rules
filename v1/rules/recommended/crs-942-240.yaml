@@ -1,7 +1,7 @@
 id: crs-942-240
 name: Detects MySQL charset switch and MSSQL DoS attempts
 tags:
-  type: sqli
+  type: sql_injection
   crs_id: '942240'
 conditions:
   - operation: match_regex

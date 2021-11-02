@@ -1,7 +1,7 @@
 id: crs-942-320
 name: Detects MySQL and PostgreSQL stored procedure/function injections
 tags:
-  type: sqli
+  type: sql_injection
   crs_id: '942320'
 conditions:
   - operation: match_regex
