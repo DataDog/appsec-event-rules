@@ -484,8 +484,14 @@ rules:
             - address: server.request.headers.no_cookies
               key_path:
                 - x-filename
+            - address: server.request.headers.no_cookies
+              key_path:
                 - x_filename
+            - address: server.request.headers.no_cookies
+              key_path:
                 - x.filename
+            - address: server.request.headers.no_cookies
+              key_path:
                 - x-file-name
           regex: .*\.(?:php\d*|phtml)\.*$
           options:
@@ -593,6 +599,8 @@ rules:
             - address: server.request.headers.no_cookies
               key_path:
                 - user-agent
+            - address: server.request.headers.no_cookies
+              key_path:
                 - referer
             - address: server.request.query
             - address: server.request.body
@@ -617,6 +625,8 @@ rules:
             - address: server.request.headers.no_cookies
               key_path:
                 - user-agent
+            - address: server.request.headers.no_cookies
+              key_path:
                 - referer
             - address: server.request.query
             - address: server.request.body
@@ -856,7 +866,7 @@ rules:
             - address: server.request.query
             - address: server.request.body
             - address: server.request.path_params
-          regex: (?:(?:^|[\\/])\.\.[\\/]|[\\/]\.\.(?:[\\/]|$))
+          regex: (?:(?:^|[\\\\/])\.\.[\\\\/]|[\\\\/]\.\.(?:[\\\\/]|$))
           options:
             case_sensitive: true
             min_length: 3

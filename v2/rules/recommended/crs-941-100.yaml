@@ -1,5 +1,5 @@
 id: crs-941-100
-name: 'XSS Attack Detected via libinjection'
+name: XSS Attack Detected via libinjection
 tags:
   type: xss
   crs_id: '941100'
@@ -11,6 +11,8 @@ conditions:
         - address: server.request.headers.no_cookies
           key_path:
             - user-agent
+        - address: server.request.headers.no_cookies
+          key_path:
             - referer
         - address: server.request.query
         - address: server.request.body

@@ -4,8 +4,7 @@ tags:
   type: ssrf
   category: attack_attempt
 conditions:
-  - operator: match_regex
-    parameters:
+  - parameters:
       inputs:
         - address: server.request.query
         - address: server.request.body
@@ -13,4 +12,4 @@ conditions:
       regex: http(s?):\/\/([A-Za-z0-9\.\-\_]+|\[[A-Fa-f0-9\:]+\]|):5986\/wsman
       options:
         min_length: 4
-transformers: []
+    operator: match_regex

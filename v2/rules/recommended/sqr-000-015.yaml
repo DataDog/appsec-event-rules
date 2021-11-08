@@ -10,7 +10,8 @@ conditions:
         - address: server.request.body
         - address: server.request.path_params
         - address: server.request.headers.no_cookies
-      regex: ^(jar:)?((file|netdoc):\/\/[\\\/]+|(dict|gopher|ldap|sftp|tftp):\/\/.*:[0-9]{1,5})
+      regex: >-
+        ^(jar:)?((file|netdoc):\/\/[\\\/]+|(dict|gopher|ldap|sftp|tftp):\/\/.*:[0-9]{1,5})
     operator: match_regex
 transformers:
   - lowercase

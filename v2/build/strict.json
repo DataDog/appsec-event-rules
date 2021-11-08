@@ -601,9 +601,24 @@
               {
                 "address": "server.request.headers.no_cookies",
                 "key_path": [
-                  "x-filename",
-                  "x_filename",
-                  "x.filename",
+                  "x-filename"
+                ]
+              },
+              {
+                "address": "server.request.headers.no_cookies",
+                "key_path": [
+                  "x_filename"
+                ]
+              },
+              {
+                "address": "server.request.headers.no_cookies",
+                "key_path": [
+                  "x.filename"
+                ]
+              },
+              {
+                "address": "server.request.headers.no_cookies",
+                "key_path": [
                   "x-file-name"
                 ]
               }
@@ -798,7 +813,12 @@
               {
                 "address": "server.request.headers.no_cookies",
                 "key_path": [
-                  "user-agent",
+                  "user-agent"
+                ]
+              },
+              {
+                "address": "server.request.headers.no_cookies",
+                "key_path": [
                   "referer"
                 ]
               },
@@ -842,7 +862,12 @@
               {
                 "address": "server.request.headers.no_cookies",
                 "key_path": [
-                  "user-agent",
+                  "user-agent"
+                ]
+              },
+              {
+                "address": "server.request.headers.no_cookies",
+                "key_path": [
                   "referer"
                 ]
               },
@@ -1288,7 +1313,7 @@
                 "address": "server.request.path_params"
               }
             ],
-            "regex": "(?:(?:^|[\\\\/])\\.\\.[\\\\/]|[\\\\/]\\.\\.(?:[\\\\/]|$))",
+            "regex": "(?:(?:^|[\\\\\\\\/])\\.\\.[\\\\\\\\/]|[\\\\\\\\/]\\.\\.(?:[\\\\\\\\/]|$))",
             "options": {
               "case_sensitive": true,
               "min_length": 3

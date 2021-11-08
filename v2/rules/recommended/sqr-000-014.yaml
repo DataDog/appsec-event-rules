@@ -10,7 +10,8 @@ conditions:
         - address: server.request.body
         - address: server.request.path_params
         - address: server.request.headers.no_cookies
-      regex: ^(http|https):\/\/(.*burpcollaborator\.net|localtest\.me|mail\.ebc\.apple\.com|bugbounty\.dod\.network|.*\.[nx]ip\.io)
+      regex: >-
+        ^(http|https):\/\/(.*burpcollaborator\.net|localtest\.me|mail\.ebc\.apple\.com|bugbounty\.dod\.network|.*\.[nx]ip\.io)
     operator: match_regex
 transformers:
   - lowercase

@@ -37,7 +37,7 @@ fs.readdirSync(V1RulesDir).forEach(trustDirectory => {
 
 function processJSONRulesFile(filename, directory, trustDirectory){
     //skip testing rules
-    if (filename.indexOf('_test.json') !== -1) return;
+    if (filename.indexOf('_test.json') !== -1 || !filename.endsWith('.yaml')) return;
     const fileContent = fs.readFileSync(directory +filename, 'utf8')
     convertRule(fileContent, trustDirectory)
 }
@@ -73,17 +73,13 @@ function convertRule(yamlRule, trustDirectory){
             }
         });
 
-        Object.entries(newInputs).forEach(([k, v]) => {
-            newInput = {
-                "address": k
+        Object.entries(newInputs).forEach(([address, keys]) => {
+            if (keys.length > 0) {
+              keys.forEach(k => inputs.push({"address": address, "key_path": [k]}))
+            } else {
+              inputs.push({"address": address});
             }
-            if (v.length > 0) {
-                newInput["key_path"] = v
-            }
-
-            inputs.push(newInput);
         });
-
 
         rule.conditions[i].parameters.inputs = inputs;
     });
