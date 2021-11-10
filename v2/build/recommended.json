@@ -1659,8 +1659,18 @@
               {
                 "address": "server.request.headers.no_cookies",
                 "key_path": [
-                  "x-filename",
-                  "x_filename",
+                  "x-filename"
+                ]
+              },
+              {
+                "address": "server.request.headers.no_cookies",
+                "key_path": [
+                  "x_filename"
+                ]
+              },
+              {
+                "address": "server.request.headers.no_cookies",
+                "key_path": [
                   "x-file-name"
                 ]
               }
@@ -1707,9 +1717,24 @@
               {
                 "address": "server.request.headers.no_cookies",
                 "key_path": [
-                  "x-filename",
-                  "x_filename",
-                  "x.filename",
+                  "x-filename"
+                ]
+              },
+              {
+                "address": "server.request.headers.no_cookies",
+                "key_path": [
+                  "x_filename"
+                ]
+              },
+              {
+                "address": "server.request.headers.no_cookies",
+                "key_path": [
+                  "x.filename"
+                ]
+              },
+              {
+                "address": "server.request.headers.no_cookies",
+                "key_path": [
                   "x-file-name"
                 ]
               }
@@ -2097,7 +2122,12 @@
               {
                 "address": "server.request.headers.no_cookies",
                 "key_path": [
-                  "user-agent",
+                  "user-agent"
+                ]
+              },
+              {
+                "address": "server.request.headers.no_cookies",
+                "key_path": [
                   "referer"
                 ]
               },
@@ -2137,7 +2167,12 @@
               {
                 "address": "server.request.headers.no_cookies",
                 "key_path": [
-                  "user-agent",
+                  "user-agent"
+                ]
+              },
+              {
+                "address": "server.request.headers.no_cookies",
+                "key_path": [
                   "referer"
                 ]
               },
@@ -2181,7 +2216,12 @@
               {
                 "address": "server.request.headers.no_cookies",
                 "key_path": [
-                  "user-agent",
+                  "user-agent"
+                ]
+              },
+              {
+                "address": "server.request.headers.no_cookies",
+                "key_path": [
                   "referer"
                 ]
               },
@@ -2225,7 +2265,12 @@
               {
                 "address": "server.request.headers.no_cookies",
                 "key_path": [
-                  "user-agent",
+                  "user-agent"
+                ]
+              },
+              {
+                "address": "server.request.headers.no_cookies",
+                "key_path": [
                   "referer"
                 ]
               },
@@ -3543,7 +3588,6 @@
       },
       "conditions": [
         {
-          "operator": "match_regex",
           "parameters": {
             "inputs": [
               {
@@ -3560,10 +3604,10 @@
             "options": {
               "min_length": 4
             }
-          }
+          },
+          "operator": "match_regex"
         }
-      ],
-      "transformers": []
+      ]
     },
     {
       "id": "sqr-000-012",

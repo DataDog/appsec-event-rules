@@ -10,8 +10,14 @@ conditions:
         - address: server.request.headers.no_cookies
           key_path:
             - x-filename
+        - address: server.request.headers.no_cookies
+          key_path:
             - x_filename
+        - address: server.request.headers.no_cookies
+          key_path:
             - x.filename
+        - address: server.request.headers.no_cookies
+          key_path:
             - x-file-name
       regex: .*\.(?:php\d*|phtml)\.*$
       options:
