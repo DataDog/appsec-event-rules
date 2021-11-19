@@ -1,0 +1,21 @@
+id: nfd-000-002
+name: Detect failed attempt to fetch readme files
+tags:
+  type: security_scanner
+conditions:
+  - operation: match_regex
+    parameters:
+      inputs:
+        - address: server.response.status
+      regex: ^404$
+      options:
+        case_sensitive: true
+  - operation: match_regex
+    parameters:
+      inputs:
+        - server.request.uri.raw
+      regex: readme\.[\.a-z0-9]+$
+      options:
+        case_sensitive: false
+transformers: []
+action: record

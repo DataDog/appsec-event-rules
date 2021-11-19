@@ -1,0 +1,21 @@
+id: nfd-000-005
+name: Detect failed attempt to fetch source code archives
+tags:
+  type: security_scanner
+conditions:
+  - operation: match_regex
+    parameters:
+      inputs:
+        - address: server.response.status
+      regex: ^404$
+      options:
+        case_sensitive: true
+  - operation: match_regex
+    parameters:
+      inputs:
+        - server.request.uri.raw
+      regex: \.(sql|log|ndb|gz|zip|tar\.gz|tar|regVV|reg|conf|bz2|ini|db|war|bat|inc|btr|server|ds|conf|config|admin|master|sln|bak)\b(?:[^.]|$)
+      options:
+        case_sensitive: false
+transformers: []
+action: record
