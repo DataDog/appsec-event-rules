@@ -3,6 +3,13 @@ name: Detect common directory discovery scans
 tags:
   type: security_scanner
 conditions:
+  - operation: match_regex
+    parameters:
+      inputs:
+        - server.response.status
+      regex: ^404$
+      options:
+        case_sensitive: true
   - operation: phrase_match
     parameters:
       inputs:

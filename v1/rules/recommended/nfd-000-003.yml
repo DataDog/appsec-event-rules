@@ -6,6 +6,13 @@ conditions:
   - operation: match_regex
     parameters:
       inputs:
+        - server.response.status
+      regex: ^404$
+      options:
+        case_sensitive: true
+  - operation: match_regex
+    parameters:
+      inputs:
         - server.request.uri.raw
       regex: ^(?=.*web\-inf)(?=.*web\.xml).*$
       options:

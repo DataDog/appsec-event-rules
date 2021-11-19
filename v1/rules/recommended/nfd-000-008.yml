@@ -6,6 +6,13 @@ conditions:
   - operation: match_regex
     parameters:
       inputs:
+        - server.response.status
+      regex: ^404$
+      options:
+        case_sensitive: true
+  - operation: match_regex
+    parameters:
+      inputs:
         - server.request.uri.raw
       regex: (/(administrator/components/com.*\.php|response\.write\(.+\))|select\(.+\)from|\(.*sleep\(.+\)|(%[a-zA-Z0-9]{2}[a-zA-Z]{0,1})+\))
       options:
