@@ -1,21 +1,20 @@
-id: nfd-000-004
-name: Detect failed attempt to fetch code files
+id: nfd-000-009
+name: Detect failed attempt to leak the structure of the application
 tags:
   type: security_scanner
 conditions:
-  - operation: match_regex
+  - operator: match_regex
     parameters:
       inputs:
         - address: server.response.status
       regex: ^404$
       options:
         case_sensitive: true
-  - operation: match_regex
+  - operator: match_regex
     parameters:
       inputs:
-        - server.request.uri.raw
-      regex: \.(java|pyc?|rb|class)\b
+        - address: server.request.uri.raw
+      regex: /(login\.rol|LICENSE|[\w-]+\.(plx|pwd))$
       options:
         case_sensitive: false
 transformers: []
-action: record

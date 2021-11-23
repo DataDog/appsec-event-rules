@@ -3,17 +3,17 @@ name: Detect common directory discovery scans
 tags:
   type: security_scanner
 conditions:
-  - operation: match_regex
-  parameters:
+  - operator: match_regex
+    parameters:
       inputs:
         - address: server.response.status
       regex: ^404$
       options:
         case_sensitive: true
-  - operation: phrase_match
+  - operator: phrase_match
     parameters:
       inputs:
-        - server.request.uri.raw
+        - address: server.request.uri.raw
       list:
         - /wordpress/
         - /etc/
@@ -55,7 +55,7 @@ conditions:
         - /view.php
         - /header.php
         - /search.asp
-        - %5c%5c
+        - "%5c%5c"
         - /server/php/
         - /invoker/jmxinvokerservlet
         - /phpmyadmin/index.php
@@ -212,4 +212,3 @@ conditions:
         - /siteminderagent/forms/smpwservices.fcc
 transformers:
   - lowercase
-action: record
