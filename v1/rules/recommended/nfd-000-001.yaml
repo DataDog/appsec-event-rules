@@ -55,7 +55,7 @@ conditions:
         - /view.php
         - /header.php
         - /search.asp
-        - %5c%5c
+        - "%5c%5c"
         - /server/php/
         - /invoker/jmxinvokerservlet
         - /phpmyadmin/index.php
