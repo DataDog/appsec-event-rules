@@ -1,0 +1,21 @@
+id: nfd-000-007
+name: Detect failed attempt to fetch archives
+tags:
+  type: security_scanner
+conditions:
+  - operation: match_regex
+    parameters:
+      inputs:
+        - server.response.status
+      regex: ^404$
+      options:
+        case_sensitive: true
+  - operation: match_regex
+    parameters:
+      inputs:
+        - server.request.uri.raw
+      regex: /[\d\-_]*\.(rar|tar|zip|7z|gz|tgz|tar.gz)
+      options:
+        case_sensitive: false
+transformers: []
+action: record

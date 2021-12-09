@@ -1,0 +1,21 @@
+id: nfd-000-006
+name: Detect failed attempt to fetch sensitive files
+tags:
+  type: security_scanner
+conditions:
+  - operation: match_regex
+    parameters:
+      inputs:
+        - server.response.status
+      regex: ^404$
+      options:
+        case_sensitive: true
+  - operation: match_regex
+    parameters:
+      inputs:
+        - server.request.uri.raw
+      regex: \.(cgi|bat|dll|exe|key|cert|crt|pem|der|pkcs|pkcs|pkcs[0-9]*|nsf|jsa|war|java|class|vb|vba|so|git|svn|hg|cvs)([^a-zA-Z0-9_]|$)
+      options:
+        case_sensitive: false
+transformers: []
+action: record
