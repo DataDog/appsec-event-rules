@@ -12,6 +12,7 @@ conditions:
         - address: server.request.path_params
         - address: server.request.cookies
         - address: server.request.headers.no_cookies
+        - address: grpc.server.request.message
       list:
         - com.opensymphony.xwork2
         - com.sun.org.apache

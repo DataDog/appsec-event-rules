@@ -9,6 +9,7 @@ conditions:
         - address: server.request.query
         - address: server.request.body
         - address: server.request.path_params
+        - address: grpc.server.request.message
       regex: require\(['"][\w\.]+['"]\)|process\.\w+\([\w\.]*\)|\.toString\(\)
       options:
         min_length: 4

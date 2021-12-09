@@ -10,6 +10,7 @@ conditions:
         - address: server.request.body
         - address: server.request.path_params
         - address: server.request.headers.no_cookies
+        - address: grpc.server.request.message
       regex: >-
         ^(http|https):\/\/(.*burpcollaborator\.net|localtest\.me|mail\.ebc\.apple\.com|bugbounty\.dod\.network|.*\.[nx]ip\.io)
     operator: match_regex

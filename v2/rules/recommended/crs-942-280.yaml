@@ -13,6 +13,7 @@ conditions:
         - address: server.request.query
         - address: server.request.body
         - address: server.request.path_params
+        - address: grpc.server.request.message
       regex: >-
         (?:;\s*?shutdown\s*?(?:[#;{]|\/\*|--)|waitfor\s*?delay\s?[\"'`]+\s?\d|select\s*?pg_sleep)
       options:

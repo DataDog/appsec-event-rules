@@ -12,6 +12,7 @@ conditions:
         - address: server.request.query
         - address: server.request.body
         - address: server.request.path_params
+        - address: grpc.server.request.message
       regex: '[oOcC]:\d+:\".+?\":\d+:{[\W\w]*}'
       options:
         case_sensitive: true
