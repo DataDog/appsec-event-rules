@@ -190,6 +190,7 @@ events:
             - .eslintignore
             - .fbcindex
             - .forward
+            - .git
             - .gitattributes
             - .gitconfig
             - .gnupg/

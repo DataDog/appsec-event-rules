@@ -190,6 +190,7 @@ rules:
             - .eslintignore
             - .fbcindex
             - .forward
+            - .git
             - .gitattributes
             - .gitconfig
             - .gnupg/
