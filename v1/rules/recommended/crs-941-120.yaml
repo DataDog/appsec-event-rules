@@ -13,6 +13,7 @@ conditions:
         - server.request.query
         - server.request.body
         - server.request.path_params
+        - grpc.server.request.message
       regex: >-
         [\s\"'`;\/0-9=\x0B\x09\x0C\x3B\x2C\x28\x3B]on[a-zA-Z]{3,25}[\s\x0B\x09\x0C\x3B\x2C\x28\x3B]*?=[^=]
       options:

@@ -11,6 +11,7 @@ conditions:
         - server.request.query
         - server.request.body
         - server.request.path_params
+        - grpc.server.request.message
       regex: \+ADw-.*(?:\+AD4-|>)|<.*\+AD4-
       options:
         case_sensitive: true

@@ -10,6 +10,7 @@ conditions:
         - server.request.body
         - server.request.path_params
         - server.request.headers.no_cookies
+        - grpc.server.request.message
       regex: (?i)[&|]\s*cat\s+\/etc\/[\w\.\/]*passwd\s*[&|]
 transformers: []
 action: record
