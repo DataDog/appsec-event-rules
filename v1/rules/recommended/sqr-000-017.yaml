@@ -1,0 +1,17 @@
+id: sqr-000-017
+name: 'JNDI: Attempt to exploit log4j CVE-2021-44228'
+tags:
+  type: ssrf
+conditions:
+  - parameters:
+      inputs:
+        - server.request.uri.raw
+        - server.request.query
+        - server.request.body
+        - server.request.path_params
+        - server.request.headers.no_cookies
+        - grpc.server.request.message
+      regex: \${jndi:[^}]*}
+    operation: match_regex
+transformers: []
+action: record

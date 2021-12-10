@@ -4433,6 +4433,43 @@
       ]
     },
     {
+      "id": "sqr-000-017",
+      "name": "JNDI: Attempt to exploit log4j CVE-2021-44228",
+      "tags": {
+        "type": "java_injection",
+        "category": "attack_attempt"
+      },
+      "conditions": [
+        {
+          "parameters": {
+            "inputs": [
+              {
+                "address": "server.request.uri.raw"
+              },
+              {
+                "address": "server.request.query"
+              },
+              {
+                "address": "server.request.body"
+              },
+              {
+                "address": "server.request.path_params"
+              },
+              {
+                "address": "server.request.headers.no_cookies"
+              },
+              {
+                "address": "grpc.server.request.message"
+              }
+            ],
+            "regex": "\\${jndi:[^}]*}"
+          },
+          "operator": "match_regex"
+        }
+      ],
+      "transformers": []
+    },
+    {
       "id": "ua0-600-0xx",
       "name": "Joomla exploitation tool",
       "tags": {
