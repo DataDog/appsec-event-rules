@@ -9,6 +9,7 @@ conditions:
         - server.request.body
         - server.request.path_params
         - server.request.headers.no_cookies
+        - grpc.server.request.message
       regex: ^(http|https):\/\/(.*burpcollaborator\.net|localtest\.me|mail\.ebc\.apple\.com|bugbounty\.dod\.network|.*\.[nx]ip\.io)
     operation: match_regex
 transformers:

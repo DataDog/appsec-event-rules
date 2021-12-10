@@ -10,6 +10,7 @@ conditions:
         - server.request.body
         - server.request.path_params
         - server.request.headers.no_cookies
+        - grpc.server.request.message
       regex: (?i)[&|]\s*timeout\s+/t\s+\d+\s*[&|]
 transformers: []
 action: record

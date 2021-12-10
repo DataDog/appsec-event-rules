@@ -11,6 +11,7 @@ conditions:
         - server.request.query
         - server.request.body
         - server.request.path_params
+        - grpc.server.request.message
       regex: (?i:<.*[:]?vmlframe.*?[\s/+]*?src[\s/+]*=)
       options:
         case_sensitive: true

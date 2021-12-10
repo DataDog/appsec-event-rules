@@ -8,6 +8,7 @@ conditions:
         - server.request.query
         - server.request.body
         - server.request.path_params
+        - grpc.server.request.message
       regex: ^(jar:)?(http|https):\/\/([0-9oq]{1,5}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}|[0-9]{1,10}|localhost)(:[0-9]{1,5})?(\/.*|)$
     operation: match_regex
 transformers:

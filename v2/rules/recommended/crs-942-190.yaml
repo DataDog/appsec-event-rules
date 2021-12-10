@@ -11,6 +11,7 @@ conditions:
         - address: server.request.query
         - address: server.request.body
         - address: server.request.path_params
+        - address: grpc.server.request.message
       regex: >-
         (?:\b(?:(?:c(?:onnection_id|urrent_user)|database)\s*?\([^\)]*?|u(?:nion(?:[\w(?:\s]*?select|
         select

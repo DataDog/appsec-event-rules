@@ -9,6 +9,7 @@ conditions:
         - server.request.body
         - server.request.path_params
         - server.request.headers.no_cookies
+        - grpc.server.request.message
       regex: ^(jar:)?((file|netdoc):\/\/[\\\/]+|(dict|gopher|ldap|sftp|tftp):\/\/.*:[0-9]{1,5})
     operation: match_regex
 transformers:
