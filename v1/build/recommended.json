@@ -247,7 +247,8 @@
               "server.request.cookies",
               "server.request.query",
               "server.request.body",
-              "server.request.path_params"
+              "server.request.path_params",
+              "grpc.server.request.message"
             ],
             "list": [
               ".htaccess",
@@ -1427,7 +1428,8 @@
               "server.request.cookies",
               "server.request.query",
               "server.request.body",
-              "server.request.path_params"
+              "server.request.path_params",
+              "grpc.server.request.message"
             ],
             "list": [
               "${cdpath}",
@@ -1569,7 +1571,8 @@
               "server.request.query",
               "server.request.body",
               "server.request.path_params",
-              "server.request.headers.no_cookies"
+              "server.request.headers.no_cookies",
+              "grpc.server.request.message"
             ],
             "regex": "^\\(\\s*\\)\\s+{",
             "options": {
@@ -1670,7 +1673,8 @@
               "server.request.cookies",
               "server.request.query",
               "server.request.body",
-              "server.request.path_params"
+              "server.request.path_params",
+              "grpc.server.request.message"
             ],
             "list": [
               "$globals",
@@ -1716,7 +1720,8 @@
               "server.request.cookies",
               "server.request.query",
               "server.request.body",
-              "server.request.path_params"
+              "server.request.path_params",
+              "grpc.server.request.message"
             ],
             "regex": "(?:HTTP_(?:ACCEPT(?:_(?:ENCODING|LANGUAGE|CHARSET))?|(?:X_FORWARDED_FO|REFERE)R|(?:USER_AGEN|HOS)T|CONNECTION|KEEP_ALIVE)|PATH_(?:TRANSLATED|INFO)|ORIG_PATH_INFO|QUERY_STRING|REQUEST_URI|AUTH_TYPE)",
             "options": {
@@ -1744,7 +1749,8 @@
               "server.request.cookies",
               "server.request.query",
               "server.request.body",
-              "server.request.path_params"
+              "server.request.path_params",
+              "grpc.server.request.message"
             ],
             "regex": "php://(?:std(?:in|out|err)|(?:in|out)put|fd|memory|temp|filter)",
             "options": {
@@ -1771,7 +1777,8 @@
               "server.request.cookies",
               "server.request.query",
               "server.request.body",
-              "server.request.path_params"
+              "server.request.path_params",
+              "grpc.server.request.message"
             ],
             "list": [
               "__halt_compiler",
@@ -1842,7 +1849,8 @@
               "server.request.cookies",
               "server.request.query",
               "server.request.body",
-              "server.request.path_params"
+              "server.request.path_params",
+              "grpc.server.request.message"
             ],
             "regex": "\\b(?:s(?:e(?:t(?:_(?:e(?:xception|rror)_handler|magic_quotes_runtime|include_path)|defaultstub)|ssion_s(?:et_save_handler|tart))|qlite_(?:(?:(?:unbuffered|single|array)_)?query|create_(?:aggregate|function)|p?open|exec)|tr(?:eam_(?:context_create|socket_client)|ipc?slashes|rev)|implexml_load_(?:string|file)|ocket_c(?:onnect|reate)|h(?:ow_sourc|a1_fil)e|pl_autoload_register|ystem)|p(?:r(?:eg_(?:replace(?:_callback(?:_array)?)?|match(?:_all)?|split)|oc_(?:(?:terminat|clos|nic)e|get_status|open)|int_r)|o(?:six_(?:get(?:(?:e[gu]|g)id|login|pwnam)|mk(?:fifo|nod)|ttyname|kill)|pen)|hp(?:_(?:strip_whitespac|unam)e|version|info)|g_(?:(?:execut|prepar)e|connect|query)|a(?:rse_(?:ini_file|str)|ssthru)|utenv)|r(?:unkit_(?:function_(?:re(?:defin|nam)e|copy|add)|method_(?:re(?:defin|nam)e|copy|add)|constant_(?:redefine|add))|e(?:(?:gister_(?:shutdown|tick)|name)_function|ad(?:(?:gz)?file|_exif_data|dir))|awurl(?:de|en)code)|i(?:mage(?:createfrom(?:(?:jpe|pn)g|x[bp]m|wbmp|gif)|(?:jpe|pn)g|g(?:d2?|if)|2?wbmp|xbm)|s_(?:(?:(?:execut|write?|read)ab|fi)le|dir)|ni_(?:get(?:_all)?|set)|terator_apply|ptcembed)|g(?:et(?:_(?:c(?:urrent_use|fg_va)r|meta_tags)|my(?:[gpu]id|inode)|(?:lastmo|cw)d|imagesize|env)|z(?:(?:(?:defla|wri)t|encod|fil)e|compress|open|read)|lob)|a(?:rray_(?:u(?:intersect(?:_u?assoc)?|diff(?:_u?assoc)?)|intersect_u(?:assoc|key)|diff_u(?:assoc|key)|filter|reduce|map)|ssert(?:_options)?)|h(?:tml(?:specialchars(?:_decode)?|_entity_decode|entities)|(?:ash(?:_(?:update|hmac))?|ighlight)_file|e(?:ader_register_callback|x2bin))|f(?:i(?:le(?:(?:[acm]tim|inod)e|(?:_exist|perm)s|group)?|nfo_open)|tp_(?:nb_(?:ge|pu)|connec|ge|pu)t|(?:unction_exis|pu)ts|write|open)|o(?:b_(?:get_(?:c(?:ontents|lean)|flush)|end_(?:clean|flush)|clean|flush|start)|dbc_(?:result(?:_all)?|exec(?:ute)?|connect)|pendir)|m(?:b_(?:ereg(?:_(?:replace(?:_callback)?|match)|i(?:_replace)?)?|parse_str)|(?:ove_uploaded|d5)_file|ethod_exists|ysql_query|kdir)|e(?:x(?:if_(?:t(?:humbnail|agname)|imagetype|read_data)|ec)|scapeshell(?:arg|cmd)|rror_reporting|val)|c(?:url_(?:file_create|exec|init)|onvert_uuencode|reate_function|hr)|u(?:n(?:serialize|pack)|rl(?:de|en)code|[ak]?sort)|(?:json_(?:de|en)cod|debug_backtrac|tmpfil)e|b(?:(?:son_(?:de|en)|ase64_en)code|zopen)|var_dump)(?:\\s|/\\*.*\\*/|//.*|#.*)*\\(.*\\)",
             "options": {
@@ -1870,7 +1878,8 @@
               "server.request.headers.no_cookies",
               "server.request.query",
               "server.request.body",
-              "server.request.path_params"
+              "server.request.path_params",
+              "grpc.server.request.message"
             ],
             "regex": "[oOcC]:\\d+:\\\".+?\\\":\\d+:{[\\W\\w]*}",
             "options": {
@@ -1898,7 +1907,8 @@
               "server.request.cookies",
               "server.request.query",
               "server.request.body",
-              "server.request.path_params"
+              "server.request.path_params",
+              "grpc.server.request.message"
             ],
             "regex": "(?i:zlib|glob|phar|ssh2|rar|ogg|expect|zip)://",
             "options": {
@@ -1928,7 +1938,8 @@
               "server.request.cookies",
               "server.request.query",
               "server.request.body",
-              "server.request.path_params"
+              "server.request.path_params",
+              "grpc.server.request.message"
             ],
             "regex": "(?:(?:_(?:\\$\\$ND_FUNC\\$\\$_|_js_function)|(?:new\\s+Function|\\beval)\\s*\\(|String\\s*\\.\\s*fromCharCode|function\\s*\\(\\s*\\)\\s*{|this\\.constructor)|module\\.exports\\s*=)",
             "options": {
@@ -1957,7 +1968,8 @@
               "server.request.headers.no_cookies:referer",
               "server.request.query",
               "server.request.body",
-              "server.request.path_params"
+              "server.request.path_params",
+              "grpc.server.request.message"
             ]
           },
           "operation": "is_xss"
@@ -1985,7 +1997,8 @@
               "server.request.headers.no_cookies:referer",
               "server.request.query",
               "server.request.body",
-              "server.request.path_params"
+              "server.request.path_params",
+              "grpc.server.request.message"
             ],
             "regex": "<script[^>]*>[\\s\\S]*?",
             "options": {
@@ -2016,7 +2029,8 @@
               "server.request.headers.no_cookies:referer",
               "server.request.query",
               "server.request.body",
-              "server.request.path_params"
+              "server.request.path_params",
+              "grpc.server.request.message"
             ],
             "regex": "[\\s\\\"'`;\\/0-9=\\x0B\\x09\\x0C\\x3B\\x2C\\x28\\x3B]on[a-zA-Z]{3,25}[\\s\\x0B\\x09\\x0C\\x3B\\x2C\\x28\\x3B]*?=[^=]",
             "options": {
@@ -2047,7 +2061,8 @@
               "server.request.headers.no_cookies:referer",
               "server.request.query",
               "server.request.body",
-              "server.request.path_params"
+              "server.request.path_params",
+              "grpc.server.request.message"
             ],
             "regex": "[a-z]+=(?:[^:=]+:.+;)*?[^:=]+:url\\(javascript",
             "options": {
@@ -2076,7 +2091,8 @@
               "server.request.cookies",
               "server.request.query",
               "server.request.body",
-              "server.request.path_params"
+              "server.request.path_params",
+              "grpc.server.request.message"
             ],
             "list": [
               "document.cookie",
@@ -2111,7 +2127,8 @@
               "server.request.cookies",
               "server.request.query",
               "server.request.body",
-              "server.request.path_params"
+              "server.request.path_params",
+              "grpc.server.request.message"
             ],
             "regex": "(?i:<.*[:]?vmlframe.*?[\\s/+]*?src[\\s/+]*=)",
             "options": {
@@ -2141,7 +2158,8 @@
               "server.request.cookies",
               "server.request.query",
               "server.request.body",
-              "server.request.path_params"
+              "server.request.path_params",
+              "grpc.server.request.message"
             ],
             "regex": "(?i:(?:j|&#x?0*(?:74|4A|106|6A);?)(?:\\t|&(?:#x?0*(?:9|13|10|A|D);?|tab;|newline;))*(?:a|&#x?0*(?:65|41|97|61);?)(?:\\t|&(?:#x?0*(?:9|13|10|A|D);?|tab;|newline;))*(?:v|&#x?0*(?:86|56|118|76);?)(?:\\t|&(?:#x?0*(?:9|13|10|A|D);?|tab;|newline;))*(?:a|&#x?0*(?:65|41|97|61);?)(?:\\t|&(?:#x?0*(?:9|13|10|A|D);?|tab;|newline;))*(?:s|&#x?0*(?:83|53|115|73);?)(?:\\t|&(?:#x?0*(?:9|13|10|A|D);?|tab;|newline;))*(?:c|&#x?0*(?:67|43|99|63);?)(?:\\t|&(?:#x?0*(?:9|13|10|A|D);?|tab;|newline;))*(?:r|&#x?0*(?:82|52|114|72);?)(?:\\t|&(?:#x?0*(?:9|13|10|A|D);?|tab;|newline;))*(?:i|&#x?0*(?:73|49|105|69);?)(?:\\t|&(?:#x?0*(?:9|13|10|A|D);?|tab;|newline;))*(?:p|&#x?0*(?:80|50|112|70);?)(?:\\t|&(?:#x?0*(?:9|13|10|A|D);?|tab;|newline;))*(?:t|&#x?0*(?:84|54|116|74);?)(?:\\t|&(?:#x?0*(?:9|13|10|A|D);?|tab;|newline;))*(?::|&(?:#x?0*(?:58|3A);?|colon;)).)",
             "options": {
@@ -2171,7 +2189,8 @@
               "server.request.cookies",
               "server.request.query",
               "server.request.body",
-              "server.request.path_params"
+              "server.request.path_params",
+              "grpc.server.request.message"
             ],
             "regex": "(?i:(?:v|&#x?0*(?:86|56|118|76);?)(?:\\t|&(?:#x?0*(?:9|13|10|A|D);?|tab;|newline;))*(?:b|&#x?0*(?:66|42|98|62);?)(?:\\t|&(?:#x?0*(?:9|13|10|A|D);?|tab;|newline;))*(?:s|&#x?0*(?:83|53|115|73);?)(?:\\t|&(?:#x?0*(?:9|13|10|A|D);?|tab;|newline;))*(?:c|&#x?0*(?:67|43|99|63);?)(?:\\t|&(?:#x?0*(?:9|13|10|A|D);?|tab;|newline;))*(?:r|&#x?0*(?:82|52|114|72);?)(?:\\t|&(?:#x?0*(?:9|13|10|A|D);?|tab;|newline;))*(?:i|&#x?0*(?:73|49|105|69);?)(?:\\t|&(?:#x?0*(?:9|13|10|A|D);?|tab;|newline;))*(?:p|&#x?0*(?:80|50|112|70);?)(?:\\t|&(?:#x?0*(?:9|13|10|A|D);?|tab;|newline;))*(?:t|&#x?0*(?:84|54|116|74);?)(?:\\t|&(?:#x?0*(?:9|13|10|A|D);?|tab;|newline;))*(?::|&(?:#x?0*(?:58|3A);?|colon;)).)",
             "options": {
@@ -2201,7 +2220,8 @@
               "server.request.cookies",
               "server.request.query",
               "server.request.body",
-              "server.request.path_params"
+              "server.request.path_params",
+              "grpc.server.request.message"
             ],
             "regex": "<EMBED[\\s/+].*?(?:src|type).*?=",
             "options": {
@@ -2230,7 +2250,8 @@
               "server.request.cookies",
               "server.request.query",
               "server.request.body",
-              "server.request.path_params"
+              "server.request.path_params",
+              "grpc.server.request.message"
             ],
             "regex": "<[?]?import[\\s/+\\S]*?implementation[\\s/+]*?=",
             "options": {
@@ -2261,7 +2282,8 @@
               "server.request.cookies",
               "server.request.query",
               "server.request.body",
-              "server.request.path_params"
+              "server.request.path_params",
+              "grpc.server.request.message"
             ],
             "regex": "<LINK[\\s/+].*?href[\\s/+]*=",
             "options": {
@@ -2290,7 +2312,8 @@
               "server.request.cookies",
               "server.request.query",
               "server.request.body",
-              "server.request.path_params"
+              "server.request.path_params",
+              "grpc.server.request.message"
             ],
             "regex": "<BASE[\\s/+].*?href[\\s/+]*=",
             "options": {
@@ -2319,7 +2342,8 @@
               "server.request.cookies",
               "server.request.query",
               "server.request.body",
-              "server.request.path_params"
+              "server.request.path_params",
+              "grpc.server.request.message"
             ],
             "regex": "<APPLET[\\s/+>]",
             "options": {
@@ -2348,7 +2372,8 @@
               "server.request.cookies",
               "server.request.query",
               "server.request.body",
-              "server.request.path_params"
+              "server.request.path_params",
+              "grpc.server.request.message"
             ],
             "regex": "<OBJECT[\\s/+].*?(?:type|codetype|classid|code|data)[\\s/+]*=",
             "options": {
@@ -2377,7 +2402,8 @@
               "server.request.cookies",
               "server.request.query",
               "server.request.body",
-              "server.request.path_params"
+              "server.request.path_params",
+              "grpc.server.request.message"
             ],
             "regex": "\\+ADw-.*(?:\\+AD4-|>)|<.*\\+AD4-",
             "options": {
@@ -2405,7 +2431,8 @@
               "server.request.cookies",
               "server.request.query",
               "server.request.body",
-              "server.request.path_params"
+              "server.request.path_params",
+              "grpc.server.request.message"
             ],
             "regex": "![!+ ]\\[\\]",
             "options": {
@@ -2432,7 +2459,8 @@
               "server.request.cookies",
               "server.request.query",
               "server.request.body",
-              "server.request.path_params"
+              "server.request.path_params",
+              "grpc.server.request.message"
             ]
           },
           "operation": "is_sqli"
@@ -2458,7 +2486,8 @@
               "server.request.cookies",
               "server.request.query",
               "server.request.body",
-              "server.request.path_params"
+              "server.request.path_params",
+              "grpc.server.request.message"
             ],
             "regex": "\\b(?:(?:m(?:s(?:ys(?:ac(?:cess(?:objects|storage|xml)|es)|(?:relationship|object|querie)s|modules2?)|db)|aster\\.\\.sysdatabases|ysql\\.db)|pg_(?:catalog|toast)|information_schema|northwind|tempdb)\\b|s(?:(?:ys(?:\\.database_name|aux)|qlite(?:_temp)?_master)\\b|chema(?:_name\\b|\\W*\\())|d(?:atabas|b_nam)e\\W*\\()",
             "options": {
@@ -2485,7 +2514,8 @@
               "server.request.cookies",
               "server.request.query",
               "server.request.body",
-              "server.request.path_params"
+              "server.request.path_params",
+              "grpc.server.request.message"
             ],
             "regex": "(?i:sleep\\(\\s*?\\d*?\\s*?\\)|benchmark\\(.*?\\,.*?\\))",
             "options": {
@@ -2513,7 +2543,8 @@
               "server.request.cookies",
               "server.request.query",
               "server.request.body",
-              "server.request.path_params"
+              "server.request.path_params",
+              "grpc.server.request.message"
             ],
             "regex": "(?:\\b(?:(?:c(?:onnection_id|urrent_user)|database)\\s*?\\([^\\)]*?|u(?:nion(?:[\\w(?:\\s]*?select| select @)|ser\\s*?\\([^\\)]*?)|s(?:chema\\s*?\\([^\\)]*?|elect.*?\\w?user\\()|into[\\s+]+(?:dump|out)file\\s*?[\\\"'`]|from\\W+information_schema\\W|exec(?:ute)?\\s+master\\.)|[\\\"'`](?:;?\\s*?(?:union\\b\\s*?(?:(?:distin|sele)ct|all)|having|select)\\b\\s*?[^\\s]|\\s*?!\\s*?[\\\"'`\\w])|\\s*?exec(?:ute)?.*?\\Wxp_cmdshell|\\Wiif\\s*?\\()",
             "options": {
@@ -2540,7 +2571,8 @@
               "server.request.cookies",
               "server.request.query",
               "server.request.body",
-              "server.request.path_params"
+              "server.request.path_params",
+              "grpc.server.request.message"
             ],
             "regex": "^(?i:-0000023456|4294967295|4294967296|2147483648|2147483647|0000012345|-2147483648|-2147483649|0000023456|2.2250738585072007e-308|2.2250738585072011e-308|1e309)$",
             "options": {
@@ -2568,7 +2600,8 @@
               "server.request.cookies",
               "server.request.query",
               "server.request.body",
-              "server.request.path_params"
+              "server.request.path_params",
+              "grpc.server.request.message"
             ],
             "regex": "(?:[\\\"'`](?:;*?\\s*?waitfor\\s+(?:delay|time)\\s+[\\\"'`]|;.*?:\\s*?goto)|alter\\s*?\\w+.*?cha(?:racte)?r\\s+set\\s+\\w+)",
             "options": {
@@ -2595,7 +2628,8 @@
               "server.request.cookies",
               "server.request.query",
               "server.request.body",
-              "server.request.path_params"
+              "server.request.path_params",
+              "grpc.server.request.message"
             ],
             "regex": "(?i:merge.*?using\\s*?\\(|execute\\s*?immediate\\s*?[\\\"'`]|match\\s*?[\\w(?:),+-]+\\s*?against\\s*?\\()",
             "options": {
@@ -2623,7 +2657,8 @@
               "server.request.cookies",
               "server.request.query",
               "server.request.body",
-              "server.request.path_params"
+              "server.request.path_params",
+              "grpc.server.request.message"
             ],
             "regex": "union.*?select.*?from",
             "options": {
@@ -2650,7 +2685,8 @@
               "server.request.cookies",
               "server.request.query",
               "server.request.body",
-              "server.request.path_params"
+              "server.request.path_params",
+              "grpc.server.request.message"
             ],
             "regex": "(?:;\\s*?shutdown\\s*?(?:[#;{]|\\/\\*|--)|waitfor\\s*?delay\\s?[\\\"'`]+\\s?\\d|select\\s*?pg_sleep)",
             "options": {
@@ -2677,7 +2713,8 @@
               "server.request.cookies",
               "server.request.query",
               "server.request.body",
-              "server.request.path_params"
+              "server.request.path_params",
+              "grpc.server.request.message"
             ],
             "regex": "(?i:(?:\\[\\$(?:ne|eq|lte?|gte?|n?in|mod|all|size|exists|type|slice|x?or|div|like|between|and)\\]))",
             "options": {
@@ -2705,7 +2742,8 @@
               "server.request.cookies",
               "server.request.query",
               "server.request.body",
-              "server.request.path_params"
+              "server.request.path_params",
+              "grpc.server.request.message"
             ],
             "regex": "(?:^[\\W\\d]+\\s*?(?:alter\\s*(?:a(?:(?:pplication\\s*rol|ggregat)e|s(?:ymmetric\\s*ke|sembl)y|u(?:thorization|dit)|vailability\\s*group)|c(?:r(?:yptographic\\s*provider|edential)|o(?:l(?:latio|um)|nversio)n|ertificate|luster)|s(?:e(?:rv(?:ice|er)|curity|quence|ssion|arch)|y(?:mmetric\\s*key|nonym)|togroup|chema)|m(?:a(?:s(?:ter\\s*key|k)|terialized)|e(?:ssage\\s*type|thod)|odule)|l(?:o(?:g(?:file\\s*group|in)|ckdown)|a(?:ngua|r)ge|ibrary)|t(?:(?:abl(?:espac)?|yp)e|r(?:igger|usted)|hreshold|ext)|p(?:a(?:rtition|ckage)|ro(?:cedur|fil)e|ermission)|d(?:i(?:mension|skgroup)|atabase|efault|omain)|r(?:o(?:l(?:lback|e)|ute)|e(?:sourc|mot)e)|f(?:u(?:lltext|nction)|lashback|oreign)|e(?:xte(?:nsion|rnal)|(?:ndpoi|ve)nt)|in(?:dex(?:type)?|memory|stance)|b(?:roker\\s*priority|ufferpool)|x(?:ml\\s*schema|srobject)|w(?:ork(?:load)?|rapper)|hi(?:erarchy|stogram)|o(?:perator|utline)|(?:nicknam|queu)e|us(?:age|er)|group|java|view)\\b|(?:(?:(?:trunc|cre)at|renam)e|d(?:e(?:lete|sc)|rop)|(?:inser|selec)t|load)\\s+\\w+|u(?:nion\\s*(?:(?:distin|sele)ct|all)\\b|pdate\\s+\\w+))|\\b(?:(?:(?:(?:trunc|cre|upd)at|renam)e|(?:inser|selec)t|de(?:lete|sc)|alter|load)\\s+(?:group_concat|load_file|char)\\b\\s*\\(?|end\\s*?\\);)|[\\\"'`\\w]\\s+as\\b\\s*[\\\"'`\\w]+\\s*\\bfrom|[\\s(?:]load_file\\s*?\\(|[\\\"'`]\\s+regexp\\W)",
             "options": {
@@ -2732,7 +2770,8 @@
               "server.request.cookies",
               "server.request.query",
               "server.request.body",
-              "server.request.path_params"
+              "server.request.path_params",
+              "grpc.server.request.message"
             ],
             "regex": "(?i:/\\*[!+](?:[\\w\\s=_\\-(?:)]+)?\\*/)",
             "options": {
@@ -2789,7 +2828,8 @@
               "server.request.body",
               "server.request.path_params",
               "server.request.cookies",
-              "server.request.headers.no_cookies"
+              "server.request.headers.no_cookies",
+              "grpc.server.request.message"
             ],
             "regex": "java\\.lang\\.(?:runtime|processbuilder)",
             "options": {
@@ -2820,7 +2860,8 @@
               "server.request.body",
               "server.request.path_params",
               "server.request.cookies",
-              "server.request.headers.no_cookies"
+              "server.request.headers.no_cookies",
+              "grpc.server.request.message"
             ],
             "regex": "(?:runtime|processbuilder)",
             "options": {
@@ -2837,7 +2878,8 @@
               "server.request.body",
               "server.request.path_params",
               "server.request.cookies",
-              "server.request.headers.no_cookies"
+              "server.request.headers.no_cookies",
+              "grpc.server.request.message"
             ],
             "regex": "(?:unmarshaller|base64data|java\\.)",
             "options": {
@@ -2868,7 +2910,8 @@
               "server.request.body",
               "server.request.path_params",
               "server.request.cookies",
-              "server.request.headers.no_cookies"
+              "server.request.headers.no_cookies",
+              "grpc.server.request.message"
             ],
             "list": [
               "com.opensymphony.xwork2",
@@ -3376,7 +3419,8 @@
             "inputs": [
               "server.request.query",
               "server.request.body",
-              "server.request.path_params"
+              "server.request.path_params",
+              "grpc.server.request.message"
             ],
             "regex": "(?i)^\\W*((http|ftp)s?://)?\\W*((::f{4}:)?(169|(0x)?0*a9|0+251)\\.?(254|(0x)?0*fe|0+376)[0-9a-fx\\.:]+|metadata\\.google\\.internal|metadata\\.goog)\\W*/",
             "options": {
@@ -3403,7 +3447,8 @@
             "inputs": [
               "server.request.query",
               "server.request.body",
-              "server.request.path_params"
+              "server.request.path_params",
+              "grpc.server.request.message"
             ],
             "regex": "require\\(['\"][\\w\\.]+['\"]\\)|process\\.\\w+\\([\\w\\.]*\\)|\\.toString\\(\\)",
             "options": {
@@ -3451,7 +3496,8 @@
               "server.request.query",
               "server.request.body",
               "server.request.path_params",
-              "server.request.headers.no_cookies"
+              "server.request.headers.no_cookies",
+              "grpc.server.request.message"
             ],
             "regex": "(?i)[&|]\\s*type\\s+%\\w+%\\\\+\\w+\\.ini\\s*[&|]"
           }
@@ -3474,7 +3520,8 @@
               "server.request.query",
               "server.request.body",
               "server.request.path_params",
-              "server.request.headers.no_cookies"
+              "server.request.headers.no_cookies",
+              "grpc.server.request.message"
             ],
             "regex": "(?i)[&|]\\s*cat\\s+\\/etc\\/[\\w\\.\\/]*passwd\\s*[&|]"
           }
@@ -3497,7 +3544,8 @@
               "server.request.query",
               "server.request.body",
               "server.request.path_params",
-              "server.request.headers.no_cookies"
+              "server.request.headers.no_cookies",
+              "grpc.server.request.message"
             ],
             "regex": "(?i)[&|]\\s*timeout\\s+/t\\s+\\d+\\s*[&|]"
           }
@@ -3519,7 +3567,8 @@
             "inputs": [
               "server.request.query",
               "server.request.body",
-              "server.request.path_params"
+              "server.request.path_params",
+              "grpc.server.request.message"
             ],
             "regex": "http(s?):\\/\\/([A-Za-z0-9\\.\\-\\_]+|\\[[A-Fa-f0-9\\:]+\\]|):5986\\/wsman",
             "options": {
@@ -3542,7 +3591,8 @@
             "inputs": [
               "server.request.query",
               "server.request.body",
-              "server.request.path_params"
+              "server.request.path_params",
+              "grpc.server.request.message"
             ],
             "regex": "^(jar:)?(http|https):\\/\\/([0-9oq]{1,5}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}|[0-9]{1,10}|localhost)(:[0-9]{1,5})?(\\/.*|)$"
           },
@@ -3566,7 +3616,8 @@
             "inputs": [
               "server.request.query",
               "server.request.body",
-              "server.request.path_params"
+              "server.request.path_params",
+              "grpc.server.request.message"
             ],
             "regex": "^(jar:)?(http|https):\\/\\/((\\[)?[:0-9a-f\\.x]{2,}(\\])?)(:[0-9]{1,5})?(\\/.*)?$"
           },
@@ -3591,7 +3642,8 @@
               "server.request.query",
               "server.request.body",
               "server.request.path_params",
-              "server.request.headers.no_cookies"
+              "server.request.headers.no_cookies",
+              "grpc.server.request.message"
             ],
             "regex": "^(http|https):\\/\\/(.*burpcollaborator\\.net|localtest\\.me|mail\\.ebc\\.apple\\.com|bugbounty\\.dod\\.network|.*\\.[nx]ip\\.io)"
           },
@@ -3616,7 +3668,8 @@
               "server.request.query",
               "server.request.body",
               "server.request.path_params",
-              "server.request.headers.no_cookies"
+              "server.request.headers.no_cookies",
+              "grpc.server.request.message"
             ],
             "regex": "^(jar:)?((file|netdoc):\\/\\/[\\\\\\/]+|(dict|gopher|ldap|sftp|tftp):\\/\\/.*:[0-9]{1,5})"
           },
