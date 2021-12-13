@@ -3074,7 +3074,7 @@ rules:
             - address: server.request.path_params
             - address: server.request.headers.no_cookies
             - address: grpc.server.request.message
-          regex: \${jndi:[^}]*}
+          regex: \${(?:\${[^j]*)?j(?:[^ndi}]*}+)?(?:\${[^n]*)?n(?:[^di}]*}+)?(?:\${[^d]*)?d(?:[^i}]*}+)?(?:\${[^i]*)?i(?:[^}]*}+)?:[^}]*}
         operator: match_regex
     transformers: []
   - id: ua0-600-0xx
