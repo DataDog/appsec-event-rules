@@ -3063,7 +3063,7 @@ rules:
   - id: sqr-000-017
     name: 'JNDI: Attempt to exploit log4j CVE-2021-44228'
     tags:
-      type: java_injection
+      type: java_code_injection
       category: attack_attempt
     conditions:
       - parameters:
