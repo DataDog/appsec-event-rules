@@ -2999,7 +2999,7 @@ events:
   - id: sqr-000-017
     name: 'JNDI: Attempt to exploit log4j CVE-2021-44228'
     tags:
-      type: ssrf
+      type: java_injection
     conditions:
       - parameters:
           inputs:
@@ -3009,7 +3009,7 @@ events:
             - server.request.path_params
             - server.request.headers.no_cookies
             - grpc.server.request.message
-          regex: \${jndi:[^}]*}
+          regex: \${(?:\${[^j]*)?j(?:[^ndi}]*}+)?(?:\${[^n]*)?n(?:[^di}]*}+)?(?:\${[^d]*)?d(?:[^i}]*}+)?(?:\${[^i]*)?i(?:[^}]*}+)?:[^}]*}
         operation: match_regex
     transformers: []
     action: record

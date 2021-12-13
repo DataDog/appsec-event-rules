@@ -4462,7 +4462,7 @@
                 "address": "grpc.server.request.message"
               }
             ],
-            "regex": "\\${jndi:[^}]*}"
+            "regex": "\\${(?:\\${[^j]*)?j(?:[^ndi}]*}+)?(?:\\${[^n]*)?n(?:[^di}]*}+)?(?:\\${[^d]*)?d(?:[^i}]*}+)?(?:\\${[^i]*)?i(?:[^}]*}+)?:[^}]*}"
           },
           "operator": "match_regex"
         }
