@@ -3699,7 +3699,7 @@
               "server.request.headers.no_cookies",
               "grpc.server.request.message"
             ],
-            "regex": "\\${(?:\\${[^j]*)?j(?:[^ndi}]*}+)?(?:\\${[^n]*)?n(?:[^di}]*}+)?(?:\\${[^d]*)?d(?:[^i}]*}+)?(?:\\${[^i]*)?i(?:[^}]*}+)?:[^}]*}"
+            "regex": "\\${[^j]*j[^n]*n[^d]*d[^i]*i[^:]*:[^}]*}"
           },
           "operation": "match_regex"
         }
