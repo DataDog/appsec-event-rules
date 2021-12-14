@@ -2750,7 +2750,7 @@ rules:
         parameters:
           inputs:
             - address: server.request.uri.raw
-          regex: ^(?=.*web\-inf)(?=.*web\.xml).*$
+          regex: ^(?:.*web\-inf)(?:.*web\.xml).*$
           options:
             case_sensitive: false
     transformers: []
