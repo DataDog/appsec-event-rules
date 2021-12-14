@@ -2925,6 +2925,7 @@ events:
           regex: http(s?):\/\/([A-Za-z0-9\.\-\_]+|\[[A-Fa-f0-9\:]+\]|):5986\/wsman
           options:
             min_length: 4
+    transformers: []
     action: record
   - id: sqr-000-012
     name: 'SSRF: Detect SSRF attempt on internal service'

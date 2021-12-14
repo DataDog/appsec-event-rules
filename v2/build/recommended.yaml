@@ -2990,6 +2990,7 @@ rules:
           options:
             min_length: 4
         operator: match_regex
+    transformers: []
   - id: sqr-000-012
     name: 'SSRF: Detect SSRF attempt on internal service'
     tags:
