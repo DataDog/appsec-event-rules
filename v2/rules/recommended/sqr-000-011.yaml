@@ -14,3 +14,4 @@ conditions:
       options:
         min_length: 4
     operator: match_regex
+transformers: []

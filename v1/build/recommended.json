@@ -3578,6 +3578,7 @@
           }
         }
       ],
+      "transformers": [],
       "action": "record"
     },
     {
