@@ -2504,6 +2504,7 @@ rules:
     name: Detect common directory discovery scans
     tags:
       type: security_scanner
+      category: attack_attempt
     conditions:
       - operator: match_regex
         parameters:
@@ -2718,6 +2719,7 @@ rules:
     name: Detect failed attempt to fetch readme files
     tags:
       type: security_scanner
+      category: attack_attempt
     conditions:
       - operator: match_regex
         parameters:
@@ -2738,6 +2740,7 @@ rules:
     name: Detect failed attempt to fetch Java EE resource files
     tags:
       type: security_scanner
+      category: attack_attempt
     conditions:
       - operator: match_regex
         parameters:
@@ -2758,6 +2761,7 @@ rules:
     name: Detect failed attempt to fetch code files
     tags:
       type: security_scanner
+      category: attack_attempt
     conditions:
       - operator: match_regex
         parameters:
@@ -2778,6 +2782,7 @@ rules:
     name: Detect failed attempt to fetch source code archives
     tags:
       type: security_scanner
+      category: attack_attempt
     conditions:
       - operator: match_regex
         parameters:
@@ -2799,6 +2804,7 @@ rules:
     name: Detect failed attempt to fetch sensitive files
     tags:
       type: security_scanner
+      category: attack_attempt
     conditions:
       - operator: match_regex
         parameters:
@@ -2820,6 +2826,7 @@ rules:
     name: Detect failed attempt to fetch archives
     tags:
       type: security_scanner
+      category: attack_attempt
     conditions:
       - operator: match_regex
         parameters:
@@ -2840,6 +2847,7 @@ rules:
     name: Detect failed attempt to trigger incorrect application behavior
     tags:
       type: security_scanner
+      category: attack_attempt
     conditions:
       - operator: match_regex
         parameters:
@@ -2861,6 +2869,7 @@ rules:
     name: Detect failed attempt to leak the structure of the application
     tags:
       type: security_scanner
+      category: attack_attempt
     conditions:
       - operator: match_regex
         parameters:

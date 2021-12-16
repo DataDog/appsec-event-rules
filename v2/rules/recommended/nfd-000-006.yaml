@@ -2,6 +2,7 @@ id: nfd-000-006
 name: Detect failed attempt to fetch sensitive files
 tags:
   type: security_scanner
+  category: attack_attempt
 conditions:
   - operator: match_regex
     parameters:
