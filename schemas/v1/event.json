@@ -1,0 +1,51 @@
+{
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "tags": {
+      "properties": {
+        "type": {
+          "type": "string"
+        },
+        "crs_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "type"
+      ],
+      "additionalProperties": false
+    },
+    "conditions": {
+      "type": "array",
+      "items": {
+        "$ref": "condition.json"
+      }
+    },
+    "transformers": {
+      "type": "array",
+      "items": {
+        "enum": [
+          "lowercase",
+          "removeNulls"
+        ]
+      }
+    },
+    "action": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "id",
+    "name",
+    "tags",
+    "conditions",
+    "transformers",
+    "action"
+  ],
+  "additionalProperties": false
+}

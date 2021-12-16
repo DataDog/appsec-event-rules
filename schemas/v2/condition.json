@@ -1,0 +1,48 @@
+{
+  "properties": {
+    "operator": {
+      "enum": [
+        "match_regex",
+        "phrase_match",
+        "is_xss",
+        "is_sqli"
+      ]
+    },
+    "parameters": {
+      "properties": {
+        "list": {
+          "$ref": "../miscs/arrayOfString.json"
+        },
+        "inputs": {
+          "type": "array",
+          "items": {
+            "$ref": "input.json"
+          }
+        },
+        "regex": {
+          "type": "string"
+        },
+        "options": {
+          "properties": {
+            "case_sensitive": {
+              "type": "boolean"
+            },
+            "min_length": {
+              "type": "integer"
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "inputs"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "operator",
+    "parameters"
+  ],
+  "additionalProperties": false
+}

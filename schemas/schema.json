@@ -1,0 +1,53 @@
+{
+  "properties": {
+    "version": {
+      "enum": [
+        "1.1",
+        "2.1"
+      ]
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "version": {
+            "const": "1.1"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "events": {
+            "$ref": "v1/arrayOfEvents.json"
+          }
+        },
+        "required": [
+          "events"
+        ]
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "version": {
+            "const": "2.1"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "rules": {
+            "$ref": "v2/arrayOfRules.json"
+          }
+        },
+        "required": [
+          "rules"
+        ]
+      }
+    }
+  ],
+  "required": [
+    "version"
+  ]
+}
