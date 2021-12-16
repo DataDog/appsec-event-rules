@@ -13,9 +13,7 @@
         {
           "parameters": {
             "inputs": [
-              {
-                "address": "server.request.headers.no_cookies"
-              }
+              "server.request.headers.no_cookies"
             ],
             "list": [
               "acunetix-product",
@@ -28,7 +26,7 @@
         }
       ],
       "transformers": [
-        "lowercase"
+        "not-exist"
       ]
     },
     {

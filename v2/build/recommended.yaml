@@ -9,7 +9,7 @@ rules:
     conditions:
       - parameters:
           inputs:
-            - address: server.request.headers.no_cookies
+            - server.request.headers.no_cookies
           list:
             - acunetix-product
             - (acunetix web vulnerability scanner
@@ -17,7 +17,7 @@ rules:
             - acunetix-user-agreement
         operator: phrase_match
     transformers:
-      - lowercase
+      - not-exist
   - id: crs-913-120
     name: Found request filename/argument associated with security scanner
     tags:
