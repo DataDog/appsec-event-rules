@@ -48,11 +48,14 @@ def main():
 
     validator = _get_schema_validator()
 
+    is_success = True
+
     for filename in _crawl_rules_builds():
         instance = json.load(open(filename))
 
         print(f"Validating {filename}")
         if not validator.is_valid(instance):
+            is_success = False
             errors = sorted(validator.iter_errors(instance), key=lambda e: e.path)
 
             for error in errors:
@@ -60,6 +63,9 @@ def main():
                 print(f"{error.message} on instance {path}")
                 for suberror in sorted(error.context, key=lambda e: e.schema_path):
                     print(list(suberror.schema_path), suberror.message, sep=", ")
+
+    if not is_success:
+        exit(1)
 
 
 main()
