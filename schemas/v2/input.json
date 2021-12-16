@@ -1,0 +1,14 @@
+{
+  "properties": {
+    "address": {
+      "type": "string"
+    },
+    "key_path": {
+      "$ref": "../miscs/arrayOfString.json"
+    }
+  },
+  "required": [
+    "address"
+  ],
+  "additionalProperties": false
+}
