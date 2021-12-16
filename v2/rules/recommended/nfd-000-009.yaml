@@ -2,6 +2,7 @@ id: nfd-000-009
 name: Detect failed attempt to leak the structure of the application
 tags:
   type: security_scanner
+  category: attack_attempt
 conditions:
   - operator: match_regex
     parameters:

@@ -2,6 +2,7 @@ id: nfd-000-007
 name: Detect failed attempt to fetch archives
 tags:
   type: security_scanner
+  category: attack_attempt
 conditions:
   - operator: match_regex
     parameters:

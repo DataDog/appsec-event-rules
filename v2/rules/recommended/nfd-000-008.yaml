@@ -2,6 +2,7 @@ id: nfd-000-008
 name: Detect failed attempt to trigger incorrect application behavior 
 tags:
   type: security_scanner
+  category: attack_attempt
 conditions:
   - operator: match_regex
     parameters:
