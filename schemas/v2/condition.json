@@ -1,4 +1,5 @@
 {
+  "type": "object",
   "properties": {
     "operator": {
       "enum": [
@@ -9,6 +10,7 @@
       ]
     },
     "parameters": {
+      "type": "object",
       "properties": {
         "list": {
           "$ref": "../miscs/arrayOfString.json"
@@ -23,6 +25,7 @@
           "type": "string"
         },
         "options": {
+          "type": "object",
           "properties": {
             "case_sensitive": {
               "type": "boolean"
