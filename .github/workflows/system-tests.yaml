@@ -1,0 +1,73 @@
+name: System tests
+
+on:
+  workflow_dispatch: {}
+  schedule:
+    - cron:  '00 04 * * 2-6'
+  pull_request:
+    branches: "**"
+
+jobs:
+  system-tests:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        include:
+          - library: golang
+            weblog-variant: net-http
+          - library: golang
+            weblog-variant: gorilla
+          - library: nodejs
+            weblog-variant: express-poc
+          - library: dotnet
+            weblog-variant: poc
+          - library: java
+            weblog-variant: spring-boot-poc
+          - library: php
+            weblog-variant: apache-mod
+          - library: python
+            weblog-variant: flask-poc
+          - library: python
+            weblog-variant: uwsgi-poc
+          - library: ruby
+            weblog-variant: sinatra-poc
+      fail-fast: false
+    env:
+      TEST_LIBRARY: ${{ matrix.library }}
+      WEBLOG_VARIANT: ${{ matrix.weblog-variant }}
+      DD_API_KEY: ${{ secrets.DD_API_KEY }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          repository: 'DataDog/system-tests'
+
+      - name: Checkout appsec-event-rules
+        uses: actions/checkout@v2
+        with:
+          path: 'appsec-event-rules'
+
+      - name: Load WAF rule set v1
+        if: ${{ matrix.library == 'php' || matrix.library == 'python' }}
+        run: cp appsec-event-rules/v1/build/recommended.json binaries/waf_rule_set.json
+
+      - name: Load WAF rule set v2
+        if: ${{ matrix.library == 'java' || matrix.library == 'nodejs' || matrix.library == 'ruby' || matrix.library == 'golang' || matrix.library == 'dotnet' }}
+        run: cp appsec-event-rules/v2/build/recommended.json binaries/waf_rule_set.json
+
+      - name: Build
+        run: ./build.sh
+
+      - name: Run default scenario
+        run: ./run.sh
+
+      - name: Compress artifact
+        if: ${{ always() }}
+        run: tar -czvf artifact.tar.gz $(ls | grep logs)
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v2
+        if: ${{ always() }}
+        with:
+          name: logs_${{ matrix.library }}_${{ matrix.weblog-variant }}
+          path: artifact.tar.gz
