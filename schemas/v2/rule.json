@@ -2,7 +2,8 @@
   "type": "object",
   "properties": {
     "id": {
-      "type": "string"
+      "type": "string",
+      "pattern": "^[0-9a-z]{3}-[0-9a-z]{3}-[0-9a-z]{3}$"
     },
     "name": {
       "type": "string"
