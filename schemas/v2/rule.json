@@ -29,6 +29,7 @@
     },
     "conditions": {
       "type": "array",
+      "minItems": 1,
       "items": {
         "$ref": "condition.json"
       }
