@@ -10,6 +10,7 @@
     },
     "tags": {
       "type": "object",
+      "maxProperties": 32,
       "properties": {
         "type": {
           "type": "string"
