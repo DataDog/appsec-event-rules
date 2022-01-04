@@ -44,6 +44,21 @@ def _get_schema_validator():
     )
 
 
+def _validate_with_schema(validator, rule):
+    if validator.is_valid(rule):
+        return True
+
+    errors = sorted(validator.iter_errors(rule), key=lambda e: e.path)
+
+    for error in errors:
+        path = "".join([f"[{repr(i)}]" for i in error.path])
+        print(f"{error.message} on instance {path}")
+        for suberror in sorted(error.context, key=lambda e: e.schema_path):
+            print(list(suberror.schema_path), suberror.message, sep=", ")
+
+    return False
+
+
 def main():
 
     validator = _get_schema_validator()
@@ -51,18 +66,10 @@ def main():
     is_success = True
 
     for filename in _crawl_rules_builds():
-        instance = json.load(open(filename))
+        rule = json.load(open(filename))
 
         print(f"Validating {filename}")
-        if not validator.is_valid(instance):
-            is_success = False
-            errors = sorted(validator.iter_errors(instance), key=lambda e: e.path)
-
-            for error in errors:
-                path = "".join([f"[{repr(i)}]" for i in error.path])
-                print(f"{error.message} on instance {path}")
-                for suberror in sorted(error.context, key=lambda e: e.schema_path):
-                    print(list(suberror.schema_path), suberror.message, sep=", ")
+        is_success &= _validate_with_schema(validator, rule)
 
     if not is_success:
         exit(1)
