@@ -78,6 +78,10 @@ def _validate_tags(rule):
                   f"greater than {MAX_TAG_LENGTH}")
             is_success = False
 
+        if not tag_key[0].isalpha():
+            print(f"Tag '{tag_key}: {tag_value}' must start with a letter")
+            is_success = False
+
         if tag_value.endswith(':'):
             print(f"Tag '{tag_key}: {tag_value}' has a value ending with ':'")
             is_success = False
