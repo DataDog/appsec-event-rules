@@ -78,7 +78,7 @@ def _validate_tags(rule):
 
         if re.search(r"[!@#$%^&*()+=\[\]{};'\"|,<>?]", tag):
             print(f"Tag '{tag_key}: {tag_value}' cannot have "
-                  f"a special character")
+                  "a special character")
             is_success = False
 
     return is_success
@@ -109,7 +109,7 @@ def _validate_conditions(rule):
             if "options" in parameters:
                 for option in parameters["options"]:
                     if option != "case_sensitive" and option != "min_length":
-                        print(f"invalid option for match_regex condition "
+                        print("invalid option for match_regex condition "
                               f"'{option}'")
                         is_success = False
 
