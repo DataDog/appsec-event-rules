@@ -23,7 +23,8 @@
         }
       },
       "required": [
-        "type"
+        "type",
+        "category"
       ],
       "additionalProperties": false
     },
