@@ -84,6 +84,14 @@ def _validate_tags(rule):
     return is_success
 
 
+def _validate_parameter(operator, parameters, parameter_key):
+    if len(parameters[parameter_key]) == 0:
+        print(f"{operator} condition missing {parameter_key} field")
+        return False
+
+    return True
+
+
 def _validate_conditions(rule):
     is_success = True
 
@@ -93,30 +101,25 @@ def _validate_conditions(rule):
         if operator == "match_regex":
             parameters = condition["parameters"]
 
-            if len(parameters["regex"]) == 0:
-                print(f"match_regex condition missing regex field")
-                is_success = False
-
-            if len(parameters["inputs"]) == 0:
-                print(f"match_regex condition missing inputs field")
-                is_success = False
+            is_success &= _validate_parameter("match_regex", parameters,
+                                              "regex")
+            is_success &= _validate_parameter("match_regex", parameters,
+                                              "inputs")
 
             if "options" in parameters:
                 for option in parameters["options"]:
                     if option != "case_sensitive" and option != "min_length":
-                        print(f"invalid option for match_regex condition '{option}'")
+                        print(f"invalid option for match_regex condition "
+                              f"'{option}'")
                         is_success = False
 
         if operator == "phrase_match":
             parameters = condition["parameters"]
 
-            if len(parameters["list"]) == 0:
-                print(f"phrase_match condition missing list field")
-                is_success = False
-
-            if len(parameters["inputs"]) == 0:
-                print(f"phrase_match condition missing inputs field")
-                is_success = False
+            is_success &= _validate_parameter("phrase_match", parameters,
+                                              "list")
+            is_success &= _validate_parameter("phrase_match", parameters,
+                                              "inputs")
 
     return is_success
 
