@@ -61,6 +61,12 @@ def _validate_with_schema(validator, rule):
 
 
 def _validate_tags(rule):
+    '''
+    Validates tags against Datadog requirements.
+    See https://docs.datadoghq.com/getting_started/tagging/
+    :param rule: the rule to validate
+    :return: True if the rule is valid tag-wise, False otherwise
+    '''
     is_success = True
 
     for tag_key in rule["tags"]:
@@ -76,7 +82,7 @@ def _validate_tags(rule):
             print(f"Tag '{tag_key}: {tag_value}' has a value ending with ':'")
             is_success = False
 
-        if re.search(r"[!@#$%^&*()+=\[\]{};'\"|,<>?]", tag):
+        if not re.match(r"^[\w_\-:./]+$", tag):
             print(f"Tag '{tag_key}: {tag_value}' cannot have "
                   "a special character")
             is_success = False
