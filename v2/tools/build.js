@@ -32,7 +32,9 @@ let outContentObj = {
 }
 fs.readdirSync(SourceDir).forEach(file => {
     if(path.extname(file) !== '.yaml') return; //skip md files
-    outContentObj.rules.push(readYAMLfile(file))
+    ruleData = readYAMLfile(file);
+    ruleData["test_vectors"] = undefined;
+    outContentObj.rules.push(ruleData)
 });
 
 writeJSONFile(outContentObj)
