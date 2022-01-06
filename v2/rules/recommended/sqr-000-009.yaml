@@ -14,3 +14,10 @@ conditions:
       regex: (?i)[&|]\s*cat\s+\/etc\/[\w\.\/]*passwd\s*[&|]
     operator: match_regex
 transformers: []
+test_vectors:
+  matches:
+  - 'server.request.query/param:'' | cat /etc/passwd | '''
+  - 'server.request.query/param:'' | cat /etc/security/passwd | '''
+  - 'server.request.query/param:" | cat /etc/master.passwd | "'
+  - 'server.request.query/param:"&cat /etc/passwd&"'
+  - 'server.request.query/param:''&cat /etc/passwd&'''

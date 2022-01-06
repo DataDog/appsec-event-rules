@@ -12,3 +12,6 @@ conditions:
       regex: (?i)^Fuzz Faster U Fool\b
     operator: match_regex
 transformers: []
+test_vectors:
+  matches:
+  - server.request.headers.no_cookies/user-agent:Fuzz Faster U Fool v1.1.0-git

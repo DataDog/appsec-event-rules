@@ -12,3 +12,7 @@ conditions:
       regex: \(Nikto/[\d\.]+\)
     operator: match_regex
 transformers: []
+test_vectors:
+  matches:
+  - server.request.headers.no_cookies/user-agent:Mozilla/5.00 (Nikto/2.1.6)
+  - server.request.headers.no_cookies/user-agent:Mozilla/5.00 (Nikto/2.1.6) (Evasions:None) (Test:Port Check)

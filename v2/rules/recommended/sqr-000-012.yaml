@@ -15,3 +15,41 @@ conditions:
     operator: match_regex
 transformers:
   - lowercase
+test_vectors:
+  matches:
+  - server.request.query/param:https://127.0.0.1/
+  - server.request.query/param:https://127.0.0.1
+  - server.request.query/param:https://localhost/
+  - server.request.query/param:https://localhost
+  - server.request.query/param:http://127.127.127.127/
+  - server.request.query/param:http://127.0.1.3/
+  - server.request.query/param:http://127.0.0.0:80
+  - server.request.query/param:http://1.2.3.4:80/+hello-world
+  - server.request.query/param:http://2130706433/
+  - server.request.query/param:http://3232235521/
+  - server.request.query/param:http://3232235777/
+  - server.request.query/param:http://2852039166/
+  - server.request.query/param:http://0177.0.0.1/
+  - server.request.query/param:http://o177.0.0.1/
+  - server.request.query/param:http://0o177.0.0.1/
+  - server.request.query/param:http://q177.0.0.1/
+  - server.request.query/param:http://127.0.0.1:80
+  - server.request.query/param:http://127.0.0.1:443
+  - server.request.query/param:http://127.0.0.1:22
+  - server.request.query/param:http://0.0.0.0:80
+  - server.request.query/param:http://0.0.0.0:443
+  - server.request.query/param:http://0.0.0.0:22
+  - server.request.query/param:http://0.0.0.0:22234
+  - server.request.query/param:http://localhost:80
+  - server.request.query/param:http://localhost:443
+  - server.request.query/param:http://localhost:22
+  - server.request.query/param:https://127.0.0.1:90
+  - server.request.query/param:https://localhost:9090
+  - server.request.query/param:jar:http://127.0.0.1/
+  - server.request.query/param:jar:https://127.0.0.1/
+  no_matches:
+  - server.request.query/param:https://imgur.com/gallery/rOIkVBM
+  - server.request.query/param:http://google.com
+  - server.request.query/param:http://example.com/somepath
+  - server.request.query/param:http://localhost.outsidedomain.com
+  - server.request.query/param:http://1.2.3.4:80+hello-world

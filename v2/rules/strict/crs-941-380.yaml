@@ -17,3 +17,12 @@ conditions:
         min_length: 5
     operator: match_regex
 transformers: []
+test_vectors:
+  matches:
+  - 'server.request.query/param:{{10000051*9999003}}'
+  - 'server.request.query/param:{{66874557__linked_to[]name}}'
+  no_matches:
+  - 'server.request.query/param:{{exterieur.equipe.id}}'
+  - 'server.request.query/param:{{property name}}'
+  - 'server.request.query/param:{{amount 1?}}+{{amount 2?}}+{{amount 3?}}+{{amount 4?}}+{{actual pos ?}}'
+  - 'server.request.query/param:{{x-1,1,1},{1,x-1,1},{1,1,x-1}}'

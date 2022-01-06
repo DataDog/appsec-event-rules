@@ -16,3 +16,24 @@ conditions:
     operator: match_regex
 transformers:
   - lowercase
+test_vectors:
+  matches:
+  - server.request.query/param:http://spoofed.burpcollaborator.net
+  - server.request.query/param:http://localtest.me
+  - server.request.query/param:http://mail.ebc.apple.com
+  - server.request.query/param:http://bugbounty.dod.network
+  - server.request.query/param:http://10.0.0.1.nip.io
+  - server.request.query/param:http://0a000803.nip.io
+  - server.request.query/param:http://192-168-1-250.nip.io
+  - server.request.query/param:http://app.10.8.0.1.nip.io
+  - server.request.query/param:http://customer1.app.localhost.my.company.127.0.0.1.nip.io
+  - server.request.query/param:https://customer1.app.10.0.0.1.nip.io
+  - server.request.query/param:https://customer3-app-7f000101.nip.io
+  - server.request.query/param:http://magic-7f000001.nip.io
+  - server.request.query/param:http://169.254.169.254.xip.io/
+  - server.request.query/param:http://1ynrnhl.xip.io/
+  - server.request.query/param:http://www.owasp.org.1ynrnhl.xip.io/
+  no_matches:
+  - server.request.query/param:http://nip-example.io
+  - server.request.query/param:http://xip.likewebsite.io
+  - server.request.query/param:http://localtestme.com

@@ -13,3 +13,7 @@ conditions:
       regex: __proto__[\.\[]
     operator: match_regex
 transformers: []
+test_vectors:
+  matches:
+  - server.request.query/param:bla.__proto__.toString
+  - server.request.query/param:__proto__[blabla]

@@ -12,3 +12,9 @@ conditions:
       regex: md5\(acunetix_wvs_security_test\)
     operator: match_regex
 transformers: []
+test_vectors:
+  matches:
+  - server.request.headers.no_cookies/user-agent:md5(acunetix_wvs_security_test)
+  - server.request.headers.no_cookies/user-agent:f(md5(acunetix_wvs_security_test))
+  no_matches:
+  - server.request.headers.no_cookies/user-agent:acunetix_wvs_security_test

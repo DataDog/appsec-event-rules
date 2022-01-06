@@ -15,3 +15,10 @@ conditions:
         min_length: 4
     operator: match_regex
 transformers: []
+test_vectors:
+  matches:
+  - server.request.query/param:https://bla.com:5986/wsman
+  - server.request.query/param:https://bla:5986/wsman
+  - server.request.query/param:https://:5986/wsman
+  - server.request.query/param:https://1.2.3.4:5986/wsman
+  - server.request.query/param:https://[1234::AbCd]:5986/wsman
