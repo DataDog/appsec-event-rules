@@ -16,7 +16,7 @@ conditions:
     operator: match_regex
 transformers: []
 test_vectors:
-  no_matches:
+  matches:
     - server.request.headers.no_cookies/user-agent:${jndi:ldap}
     - server.request.headers.no_cookies/user-agent:${${::-j}${::-n}${::-d}${::-i}:${::-r}${::-m}${::-i}://127.0.0.1:1389/ass}
     - server.request.headers.no_cookies/user-agent:${${::-j}ndi:rmi://127.0.0.1:1389/ass}
