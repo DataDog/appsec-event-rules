@@ -14,7 +14,10 @@ conditions:
 transformers: []
 test_vectors:
   matches:
-  - server.request.headers.no_cookies/user-agent:mercury.nasl
-  - server.request.headers.no_cookies/user-agent:mercury.nasl'
+  - server.request.headers.no_cookies:
+      user-agent: mercury.nasl
+  - server.request.headers.no_cookies:
+      user-agent: mercury.nasl'
   no_matches:
-  - 'server.request.headers.no_cookies/user-agent:blah.nasl '
+  - server.request.headers.no_cookies:
+      user-agent: 'blah.nasl '

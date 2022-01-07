@@ -16,8 +16,13 @@ conditions:
 transformers: []
 test_vectors:
   matches:
-  - 'server.request.query/param:'' | cat /etc/passwd | '''
-  - 'server.request.query/param:'' | cat /etc/security/passwd | '''
-  - 'server.request.query/param:" | cat /etc/master.passwd | "'
-  - 'server.request.query/param:"&cat /etc/passwd&"'
-  - 'server.request.query/param:''&cat /etc/passwd&'''
+  - server.request.query:
+      query: ''' | cat /etc/passwd | '''
+  - server.request.query:
+      query: ''' | cat /etc/security/passwd | '''
+  - server.request.query:
+      query: '" | cat /etc/master.passwd | "'
+  - server.request.query:
+      query: '"&cat /etc/passwd&"'
+  - server.request.query:
+      query: '''&cat /etc/passwd&'''

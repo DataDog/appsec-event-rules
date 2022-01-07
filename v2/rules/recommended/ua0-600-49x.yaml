@@ -14,4 +14,5 @@ conditions:
 transformers: []
 test_vectors:
   matches:
-  - server.request.headers.no_cookies/user-agent:gobuster/3.0.1
+  - server.request.headers.no_cookies:
+      user-agent: gobuster/3.0.1

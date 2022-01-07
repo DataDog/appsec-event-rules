@@ -15,5 +15,7 @@ conditions:
 transformers: []
 test_vectors:
   matches:
-  - server.request.query/param:bla.__proto__.toString
-  - server.request.query/param:__proto__[blabla]
+  - server.request.query:
+      query: bla.__proto__.toString
+  - server.request.query:
+      query: __proto__[blabla]

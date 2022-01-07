@@ -14,7 +14,10 @@ conditions:
 transformers: []
 test_vectors:
   matches:
-  - server.request.headers.no_cookies/user-agent:Mozilla/5.0 [en] (X11, U; OpenVAS-VT 9.0. 3)
-  - server.request.headers.no_cookies/user-agent:Mozilla/4.75 [en] (X11, U; OpenVAS)
-  - 'server.request.headers.no_cookies/user-agent:() { OpenVAS-VT:; }; echo Content-Type: text/plain; echo; echo; PATH=/usr/bin:/usr/local/bin:/bin;
+  - server.request.headers.no_cookies:
+      user-agent: Mozilla/5.0 [en] (X11, U; OpenVAS-VT 9.0. 3)
+  - server.request.headers.no_cookies:
+      user-agent: Mozilla/4.75 [en] (X11, U; OpenVAS)
+  - server.request.headers.no_cookies:
+      user-agent: '() { OpenVAS-VT:; }; echo Content-Type: text/plain; echo; echo; PATH=/usr/bin:/usr/local/bin:/bin;
     export PATH; id;'

@@ -16,4 +16,5 @@ conditions:
 transformers: []
 test_vectors:
   matches:
-  - 'server.request.query/param:"&timeout /T 15&"'
+  - server.request.query:
+      query: '"&timeout /T 15&"'

@@ -14,4 +14,5 @@ conditions:
 transformers: []
 test_vectors:
   matches:
-  - server.request.headers.no_cookies/user-agent:Mozilla/5.0 (compatible; Nimbostratus-Bot/v1.3.2; http://cloudsystemnetworks.com)
+  - server.request.headers.no_cookies:
+      user-agent: Mozilla/5.0 (compatible; Nimbostratus-Bot/v1.3.2; http://cloudsystemnetworks.com)

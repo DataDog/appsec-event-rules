@@ -14,4 +14,5 @@ conditions:
 transformers: []
 test_vectors:
   matches:
-  - server.request.headers.no_cookies/user-agent:Mozilla/5.0 zgrab/0.x (compatible; Researchscan/t13rl;
+  - server.request.headers.no_cookies:
+      user-agent: Mozilla/5.0 zgrab/0.x (compatible; Researchscan/t13rl;

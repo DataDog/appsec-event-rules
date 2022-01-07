@@ -16,7 +16,10 @@ conditions:
 transformers: []
 test_vectors:
   matches:
-  - server.request.headers.no_cookies/user-agent:Nuclei - Open-source project (github.com/projectdiscovery/nuclei)
+  - server.request.headers.no_cookies:
+      user-agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)
   no_matches:
-  - server.request.headers.no_cookies/user-agent:Nucleid
-  - server.request.headers.no_cookies/user-agent:Bla bla Nuclei bla bla
+  - server.request.headers.no_cookies:
+      user-agent: Nucleid
+  - server.request.headers.no_cookies:
+      user-agent: Bla bla Nuclei bla bla
