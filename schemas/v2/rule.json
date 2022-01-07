@@ -3,7 +3,7 @@
   "properties": {
     "id": {
       "type": "string",
-      "pattern": "^[0-9a-z]{3}-[0-9a-z]{3}-[0-9a-z]{3}$"
+      "pattern": "^[0-9a-z]{3}-[0-9x]{3}-[0-9x]{3}$"
     },
     "name": {
       "type": "string"
