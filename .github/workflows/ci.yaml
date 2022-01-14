@@ -19,6 +19,5 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: git clone https://github.com/DataDog/libddwaf
-      - run: cd libddwaf && git checkout feature/test_single_rule
       - run: cd libddwaf && git submodule update --init && mkdir build && cd build && cmake .. && make verify_rule -j4
       - run: ./libddwaf/build/examples/verify_rule v2/rules/*/*.yaml
