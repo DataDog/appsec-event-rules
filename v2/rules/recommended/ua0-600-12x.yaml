@@ -12,3 +12,12 @@ conditions:
       regex: ^Arachni\/v
     operator: match_regex
 transformers: []
+test_vectors:
+  matches:
+  - server.request.headers.no_cookies:
+      user-agent: Arachni/v1.5.1
+  - server.request.headers.no_cookies:
+      user-agent: Arachni/v1.5.1
+  no_matches:
+  - server.request.headers.no_cookies:
+      user-agent: ' Arachni/v1.5.1 '

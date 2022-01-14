@@ -14,3 +14,10 @@ jobs:
       - uses: actions/setup-python@v2
       - run: pip install -r schemas/requirements.txt
       - run: python schemas/validate.py
+  Validate-test-vectors:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: git clone https://github.com/DataDog/libddwaf
+      - run: cd libddwaf && git submodule update --init && mkdir build && cd build && cmake .. && make verify_rule -j4
+      - run: ./libddwaf/build/examples/verify_rule v2/rules/*/*.yaml

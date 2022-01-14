@@ -12,3 +12,7 @@ conditions:
       regex: Mozilla/\d+.\d+ zgrab
     operator: match_regex
 transformers: []
+test_vectors:
+  matches:
+  - server.request.headers.no_cookies:
+      user-agent: Mozilla/5.0 zgrab/0.x (compatible; Researchscan/t13rl;

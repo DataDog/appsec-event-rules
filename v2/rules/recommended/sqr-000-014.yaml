@@ -16,3 +16,42 @@ conditions:
     operator: match_regex
 transformers:
   - lowercase
+test_vectors:
+  matches:
+  - server.request.query:
+      query: http://spoofed.burpcollaborator.net
+  - server.request.query:
+      query: http://localtest.me
+  - server.request.query:
+      query: http://mail.ebc.apple.com
+  - server.request.query:
+      query: http://bugbounty.dod.network
+  - server.request.query:
+      query: http://10.0.0.1.nip.io
+  - server.request.query:
+      query: http://0a000803.nip.io
+  - server.request.query:
+      query: http://192-168-1-250.nip.io
+  - server.request.query:
+      query: http://app.10.8.0.1.nip.io
+  - server.request.query:
+      query: http://customer1.app.localhost.my.company.127.0.0.1.nip.io
+  - server.request.query:
+      query: https://customer1.app.10.0.0.1.nip.io
+  - server.request.query:
+      query: https://customer3-app-7f000101.nip.io
+  - server.request.query:
+      query: http://magic-7f000001.nip.io
+  - server.request.query:
+      query: http://169.254.169.254.xip.io/
+  - server.request.query:
+      query: http://1ynrnhl.xip.io/
+  - server.request.query:
+      query: http://www.owasp.org.1ynrnhl.xip.io/
+  no_matches:
+  - server.request.query:
+      query: http://nip-example.io
+  - server.request.query:
+      query: http://xip.likewebsite.io
+  - server.request.query:
+      query: http://localtestme.com

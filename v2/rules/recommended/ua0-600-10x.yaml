@@ -12,3 +12,14 @@ conditions:
       regex: (?i)^Nessus(/|([ :]+SOAP))
     operator: match_regex
 transformers: []
+test_vectors:
+  matches:
+  - server.request.headers.no_cookies:
+      user-agent: Nessus/70003
+  - server.request.headers.no_cookies:
+      user-agent: 'Nessus/70003 '
+  - server.request.headers.no_cookies:
+      user-agent: NESSUS::SOAP; Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 5.1; Trident/4.0)
+  no_matches:
+  - server.request.headers.no_cookies:
+      user-agent: ' Nessus/70003 '

@@ -12,3 +12,9 @@ conditions:
       regex: (?i)(<script>netsparker\(0x0|ns:netsparker.*=vuln)
     operator: match_regex
 transformers: []
+test_vectors:
+  matches:
+  - server.request.headers.no_cookies:
+      user-agent: <script>netsparker(0x0)</script>
+  - server.request.headers.no_cookies:
+      user-agent: ns:netsparkerblablabla la_la/la=vuln

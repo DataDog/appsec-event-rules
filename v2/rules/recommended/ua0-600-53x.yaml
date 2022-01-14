@@ -14,3 +14,10 @@ conditions:
       regex: (?i)\bTsunamiSecurityScanner\b
     operator: match_regex
 transformers: []
+test_vectors:
+  matches:
+  - server.request.headers.no_cookies:
+      user-agent: TsunamiSecurityScanner
+  no_matches:
+  - server.request.headers.no_cookies:
+      user-agent: BlaTsunamiSecurityScannerBla

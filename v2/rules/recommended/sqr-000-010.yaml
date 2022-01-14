@@ -14,3 +14,7 @@ conditions:
       regex: (?i)[&|]\s*timeout\s+/t\s+\d+\s*[&|]
     operator: match_regex
 transformers: []
+test_vectors:
+  matches:
+  - server.request.query:
+      query: '"&timeout /T 15&"'

@@ -15,3 +15,74 @@ conditions:
     operator: match_regex
 transformers:
   - lowercase
+test_vectors:
+  matches:
+  - server.request.query:
+      query: http://[::]:80/
+  - server.request.query:
+      query: http://[::]:80
+  - server.request.query:
+      query: http://[::]:25/
+  - server.request.query:
+      query: http://[::]:22/
+  - server.request.query:
+      query: http://[::]:3128/
+  - server.request.query:
+      query: http://0000::1:80/
+  - server.request.query:
+      query: http://0000::1:80
+  - server.request.query:
+      query: http://0000::1:25/
+  - server.request.query:
+      query: http://0000::1:22/
+  - server.request.query:
+      query: http://0000::1:3128/
+  - server.request.query:
+      query: http://[0:0:0:0:0:ffff:127.0.0.1]
+  - server.request.query:
+      query: http://::ffff:0:0/
+  - server.request.query:
+      query: http://0:0:0:0:0:ffff:0:0/
+  - server.request.query:
+      query: http://0000:0000:0000:0000:0000:ffff:0000:0000/
+  - server.request.query:
+      query: http://::ffff:7f00:1/
+  - server.request.query:
+      query: http://0:0:0:0:0:ffff:7f00:0001/
+  - server.request.query:
+      query: http://0000:0000:0000:0000:0000:ffff:7f00:0001/
+  - server.request.query:
+      query: http://::ffff:7f00:1/
+  - server.request.query:
+      query: http://425.510.425.510/
+  - server.request.query:
+      query: http://2852039166/
+  - server.request.query:
+      query: http://7147006462/
+  - server.request.query:
+      query: http://0xA9.0xFE.0xA9.0xFE/
+  - server.request.query:
+      query: http://0xA9FEA9FE/
+  - server.request.query:
+      query: http://0x41414141A9FEA9FE/
+  - server.request.query:
+      query: http://0251.0376.0251.0376/
+  - server.request.query:
+      query: http://0251.00376.000251.0000376/
+  - server.request.query:
+      query: http://0x7f000001:20
+  - server.request.query:
+      query: http://0x7f.0.0.0001
+  - server.request.query:
+      query: http://0x7f.0.0.000/+hello+world
+  no_matches:
+  - server.request.query:
+      query: https://imgur.com/gallery/0xA9FEA9FE
+  - server.request.query:
+      query: http://google.com
+  - server.request.query:
+      query: http://example.com/somepath
+  - server.request.query:
+      query: http://0xA9FEA9FE.outsidedomain.com
+  - server.request.query:
+      query: http://0x7f.0.0.000+hello+world

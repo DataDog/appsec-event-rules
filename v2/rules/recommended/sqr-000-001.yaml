@@ -17,3 +17,28 @@ conditions:
     operator: match_regex
 transformers:
   - removeNulls
+test_vectors:
+  matches:
+  - server.request.query:
+      query: http://0xa9.0xfe.0xa9.0xfe/metadata/v1
+  - server.request.query:
+      query: https://0xa9.0xfe.0xa9.0xfe/metadata/v1
+  - server.request.query:
+      query: http://169.254.169.254/computeMetadata/v1beta1/instance
+  - server.request.query:
+      query: http://ï»¿ï»¿0251.0376.0251.0376/metadata/v1
+  - server.request.query:
+      query: http://0xa9fea9fe/computeMetadata/v1beta1/instance
+  - server.request.query:
+      query: ï»¿ï»¿http://0xa9fea9fe/latest/meta-data/
+  - server.request.query:
+      query: http://metadata.google.internal/computeMetadata/v1/instance
+  - server.request.query:
+      query: http://0xA9FEa9fe/
+  no_matches:
+  - server.request.query:
+      query: a9fe0e51-dce4-4e43-99a5-027638abba1e
+  - server.request.query:
+      query: '2009403609169254'
+  - server.request.query:
+      query: 35.169.254.9/32

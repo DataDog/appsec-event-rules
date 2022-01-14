@@ -12,3 +12,7 @@ conditions:
       regex: (?i)\bZmEu\b
     operator: match_regex
 transformers: []
+test_vectors:
+  matches:
+  - server.request.headers.no_cookies:
+      user-agent: Made by ZmEu @ WhiteHat v0.* (www.WhiteHat.ro)

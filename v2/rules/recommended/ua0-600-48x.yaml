@@ -12,3 +12,7 @@ conditions:
       regex: ^commix\/
     operator: match_regex
 transformers: []
+test_vectors:
+  matches:
+  - server.request.headers.no_cookies:
+      user-agent: commix/v3.0-dev#15 (https://commixproject.com)

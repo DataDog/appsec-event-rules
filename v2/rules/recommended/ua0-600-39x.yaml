@@ -12,3 +12,12 @@ conditions:
       regex: (?i)^'?[a-z0-9]+\.nasl'?$
     operator: match_regex
 transformers: []
+test_vectors:
+  matches:
+  - server.request.headers.no_cookies:
+      user-agent: mercury.nasl
+  - server.request.headers.no_cookies:
+      user-agent: mercury.nasl'
+  no_matches:
+  - server.request.headers.no_cookies:
+      user-agent: 'blah.nasl '

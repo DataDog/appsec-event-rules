@@ -14,3 +14,15 @@ conditions:
       regex: (?i)[&|]\s*type\s+%\w+%\\+\w+\.ini\s*[&|]
     operator: match_regex
 transformers: []
+test_vectors:
+  matches:
+  - server.request.query:
+      query: ''' | type %SystemRoot%\\win.ini | '''
+  - server.request.query:
+      query: '" | type %SystemDrive%\\boot.ini | "'
+  - server.request.query:
+      query: '" | type %SystemRoot%\\win.ini | "'
+  - server.request.query:
+      query: '"&type %SYSTEMROOT%\win.ini&"'
+  - server.request.query:
+      query: '''&type %SYSTEMROOT%\win.ini&'''
