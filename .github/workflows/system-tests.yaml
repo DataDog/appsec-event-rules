@@ -51,13 +51,8 @@ jobs:
         with:
           path: 'appsec-event-rules'
 
-      - name: Load WAF rule set v1
-        if: ${{ matrix.library == 'php' || matrix.library == 'python' }}
-        run: cp appsec-event-rules/v1/build/recommended.json binaries/waf_rule_set.json
-
-      - name: Load WAF rule set v2
-        if: ${{ matrix.library == 'java' || matrix.library == 'nodejs' || matrix.library == 'ruby' || matrix.library == 'golang' || matrix.library == 'dotnet' }}
-        run: cp appsec-event-rules/v2/build/recommended.json binaries/waf_rule_set.json
+      - name: Load WAF ruleset
+        run: cp appsec-event-rules/build/recommended.json binaries/waf_rule_set.json
 
       - name: Build
         run: ./build.sh
