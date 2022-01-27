@@ -5581,7 +5581,7 @@
     },
     {
       "id": "ua0-600-55x",
-      "name": "A test payload to validate the proper behavior of Datadog AppSec",
+      "name": "Datadog test scanner",
       "tags": {
         "type": "security_scanner",
         "category": "attack_attempt"
@@ -5597,7 +5597,7 @@
                 ]
               }
             ],
-            "regex": "^dd-appsec-test-log$"
+            "regex": "^dd-test-scanner-log$"
           },
           "operator": "match_regex"
         }
