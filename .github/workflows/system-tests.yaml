@@ -14,6 +14,8 @@ jobs:
       matrix:
         include:
           - library: golang
+            weblog-variant: echo
+          - library: golang
             weblog-variant: net-http
           - library: golang
             weblog-variant: gorilla
@@ -31,6 +33,8 @@ jobs:
             weblog-variant: uwsgi-poc
           - library: ruby
             weblog-variant: sinatra-poc
+          - library: ruby
+            weblog-variant: rails
       fail-fast: false
     env:
       TEST_LIBRARY: ${{ matrix.library }}
