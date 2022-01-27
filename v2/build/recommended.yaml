@@ -3709,7 +3709,7 @@ rules:
         operator: match_regex
     transformers: []
   - id: ua0-600-55x
-    name: A test payload to validate the proper behavior of Datadog AppSec
+    name: 'Datadog test scanner: user-agent'
     tags:
       type: security_scanner
       category: attack_attempt
@@ -3719,7 +3719,7 @@ rules:
             - address: server.request.headers.no_cookies
               key_path:
                 - user-agent
-          regex: ^dd-appsec-test-log$
+          regex: ^dd-test-scanner-log$
         operator: match_regex
     transformers: []
   - id: ua0-600-5xx

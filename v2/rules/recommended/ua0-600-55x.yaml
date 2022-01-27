@@ -1,5 +1,5 @@
 id: ua0-600-55x
-name: A test payload to validate the proper behavior of Datadog AppSec
+name: 'Datadog test scanner: user-agent'
 tags:
   type: security_scanner
   category: attack_attempt
@@ -9,6 +9,6 @@ conditions:
         - address: server.request.headers.no_cookies
           key_path:
             - user-agent
-      regex: ^dd-appsec-test-log$
+      regex: ^dd-test-scanner-log$
     operator: match_regex
 transformers: []
