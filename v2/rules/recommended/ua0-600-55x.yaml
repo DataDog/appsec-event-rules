@@ -1,5 +1,5 @@
 id: ua0-600-55x
-name: Datadog test scanner
+name: 'Datadog test scanner: user-agent'
 tags:
   type: security_scanner
   category: attack_attempt
