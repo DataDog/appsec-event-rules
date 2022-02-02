@@ -28,6 +28,8 @@ jobs:
           - library: php
             weblog-variant: apache-mod
           - library: python
+            weblog-variant: django-poc
+          - library: python
             weblog-variant: flask-poc
           - library: python
             weblog-variant: uwsgi-poc
