@@ -20,13 +20,15 @@ jobs:
           - library: golang
             weblog-variant: gorilla
           - library: nodejs
-            weblog-variant: express-poc
+            weblog-variant: express4
           - library: dotnet
             weblog-variant: poc
           - library: java
             weblog-variant: spring-boot-poc
           - library: php
             weblog-variant: apache-mod
+          - library: python
+            weblog-variant: django-poc
           - library: python
             weblog-variant: flask-poc
           - library: python
