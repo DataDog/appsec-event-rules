@@ -20,7 +20,7 @@ jobs:
           - library: golang
             weblog-variant: gorilla
           - library: nodejs
-            weblog-variant: express-poc
+            weblog-variant: express4
           - library: dotnet
             weblog-variant: poc
           - library: java
