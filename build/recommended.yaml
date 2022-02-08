@@ -2503,6 +2503,22 @@ rules:
         operator: phrase_match
     transformers:
       - lowercase
+  - id: dog-000-001
+    name: Look for Cassandra injections
+    tags:
+      type: nosql_injection
+      category: attack_attempt
+    conditions:
+      - parameters:
+          inputs:
+            - address: server.request.query
+            - address: server.request.body
+            - address: server.request.path_params
+            - address: server.request.headers.no_cookies
+          regex: \ballow\s+filtering\b
+        operator: match_regex
+    transformers:
+      - removeComments
   - id: dog-000-002
     name: OGNL - Look for formatting injection patterns
     tags:
