@@ -2932,9 +2932,10 @@ rules:
       - parameters:
           inputs:
             - address: server.request.headers.no_cookies
-          regex: \$(eq|ne|lte?|gte?|n?in)\b
+          regex: ^\$(eq|ne|(l|g)te?|n?in|not|(n|x|)or|and|regex|where|expr|exists)$
         operator: match_regex
-    transformers: []
+    transformers:
+      - run_on_keys
   - id: sqr-000-008
     name: 'Windows: Detect attempts to exfiltrate .ini files'
     tags:
