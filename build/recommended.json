@@ -4158,7 +4158,13 @@
           "parameters": {
             "inputs": [
               {
-                "address": "server.request.headers.no_cookies"
+                "address": "server.request.query"
+              },
+              {
+                "address": "server.request.body"
+              },
+              {
+                "address": "server.request.path_params"
               }
             ],
             "regex": "^\\$(eq|ne|(l|g)te?|n?in|not|(n|x|)or|and|regex|where|expr|exists)$"
