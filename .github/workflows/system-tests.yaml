@@ -19,6 +19,8 @@ jobs:
             weblog-variant: net-http
           - library: golang
             weblog-variant: gorilla
+          - library: golang
+            weblog-variant: chi
           - library: nodejs
             weblog-variant: express4
           - library: dotnet
@@ -27,6 +29,8 @@ jobs:
             weblog-variant: spring-boot-poc
           - library: php
             weblog-variant: apache-mod
+          - library: php
+            weblog-variant: php-fpm
           - library: python
             weblog-variant: django-poc
           - library: python
