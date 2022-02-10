@@ -26,7 +26,7 @@ jobs:
           - library: dotnet
             weblog-variant: poc
           - library: java
-            weblog-variant: spring-boot-poc
+            weblog-variant: spring-boot
           - library: php
             weblog-variant: apache-mod
           - library: php
@@ -38,9 +38,11 @@ jobs:
           - library: python
             weblog-variant: uwsgi-poc
           - library: ruby
-            weblog-variant: sinatra-poc
+            weblog-variant: sinatra21
           - library: ruby
-            weblog-variant: rails
+            weblog-variant: rails70
+          - library: ruby
+            weblog-variant: rack
       fail-fast: false
     env:
       TEST_LIBRARY: ${{ matrix.library }}
