@@ -47,10 +47,6 @@ jobs:
           - library: ruby
             weblog-variant: rack
       fail-fast: false
-    env:
-      TEST_LIBRARY: ${{ matrix.library }}
-      WEBLOG_VARIANT: ${{ matrix.weblog-variant }}
-      DD_API_KEY: ${{ secrets.DD_API_KEY }}
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -71,10 +67,12 @@ jobs:
           echo ${{ secrets.GITHUB_TOKEN }} | docker login ${{ env.REGISTRY }} -u ${{ github.actor }} --password-stdin
 
       - name: Build
-        run: ./build.sh
+        run: ./build.sh ${{ matrix.library }} -w ${{ matrix.weblog-variant }}
 
       - name: Run default scenario
         run: ./run.sh
+        env:
+          DD_API_KEY: ${{ secrets.DD_API_KEY }}
 
       - name: Compress artifact
         if: ${{ always() }}
@@ -84,5 +82,38 @@ jobs:
         uses: actions/upload-artifact@v2
         if: ${{ always() }}
         with:
-          name: logs_${{ matrix.library }}_${{ matrix.weblog-variant }}
+          name: logs_${{ matrix.library }}_${{ matrix.weblog-variant }}_prod
           path: artifact.tar.gz
+
+  #temporary job, waiting for system tests to provide a unified way to handle old versions
+  system-tests-old-versions: 
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        weblog-variant: [echo, net-http, gorilla, chi]
+        version: [gopkg.in/DataDog/dd-trace-go.v1@v1.34.0, gopkg.in/DataDog/dd-trace-go.v1@v1.35.0]
+      fail-fast: false
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          repository: 'DataDog/system-tests'
+
+      - name: Checkout appsec-event-rules
+        uses: actions/checkout@v2
+        with:
+          path: 'appsec-event-rules'
+
+      - name: Load WAF ruleset
+        run: cp appsec-event-rules/build/recommended.json binaries/waf_rule_set.json
+
+      - name: Set old tracer version
+        run: echo ${{ matrix.version }} > binaries/golang-load-from-go-get
+
+      - name: Build
+        run: ./build.sh golang -w ${{ matrix.weblog-variant }}
+
+      - name: Run default scenario
+        run: ./run.sh
+        env:
+          DD_API_KEY: ${{ secrets.DD_API_KEY }}
