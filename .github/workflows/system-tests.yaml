@@ -91,7 +91,7 @@ jobs:
     strategy:
       matrix:
         weblog-variant: [echo, net-http, gorilla, chi]
-        version: [gopkg.in/DataDog/dd-trace-go.v1@v1.34.0, gopkg.in/DataDog/dd-trace-go.v1@v1.35.0]
+        version: [gopkg.in/DataDog/dd-trace-go.v1@v1.34.0]
       fail-fast: false
     steps:
       - name: Checkout
