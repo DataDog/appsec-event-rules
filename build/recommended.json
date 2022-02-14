@@ -5595,6 +5595,12 @@
                 "key_path": [
                   "user-agent"
                 ]
+              },
+              {
+                "address": "grpc.server.request.metadata",
+                "key_path": [
+                  "dd-canary"
+                ]
               }
             ],
             "regex": "^dd-test-scanner-log$"
