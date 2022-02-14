@@ -16,22 +16,22 @@ transformers:
   - removeComments
 test_vectors:
   matches:
-  - server.request.query:
-    param: "admin' ALLOW FILTERING;"
-  - server.request.query:
-    param: "ALLOW /* noise */ FILTERING"
-  - server.request.query:
-    param: "allow filtering"
-  - server.request.query:
-    param: "allow            filtering"
-  - server.request.query:
-    param: "bla allow filtering; bla"
+    - server.request.query:
+        param: "admin' ALLOW FILTERING;"
+    - server.request.query:
+        param: "ALLOW /* noise */ FILTERING"
+    - server.request.query:
+        param: "allow filtering"
+    - server.request.query:
+        param: "allow            filtering"
+    - server.request.query:
+        param: "bla allow filtering; bla"
   no_matches:
-  - server.request.query:
-    param: "we allow for filtering of"
-  - server.request.query:
-    param: "shallow filtering"
-  - server.request.query:
-    param: "allow filterings"
-  - server.request.query:
-    param: "allowfiltering"
+    - server.request.query:
+        param: "we allow for filtering of"
+    - server.request.query:
+        param: "shallow filtering"
+    - server.request.query:
+        param: "allow filterings"
+    - server.request.query:
+        param: allowfiltering
