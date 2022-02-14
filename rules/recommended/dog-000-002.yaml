@@ -1,0 +1,35 @@
+id: dog-000-002
+name: OGNL - Look for formatting injection patterns
+tags:
+  type: security_scanner
+  category: java_code_injection
+conditions:
+  - operator: match_regex
+    parameters:
+      inputs:
+        - address: server.request.cookies
+        - address: server.request.query
+        - address: server.request.body
+        - address: server.request.path_params
+        - address: grpc.server.request.message
+      regex: "[#%$]{[^}]+[^\w\s][^}]+}"
+      options:
+        case_sensitive: true
+transformers: []
+test_vectors:
+  matches:
+    - server.request.query:
+      param: "#{ognl:bla}"
+    - server.request.query:
+      param: "%{param.test}"
+    - server.request.query:
+      param: "${param.test}"
+    - server.request.query:
+      param: "aaa'+#{\"\"[\"class\"]}+'bbb"
+  no_matches:
+    - server.request.query:
+      param: "#{var}"
+    - server.request.query:
+      param: "#{var and var}"
+    - server.request.query:
+      param: "bla #{var and var} bla"

@@ -1,0 +1,30 @@
+id: dog-000-003
+name: OGNL - Detect OGNL exploitation primitives
+tags:
+  type: security_scanner
+  category: java_code_injection
+conditions:
+  - operator: match_regex
+    parameters:
+      inputs:
+        - address: server.request.cookies
+        - address: server.request.query
+        - address: server.request.body
+        - address: server.request.path_params
+        - address: server.request.headers.no_cookies
+        - address: grpc.server.request.message
+      regex: "[@#]ognl"
+      options:
+        case_sensitive: true
+transformers: []
+test_vectors:
+  matches:
+    - server.request.query:
+      param: "#dm=@ognl.OgnlContext"
+    - server.request.query:
+      param: "(#ognlUtil.getExcludedClasses().clear())"
+    - server.request.query:
+      param: "(#ognlUtil=#container.getInstance())"
+  no_matches:
+    - server.request.query:
+      param: "you know, ognl is a great project!"
