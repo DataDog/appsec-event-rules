@@ -9,6 +9,9 @@ conditions:
         - address: server.request.headers.no_cookies
           key_path:
             - user-agent
+        - address: grpc.server.request.metadata
+          key_path:
+            - dd-canary
       regex: ^dd-test-scanner-log$
     operator: match_regex
 transformers: []
