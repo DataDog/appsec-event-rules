@@ -3,7 +3,7 @@
   "rules": [
     {
       "id": "crs-913-110",
-      "name": "Found request header associated with Acunetix security scanner",
+      "name": "Acunetix",
       "tags": {
         "type": "security_scanner",
         "crs_id": "913110",
@@ -21,7 +21,8 @@
               "acunetix-product",
               "(acunetix web vulnerability scanner",
               "acunetix-scanning-agreement",
-              "acunetix-user-agreement"
+              "acunetix-user-agreement",
+              "md5(acunetix_wvs_security_test)"
             ]
           },
           "operator": "phrase_match"
@@ -33,7 +34,7 @@
     },
     {
       "id": "crs-913-120",
-      "name": "Found request filename/argument associated with security scanner",
+      "name": "Known security scanner filename/argument",
       "tags": {
         "type": "security_scanner",
         "crs_id": "913120",
@@ -1409,7 +1410,7 @@
     },
     {
       "id": "crs-931-110",
-      "name": "Possible Remote File Inclusion (RFI) Attack: Common RFI Vulnerable Parameter Name used w/URL Payload",
+      "name": "RFI: Common RFI Vulnerable Parameter Name used w/ URL Payload",
       "tags": {
         "type": "rfi",
         "crs_id": "931110",
@@ -1435,7 +1436,7 @@
     },
     {
       "id": "crs-931-120",
-      "name": "Possible Remote File Inclusion (RFI) Attack: URL Payload Used w/Trailing Question Mark Character (?)",
+      "name": "RFI: URL Payload Used w/Trailing Question Mark Character (?)",
       "tags": {
         "type": "rfi",
         "crs_id": "931120",
@@ -3027,7 +3028,7 @@
     },
     {
       "id": "crs-942-270",
-      "name": "Looking for basic sql injection. Common attack string for mysql, oracle and others",
+      "name": "Basic SQL injection",
       "tags": {
         "type": "sql_injection",
         "crs_id": "942270",
@@ -3065,7 +3066,7 @@
     },
     {
       "id": "crs-942-280",
-      "name": "Detects Postgres pg_sleep injection, waitfor delay attacks and database shutdown attempts",
+      "name": "SQL Injection with delay functions",
       "tags": {
         "type": "sql_injection",
         "crs_id": "942280",
@@ -5234,31 +5235,6 @@
       "transformers": []
     },
     {
-      "id": "ua0-600-41x",
-      "name": "Acunetix",
-      "tags": {
-        "type": "security_scanner",
-        "category": "attack_attempt"
-      },
-      "conditions": [
-        {
-          "parameters": {
-            "inputs": [
-              {
-                "address": "server.request.headers.no_cookies",
-                "key_path": [
-                  "user-agent"
-                ]
-              }
-            ],
-            "regex": "md5\\(acunetix_wvs_security_test\\)"
-          },
-          "operator": "match_regex"
-        }
-      ],
-      "transformers": []
-    },
-    {
       "id": "ua0-600-42x",
       "name": "OpenVAS",
       "tags": {
@@ -5510,7 +5486,7 @@
     },
     {
       "id": "ua0-600-52x",
-      "name": "Nuclei is a fast tool for configurable targeted scanning based on templates offering massive extensibility and ease of use",
+      "name": "Nuclei",
       "tags": {
         "type": "security_scanner",
         "category": "attack_attempt"
@@ -5535,7 +5511,7 @@
     },
     {
       "id": "ua0-600-53x",
-      "name": "Tsunami is a general purpose network security scanner with an extensible plugin system for detecting high severity vulnerabilities with high confidence",
+      "name": "Tsunami",
       "tags": {
         "type": "security_scanner",
         "category": "attack_attempt"
@@ -5560,7 +5536,7 @@
     },
     {
       "id": "ua0-600-54x",
-      "name": "Nimbostratus is a vulnerability scanner that scan websites unprompted",
+      "name": "Nimbostratus",
       "tags": {
         "type": "security_scanner",
         "category": "attack_attempt"
@@ -5616,7 +5592,7 @@
     },
     {
       "id": "ua0-600-5xx",
-      "name": "Blind Sql Injection Brute Forcer",
+      "name": "Blind SQL Injection Brute Forcer",
       "tags": {
         "type": "security_scanner",
         "category": "attack_attempt"
