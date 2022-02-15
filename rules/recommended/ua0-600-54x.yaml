@@ -1,5 +1,5 @@
 id: ua0-600-54x
-name: Nimbostratus is a vulnerability scanner that scan websites unprompted
+name: Nimbostratus
 tags:
   type: security_scanner
   category: attack_attempt

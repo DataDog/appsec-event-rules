@@ -1,7 +1,5 @@
 id: crs-931-120
-name: >-
-  Possible Remote File Inclusion (RFI) Attack: URL Payload Used w/Trailing
-  Question Mark Character (?)
+name: 'RFI: URL Payload Used w/Trailing Question Mark Character (?)'
 tags:
   type: rfi
   crs_id: '931120'

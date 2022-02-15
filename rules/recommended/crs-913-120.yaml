@@ -1,5 +1,5 @@
 id: crs-913-120
-name: Found request filename/argument associated with security scanner
+name: Known security scanner filename/argument
 tags:
   type: security_scanner
   crs_id: '913120'

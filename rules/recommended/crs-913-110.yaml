@@ -1,5 +1,5 @@
 id: crs-913-110
-name: Found request header associated with Acunetix security scanner
+name: Acunetix
 tags:
   type: security_scanner
   crs_id: '913110'

@@ -1,7 +1,5 @@
 id: crs-942-280
-name: >-
-  Detects Postgres pg_sleep injection, waitfor delay attacks and database
-  shutdown attempts
+name:  SQL Injection with delay functions
 tags:
   type: sql_injection
   crs_id: '942280'
