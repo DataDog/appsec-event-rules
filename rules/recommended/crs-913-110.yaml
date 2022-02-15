@@ -13,6 +13,16 @@ conditions:
         - (acunetix web vulnerability scanner
         - acunetix-scanning-agreement
         - acunetix-user-agreement
+        - md5(acunetix_wvs_security_test)
     operator: phrase_match
 transformers:
   - lowercase
+test_vectors:
+  matches:
+    - server.request.headers.no_cookies:
+        user-agent: md5(acunetix_wvs_security_test)
+    - server.request.headers.no_cookies:
+        user-agent: f(md5(acunetix_wvs_security_test))
+  no_matches:
+    - server.request.headers.no_cookies:
+        user-agent: acunetix_wvs_security_test
