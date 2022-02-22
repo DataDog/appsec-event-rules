@@ -2,6 +2,8 @@ name: System tests old versions
 
 on:
   workflow_dispatch: {}
+  schedule:
+    - cron:  '00 04 * * 2-6'
   pull_request:
     branches: "**"
 
@@ -48,7 +50,7 @@ jobs:
     strategy:
       matrix:
         weblog-variant: [express4]
-        version: [DataDog/dd-trace-js#2.0.0-appsec-alpha.1]
+        version: [DataDog/dd-trace-js@2.0.0-appsec-alpha.1]
       fail-fast: false
     steps:
       - name: Checkout
