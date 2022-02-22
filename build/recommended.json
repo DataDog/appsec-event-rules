@@ -228,7 +228,9 @@
           "operator": "match_regex"
         }
       ],
-      "transformers": []
+      "transformers": [
+        "normalizePath"
+      ]
     },
     {
       "id": "crs-930-110",
@@ -259,7 +261,8 @@
         }
       ],
       "transformers": [
-        "removeNulls"
+        "removeNulls",
+        "normalizePath"
       ]
     },
     {
@@ -1400,7 +1403,8 @@
         }
       ],
       "transformers": [
-        "lowercase"
+        "lowercase",
+        "normalizePath"
       ]
     },
     {
@@ -3527,6 +3531,83 @@
       "transformers": [
         "lowercase"
       ]
+    },
+    {
+      "id": "dog-000-002",
+      "name": "OGNL - Look for formatting injection patterns",
+      "tags": {
+        "type": "security_scanner",
+        "category": "java_code_injection"
+      },
+      "conditions": [
+        {
+          "operator": "match_regex",
+          "parameters": {
+            "inputs": [
+              {
+                "address": "server.request.cookies"
+              },
+              {
+                "address": "server.request.query"
+              },
+              {
+                "address": "server.request.body"
+              },
+              {
+                "address": "server.request.path_params"
+              },
+              {
+                "address": "grpc.server.request.message"
+              }
+            ],
+            "regex": "[#%$]{[^}]+[^\\w\\s][^}]+}",
+            "options": {
+              "case_sensitive": true
+            }
+          }
+        }
+      ],
+      "transformers": []
+    },
+    {
+      "id": "dog-000-003",
+      "name": "OGNL - Detect OGNL exploitation primitives",
+      "tags": {
+        "type": "security_scanner",
+        "category": "java_code_injection"
+      },
+      "conditions": [
+        {
+          "operator": "match_regex",
+          "parameters": {
+            "inputs": [
+              {
+                "address": "server.request.cookies"
+              },
+              {
+                "address": "server.request.query"
+              },
+              {
+                "address": "server.request.body"
+              },
+              {
+                "address": "server.request.path_params"
+              },
+              {
+                "address": "server.request.headers.no_cookies"
+              },
+              {
+                "address": "grpc.server.request.message"
+              }
+            ],
+            "regex": "[@#]ognl",
+            "options": {
+              "case_sensitive": true
+            }
+          }
+        }
+      ],
+      "transformers": []
     },
     {
       "id": "nfd-000-001",
