@@ -50,7 +50,7 @@ jobs:
     strategy:
       matrix:
         weblog-variant: [express4]
-        version: [dd-trace-js@2.0.0-appsec-alpha.1]
+        version: [dd-trace@2.0.0-appsec-alpha.1]
       fail-fast: false
     steps:
       - name: Checkout
