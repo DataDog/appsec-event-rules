@@ -39,7 +39,7 @@ jobs:
       - name: Build
         run: ./build.sh golang -w ${{ matrix.weblog-variant }}
 
-      - name: Run default scenario
+      - name: Run WAF tests
         run: ./run.sh
         env:
           DD_API_KEY: ${{ secrets.DD_API_KEY }}
@@ -73,7 +73,7 @@ jobs:
         run: ./build.sh nodejs -w ${{ matrix.weblog-variant }}
 
       - name: Run default scenario
-        run: ./run.sh
+        run: ./run.sh 
         env:
           DD_API_KEY: ${{ secrets.DD_API_KEY }}
 
@@ -83,7 +83,7 @@ jobs:
     strategy:
       matrix:
         weblog-variant: [poc]
-        version: [datadog-dotnet-apm-1.28.4.tar.gz]
+        version: [1.28.4]
       fail-fast: false
     steps:
       - name: Checkout
@@ -100,7 +100,7 @@ jobs:
         run: cp appsec-event-rules/build/recommended.json binaries/waf_rule_set.json
 
       - name: Set old tracer version
-        run: touch binaries/${{ matrix.version }}
+        run: wget -O binaries/datadog-dotnet-apm-${{ matrix.version }}.tar.gz https://github.com/DataDog/dd-trace-dotnet/releases/download/v${{ matrix.version }}/datadog-dotnet-apm-${{ matrix.version }}.tar.gz
 
       - name: Build
         run: ./build.sh dotnet -w ${{ matrix.weblog-variant }}
