@@ -115,7 +115,7 @@ jobs:
     strategy:
       matrix:
         weblog-variant: [spring-boot]
-        version: [dd-java-agent-0.86.0.jar]
+        version: [0.86.0]
       fail-fast: false
     steps:
       - name: Checkout
@@ -132,7 +132,7 @@ jobs:
         run: cp appsec-event-rules/build/recommended.json binaries/waf_rule_set.json
 
       - name: Set old tracer version
-        run: touch binaries/${{ matrix.version }}
+        run: wget -O binaries/dd-java-agent-${{ matrix.version }}.jar https://github.com/DataDog/dd-trace-java/releases/download/v${{ matrix.version }}/dd-java-agent.jar
 
       - name: Build
         run: ./build.sh java -w ${{ matrix.weblog-variant }}
