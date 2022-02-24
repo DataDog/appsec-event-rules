@@ -50,7 +50,7 @@ jobs:
     strategy:
       matrix:
         weblog-variant: [express4]
-        version: [dd-trace@2.0.0-appsec-alpha.1]
+        version: [dd-trace@2.0.0-appsec-beta.1]
       fail-fast: false
     steps:
       - name: Checkout
@@ -83,7 +83,7 @@ jobs:
     strategy:
       matrix:
         weblog-variant: [poc]
-        version: [1.28.4]
+        version: [1.29.0]
       fail-fast: false
     steps:
       - name: Checkout
@@ -115,7 +115,7 @@ jobs:
     strategy:
       matrix:
         weblog-variant: [spring-boot]
-        version: [0.86.0]
+        version: [0.90.0]
       fail-fast: false
     steps:
       - name: Checkout
