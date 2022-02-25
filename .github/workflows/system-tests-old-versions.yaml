@@ -206,6 +206,10 @@ jobs:
       - name: Set old tracer version
         run: echo ddtrace --version=${{ matrix.version }} > binaries/ruby-load-from-bundle-add
 
+      - name: Log in to the Container registry
+        run: |
+          echo ${{ secrets.GITHUB_TOKEN }} | docker login ${{ env.REGISTRY }} -u ${{ github.actor }} --password-stdin
+
       - name: Build
         run: ./build.sh ruby -w ${{ matrix.weblog-variant }}
 
