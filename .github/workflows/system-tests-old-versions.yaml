@@ -167,10 +167,10 @@ jobs:
         run: cp appsec-event-rules/build/recommended.json binaries/waf_rule_set.json
 
       - name: Set old tracer version
-        run: wget -O binaries/datadog-php-tracer-${{ matrix.version }}.tar.gz https://github.com/DataDog/dd-trace-php/releases/download/${{ matrix.version }}/datadog-php-tracer-${{ matrix.version }}.x86_64.tar.gz
+        run: wget -O binaries/datadog-php-tracer-${{ matrix.version }}.tar.gz https://github.com/DataDog/dd-trace-php/releases/download/${{ matrix.tracer-version }}/datadog-php-tracer-${{ matrix.tracer-version }}.x86_64.tar.gz
 
       - name: Set old appsec version
-        run: wget -O binaries/dd-appsec-php-${{ matrix.version }}.tar.gz https://github.com/DataDog/dd-appsec-php/releases/download/v${{ matrix.version }}/dd-appsec-php-${{ matrix.version }}-amd64.tar.gz
+        run: wget -O binaries/dd-appsec-php-${{ matrix.version }}.tar.gz https://github.com/DataDog/dd-appsec-php/releases/download/v${{ matrix.appsec-version }}/dd-appsec-php-${{ matrix.appsec-version }}-amd64.tar.gz
   
 
       - name: Build
