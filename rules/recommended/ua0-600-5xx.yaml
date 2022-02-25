@@ -1,5 +1,5 @@
 id: ua0-600-5xx
-name: Blind Sql Injection Brute Forcer
+name: Blind SQL Injection Brute Forcer
 tags:
   type: security_scanner
   category: attack_attempt

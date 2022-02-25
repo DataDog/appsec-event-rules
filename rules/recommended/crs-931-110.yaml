@@ -1,7 +1,5 @@
 id: crs-931-110
-name: >-
-  Possible Remote File Inclusion (RFI) Attack: Common RFI Vulnerable Parameter
-  Name used w/URL Payload
+name: 'RFI: Common RFI Vulnerable Parameter Name used w/ URL Payload'
 tags:
   type: rfi
   crs_id: '931110'

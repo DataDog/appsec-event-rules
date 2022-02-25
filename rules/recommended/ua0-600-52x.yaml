@@ -1,7 +1,5 @@
 id: ua0-600-52x
-name: >-
-  Nuclei is a fast tool for configurable targeted scanning based on templates
-  offering massive extensibility and ease of use
+name: Nuclei
 tags:
   type: security_scanner
   category: attack_attempt

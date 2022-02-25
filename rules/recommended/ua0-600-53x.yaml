@@ -1,7 +1,5 @@
 id: ua0-600-53x
-name: >-
-  Tsunami is a general purpose network security scanner with an extensible
-  plugin system for detecting high severity vulnerabilities with high confidence
+name: Tsunami
 tags:
   type: security_scanner
   category: attack_attempt
