@@ -141,3 +141,42 @@ jobs:
         run: ./run.sh
         env:
           DD_API_KEY: ${{ secrets.DD_API_KEY }}
+
+
+  # PHP
+  system-tests-php: 
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        weblog-variant: [apache-mod, php-fpm]
+        appsec-version: [0.2.1]
+        tracer-version: [0.70.0]
+      fail-fast: false
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          repository: 'DataDog/system-tests'
+
+      - name: Checkout appsec-event-rules
+        uses: actions/checkout@v2
+        with:
+          path: 'appsec-event-rules'
+
+      - name: Load WAF ruleset
+        run: cp appsec-event-rules/build/recommended.json binaries/waf_rule_set.json
+
+      - name: Set old tracer version
+        run: wget -O binaries/datadog-php-tracer-${{ matrix.version }}.tar.gz https://github.com/DataDog/dd-trace-php/releases/download/${{ matrix.version }}/datadog-php-tracer-${{ matrix.version }}.x86_64.tar.gz
+
+      - name: Set old appsec version
+        run: wget -O binaries/dd-appsec-php-${{ matrix.version }}.tar.gz https://github.com/DataDog/dd-appsec-php/releases/download/v${{ matrix.version }}/dd-appsec-php-${{ matrix.version }}-amd64.tar.gz
+  
+
+      - name: Build
+        run: ./build.sh php -w ${{ matrix.weblog-variant }}
+
+      - name: Run default scenario
+        run: ./run.sh 
+        env:
+          DD_API_KEY: ${{ secrets.DD_API_KEY }}
