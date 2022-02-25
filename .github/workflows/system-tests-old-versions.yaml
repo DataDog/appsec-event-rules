@@ -180,3 +180,36 @@ jobs:
         run: ./run.sh 
         env:
           DD_API_KEY: ${{ secrets.DD_API_KEY }}
+  
+  # Ruby
+  system-tests-ruby: 
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        weblog-variant: [sinatra21, rails70, rack]
+        version: [1.0.0.beta1]
+      fail-fast: false
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          repository: 'DataDog/system-tests'
+
+      - name: Checkout appsec-event-rules
+        uses: actions/checkout@v2
+        with:
+          path: 'appsec-event-rules'
+
+      - name: Load WAF ruleset
+        run: cp appsec-event-rules/build/recommended.json binaries/waf_rule_set.json
+
+      - name: Set old tracer version
+        run: echo ddtrace --version=${{ matrix.version }} > binaries/ruby-load-from-bundle-add
+
+      - name: Build
+        run: ./build.sh ruby -w ${{ matrix.weblog-variant }}
+
+      - name: Run default scenario
+        run: ./run.sh 
+        env:
+          DD_API_KEY: ${{ secrets.DD_API_KEY }}
