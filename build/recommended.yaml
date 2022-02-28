@@ -2472,8 +2472,8 @@ rules:
   - id: dog-000-002
     name: OGNL - Look for formatting injection patterns
     tags:
-      type: security_scanner
-      category: java_code_injection
+      type: java_code_injection
+      category: attack_attempt
     conditions:
       - operator: match_regex
         parameters:
@@ -2490,8 +2490,8 @@ rules:
   - id: dog-000-003
     name: OGNL - Detect OGNL exploitation primitives
     tags:
-      type: security_scanner
-      category: java_code_injection
+      type: java_code_injection
+      category: attack_attempt
     conditions:
       - operator: match_regex
         parameters:
