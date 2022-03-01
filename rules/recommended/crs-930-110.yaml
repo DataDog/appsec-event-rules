@@ -16,4 +16,3 @@ conditions:
     operator: match_regex
 transformers:
   - removeNulls
-  - normalizePath

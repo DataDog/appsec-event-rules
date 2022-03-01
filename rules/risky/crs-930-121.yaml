@@ -1205,4 +1205,3 @@ conditions:
     operator: phrase_match
 transformers:
   - lowercase
-  - normalizePath
