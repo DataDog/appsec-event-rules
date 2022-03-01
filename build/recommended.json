@@ -229,9 +229,7 @@
           "operator": "match_regex"
         }
       ],
-      "transformers": [
-        "normalizePath"
-      ]
+      "transformers": []
     },
     {
       "id": "crs-930-110",
@@ -262,8 +260,7 @@
         }
       ],
       "transformers": [
-        "removeNulls",
-        "normalizePath"
+        "removeNulls"
       ]
     },
     {
@@ -1404,8 +1401,7 @@
         }
       ],
       "transformers": [
-        "lowercase",
-        "normalizePath"
+        "lowercase"
       ]
     },
     {

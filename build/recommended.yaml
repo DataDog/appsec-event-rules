@@ -139,8 +139,7 @@ rules:
           options:
             min_length: 4
         operator: match_regex
-    transformers:
-      - normalizePath
+    transformers: []
   - id: crs-930-110
     name: Simple Path Traversal Attack (/../)
     tags:
@@ -159,7 +158,6 @@ rules:
         operator: match_regex
     transformers:
       - removeNulls
-      - normalizePath
   - id: crs-930-120
     name: OS File Access Attempt
     tags:
@@ -1282,7 +1280,6 @@ rules:
         operator: phrase_match
     transformers:
       - lowercase
-      - normalizePath
   - id: crs-931-110
     name: 'RFI: Common RFI Vulnerable Parameter Name used w/ URL Payload'
     tags:
