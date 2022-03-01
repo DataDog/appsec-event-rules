@@ -159,7 +159,6 @@ rules:
         operator: match_regex
     transformers:
       - removeNulls
-      - normalizePath
   - id: crs-930-120
     name: OS File Access Attempt
     tags:
