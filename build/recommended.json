@@ -262,8 +262,7 @@
         }
       ],
       "transformers": [
-        "removeNulls",
-        "normalizePath"
+        "removeNulls"
       ]
     },
     {
