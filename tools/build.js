@@ -29,7 +29,7 @@ const OutputDir = args['--output']
 const RulesVersion = args['--version'] || process.env.CURRENT_RULES_VERSION;
 
 let outContentObj = {
-    "version":"2.1",
+    "version":"2.2",
     "metadata":{
         "rules_version":RulesVersion
     },
