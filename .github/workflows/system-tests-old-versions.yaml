@@ -1,9 +1,9 @@
 name: System tests old versions
 
 on:
-  workflow_dispatch: {}
   schedule:
     - cron:  '00 04 * * 2-6'
+  workflow_dispatch: {}
   pull_request:
     branches: "**"
 
