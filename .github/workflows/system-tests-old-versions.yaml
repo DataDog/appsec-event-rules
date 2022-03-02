@@ -204,7 +204,7 @@ jobs:
         run: cp appsec-event-rules/build/recommended.json binaries/waf_rule_set.json
 
       - name: Set old tracer version
-        run: echo "gem 'ddtrace', '~> ${{ matrix.version }}'" > binaries/ruby-load-from-bundle-add
+        run: echo "gem 'ddtrace', '~> ${{ matrix.version }}', require%3A 'ddtrace/auto_instrument'" > ruby-load-from-bundle-add && sed -i 's/%3A/:/g' ruby-load-from-bundle-add
 
       - name: Log in to the Container registry
         run: |
