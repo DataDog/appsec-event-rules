@@ -1,9 +1,10 @@
 stages:
  - deploy
 
-deploy:
-  stage: deploy
+default:
   tags: ["runner:main"]
+
+deploy:
   only:
    - main
    - tags
