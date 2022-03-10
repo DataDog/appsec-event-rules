@@ -7,7 +7,7 @@ default:
 deploy:
   stage: deploy
   only:
-   - main
+   - staging
    - tags
   trigger:
     project: DataDog/dd-go
