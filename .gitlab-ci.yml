@@ -5,6 +5,7 @@ default:
   tags: ["runner:main"]
 
 deploy:
+  stage: deploy
   only:
    - main
    - tags
