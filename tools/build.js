@@ -3,7 +3,6 @@ const fs = require('fs')
 const arg = require('arg');
 const yaml = require('js-yaml')
 const path = require('path');
-const { process_params } = require('express/lib/router');
 
 const args = arg({
     // Types
