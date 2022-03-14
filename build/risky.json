@@ -1,5 +1,8 @@
 {
-  "version": "2.1",
+  "version": "2.2",
+  "metadata": {
+    "rules_version": "1.2.6"
+  },
   "rules": [
     {
       "id": "crs-921-130",
@@ -1254,7 +1257,8 @@
         }
       ],
       "transformers": [
-        "lowercase"
+        "lowercase",
+        "normalizePath"
       ]
     },
     {
@@ -1475,7 +1479,7 @@
     },
     {
       "id": "crs-942-220",
-      "name": "Looking for integer overflow attacks, these are taken from skipfish, except 2.2.2250738585072011e-308 is the \\\"magic number\\\" crash",
+      "name": "Looking for integer overflow attacks",
       "tags": {
         "type": "sql_injection",
         "crs_id": "942220",
