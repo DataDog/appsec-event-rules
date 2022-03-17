@@ -24,8 +24,12 @@ jobs:
             weblog-variant: gorilla
           - library: golang
             weblog-variant: chi
+          - library: golang
+            weblog-variant: gin
           - library: nodejs
             weblog-variant: express4
+          - library: nodejs
+            weblog-variant: express4-typescript
           - library: dotnet
             weblog-variant: poc
           - library: java
@@ -84,4 +88,3 @@ jobs:
         with:
           name: logs_${{ matrix.library }}_${{ matrix.weblog-variant }}_prod
           path: artifact.tar.gz
-  
