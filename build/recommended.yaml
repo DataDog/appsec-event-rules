@@ -1,6 +1,6 @@
 version: '2.2'
 metadata:
-  rules_version: 1.2.6
+  rules_version: 1.2.7
 rules:
   - id: crs-913-110
     name: Acunetix
@@ -170,7 +170,6 @@ rules:
     conditions:
       - parameters:
           inputs:
-            - address: server.request.cookies
             - address: server.request.query
             - address: server.request.body
             - address: server.request.path_params
@@ -1327,7 +1326,6 @@ rules:
     conditions:
       - parameters:
           inputs:
-            - address: server.request.cookies
             - address: server.request.query
             - address: server.request.body
             - address: server.request.path_params
@@ -1547,7 +1545,6 @@ rules:
     conditions:
       - parameters:
           inputs:
-            - address: server.request.cookies
             - address: server.request.query
             - address: server.request.body
             - address: server.request.path_params
@@ -1584,7 +1581,6 @@ rules:
     conditions:
       - parameters:
           inputs:
-            - address: server.request.cookies
             - address: server.request.query
             - address: server.request.body
             - address: server.request.path_params
@@ -1605,7 +1601,6 @@ rules:
     conditions:
       - parameters:
           inputs:
-            - address: server.request.cookies
             - address: server.request.query
             - address: server.request.body
             - address: server.request.path_params
@@ -1624,7 +1619,6 @@ rules:
     conditions:
       - parameters:
           inputs:
-            - address: server.request.cookies
             - address: server.request.query
             - address: server.request.body
             - address: server.request.path_params
@@ -1686,7 +1680,6 @@ rules:
     conditions:
       - parameters:
           inputs:
-            - address: server.request.cookies
             - address: server.request.query
             - address: server.request.body
             - address: server.request.path_params
@@ -1706,7 +1699,6 @@ rules:
     conditions:
       - parameters:
           inputs:
-            - address: server.request.cookies
             - address: server.request.headers.no_cookies
             - address: server.request.query
             - address: server.request.body
@@ -1727,7 +1719,6 @@ rules:
     conditions:
       - parameters:
           inputs:
-            - address: server.request.cookies
             - address: server.request.query
             - address: server.request.body
             - address: server.request.path_params
@@ -1748,7 +1739,6 @@ rules:
     conditions:
       - parameters:
           inputs:
-            - address: server.request.cookies
             - address: server.request.query
             - address: server.request.body
             - address: server.request.path_params
@@ -1769,7 +1759,6 @@ rules:
     conditions:
       - parameters:
           inputs:
-            - address: server.request.cookies
             - address: server.request.headers.no_cookies
               key_path:
                 - user-agent
@@ -1792,7 +1781,6 @@ rules:
     conditions:
       - parameters:
           inputs:
-            - address: server.request.cookies
             - address: server.request.headers.no_cookies
               key_path:
                 - user-agent
@@ -1818,7 +1806,6 @@ rules:
     conditions:
       - parameters:
           inputs:
-            - address: server.request.cookies
             - address: server.request.headers.no_cookies
               key_path:
                 - user-agent
@@ -1845,7 +1832,6 @@ rules:
     conditions:
       - parameters:
           inputs:
-            - address: server.request.cookies
             - address: server.request.headers.no_cookies
               key_path:
                 - user-agent
@@ -1871,7 +1857,6 @@ rules:
     conditions:
       - parameters:
           inputs:
-            - address: server.request.cookies
             - address: server.request.query
             - address: server.request.body
             - address: server.request.path_params
@@ -1897,7 +1882,6 @@ rules:
     conditions:
       - parameters:
           inputs:
-            - address: server.request.cookies
             - address: server.request.query
             - address: server.request.body
             - address: server.request.path_params
@@ -1918,7 +1902,6 @@ rules:
     conditions:
       - parameters:
           inputs:
-            - address: server.request.cookies
             - address: server.request.query
             - address: server.request.body
             - address: server.request.path_params
@@ -1940,7 +1923,6 @@ rules:
     conditions:
       - parameters:
           inputs:
-            - address: server.request.cookies
             - address: server.request.query
             - address: server.request.body
             - address: server.request.path_params
@@ -1962,7 +1944,6 @@ rules:
     conditions:
       - parameters:
           inputs:
-            - address: server.request.cookies
             - address: server.request.query
             - address: server.request.body
             - address: server.request.path_params
@@ -1982,7 +1963,6 @@ rules:
     conditions:
       - parameters:
           inputs:
-            - address: server.request.cookies
             - address: server.request.query
             - address: server.request.body
             - address: server.request.path_params
@@ -2004,7 +1984,6 @@ rules:
     conditions:
       - parameters:
           inputs:
-            - address: server.request.cookies
             - address: server.request.query
             - address: server.request.body
             - address: server.request.path_params
@@ -2024,7 +2003,6 @@ rules:
     conditions:
       - parameters:
           inputs:
-            - address: server.request.cookies
             - address: server.request.query
             - address: server.request.body
             - address: server.request.path_params
@@ -2044,7 +2022,6 @@ rules:
     conditions:
       - parameters:
           inputs:
-            - address: server.request.cookies
             - address: server.request.query
             - address: server.request.body
             - address: server.request.path_params
@@ -2064,7 +2041,6 @@ rules:
     conditions:
       - parameters:
           inputs:
-            - address: server.request.cookies
             - address: server.request.query
             - address: server.request.body
             - address: server.request.path_params
@@ -2084,7 +2060,6 @@ rules:
     conditions:
       - parameters:
           inputs:
-            - address: server.request.cookies
             - address: server.request.query
             - address: server.request.body
             - address: server.request.path_params
@@ -2104,7 +2079,6 @@ rules:
     conditions:
       - parameters:
           inputs:
-            - address: server.request.cookies
             - address: server.request.query
             - address: server.request.body
             - address: server.request.path_params
@@ -2124,7 +2098,6 @@ rules:
     conditions:
       - parameters:
           inputs:
-            - address: server.request.cookies
             - address: server.request.query
             - address: server.request.body
             - address: server.request.path_params
@@ -2141,7 +2114,6 @@ rules:
     conditions:
       - parameters:
           inputs:
-            - address: server.request.cookies
             - address: server.request.query
             - address: server.request.body
             - address: server.request.path_params
@@ -2161,7 +2133,6 @@ rules:
     conditions:
       - parameters:
           inputs:
-            - address: server.request.cookies
             - address: server.request.query
             - address: server.request.body
             - address: server.request.path_params
@@ -2183,7 +2154,6 @@ rules:
     conditions:
       - parameters:
           inputs:
-            - address: server.request.cookies
             - address: server.request.query
             - address: server.request.body
             - address: server.request.path_params
@@ -2203,7 +2173,6 @@ rules:
     conditions:
       - parameters:
           inputs:
-            - address: server.request.cookies
             - address: server.request.query
             - address: server.request.body
             - address: server.request.path_params
@@ -2224,7 +2193,6 @@ rules:
     conditions:
       - parameters:
           inputs:
-            - address: server.request.cookies
             - address: server.request.query
             - address: server.request.body
             - address: server.request.path_params
@@ -2243,7 +2211,6 @@ rules:
     conditions:
       - parameters:
           inputs:
-            - address: server.request.cookies
             - address: server.request.query
             - address: server.request.body
             - address: server.request.path_params
@@ -2263,7 +2230,6 @@ rules:
     conditions:
       - parameters:
           inputs:
-            - address: server.request.cookies
             - address: server.request.query
             - address: server.request.body
             - address: server.request.path_params
@@ -2284,7 +2250,6 @@ rules:
     conditions:
       - parameters:
           inputs:
-            - address: server.request.cookies
             - address: server.request.query
             - address: server.request.body
             - address: server.request.path_params
@@ -2304,7 +2269,6 @@ rules:
     conditions:
       - parameters:
           inputs:
-            - address: server.request.cookies
             - address: server.request.query
             - address: server.request.body
             - address: server.request.path_params
@@ -2324,7 +2288,6 @@ rules:
     conditions:
       - parameters:
           inputs:
-            - address: server.request.cookies
             - address: server.request.query
             - address: server.request.body
             - address: server.request.path_params
@@ -2347,7 +2310,6 @@ rules:
             - address: server.request.query
             - address: server.request.body
             - address: server.request.path_params
-            - address: server.request.cookies
             - address: server.request.headers.no_cookies
             - address: grpc.server.request.message
           regex: java\.lang\.(?:runtime|processbuilder)
@@ -2369,7 +2331,6 @@ rules:
             - address: server.request.query
             - address: server.request.body
             - address: server.request.path_params
-            - address: server.request.cookies
             - address: server.request.headers.no_cookies
             - address: grpc.server.request.message
           regex: (?:runtime|processbuilder)
@@ -2382,7 +2343,6 @@ rules:
             - address: server.request.query
             - address: server.request.body
             - address: server.request.path_params
-            - address: server.request.cookies
             - address: server.request.headers.no_cookies
             - address: grpc.server.request.message
           regex: (?:unmarshaller|base64data|java\.)
@@ -2404,7 +2364,6 @@ rules:
             - address: server.request.query
             - address: server.request.body
             - address: server.request.path_params
-            - address: server.request.cookies
             - address: server.request.headers.no_cookies
             - address: grpc.server.request.message
           list:
@@ -2479,7 +2438,6 @@ rules:
       - operator: match_regex
         parameters:
           inputs:
-            - address: server.request.cookies
             - address: server.request.query
             - address: server.request.body
             - address: server.request.path_params
@@ -2497,7 +2455,6 @@ rules:
       - operator: match_regex
         parameters:
           inputs:
-            - address: server.request.cookies
             - address: server.request.query
             - address: server.request.body
             - address: server.request.path_params

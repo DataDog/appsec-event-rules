@@ -1,6 +1,6 @@
 version: '2.2'
 metadata:
-  rules_version: 1.2.6
+  rules_version: 1.2.7
 rules:
   - id: crs-921-130
     name: HTTP Response Splitting Attack
@@ -11,7 +11,6 @@ rules:
     conditions:
       - parameters:
           inputs:
-            - address: server.request.cookies
             - address: server.request.query
             - address: server.request.body
             - address: server.request.path_params
@@ -31,7 +30,7 @@ rules:
     conditions:
       - parameters:
           inputs:
-            - address: server.request.cookies
+            - address: server.request.query
           list:
             - .htaccess
             - .htdigest
@@ -1259,7 +1258,6 @@ rules:
     conditions:
       - parameters:
           inputs:
-            - address: server.request.cookies
             - address: server.request.query
             - address: server.request.body
             - address: server.request.path_params
@@ -1279,7 +1277,6 @@ rules:
     conditions:
       - parameters:
           inputs:
-            - address: server.request.cookies
             - address: server.request.query
             - address: server.request.body
             - address: server.request.path_params
@@ -1299,7 +1296,6 @@ rules:
     conditions:
       - parameters:
           inputs:
-            - address: server.request.cookies
             - address: server.request.query
             - address: server.request.body
             - address: server.request.path_params
@@ -1322,7 +1318,6 @@ rules:
     conditions:
       - parameters:
           inputs:
-            - address: server.request.cookies
             - address: server.request.query
             - address: server.request.body
             - address: server.request.path_params
@@ -1343,7 +1338,6 @@ rules:
     conditions:
       - parameters:
           inputs:
-            - address: server.request.cookies
             - address: server.request.query
             - address: server.request.body
             - address: server.request.path_params
@@ -1363,7 +1357,6 @@ rules:
     conditions:
       - parameters:
           inputs:
-            - address: server.request.cookies
             - address: server.request.query
             - address: server.request.body
             - address: server.request.path_params

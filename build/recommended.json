@@ -1,7 +1,7 @@
 {
   "version": "2.2",
   "metadata": {
-    "rules_version": "1.2.6"
+    "rules_version": "1.2.7"
   },
   "rules": [
     {
@@ -280,9 +280,6 @@
         {
           "parameters": {
             "inputs": [
-              {
-                "address": "server.request.cookies"
-              },
               {
                 "address": "server.request.query"
               },
@@ -1482,9 +1479,6 @@
           "parameters": {
             "inputs": [
               {
-                "address": "server.request.cookies"
-              },
-              {
                 "address": "server.request.query"
               },
               {
@@ -1782,9 +1776,6 @@
           "parameters": {
             "inputs": [
               {
-                "address": "server.request.cookies"
-              },
-              {
                 "address": "server.request.query"
               },
               {
@@ -1839,9 +1830,6 @@
           "parameters": {
             "inputs": [
               {
-                "address": "server.request.cookies"
-              },
-              {
                 "address": "server.request.query"
               },
               {
@@ -1878,9 +1866,6 @@
           "parameters": {
             "inputs": [
               {
-                "address": "server.request.cookies"
-              },
-              {
                 "address": "server.request.query"
               },
               {
@@ -1915,9 +1900,6 @@
         {
           "parameters": {
             "inputs": [
-              {
-                "address": "server.request.cookies"
-              },
               {
                 "address": "server.request.query"
               },
@@ -1998,9 +1980,6 @@
           "parameters": {
             "inputs": [
               {
-                "address": "server.request.cookies"
-              },
-              {
                 "address": "server.request.query"
               },
               {
@@ -2035,9 +2014,6 @@
         {
           "parameters": {
             "inputs": [
-              {
-                "address": "server.request.cookies"
-              },
               {
                 "address": "server.request.headers.no_cookies"
               },
@@ -2078,9 +2054,6 @@
           "parameters": {
             "inputs": [
               {
-                "address": "server.request.cookies"
-              },
-              {
                 "address": "server.request.query"
               },
               {
@@ -2119,9 +2092,6 @@
           "parameters": {
             "inputs": [
               {
-                "address": "server.request.cookies"
-              },
-              {
                 "address": "server.request.query"
               },
               {
@@ -2157,9 +2127,6 @@
         {
           "parameters": {
             "inputs": [
-              {
-                "address": "server.request.cookies"
-              },
               {
                 "address": "server.request.headers.no_cookies",
                 "key_path": [
@@ -2205,9 +2172,6 @@
         {
           "parameters": {
             "inputs": [
-              {
-                "address": "server.request.cookies"
-              },
               {
                 "address": "server.request.headers.no_cookies",
                 "key_path": [
@@ -2258,9 +2222,6 @@
           "parameters": {
             "inputs": [
               {
-                "address": "server.request.cookies"
-              },
-              {
                 "address": "server.request.headers.no_cookies",
                 "key_path": [
                   "user-agent"
@@ -2309,9 +2270,6 @@
         {
           "parameters": {
             "inputs": [
-              {
-                "address": "server.request.cookies"
-              },
               {
                 "address": "server.request.headers.no_cookies",
                 "key_path": [
@@ -2362,9 +2320,6 @@
           "parameters": {
             "inputs": [
               {
-                "address": "server.request.cookies"
-              },
-              {
                 "address": "server.request.query"
               },
               {
@@ -2408,9 +2363,6 @@
           "parameters": {
             "inputs": [
               {
-                "address": "server.request.cookies"
-              },
-              {
                 "address": "server.request.query"
               },
               {
@@ -2448,9 +2400,6 @@
         {
           "parameters": {
             "inputs": [
-              {
-                "address": "server.request.cookies"
-              },
               {
                 "address": "server.request.query"
               },
@@ -2490,9 +2439,6 @@
           "parameters": {
             "inputs": [
               {
-                "address": "server.request.cookies"
-              },
-              {
                 "address": "server.request.query"
               },
               {
@@ -2531,9 +2477,6 @@
           "parameters": {
             "inputs": [
               {
-                "address": "server.request.cookies"
-              },
-              {
                 "address": "server.request.query"
               },
               {
@@ -2570,9 +2513,6 @@
         {
           "parameters": {
             "inputs": [
-              {
-                "address": "server.request.cookies"
-              },
               {
                 "address": "server.request.query"
               },
@@ -2613,9 +2553,6 @@
           "parameters": {
             "inputs": [
               {
-                "address": "server.request.cookies"
-              },
-              {
                 "address": "server.request.query"
               },
               {
@@ -2652,9 +2589,6 @@
         {
           "parameters": {
             "inputs": [
-              {
-                "address": "server.request.cookies"
-              },
               {
                 "address": "server.request.query"
               },
@@ -2693,9 +2627,6 @@
           "parameters": {
             "inputs": [
               {
-                "address": "server.request.cookies"
-              },
-              {
                 "address": "server.request.query"
               },
               {
@@ -2732,9 +2663,6 @@
         {
           "parameters": {
             "inputs": [
-              {
-                "address": "server.request.cookies"
-              },
               {
                 "address": "server.request.query"
               },
@@ -2773,9 +2701,6 @@
           "parameters": {
             "inputs": [
               {
-                "address": "server.request.cookies"
-              },
-              {
                 "address": "server.request.query"
               },
               {
@@ -2811,9 +2736,6 @@
         {
           "parameters": {
             "inputs": [
-              {
-                "address": "server.request.cookies"
-              },
               {
                 "address": "server.request.query"
               },
@@ -2851,9 +2773,6 @@
           "parameters": {
             "inputs": [
               {
-                "address": "server.request.cookies"
-              },
-              {
                 "address": "server.request.query"
               },
               {
@@ -2886,9 +2805,6 @@
         {
           "parameters": {
             "inputs": [
-              {
-                "address": "server.request.cookies"
-              },
               {
                 "address": "server.request.query"
               },
@@ -2926,9 +2842,6 @@
           "parameters": {
             "inputs": [
               {
-                "address": "server.request.cookies"
-              },
-              {
                 "address": "server.request.query"
               },
               {
@@ -2964,9 +2877,6 @@
           "parameters": {
             "inputs": [
               {
-                "address": "server.request.cookies"
-              },
-              {
                 "address": "server.request.query"
               },
               {
@@ -3001,9 +2911,6 @@
         {
           "parameters": {
             "inputs": [
-              {
-                "address": "server.request.cookies"
-              },
               {
                 "address": "server.request.query"
               },
@@ -3041,9 +2948,6 @@
           "parameters": {
             "inputs": [
               {
-                "address": "server.request.cookies"
-              },
-              {
                 "address": "server.request.query"
               },
               {
@@ -3079,9 +2983,6 @@
           "parameters": {
             "inputs": [
               {
-                "address": "server.request.cookies"
-              },
-              {
                 "address": "server.request.query"
               },
               {
@@ -3116,9 +3017,6 @@
         {
           "parameters": {
             "inputs": [
-              {
-                "address": "server.request.cookies"
-              },
               {
                 "address": "server.request.query"
               },
@@ -3156,9 +3054,6 @@
           "parameters": {
             "inputs": [
               {
-                "address": "server.request.cookies"
-              },
-              {
                 "address": "server.request.query"
               },
               {
@@ -3193,9 +3088,6 @@
         {
           "parameters": {
             "inputs": [
-              {
-                "address": "server.request.cookies"
-              },
               {
                 "address": "server.request.query"
               },
@@ -3232,9 +3124,6 @@
         {
           "parameters": {
             "inputs": [
-              {
-                "address": "server.request.cookies"
-              },
               {
                 "address": "server.request.query"
               },
@@ -3278,9 +3167,6 @@
                 "address": "server.request.path_params"
               },
               {
-                "address": "server.request.cookies"
-              },
-              {
                 "address": "server.request.headers.no_cookies"
               },
               {
@@ -3322,9 +3208,6 @@
                 "address": "server.request.path_params"
               },
               {
-                "address": "server.request.cookies"
-              },
-              {
                 "address": "server.request.headers.no_cookies"
               },
               {
@@ -3350,9 +3233,6 @@
               },
               {
                 "address": "server.request.path_params"
-              },
-              {
-                "address": "server.request.cookies"
               },
               {
                 "address": "server.request.headers.no_cookies"
@@ -3394,9 +3274,6 @@
               },
               {
                 "address": "server.request.path_params"
-              },
-              {
-                "address": "server.request.cookies"
               },
               {
                 "address": "server.request.headers.no_cookies"
@@ -3504,9 +3381,6 @@
           "parameters": {
             "inputs": [
               {
-                "address": "server.request.cookies"
-              },
-              {
                 "address": "server.request.query"
               },
               {
@@ -3540,9 +3414,6 @@
           "operator": "match_regex",
           "parameters": {
             "inputs": [
-              {
-                "address": "server.request.cookies"
-              },
               {
                 "address": "server.request.query"
               },
