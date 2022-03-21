@@ -18,4 +18,5 @@ conditions:
         case_sensitive: true
         min_length: 5
     operator: match_regex
-transformers: []
+transformers:
+  - run_on_keys
