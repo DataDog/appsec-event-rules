@@ -3211,7 +3211,9 @@
           "operator": "match_regex"
         }
       ],
-      "transformers": []
+      "transformers": [
+        "run_on_keys"
+      ]
     },
     {
       "id": "crs-942-360",
