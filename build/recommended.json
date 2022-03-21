@@ -281,9 +281,6 @@
           "parameters": {
             "inputs": [
               {
-                "address": "server.request.cookies"
-              },
-              {
                 "address": "server.request.query"
               },
               {
@@ -1916,9 +1913,6 @@
           "parameters": {
             "inputs": [
               {
-                "address": "server.request.cookies"
-              },
-              {
                 "address": "server.request.query"
               },
               {
@@ -1997,9 +1991,6 @@
         {
           "parameters": {
             "inputs": [
-              {
-                "address": "server.request.cookies"
-              },
               {
                 "address": "server.request.query"
               },
@@ -2157,9 +2148,6 @@
         {
           "parameters": {
             "inputs": [
-              {
-                "address": "server.request.cookies"
-              },
               {
                 "address": "server.request.headers.no_cookies",
                 "key_path": [
@@ -2850,9 +2838,6 @@
         {
           "parameters": {
             "inputs": [
-              {
-                "address": "server.request.cookies"
-              },
               {
                 "address": "server.request.query"
               },

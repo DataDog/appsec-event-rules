@@ -170,7 +170,6 @@ rules:
     conditions:
       - parameters:
           inputs:
-            - address: server.request.cookies
             - address: server.request.query
             - address: server.request.body
             - address: server.request.path_params
@@ -1624,7 +1623,6 @@ rules:
     conditions:
       - parameters:
           inputs:
-            - address: server.request.cookies
             - address: server.request.query
             - address: server.request.body
             - address: server.request.path_params
@@ -1686,7 +1684,6 @@ rules:
     conditions:
       - parameters:
           inputs:
-            - address: server.request.cookies
             - address: server.request.query
             - address: server.request.body
             - address: server.request.path_params
@@ -1769,7 +1766,6 @@ rules:
     conditions:
       - parameters:
           inputs:
-            - address: server.request.cookies
             - address: server.request.headers.no_cookies
               key_path:
                 - user-agent
@@ -2124,7 +2120,6 @@ rules:
     conditions:
       - parameters:
           inputs:
-            - address: server.request.cookies
             - address: server.request.query
             - address: server.request.body
             - address: server.request.path_params
