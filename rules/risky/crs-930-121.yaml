@@ -7,7 +7,7 @@ tags:
 conditions:
   - parameters:
       inputs:
-        - address: server.request.cookies
+        - address: server.request.query
       list:
         - .htaccess
         - .htdigest

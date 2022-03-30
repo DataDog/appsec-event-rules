@@ -10,7 +10,6 @@ conditions:
         - address: server.request.query
         - address: server.request.body
         - address: server.request.path_params
-        - address: server.request.cookies
         - address: server.request.headers.no_cookies
         - address: grpc.server.request.message
       regex: (?:runtime|processbuilder)
@@ -23,7 +22,6 @@ conditions:
         - address: server.request.query
         - address: server.request.body
         - address: server.request.path_params
-        - address: server.request.cookies
         - address: server.request.headers.no_cookies
         - address: grpc.server.request.message
       regex: (?:unmarshaller|base64data|java\.)
