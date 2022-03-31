@@ -3444,7 +3444,7 @@
       "id": "dog-000-004",
       "name": "Spring4Shell - Attempts to exploit the Spring4shell vulnerability",
       "tags": {
-        "type": "java_code_injection",
+        "type": "exploit_detection",
         "category": "attack_attempt"
       },
       "conditions": [
