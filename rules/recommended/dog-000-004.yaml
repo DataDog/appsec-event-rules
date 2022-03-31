@@ -1,0 +1,19 @@
+id: dog-000-004
+name: Spring4Shell - Attempts to exploit the Spring4shell vulnerability
+tags:
+  type: java_code_injection
+  category: attack_attempt
+conditions:
+  - operator: match_regex
+    parameters:
+      inputs:
+        - address: server.request.body
+      regex: "^class\.module\.classLoader\."
+      options:
+        case_sensitive: true
+transformers:
+  - keys_only
+test_vectors:
+  matches:
+    - server.request.body:
+        class.module.classLoader.resources.context.parent.pipeline.first.pattern: value
