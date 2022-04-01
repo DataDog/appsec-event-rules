@@ -4383,9 +4383,9 @@
     },
     {
       "id": "sqr-000-017",
-      "name": "JNDI: Attempt to exploit log4j CVE-2021-44228",
+      "name": "Log4shell: Attempt to exploit log4j CVE-2021-44228",
       "tags": {
-        "type": "java_code_injection",
+        "type": "exploit_detection",
         "category": "attack_attempt"
       },
       "conditions": [
