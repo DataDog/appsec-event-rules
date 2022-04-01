@@ -12,4 +12,4 @@ conditions:
       regex: ^\$(eq|ne|(l|g)te?|n?in|not|(n|x|)or|and|regex|where|expr|exists)$
     operator: match_regex
 transformers:
-  - run_on_keys
+  - keys_only
