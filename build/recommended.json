@@ -3458,7 +3458,7 @@
             ],
             "regex": "^class\\.module\\.classLoader\\.",
             "options": {
-              "case_sensitive": true
+              "case_sensitive": false
             }
           }
         }

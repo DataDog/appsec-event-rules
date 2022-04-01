@@ -2477,7 +2477,7 @@ rules:
             - address: server.request.body
           regex: ^class\.module\.classLoader\.
           options:
-            case_sensitive: true
+            case_sensitive: false
     transformers:
       - keys_only
   - id: nfd-000-001
