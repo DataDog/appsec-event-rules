@@ -1,0 +1,219 @@
+name: System tests old versions
+
+on:
+  workflow_dispatch: {}
+  schedule:
+    - cron:  '00 04 * * 2-6'
+  pull_request:
+    branches: "**"
+
+env:
+  REGISTRY: ghcr.io
+
+jobs:
+  # Golang
+  system-tests-golang: 
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        weblog-variant: [echo, net-http, gorilla, chi]
+        version: [gopkg.in/DataDog/dd-trace-go.v1@v1.34.0]
+      fail-fast: false
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          repository: 'DataDog/system-tests'
+
+      - name: Checkout appsec-event-rules
+        uses: actions/checkout@v2
+        with:
+          path: 'appsec-event-rules'
+
+      - name: Load WAF ruleset
+        run: cp appsec-event-rules/build/recommended.json binaries/waf_rule_set.json
+
+      - name: Set old tracer version
+        run: echo ${{ matrix.version }} > binaries/golang-load-from-go-get
+
+      - name: Build
+        run: ./build.sh golang -w ${{ matrix.weblog-variant }}
+
+      - name: Run WAF tests
+        run: ./run.sh
+        env:
+          DD_API_KEY: ${{ secrets.DD_API_KEY }}
+  
+  # Nodejs
+  system-tests-nodejs: 
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        weblog-variant: [express4]
+        version: [dd-trace@2.0.0]
+      fail-fast: false
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          repository: 'DataDog/system-tests'
+
+      - name: Checkout appsec-event-rules
+        uses: actions/checkout@v2
+        with:
+          path: 'appsec-event-rules'
+
+      - name: Load WAF ruleset
+        run: cp appsec-event-rules/build/recommended.json binaries/waf_rule_set.json
+
+      - name: Set old tracer version
+        run: echo ${{ matrix.version }} > binaries/nodejs-load-from-npm
+
+      - name: Build
+        run: ./build.sh nodejs -w ${{ matrix.weblog-variant }}
+
+      - name: Run default scenario
+        run: ./run.sh 
+        env:
+          DD_API_KEY: ${{ secrets.DD_API_KEY }}
+
+  # dotnet
+  system-tests-dotnet: 
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        weblog-variant: [poc]
+        version: [2.2.0]
+      fail-fast: false
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          repository: 'DataDog/system-tests'
+
+      - name: Checkout appsec-event-rules
+        uses: actions/checkout@v2
+        with:
+          path: 'appsec-event-rules'
+
+      - name: Load WAF ruleset
+        run: cp appsec-event-rules/build/recommended.json binaries/waf_rule_set.json
+
+      - name: Set old tracer version
+        run: wget -O binaries/datadog-dotnet-apm-${{ matrix.version }}.tar.gz https://github.com/DataDog/dd-trace-dotnet/releases/download/v${{ matrix.version }}/datadog-dotnet-apm-${{ matrix.version }}.tar.gz
+
+      - name: Build
+        run: ./build.sh dotnet -w ${{ matrix.weblog-variant }}
+
+      - name: Run default scenario
+        run: ./run.sh
+        env:
+          DD_API_KEY: ${{ secrets.DD_API_KEY }}
+  # java
+  system-tests-java: 
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        weblog-variant: [spring-boot]
+        version: [0.94.0]
+      fail-fast: false
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          repository: 'DataDog/system-tests'
+
+      - name: Checkout appsec-event-rules
+        uses: actions/checkout@v2
+        with:
+          path: 'appsec-event-rules'
+
+      - name: Load WAF ruleset
+        run: cp appsec-event-rules/build/recommended.json binaries/waf_rule_set.json
+
+      - name: Set old tracer version
+        run: wget -O binaries/dd-java-agent-${{ matrix.version }}.jar https://github.com/DataDog/dd-trace-java/releases/download/v${{ matrix.version }}/dd-java-agent.jar
+
+      - name: Build
+        run: ./build.sh java -w ${{ matrix.weblog-variant }}
+
+      - name: Run default scenario
+        run: ./run.sh
+        env:
+          DD_API_KEY: ${{ secrets.DD_API_KEY }}
+
+
+  # PHP
+  system-tests-php: 
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        weblog-variant: [apache-mod, php-fpm]
+        appsec-version: [0.2.0]
+        tracer-version: [0.69.0]
+      fail-fast: false
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          repository: 'DataDog/system-tests'
+
+      - name: Checkout appsec-event-rules
+        uses: actions/checkout@v2
+        with:
+          path: 'appsec-event-rules'
+
+      - name: Load WAF ruleset
+        run: cp appsec-event-rules/build/recommended.json binaries/waf_rule_set.json
+
+      - name: Set old tracer version
+        run: wget -O binaries/datadog-php-tracer-${{ matrix.version }}.tar.gz https://github.com/DataDog/dd-trace-php/releases/download/${{ matrix.tracer-version }}/datadog-php-tracer-${{ matrix.tracer-version }}.x86_64.tar.gz
+
+      - name: Set old appsec version
+        run: wget -O binaries/dd-appsec-php-${{ matrix.version }}.tar.gz https://github.com/DataDog/dd-appsec-php/releases/download/v${{ matrix.appsec-version }}/dd-appsec-php-${{ matrix.appsec-version }}-amd64.tar.gz
+  
+
+      - name: Build
+        run: ./build.sh php -w ${{ matrix.weblog-variant }}
+
+      - name: Run default scenario
+        run: ./run.sh 
+        env:
+          DD_API_KEY: ${{ secrets.DD_API_KEY }}
+  
+  # Ruby
+  system-tests-ruby: 
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        weblog-variant: [sinatra21, rails70, rack]
+        version: [1.0.0.beta1]
+      fail-fast: false
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          repository: 'DataDog/system-tests'
+
+      - name: Checkout appsec-event-rules
+        uses: actions/checkout@v2
+        with:
+          path: 'appsec-event-rules'
+
+      - name: Load WAF ruleset
+        run: cp appsec-event-rules/build/recommended.json binaries/waf_rule_set.json
+
+      - name: Set old tracer version
+        run: echo "gem 'ddtrace', '~> ${{ matrix.version }}', require%3A 'ddtrace/auto_instrument'" > ruby-load-from-bundle-add && sed -i 's/%3A/:/g' ruby-load-from-bundle-add
+
+      - name: Log in to the Container registry
+        run: |
+          echo ${{ secrets.GITHUB_TOKEN }} | docker login ${{ env.REGISTRY }} -u ${{ github.actor }} --password-stdin
+
+      - name: Build
+        run: ./build.sh ruby -w ${{ matrix.weblog-variant }}
+
+      - name: Run default scenario
+        run: ./run.sh 
+        env:
+          DD_API_KEY: ${{ secrets.DD_API_KEY }}

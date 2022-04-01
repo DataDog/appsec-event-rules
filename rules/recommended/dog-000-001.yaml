@@ -1,0 +1,37 @@
+id: dog-000-001
+name: 'Look for Cassandra injections'
+tags:
+  type: nosql_injection
+  category: attack_attempt
+conditions:
+  - parameters:
+      inputs:
+        - address: server.request.query
+        - address: server.request.body
+        - address: server.request.path_params
+        - address: server.request.headers.no_cookies
+      regex: \ballow\s+filtering\b
+    operator: match_regex
+transformers:
+  - removeComments
+test_vectors:
+  matches:
+    - server.request.query:
+        param: "admin' ALLOW FILTERING;"
+    - server.request.query:
+        param: "ALLOW /* noise */ FILTERING"
+    - server.request.query:
+        param: "allow filtering"
+    - server.request.query:
+        param: "allow            filtering"
+    - server.request.query:
+        param: "bla allow filtering; bla"
+  no_matches:
+    - server.request.query:
+        param: "we allow for filtering of"
+    - server.request.query:
+        param: "shallow filtering"
+    - server.request.query:
+        param: "allow filterings"
+    - server.request.query:
+        param: allowfiltering

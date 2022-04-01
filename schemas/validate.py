@@ -14,7 +14,7 @@ def _crawl_schemas():
 
 def _crawl_rules_builds():
     for root, _, files in os.walk("."):
-        if re.match(r"\./v\d+/build", root):
+        if "./build" in root:
             for f in files:
                 if f.endswith(".json"):
                     yield os.path.join(root, f)
@@ -156,6 +156,7 @@ def main():
     validator = _get_schema_validator()
 
     is_success = True
+    has_any = False
 
     for filename in _crawl_rules_builds():
         rule = json.load(open(filename))
@@ -163,6 +164,11 @@ def main():
         print(f"Validating {filename}")
         is_success &= _validate_with_schema(validator, rule)
         is_success &= _validate_custom(rule)
+        has_any = True
+
+    if not has_any:
+        print("Couldn't locate any rule!")
+        exit(1)
 
     if not is_success:
         exit(1)

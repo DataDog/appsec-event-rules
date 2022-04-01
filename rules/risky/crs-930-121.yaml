@@ -7,7 +7,7 @@ tags:
 conditions:
   - parameters:
       inputs:
-        - address: server.request.cookies
+        - address: server.request.query
       list:
         - .htaccess
         - .htdigest
@@ -1205,3 +1205,4 @@ conditions:
     operator: phrase_match
 transformers:
   - lowercase
+  - normalizePath

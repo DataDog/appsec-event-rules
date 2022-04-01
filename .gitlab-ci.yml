@@ -1,0 +1,17 @@
+stages:
+ - deploy
+
+default:
+  tags: ["runner:main"]
+
+deploy:
+  stage: deploy
+  only:
+   - staging
+   - tags
+  trigger:
+    project: DataDog/dd-go
+    branch: prod
+  variables:
+    DYNAMIC_BUILD_RENDER_TARGET: //ci/pipelines/appsec:event_rules
+    APPSEC_EVENT_RULES_REF: $CI_COMMIT_REF_NAME

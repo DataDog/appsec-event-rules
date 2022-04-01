@@ -1,7 +1,8 @@
+require('dotenv').config()
 const fs = require('fs')
 const arg = require('arg');
 const yaml = require('js-yaml')
-const path = require('path')
+const path = require('path');
 
 const args = arg({
     // Types
@@ -24,10 +25,13 @@ if (!args['--collection']) return console.error('Error: Missing required argumen
 const Collection = args['--collection'];
 const SourceDir = args['--source'] + '/' + Collection;
 const OutputDir = args['--output']
-
+const RulesVersion = args['--version'] || process.env.CURRENT_RULES_VERSION;
 
 let outContentObj = {
-    "version":"2.1",
+    "version":"2.2",
+    "metadata":{
+        "rules_version":RulesVersion
+    },
     "rules":[]
 }
 fs.readdirSync(SourceDir).forEach(file => {

@@ -39,7 +39,22 @@
       "type": "array",
       "items": {
         "enum": [
+          "htmlEntityDecode",
+          "jsDecode",
+          "cssDecode",
+          "base64Encode",
+          "base64Decode",
+          "base64DecodeExt",
+          "urlDecode",
+          "urlDecodeUni",
+          "normalizePath",
+          "normalizePathWin",
+          "compressWhiteSpace",
           "lowercase",
+          "length",
+          "cmdLine",
+          "removeComments",
+          "numerize",
           "removeNulls"
         ]
       }

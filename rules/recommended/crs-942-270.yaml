@@ -1,7 +1,5 @@
 id: crs-942-270
-name: >-
-  Looking for basic sql injection. Common attack string for mysql, oracle and
-  others
+name: Basic SQL injection
 tags:
   type: sql_injection
   crs_id: '942270'
@@ -9,7 +7,6 @@ tags:
 conditions:
   - parameters:
       inputs:
-        - address: server.request.cookies
         - address: server.request.query
         - address: server.request.body
         - address: server.request.path_params

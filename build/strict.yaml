@@ -1,4 +1,6 @@
-version: '2.1'
+version: '2.2'
+metadata:
+  rules_version: 1.2.7
 rules:
   - id: crs-913-100
     name: Found User-Agent associated with security scanner
@@ -115,7 +117,6 @@ rules:
     conditions:
       - parameters:
           inputs:
-            - address: server.request.cookies
             - address: server.request.query
             - address: server.request.body
             - address: server.request.path_params
@@ -135,7 +136,6 @@ rules:
     conditions:
       - parameters:
           inputs:
-            - address: server.request.cookies
             - address: server.request.query
             - address: server.request.body
             - address: server.request.path_params
@@ -155,7 +155,6 @@ rules:
     conditions:
       - parameters:
           inputs:
-            - address: server.request.cookies
             - address: server.request.query
             - address: server.request.body
             - address: server.request.path_params
@@ -175,7 +174,6 @@ rules:
     conditions:
       - parameters:
           inputs:
-            - address: server.request.cookies
             - address: server.request.query
             - address: server.request.body
             - address: server.request.path_params
@@ -442,7 +440,6 @@ rules:
     conditions:
       - parameters:
           inputs:
-            - address: server.request.cookies
             - address: server.request.query
             - address: server.request.body
             - address: server.request.path_params
@@ -461,7 +458,6 @@ rules:
     conditions:
       - parameters:
           inputs:
-            - address: server.request.cookies
             - address: server.request.query
             - address: server.request.body
             - address: server.request.path_params
@@ -509,7 +505,6 @@ rules:
     conditions:
       - parameters:
           inputs:
-            - address: server.request.cookies
             - address: server.request.query
             - address: server.request.body
             - address: server.request.path_params
@@ -529,7 +524,6 @@ rules:
     conditions:
       - parameters:
           inputs:
-            - address: server.request.cookies
             - address: server.request.query
             - address: server.request.body
             - address: server.request.path_params
@@ -549,7 +543,6 @@ rules:
     conditions:
       - parameters:
           inputs:
-            - address: server.request.cookies
             - address: server.request.headers.no_cookies
               key_path:
                 - user-agent
@@ -572,7 +565,6 @@ rules:
     conditions:
       - parameters:
           inputs:
-            - address: server.request.cookies
             - address: server.request.headers.no_cookies
               key_path:
                 - user-agent
@@ -595,7 +587,6 @@ rules:
     conditions:
       - parameters:
           inputs:
-            - address: server.request.cookies
             - address: server.request.headers.no_cookies
               key_path:
                 - user-agent
@@ -621,7 +612,6 @@ rules:
     conditions:
       - parameters:
           inputs:
-            - address: server.request.cookies
             - address: server.request.headers.no_cookies
               key_path:
                 - user-agent
@@ -647,7 +637,6 @@ rules:
     conditions:
       - parameters:
           inputs:
-            - address: server.request.cookies
             - address: server.request.query
             - address: server.request.body
             - address: server.request.path_params
@@ -668,7 +657,6 @@ rules:
     conditions:
       - parameters:
           inputs:
-            - address: server.request.cookies
             - address: server.request.query
             - address: server.request.body
             - address: server.request.path_params
@@ -689,7 +677,6 @@ rules:
     conditions:
       - parameters:
           inputs:
-            - address: server.request.cookies
             - address: server.request.query
             - address: server.request.body
             - address: server.request.path_params
@@ -709,7 +696,6 @@ rules:
     conditions:
       - parameters:
           inputs:
-            - address: server.request.cookies
             - address: server.request.query
             - address: server.request.body
             - address: server.request.path_params
@@ -728,7 +714,6 @@ rules:
     conditions:
       - parameters:
           inputs:
-            - address: server.request.cookies
             - address: server.request.query
             - address: server.request.body
             - address: server.request.path_params
@@ -749,7 +734,6 @@ rules:
     conditions:
       - parameters:
           inputs:
-            - address: server.request.cookies
             - address: server.request.query
             - address: server.request.body
             - address: server.request.path_params
@@ -767,7 +751,6 @@ rules:
     conditions:
       - parameters:
           inputs:
-            - address: server.request.cookies
             - address: server.request.query
             - address: server.request.body
             - address: server.request.path_params
@@ -787,7 +770,6 @@ rules:
     conditions:
       - parameters:
           inputs:
-            - address: server.request.cookies
             - address: server.request.query
             - address: server.request.body
             - address: server.request.path_params
@@ -806,7 +788,6 @@ rules:
     conditions:
       - parameters:
           inputs:
-            - address: server.request.cookies
             - address: server.request.query
             - address: server.request.body
             - address: server.request.path_params
@@ -828,7 +809,6 @@ rules:
             - address: server.request.query
             - address: server.request.body
             - address: server.request.path_params
-            - address: server.request.cookies
             - address: server.request.headers.no_cookies
           regex: >-
             (?:clonetransformer|forclosure|instantiatefactory|instantiatetransformer|invokertransformer|prototypeclonefactory|prototypeserializationfactory|whileclosure|getproperty|filewriter|xmldecoder)
