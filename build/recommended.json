@@ -1,7 +1,7 @@
 {
   "version": "2.2",
   "metadata": {
-    "rules_version": "1.2.7"
+    "rules_version": "1.3.0"
   },
   "rules": [
     {
@@ -3439,6 +3439,33 @@
         }
       ],
       "transformers": []
+    },
+    {
+      "id": "dog-000-004",
+      "name": "Spring4Shell - Attempts to exploit the Spring4shell vulnerability",
+      "tags": {
+        "type": "exploit_detection",
+        "category": "attack_attempt"
+      },
+      "conditions": [
+        {
+          "operator": "match_regex",
+          "parameters": {
+            "inputs": [
+              {
+                "address": "server.request.body"
+              }
+            ],
+            "regex": "^class\\.module\\.classLoader\\.",
+            "options": {
+              "case_sensitive": false
+            }
+          }
+        }
+      ],
+      "transformers": [
+        "keys_only"
+      ]
     },
     {
       "id": "nfd-000-001",
