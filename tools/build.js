@@ -19,36 +19,44 @@ const args = arg({
 
 if (!args['--source']) return console.error('Error: Missing required argument: --source [the rules source directory]')
 if (!args['--output']) return console.error('Error: Missing required argument: --output [the rules output directory]')
-if (!args['--collection']) return console.error('Error: Missing required argument: --collection [the rules collection] (eg. recommended)')
 
-
-const Collection = args['--collection'];
-const SourceDir = args['--source'] + '/' + Collection;
-const OutputDir = args['--output']
-const RulesVersion = args['--version'] || process.env.CURRENT_RULES_VERSION;
-
-let outContentObj = {
-    "version":"2.2",
-    "metadata":{
-        "rules_version":RulesVersion
-    },
-    "rules":[]
+if (args['--collection']) {
+    processCollection(args['--collection']);
+} else {
+    processCollection('recommended');
+    processCollection('strict');
+    processCollection('risky');
 }
-fs.readdirSync(SourceDir).forEach(file => {
-    if(path.extname(file) !== '.yaml') return; //skip md files
-    ruleData = readYAMLfile(file);
-    ruleData["test_vectors"] = undefined;
-    outContentObj.rules.push(ruleData)
-});
 
-writeJSONFile(outContentObj)
-writeYAMLFile(outContentObj)
 
-console.log('Build success with ', outContentObj.rules.length, ' Event rules ')
+function processCollection(collection){
+    const sourceDir = args['--source'] + '/' + collection;
+    const rulesVersion = args['--version'] || process.env.CURRENT_RULES_VERSION;
 
-function readYAMLfile(file){
+    let outContentObj = {
+        "version":"2.2",
+        "metadata":{
+            "rules_version":rulesVersion
+        },
+        "rules":[]
+    }
+    fs.readdirSync(sourceDir).forEach(file => {
+        if(path.extname(file) !== '.yaml') return; //skip md files
+        ruleData = readYAMLfile(sourceDir, file);
+        ruleData["test_vectors"] = undefined;
+        outContentObj.rules.push(ruleData)
+    });
+
+    const filePath = args['--output'] + '/' +  collection;
+    writeJSONFile(filePath, outContentObj)
+    writeYAMLFile(filePath, outContentObj)
+
+    console.log('Build success with ', outContentObj.rules.length, ' Event rules ')
+}
+
+function readYAMLfile(sourceDir, file){
     try {
-        const doc = yaml.load(fs.readFileSync(SourceDir + '/' + file, 'utf8'));
+        const doc = yaml.load(fs.readFileSync(sourceDir + '/' + file, 'utf8'));
         return doc
     } catch (e) {
         console.error(e);
@@ -56,11 +64,10 @@ function readYAMLfile(file){
     }
 }
 
-function writeYAMLFile(obj){
-    let yamlContents = yaml.dump(obj)
-    fs.writeFileSync(OutputDir + '/' +  Collection + '.yaml', yamlContents)
+function writeYAMLFile(filePath, obj){
+    fs.writeFileSync(filePath + '.yaml', yaml.dump(obj))
 }
 
-function writeJSONFile(obj){
-    fs.writeFileSync(OutputDir + '/' +  Collection + '.json', JSON.stringify(obj, null, 2))
+function writeJSONFile(filePath, obj){
+    fs.writeFileSync(filePath + '.json', JSON.stringify(obj, null, 2))
 }
