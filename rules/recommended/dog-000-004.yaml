@@ -8,7 +8,7 @@ conditions:
     parameters:
       inputs:
         - address: server.request.body
-      regex: "^class\\.module\\.classLoader\\."
+      regex: "^class\\.module\\.classLoader\\.resources\\."
       options:
         case_sensitive: false
 transformers:
