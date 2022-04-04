@@ -2241,7 +2241,8 @@ rules:
             case_sensitive: true
             min_length: 5
         operator: match_regex
-    transformers: []
+    transformers:
+      - keys_only
   - id: crs-942-360
     name: Detects concatenated basic SQL injection and SQLLFI attempts
     tags:
@@ -2911,10 +2912,13 @@ rules:
     conditions:
       - parameters:
           inputs:
-            - address: server.request.headers.no_cookies
-          regex: \$(eq|ne|lte?|gte?|n?in)\b
+            - address: server.request.query
+            - address: server.request.body
+            - address: server.request.path_params
+          regex: ^\$(eq|ne|(l|g)te?|n?in|not|(n|x|)or|and|regex|where|expr|exists)$
         operator: match_regex
-    transformers: []
+    transformers:
+      - keys_only
   - id: sqr-000-008
     name: 'Windows: Detect attempts to exfiltrate .ini files'
     tags:
