@@ -1,6 +1,6 @@
 version: '2.2'
 metadata:
-  rules_version: 1.3.0
+  rules_version: 1.3.1
 rules:
   - id: crs-913-110
     name: Acunetix
@@ -2476,7 +2476,7 @@ rules:
         parameters:
           inputs:
             - address: server.request.body
-          regex: ^class\.module\.classLoader\.
+          regex: ^class\.module\.classLoader\.resources\.
           options:
             case_sensitive: false
     transformers:
