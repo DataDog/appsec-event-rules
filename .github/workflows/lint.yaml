@@ -12,6 +12,6 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
-      - run: npm install
+      - run: cd tools && npm install
       - run: node tools/build.js --source ./rules --output ./build
       - run: git diff --exit-code build
