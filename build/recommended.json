@@ -5,7 +5,6 @@
   },
   "rules": [
     {
-      "id": "crs-913-110",
       "name": "Acunetix",
       "tags": {
         "type": "security_scanner",
