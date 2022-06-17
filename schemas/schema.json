@@ -8,7 +8,7 @@
       ]
     }
   },
-  "allOf": [
+  "anyOf": [
     {
       "if": {
         "properties": {
@@ -30,9 +30,11 @@
     },
     {
       "if": {
-        "properties": {
-          "version": {
-            "const": "2.1"
+        "not": {
+          "properties": {
+            "version": {
+              "const": "1.1"
+            }
           }
         }
       },
