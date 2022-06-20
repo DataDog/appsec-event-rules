@@ -1,54 +1,226 @@
 {
+  "$defs": {
+    "input": {
+      "type": "object",
+      "properties": {
+        "address": {
+          "enum": [
+            "server.request.method",
+            "server.request.uri.raw",
+            "server.request.path_params",
+            "server.request.query",
+            "server.request.headers.no_cookies",
+            "server.request.cookies",
+            "server.request.trailers",
+            "server.request.body",
+            "server.response.status",
+            "server.response.headers.no_cookies",
+            "server.response.trailers",
+            "grpc.server.request.metadata",
+            "grpc.server.request.message"
+          ]
+        },
+        "key_path": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "address"
+      ],
+      "additionalProperties": false
+    },
+    "condition": {
+      "type": "object",
+      "properties": {
+        "operator": {
+          "enum": [
+            "match_regex",
+            "phrase_match",
+            "is_xss",
+            "is_sqli"
+          ]
+        },
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "list": {
+              "minItems": 1,
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "inputs": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "$ref": "#/$defs/input"
+              }
+            },
+            "regex": {
+              "type": "string"
+            },
+            "options": {
+              "type": "object",
+              "properties": {
+                "case_sensitive": {
+                  "type": "boolean"
+                },
+                "min_length": {
+                  "type": "integer"
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "inputs"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "operator": {
+                "const": "match_regex"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "parameters": {
+                "required": [
+                  "regex"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "operator": {
+                "const": "phrase_match"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "parameters": {
+                "required": [
+                  "list"
+                ]
+              }
+            }
+          }
+        }
+      ],
+      "required": [
+        "operator",
+        "parameters"
+      ],
+      "additionalProperties": false
+    },
+    "rule": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[0-9a-z]{3}-[0-9x]{3}-[0-9x]{3}$"
+        },
+        "name": {
+          "type": "string"
+        },
+        "tags": {
+          "type": "object",
+          "patternProperties": {
+            "^[A-Za-z][A-Za-z0-9\\.\\-\\_:\\/]{0,199}$": {
+              "type": "string"
+            }
+          },
+          "maxProperties": 32,
+          "required": [
+            "type",
+            "category"
+          ]
+        },
+        "conditions": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/condition"
+          }
+        },
+        "transformers": {
+          "type": "array",
+          "items": {
+            "enum": [
+              "htmlEntityDecode",
+              "jsDecode",
+              "cssDecode",
+              "base64Encode",
+              "base64Decode",
+              "base64DecodeExt",
+              "urlDecode",
+              "urlDecodeUni",
+              "normalizePath",
+              "normalizePathWin",
+              "compressWhiteSpace",
+              "lowercase",
+              "length",
+              "cmdLine",
+              "removeComments",
+              "numerize",
+              "removeNulls",
+              "keys_only"
+            ]
+          }
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "tags",
+        "conditions",
+        "transformers"
+      ],
+      "additionalProperties": false
+    }
+  },
   "properties": {
     "version": {
       "enum": [
-        "1.1",
         "2.1",
         "2.2"
       ]
+    },
+    "metadata": {
+      "properties": {
+        "rules_version": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "rules_version"
+      ]
+    },
+    "rules": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/rule"
+      }
     }
   },
-  "allOf": [
-    {
-      "if": {
-        "properties": {
-          "version": {
-            "const": "1.1"
-          }
-        }
-      },
-      "then": {
-        "properties": {
-          "events": {
-            "$ref": "v1/arrayOfEvents.json"
-          }
-        },
-        "required": [
-          "events"
-        ]
-      }
-    },
-    {
-      "if": {
-        "properties": {
-          "version": {
-            "const": "2.1"
-          }
-        }
-      },
-      "then": {
-        "properties": {
-          "rules": {
-            "$ref": "v2/arrayOfRules.json"
-          }
-        },
-        "required": [
-          "rules"
-        ]
-      }
-    }
-  ],
   "required": [
-    "version"
-  ]
+    "version",
+    "metadata",
+    "rules"
+  ],
+  "additionalProperties": false
 }
