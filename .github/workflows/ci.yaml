@@ -16,7 +16,7 @@ jobs:
       - run: jsonschema --instance build/recommended.json schemas/schema.json
       - run: jsonschema --instance build/strict.json schemas/schema.json
       - run: jsonschema --instance build/risky.json schemas/schema.json
-      - run: ! jsonschema --instance schemas/invalid.json schemas/schema.json
+      - run: "! jsonschema --instance schemas/invalid.json schemas/schema.json"
 
   Validate-test-vectors:
     runs-on: ubuntu-latest
