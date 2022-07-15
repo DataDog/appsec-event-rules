@@ -35,9 +35,9 @@ jobs:
           - library: java
             weblog-variant: spring-boot
           - library: php
-            weblog-variant: apache-mod
+            weblog-variant: apache-mod-8.0
           - library: php
-            weblog-variant: php-fpm
+            weblog-variant: php-fpm-8.0
           - library: python
             weblog-variant: django-poc
           - library: python
