@@ -148,7 +148,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        weblog-variant: [apache-mod, php-fpm]
+        weblog-variant: [apache-mod-8.0, php-fpm-8.0]
         appsec-version: [0.2.0]
         tracer-version: [0.69.0]
       fail-fast: false
